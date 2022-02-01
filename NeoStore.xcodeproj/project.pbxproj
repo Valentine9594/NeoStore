@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
+		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
+		92131AF827A817AF00E9A993 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF727A817AF00E9A993 /* ViewController.swift */; };
+		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
+		92131B0027A817B100E9A993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92131AFF27A817B100E9A993 /* Assets.xcassets */; };
+		92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92131B0127A817B100E9A993 /* LaunchScreen.storyboard */; };
+		92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1927A90E7800E9A993 /* APIManager.swift */; };
+		92131B1C27A912C600E9A993 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1B27A912C600E9A993 /* APIServices.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		92131AF727A817AF00E9A993 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92131AFD27A817AF00E9A993 /* NeoStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NeoStore.xcdatamodel; sourceTree = "<group>"; };
+		92131AFF27A817B100E9A993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92131B0227A817B100E9A993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92131B0427A817B100E9A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92131B1927A90E7800E9A993 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		92131B1B27A912C600E9A993 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92131AED27A817AF00E9A993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92131AE727A817AF00E9A993 = {
+			isa = PBXGroup;
+			children = (
+				92131AF227A817AF00E9A993 /* NeoStore */,
+				92131AF127A817AF00E9A993 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92131AF127A817AF00E9A993 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92131AF027A817AF00E9A993 /* NeoStore.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92131AF227A817AF00E9A993 /* NeoStore */ = {
+			isa = PBXGroup;
+			children = (
+				92131B0427A817B100E9A993 /* Info.plist */,
+				92131B0F27A81C6500E9A993 /* Constants */,
+				92131B0E27A81C4600E9A993 /* View */,
+				92131B0C27A8186400E9A993 /* ViewModel */,
+				92131B0A27A8181100E9A993 /* Model */,
+				92131B1127A81C9800E9A993 /* Utility */,
+			);
+			path = NeoStore;
+			sourceTree = "<group>";
+		};
+		92131B0A27A8181100E9A993 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92131B1827A8F59200E9A993 /* Entities */,
+				92131B1527A8F55100E9A993 /* Services */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		92131B0C27A8186400E9A993 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		92131B0E27A81C4600E9A993 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				92131B1327A81D1900E9A993 /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		92131B0F27A81C6500E9A993 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		92131B1127A81C9800E9A993 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				92131B1427A81D9500E9A993 /* CoreData */,
+				92131AF327A817AF00E9A993 /* AppDelegate.swift */,
+				92131AF527A817AF00E9A993 /* SceneDelegate.swift */,
+				92131AFF27A817B100E9A993 /* Assets.xcassets */,
+				92131B0127A817B100E9A993 /* LaunchScreen.storyboard */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		92131B1327A81D1900E9A993 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92131AF727A817AF00E9A993 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		92131B1427A81D9500E9A993 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		92131B1527A8F55100E9A993 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				92131B1927A90E7800E9A993 /* APIManager.swift */,
+				92131B1B27A912C600E9A993 /* APIServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		92131B1827A8F59200E9A993 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92131AEF27A817AF00E9A993 /* NeoStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92131B0727A817B100E9A993 /* Build configuration list for PBXNativeTarget "NeoStore" */;
+			buildPhases = (
+				92131AEC27A817AF00E9A993 /* Sources */,
+				92131AED27A817AF00E9A993 /* Frameworks */,
+				92131AEE27A817AF00E9A993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeoStore;
+			productName = NeoStore;
+			productReference = 92131AF027A817AF00E9A993 /* NeoStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92131AE827A817AF00E9A993 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					92131AEF27A817AF00E9A993 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 92131AEB27A817AF00E9A993 /* Build configuration list for PBXProject "NeoStore" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92131AE727A817AF00E9A993;
+			productRefGroup = 92131AF127A817AF00E9A993 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92131AEF27A817AF00E9A993 /* NeoStore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92131AEE27A817AF00E9A993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
+				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92131AEC27A817AF00E9A993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
+				92131AF827A817AF00E9A993 /* ViewController.swift in Sources */,
+				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
+				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
+				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
+				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		92131B0127A817B100E9A993 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92131B0227A817B100E9A993 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92131B0527A817B100E9A993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92131B0627A817B100E9A993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92131B0827A817B100E9A993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeoStore/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NeosoftTechnologies.NeoStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92131B0927A817B100E9A993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeoStore/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NeosoftTechnologies.NeoStore;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92131AEB27A817AF00E9A993 /* Build configuration list for PBXProject "NeoStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92131B0527A817B100E9A993 /* Debug */,
+				92131B0627A817B100E9A993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92131B0727A817B100E9A993 /* Build configuration list for PBXNativeTarget "NeoStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92131B0827A817B100E9A993 /* Debug */,
+				92131B0927A817B100E9A993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92131AFD27A817AF00E9A993 /* NeoStore.xcdatamodel */,
+			);
+			currentVersion = 92131AFD27A817AF00E9A993 /* NeoStore.xcdatamodel */;
+			path = NeoStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 92131AE827A817AF00E9A993 /* Project object */;
+}
