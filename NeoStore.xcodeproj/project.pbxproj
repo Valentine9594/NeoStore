@@ -16,6 +16,8 @@
 		92131B1C27A912C600E9A993 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1B27A912C600E9A993 /* APIServices.swift */; };
 		92DC143427A94D93004C531D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143227A94D93004C531D /* FirstViewController.swift */; };
 		92DC143527A94D93004C531D /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC143327A94D93004C531D /* FirstViewController.xib */; };
+		92DC143727A9713C004C531D /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143627A9713C004C531D /* FirstViewModel.swift */; };
+		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		92131B1B27A912C600E9A993 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		92DC143227A94D93004C531D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		92DC143327A94D93004C531D /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
+		92DC143627A9713C004C531D /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
+		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 		92131B0C27A8186400E9A993 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				92DC143627A9713C004C531D /* FirstViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 		92131B0F27A81C6500E9A993 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				92DC143827A9714C004C531D /* Constants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -222,8 +228,10 @@
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
+				92DC143727A9713C004C531D /* FirstViewModel.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
 				92DC143427A94D93004C531D /* FirstViewController.swift in Sources */,
+				92DC143927A9714C004C531D /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
