@@ -9,25 +9,27 @@
 /* Begin PBXBuildFile section */
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
-		92131AF827A817AF00E9A993 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF727A817AF00E9A993 /* ViewController.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
 		92131B0027A817B100E9A993 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92131AFF27A817B100E9A993 /* Assets.xcassets */; };
 		92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92131B0127A817B100E9A993 /* LaunchScreen.storyboard */; };
 		92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1927A90E7800E9A993 /* APIManager.swift */; };
 		92131B1C27A912C600E9A993 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1B27A912C600E9A993 /* APIServices.swift */; };
+		92DC143427A94D93004C531D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143227A94D93004C531D /* FirstViewController.swift */; };
+		92DC143527A94D93004C531D /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC143327A94D93004C531D /* FirstViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		92131AF727A817AF00E9A993 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92131AFD27A817AF00E9A993 /* NeoStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NeoStore.xcdatamodel; sourceTree = "<group>"; };
 		92131AFF27A817B100E9A993 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92131B0227A817B100E9A993 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92131B0427A817B100E9A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92131B1927A90E7800E9A993 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		92131B1B27A912C600E9A993 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		92DC143227A94D93004C531D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		92DC143327A94D93004C531D /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +118,8 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92131AF727A817AF00E9A993 /* ViewController.swift */,
+				92DC143227A94D93004C531D /* FirstViewController.swift */,
+				92DC143327A94D93004C531D /* FirstViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
+				92DC143527A94D93004C531D /* FirstViewController.xib in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -215,11 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
-				92131AF827A817AF00E9A993 /* ViewController.swift in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
+				92DC143427A94D93004C531D /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
