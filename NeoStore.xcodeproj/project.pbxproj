@@ -14,12 +14,14 @@
 		92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92131B0127A817B100E9A993 /* LaunchScreen.storyboard */; };
 		92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1927A90E7800E9A993 /* APIManager.swift */; };
 		92131B1C27A912C600E9A993 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1B27A912C600E9A993 /* APIServices.swift */; };
-		92DC143427A94D93004C531D /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143227A94D93004C531D /* FirstViewController.swift */; };
-		92DC143527A94D93004C531D /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC143327A94D93004C531D /* FirstViewController.xib */; };
 		92DC143727A9713C004C531D /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143627A9713C004C531D /* FirstViewModel.swift */; };
 		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
 		92DC143F27AA68B5004C531D /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143E27AA68B5004C531D /* ProductList.swift */; };
 		92DC144127AA6C4E004C531D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144027AA6C4E004C531D /* Models.swift */; };
+		92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144227AAAB8C004C531D /* LoginScreenVC.swift */; };
+		92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC144327AAAB8C004C531D /* LoginScreenVC.xib */; };
+		92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */; };
+		92DC144D27AAB3FF004C531D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144C27AAB3FF004C531D /* UIFont+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,12 +34,14 @@
 		92131B0427A817B100E9A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92131B1927A90E7800E9A993 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		92131B1B27A912C600E9A993 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
-		92DC143227A94D93004C531D /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		92DC143327A94D93004C531D /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		92DC143627A9713C004C531D /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
 		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92DC143E27AA68B5004C531D /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		92DC144027AA6C4E004C531D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		92DC144227AAAB8C004C531D /* LoginScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenVC.swift; sourceTree = "<group>"; };
+		92DC144327AAAB8C004C531D /* LoginScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginScreenVC.xib; sourceTree = "<group>"; };
+		92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		92DC144C27AAB3FF004C531D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 		92131B1127A81C9800E9A993 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				92DC144827AAB3C3004C531D /* Extensions */,
 				92131B1427A81D9500E9A993 /* CoreData */,
 				92131AF327A817AF00E9A993 /* AppDelegate.swift */,
 				92131AF527A817AF00E9A993 /* SceneDelegate.swift */,
@@ -128,8 +133,8 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92DC143227A94D93004C531D /* FirstViewController.swift */,
-				92DC143327A94D93004C531D /* FirstViewController.xib */,
+				92DC144227AAAB8C004C531D /* LoginScreenVC.swift */,
+				92DC144327AAAB8C004C531D /* LoginScreenVC.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -166,6 +171,15 @@
 				92DC143E27AA68B5004C531D /* ProductList.swift */,
 			);
 			path = APIs;
+			sourceTree = "<group>";
+		};
+		92DC144827AAB3C3004C531D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */,
+				92DC144C27AAB3FF004C531D /* UIFont+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,8 +239,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */,
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
-				92DC143527A94D93004C531D /* FirstViewController.xib in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,11 +255,13 @@
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
+				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductList.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92DC143727A9713C004C531D /* FirstViewModel.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
-				92DC143427A94D93004C531D /* FirstViewController.swift in Sources */,
+				92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */,
+				92DC144D27AAB3FF004C531D /* UIFont+Extension.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
 				92DC144127AA6C4E004C531D /* Models.swift in Sources */,
 			);

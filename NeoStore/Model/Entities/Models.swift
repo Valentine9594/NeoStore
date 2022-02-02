@@ -11,5 +11,4 @@ struct ProductListModel{
     let productCategoryId: String
     let limit: Int
     let page: Int
-    
 }

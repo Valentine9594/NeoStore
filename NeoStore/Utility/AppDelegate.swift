@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let firstViewController = firstViewController(viewModel: firstViewmodel)
 //        let navigationController = UINavigationController(rootViewController: firstViewController)
         
-//        self.window?.rootViewController =
+//        self.window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 
