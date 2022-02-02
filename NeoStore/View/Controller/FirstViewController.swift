@@ -8,11 +8,13 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+//    var prodList = ProductList()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        ProductList.getProductLists()
     }
 
 

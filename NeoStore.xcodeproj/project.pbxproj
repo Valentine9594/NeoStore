@@ -18,6 +18,8 @@
 		92DC143527A94D93004C531D /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC143327A94D93004C531D /* FirstViewController.xib */; };
 		92DC143727A9713C004C531D /* FirstViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143627A9713C004C531D /* FirstViewModel.swift */; };
 		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
+		92DC143F27AA68B5004C531D /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143E27AA68B5004C531D /* ProductList.swift */; };
+		92DC144127AA6C4E004C531D /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144027AA6C4E004C531D /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		92DC143327A94D93004C531D /* FirstViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 		92DC143627A9713C004C531D /* FirstViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewModel.swift; sourceTree = "<group>"; };
 		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		92DC143E27AA68B5004C531D /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		92DC144027AA6C4E004C531D /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 		92131B1527A8F55100E9A993 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				92DC143A27AA6664004C531D /* APIs */,
 				92131B1927A90E7800E9A993 /* APIManager.swift */,
 				92131B1B27A912C600E9A993 /* APIServices.swift */,
 			);
@@ -150,8 +155,17 @@
 		92131B1827A8F59200E9A993 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				92DC144027AA6C4E004C531D /* Models.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		92DC143A27AA6664004C531D /* APIs */ = {
+			isa = PBXGroup;
+			children = (
+				92DC143E27AA68B5004C531D /* ProductList.swift */,
+			);
+			path = APIs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,11 +241,13 @@
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
+				92DC143F27AA68B5004C531D /* ProductList.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92DC143727A9713C004C531D /* FirstViewModel.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
 				92DC143427A94D93004C531D /* FirstViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
+				92DC144127AA6C4E004C531D /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

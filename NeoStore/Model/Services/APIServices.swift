@@ -7,8 +7,8 @@
 
 import Foundation
 
-typealias AnyDict = [String: Any]
-typealias AnyDictString = [String: String]
+typealias AnyDict = [String:Any]
+typealias AnyDictString = [String:String]
 
 let DEV_ROOT_POINT = "http://staging.php-dev.in:8844/trainingapp"
 let PROD_ROOT_POINT = "https://api.com"
@@ -94,7 +94,7 @@ extension APIServices{
         }
     }
     
-    var headers: AnyDict?{
+    var headers: AnyDict{
         var headerDict = AnyDictString()
         headerDict[contentKey] = contentValue
         return headerDict
