@@ -13,7 +13,7 @@ class APIManager{
     
     private init(){}
     
-    func performRequest(serviceType: APIServices, completion: @escaping(APIResponse<Any>)->Void){
+    public func performRequest(serviceType: APIServices, completionHandler: @escaping (APIResponse<Any>)->Void){
         
 //        Reachability to check network connected or not
         
@@ -42,24 +42,24 @@ class APIManager{
             data, response, error in
             
             guard error == nil else{
-                completion(.failure(error: error!))
+                completionHandler(.failure(error: error!))
                 return
             }
             
             guard let someData = data else{
-                completion(.failure(error: error!))
+                completionHandler(.failure(error: error!))
                 return
             }
             
             do{
                 if (try JSONSerialization.jsonObject(with: someData, options: .mutableContainers) as? AnyDict) != nil{
-                    completion(.success(value: someData))
+                    completionHandler(.success(value: someData))
 //                    print("SUCCESS ON JSON DATA.")
                 }
             }
             catch let error{
                 debugPrint(error.localizedDescription)
-                completion(.failure(error: error))
+                completionHandler(.failure(error: error))
             }
             
         }

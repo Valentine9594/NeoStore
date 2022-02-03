@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProductList{
+class ProductService{
     static func getProductLists(){
         
         APIManager.sharedInstance.performRequest(serviceType: .getProductList){
@@ -32,25 +32,4 @@ class ProductList{
     }
 }
 
-//class UserLogin{
-//    static func logUserIn(){
-//
-//        APIManager.sharedInstance.performRequest(serviceType: .getProductList){
-//            (response) in
-//
-//            switch response{
-//                case .success(let data):
-////                    do {
-////                        let someData = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-////                        print(data)
-////                    } catch let error {
-////                        print("No Data")
-////                    }
-//                print(data)
-//                    print("Successfully recieved JSON data.")
-//                case .failure(let error):
-//                    debugPrint(error.localizedDescription)
-//            }
-//        }
-//    }
-//}
+

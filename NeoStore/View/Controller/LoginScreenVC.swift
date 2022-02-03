@@ -21,15 +21,35 @@ class LoginScreenVC: UIViewController {
 
     }
 
+    @IBAction func loginUser(_ sender: UIButton) {
+        var loginDict = [String:Any]()
+        if let userName = usernameTF.text,let userPassword = passwordTF.text{
+            loginDict["email"] = userName
+            loginDict["password"] = userPassword
+        }
+
+//        let response = UserService.userLogIn(params: loginDict){
+//            let data,error in
+//            print(data)
+//        }
+//        print(response)
+    }
+    
     private func setupUI(){
         self.view.backgroundColor  = UIColor.appRed
         
         self.usernameTF.layer.borderColor = UIColor.white.cgColor
         self.usernameTF.layer.borderWidth = 2
+        if let personImage = UIImage(named: "username_icon"){
+            self.usernameTF.setLeftView(image: personImage)
+        }
         
         self.passwordTF.layer.borderColor = UIColor.white.cgColor
         self.passwordTF.layer.borderWidth = 2
         self.passwordTF.isSecureTextEntry = true
+        if let passwordImage = UIImage(named: "password_icon"){
+            self.passwordTF.setLeftView(image: passwordImage)
+        }
         
         self.loginBtn.layer.cornerRadius = 10
     }
