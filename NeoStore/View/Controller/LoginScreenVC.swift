@@ -12,38 +12,55 @@ class LoginScreenVC: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var forgotPassLbl: UILabel!
+    var viewModel: LoginViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        setupUI()
+        self.setupUI()
+//        self.viewmodel = LoginViewModel()
 
     }
-
+    
+    init(viewModel: LoginViewModelType){
+        self.viewModel = viewModel
+//        super.init(nibName: , bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     @IBAction func loginUser(_ sender: UIButton) {
-        var loginDict = [String:Any]()
-        if let userName = usernameTF.text,let userPassword = passwordTF.text{
-            loginDict["email"] = userName
-            loginDict["password"] = userPassword
+        if let userName = usernameTF.text, let userPassword = passwordTF.text{
+            self.viewModel.userLoggedIn.bindAndFire{
+                [weak self] (value) in
+                guard let `self` = self else{return}
+                if value{
+                    print("VALUE")
+                    
+                }
+            }
+        }
+        else{
+            print("NOT OK")
         }
 
-//        let response = UserService.userLogIn(params: loginDict){
-//            let data,error in
-//            print(data)
-//        }
-//        print(response)
     }
     
     private func setupUI(){
+//        custom background color
         self.view.backgroundColor  = UIColor.appRed
         
+//        setting icon and border in username textfield
         self.usernameTF.layer.borderColor = UIColor.white.cgColor
         self.usernameTF.layer.borderWidth = 2
         if let personImage = UIImage(named: "username_icon"){
             self.usernameTF.setLeftView(image: personImage)
         }
         
+//        setting icon and border in password text field, keeping secure text entry
         self.passwordTF.layer.borderColor = UIColor.white.cgColor
         self.passwordTF.layer.borderWidth = 2
         self.passwordTF.isSecureTextEntry = true
@@ -51,17 +68,7 @@ class LoginScreenVC: UIViewController {
             self.passwordTF.setLeftView(image: passwordImage)
         }
         
+//        login button radius
         self.loginBtn.layer.cornerRadius = 10
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

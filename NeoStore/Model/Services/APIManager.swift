@@ -13,7 +13,7 @@ class APIManager{
     
     private init(){}
     
-    public func performRequest(serviceType: APIServices, completionHandler: @escaping (APIResponse<Any>)->Void){
+    public func performRequest(serviceType: APIServices, completionHandler: @escaping(APIResponse<Any>) -> Void){
         
 //        Reachability to check network connected or not
         

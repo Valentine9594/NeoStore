@@ -9,22 +9,28 @@ import Foundation
 
 class UserService{
     
-    static func userLogIn(params: AnyDict){
+    static func userLogIn(username: String, password: String, completion: @escaping(APIResponse<Any>)->Void){
         
-        APIManager.sharedInstance.performRequest(serviceType: .userLogin(parameters: params), completion: (APIResponse<String>)->Void){
+        let params = ["email": username, "password": password]
+        
+        APIManager.sharedInstance.performRequest(serviceType: .userLogin(parameters: params)){
             (response) in
             switch response{
                 case .success(let data):
-//                    print(data)
-                    do {
-                        var json = try? JSONSerialization.jsonObject(with: data, options: [])
-                        completion(.success(value: json))
-                    } catch let error {
-                        debugPrint(error.localizedDescription)
-                        completion(.failure(error: error))
+                    if let content = data as? Data{
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: content, options: .mutableContainers)
+                            print(json)
+                            completion(.success(value: json))
+                        } catch let error {
+                            debugPrint(error.localizedDescription)
+                            completion(.failure(error: error))
+                        }
+                    }
+                    else{
+                        print("Error!!")
                     }
 
-                    print("Success on Login!")
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
                     completion(.failure(error: error))

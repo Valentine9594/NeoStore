@@ -24,6 +24,8 @@
 		92DC145627ABF32E004C531D /* GothamBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92DC145527ABF32E004C531D /* GothamBold.otf */; };
 		92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92DC145727ABF32E004C531D /* GothamMedium.ttf */; };
 		92DC145A27ABF32E004C531D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC145927ABF32E004C531D /* UserService.swift */; };
+		92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC145B27AC159A004C531D /* LoginViewModel.swift */; };
+		92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC145D27AC1A33004C531D /* ReactiveListener.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		92DC145527ABF32E004C531D /* GothamBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.otf; sourceTree = "<group>"; };
 		92DC145727ABF32E004C531D /* GothamMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium.ttf; sourceTree = "<group>"; };
 		92DC145927ABF32E004C531D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		92DC145B27AC159A004C531D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		92DC145D27AC1A33004C531D /* ReactiveListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListener.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,7 @@
 		92131B0C27A8186400E9A993 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				92DC145B27AC159A004C531D /* LoginViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				92DC144E27ABF24B004C531D /* Fonts */,
 				92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */,
 				92DC144C27AAB3FF004C531D /* UIFont+Extension.swift */,
+				92DC145D27AC1A33004C531D /* ReactiveListener.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -276,9 +282,11 @@
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
 				92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */,
+				92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */,
 				92DC145A27ABF32E004C531D /* UserService.swift in Sources */,
 				92DC144D27AAB3FF004C531D /* UIFont+Extension.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
+				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,
 				92DC144127AA6C4E004C531D /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
