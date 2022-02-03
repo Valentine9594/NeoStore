@@ -22,6 +22,8 @@
 		92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC144327AAAB8C004C531D /* LoginScreenVC.xib */; };
 		92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */; };
 		92DC144D27AAB3FF004C531D /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144C27AAB3FF004C531D /* UIFont+Extension.swift */; };
+		92DC145627ABF32E004C531D /* GothamBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 92DC145527ABF32E004C531D /* GothamBold.otf */; };
+		92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92DC145727ABF32E004C531D /* GothamMedium.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		92DC144327AAAB8C004C531D /* LoginScreenVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginScreenVC.xib; sourceTree = "<group>"; };
 		92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		92DC144C27AAB3FF004C531D /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		92DC145527ABF32E004C531D /* GothamBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBold.otf; sourceTree = "<group>"; };
+		92DC145727ABF32E004C531D /* GothamMedium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamMedium.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,10 +180,20 @@
 		92DC144827AAB3C3004C531D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				92DC144E27ABF24B004C531D /* Fonts */,
 				92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */,
 				92DC144C27AAB3FF004C531D /* UIFont+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		92DC144E27ABF24B004C531D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				92DC145727ABF32E004C531D /* GothamMedium.ttf */,
+				92DC145527ABF32E004C531D /* GothamBold.otf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +254,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */,
+				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
+				92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */,
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
 			);

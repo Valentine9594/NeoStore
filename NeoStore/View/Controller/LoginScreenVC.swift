@@ -8,14 +8,31 @@
 import UIKit
 
 class LoginScreenVC: UIViewController {
-
+    @IBOutlet weak var usernameTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var forgotPassLbl: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.view.backgroundColor  = UIColor.appRed
+        setupUI()
+
     }
 
+    private func setupUI(){
+        self.view.backgroundColor  = UIColor.appRed
+        
+        self.usernameTF.layer.borderColor = UIColor.white.cgColor
+        self.usernameTF.layer.borderWidth = 2
+        
+        self.passwordTF.layer.borderColor = UIColor.white.cgColor
+        self.passwordTF.layer.borderWidth = 2
+        self.passwordTF.isSecureTextEntry = true
+        
+        self.loginBtn.layer.cornerRadius = 10
+    }
 
     /*
     // MARK: - Navigation
