@@ -19,13 +19,13 @@ class LoginScreenVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.setNavigationBarHidden(true, animated: appAnimation)
         self.setupUI()
     }
     
     init(viewModel: LoginViewModelType){
         self.viewModel = viewModel
-        super.init(nibName: "LoginScreenVC", bundle: nil)
+        super.init(nibName: TotalViewControllers.LoginScreenVC.rawValue, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -52,35 +52,28 @@ class LoginScreenVC: UIViewController {
         print("Clicked Forgot Password!")
     }
     
-    @objc func clickedPlusIcon(_ sender: UITapGestureRecognizer){
-        print("Clicked Forgot Plus Icon!")
+    @objc func clickedPlusIcon(_ sender: UITapGestureRecognizer){        
+        let registerViewController = RegisterViewController(nibName: TotalViewControllers.RegisterScreenVC.rawValue, bundle: nil)
+        navigationController?.pushViewController(registerViewController, animated: appAnimation)
     }
     
     private func setupUI(){
 //        custom background color
         self.view.backgroundColor  = UIColor.appRed
         
-//        setting icon and border in username textfield
-        self.usernameTF.layer.borderColor = UIColor.white.cgColor
-        self.usernameTF.layer.borderWidth = 2
-        if let personImage = UIImage(named: "username_icon"){
-            self.usernameTF.setLeftView(image: personImage)
-        }
+//        setting icon and border in all textfields
+        setTextField(textfield: self.usernameTF, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
+        setTextField(textfield: self.passwordTF, image: UIImage(named: textFieldIcons.passwordIcon.rawValue))
         
-//        setting icon and border in password text field, keeping secure text entry
-        self.passwordTF.layer.borderColor = UIColor.white.cgColor
-        self.passwordTF.layer.borderWidth = 2
+//        keeping password field as secure text entry
         self.passwordTF.isSecureTextEntry = true
-        if let passwordImage = UIImage(named: "password_icon"){
-            self.passwordTF.setLeftView(image: passwordImage)
-        }
         
 //        login button radius
         self.loginBtn.layer.cornerRadius = 10
         
 //        gesture to close keyboard on cliking anywhere
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-        self.view.addGestureRecognizer(tap1)
+        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(dismissInputTap)
         
         let tap2 = UITapGestureRecognizer(target: self, action: #selector(clickedForgotPassword))
         self.forgotPassLbl.addGestureRecognizer(tap2)

@@ -26,6 +26,8 @@
 		92DC145A27ABF32E004C531D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC145927ABF32E004C531D /* UserService.swift */; };
 		92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC145B27AC159A004C531D /* LoginViewModel.swift */; };
 		92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC145D27AC1A33004C531D /* ReactiveListener.swift */; };
+		92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC146527AD028C004C531D /* RegisterViewController.swift */; };
+		92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC146627AD028C004C531D /* RegisterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		92DC145927ABF32E004C531D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		92DC145B27AC159A004C531D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		92DC145D27AC1A33004C531D /* ReactiveListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListener.swift; sourceTree = "<group>"; };
+		92DC146527AD028C004C531D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		92DC146627AD028C004C531D /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				92DC146027AD020C004C531D /* RegisterViewController */,
 				92DC145F27ACE75D004C531D /* LoginViewController */,
 			);
 			path = Controller;
@@ -210,6 +215,15 @@
 			path = LoginViewController;
 			sourceTree = "<group>";
 		};
+		92DC146027AD020C004C531D /* RegisterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				92DC146527AD028C004C531D /* RegisterViewController.swift */,
+				92DC146627AD028C004C531D /* RegisterViewController.xib */,
+			);
+			path = RegisterViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -272,6 +286,7 @@
 				92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */,
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
+				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +303,7 @@
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
+				92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
 				92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */,
 				92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */,

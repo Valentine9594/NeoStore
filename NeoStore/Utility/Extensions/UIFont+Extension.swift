@@ -8,6 +8,14 @@
 import Foundation
 import  UIKit
 
+func setTextField(textfield: UITextField ,image: UIImage?){
+//        function to set border width, color and left image in a textfield
+    textfield.setCustomTextField()
+    if let img = image{
+        textfield.setLeftView(image: img)
+    }
+}
+
 extension UITextField{
     
 //    function to set image to the left of textfields
@@ -20,5 +28,10 @@ extension UITextField{
         
         leftView = containerView
         leftViewMode = .always
+    }
+    
+    func setCustomTextField(){
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.white.cgColor
     }
 }
