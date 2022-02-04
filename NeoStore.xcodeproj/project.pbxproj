@@ -141,8 +141,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				92DC144227AAAB8C004C531D /* LoginScreenVC.swift */,
-				92DC144327AAAB8C004C531D /* LoginScreenVC.xib */,
+				92DC145F27ACE75D004C531D /* LoginViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -200,6 +199,15 @@
 				92DC145527ABF32E004C531D /* GothamBold.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		92DC145F27ACE75D004C531D /* LoginViewController */ = {
+			isa = PBXGroup;
+			children = (
+				92DC144227AAAB8C004C531D /* LoginScreenVC.swift */,
+				92DC144327AAAB8C004C531D /* LoginScreenVC.xib */,
+			);
+			path = LoginViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

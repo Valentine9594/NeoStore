@@ -12,20 +12,20 @@ class LoginScreenVC: UIViewController {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var forgotPassLbl: UILabel!
+    @IBOutlet weak var plusIcon: UIImageView!
     var viewModel: LoginViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        navigationController?.setNavigationBarHidden(true, animated: false)
         self.setupUI()
-//        self.viewmodel = LoginViewModel()
-
     }
     
     init(viewModel: LoginViewModelType){
         self.viewModel = viewModel
-//        super.init(nibName: , bundle: nil)
+        super.init(nibName: "LoginScreenVC", bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -34,19 +34,26 @@ class LoginScreenVC: UIViewController {
     
     @IBAction func loginUser(_ sender: UIButton) {
         if let userName = usernameTF.text, let userPassword = passwordTF.text{
-            self.viewModel.userLoggedIn.bindAndFire{
-                [weak self] (value) in
-                guard let `self` = self else{return}
-                if value{
-                    print("VALUE")
-                    
-                }
-            }
+            self.viewModel.getUserLogInDetail(userName: userName, userPassword: userPassword)
         }
         else{
             print("NOT OK")
         }
 
+    }
+    
+    @objc func dismissKeyboard(){
+//        function to close keyboard if clicked anywhere
+        self.view.endEditing(true)
+        self.view.resignFirstResponder()
+    }
+    
+    @objc func clickedForgotPassword(_ sender: UITapGestureRecognizer){
+        print("Clicked Forgot Password!")
+    }
+    
+    @objc func clickedPlusIcon(_ sender: UITapGestureRecognizer){
+        print("Clicked Forgot Plus Icon!")
     }
     
     private func setupUI(){
@@ -70,5 +77,15 @@ class LoginScreenVC: UIViewController {
         
 //        login button radius
         self.loginBtn.layer.cornerRadius = 10
+        
+//        gesture to close keyboard on cliking anywhere
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        self.view.addGestureRecognizer(tap1)
+        
+        let tap2 = UITapGestureRecognizer(target: self, action: #selector(clickedForgotPassword))
+        self.forgotPassLbl.addGestureRecognizer(tap2)
+        
+        let tap3 = UITapGestureRecognizer(target: self, action: #selector(clickedPlusIcon))
+        self.plusIcon.addGestureRecognizer(tap3)
     }
 }

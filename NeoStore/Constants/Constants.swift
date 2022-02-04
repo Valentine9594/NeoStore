@@ -12,4 +12,6 @@ enum APIResponse<T>{
     case failure(error: Error)
 }
 
-
+enum TotalViewControllers: String{
+    case LoginScreenVC = "LoginScreenVC"
+}

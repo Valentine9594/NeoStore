@@ -15,17 +15,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupInitialLaunch()
         return true
     }
 
     func setupInitialLaunch(){
         window = UIWindow(frame: UIScreen.main.bounds)
         
-//        let firstViewmodel = firstviewmodel()
-//        let firstViewController = firstViewController(viewModel: firstViewmodel)
-//        let navigationController = UINavigationController(rootViewController: firstViewController)
+        let loginViewModel = LoginViewModel()
+        let loginViewController = LoginScreenVC(viewModel: loginViewModel)
+        let navigationController = UINavigationController(rootViewController: loginViewController)
         
-//        self.window?.rootViewController = navigationController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
 
