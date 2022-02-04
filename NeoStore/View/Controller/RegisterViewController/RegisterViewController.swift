@@ -45,6 +45,8 @@ class RegisterViewController: UIViewController {
         self.view.addGestureRecognizer(dismissInputTap)
         
         self.registerButton.layer.cornerRadius = 10
+        
+    
     }
 
 }
