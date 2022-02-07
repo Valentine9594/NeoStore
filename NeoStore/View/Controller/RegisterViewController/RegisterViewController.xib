@@ -275,13 +275,16 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="wbQ-Ra-nSf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="6C3-IJ-nae"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="C6x-rL-rWk"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CZy-Kp-aTv"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="NRM-31-toJ"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lee-g5-HtH"/>
+                <constraint firstItem="wbQ-Ra-nSf" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.913333" priority="250" id="osG-rW-Zp4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wbQ-Ra-nSf" secondAttribute="trailing" id="q7s-g2-yyD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wbQ-Ra-nSf" secondAttribute="bottom" id="vzc-1O-tiJ"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wuB-Kz-euP"/>
+                <constraint firstItem="wbQ-Ra-nSf" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="zSc-F0-4FK"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="zru-GW-64e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
