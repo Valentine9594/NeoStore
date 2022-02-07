@@ -25,6 +25,7 @@
                 <outlet property="passwordTextField" destination="M23-AO-f1J" id="ve9-6J-mpk"/>
                 <outlet property="phoneNumberTextField" destination="dJL-4G-LRC" id="Jig-aJ-Q86"/>
                 <outlet property="registerButton" destination="iCC-4O-4Xq" id="rSC-e0-XQX"/>
+                <outlet property="scrollView" destination="wbQ-Ra-nSf" id="Hrw-Jd-Hnn"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -233,7 +234,7 @@
                                 <constraint firstItem="dJL-4G-LRC" firstAttribute="leading" secondItem="WZ2-um-F0y" secondAttribute="leading" constant="33" id="o3a-qd-xon"/>
                                 <constraint firstAttribute="trailing" secondItem="dJL-4G-LRC" secondAttribute="trailing" constant="33" id="pQa-LS-c0i"/>
                                 <constraint firstItem="3o0-In-dSt" firstAttribute="centerX" secondItem="WZ2-um-F0y" secondAttribute="centerX" id="tdH-sf-r89"/>
-                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iCC-4O-4Xq" secondAttribute="bottom" constant="16" id="tiD-aL-4l6"/>
+                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iCC-4O-4Xq" secondAttribute="bottom" constant="23" id="tiD-aL-4l6"/>
                                 <constraint firstItem="dmK-Yn-tNL" firstAttribute="leading" secondItem="WZ2-um-F0y" secondAttribute="leading" constant="33" id="vWv-ej-Ru1"/>
                                 <constraint firstItem="dJL-4G-LRC" firstAttribute="centerX" secondItem="WZ2-um-F0y" secondAttribute="centerX" id="wco-P1-3ik"/>
                                 <constraint firstItem="AbB-Of-2XJ" firstAttribute="top" secondItem="M23-AO-f1J" secondAttribute="bottom" constant="13" id="xRb-vE-FYI"/>

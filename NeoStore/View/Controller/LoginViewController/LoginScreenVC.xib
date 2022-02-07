@@ -22,6 +22,7 @@
                 <outlet property="loginBtn" destination="b3v-hh-ecv" id="lyH-sq-VVv"/>
                 <outlet property="passwordTF" destination="Jbb-wS-1D5" id="rxW-k0-2wc"/>
                 <outlet property="plusIcon" destination="zfz-s1-s9i" id="JmN-W2-6CA"/>
+                <outlet property="scrollView" destination="kXU-u3-276" id="AUa-qu-zkM"/>
                 <outlet property="usernameTF" destination="LbM-lB-0jK" id="avW-aA-Ga9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

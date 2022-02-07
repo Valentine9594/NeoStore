@@ -13,14 +13,20 @@ class LoginScreenVC: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var forgotPassLbl: UILabel!
     @IBOutlet weak var plusIcon: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     var viewModel: LoginViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        navigationController?.setNavigationBarHidden(true, animated: appAnimation)
-        self.setupUI()
+        
+        DispatchQueue.main.async {
+            self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
+            self.setupUI()
+            self.setupNotificationsAndGestures()
+        }
+
     }
     
     init(viewModel: LoginViewModelType){
@@ -52,7 +58,7 @@ class LoginScreenVC: UIViewController {
         print("Clicked Forgot Password!")
     }
     
-    @objc func clickedPlusIcon(_ sender: UITapGestureRecognizer){        
+    @objc func clickedPlusIcon(_ sender: UITapGestureRecognizer){
         let registerViewController = RegisterViewController(nibName: TotalViewControllers.RegisterScreenVC.rawValue, bundle: nil)
         navigationController?.pushViewController(registerViewController, animated: appAnimation)
     }
@@ -71,14 +77,39 @@ class LoginScreenVC: UIViewController {
 //        login button radius
         self.loginBtn.layer.cornerRadius = 10
         
-//        gesture to close keyboard on cliking anywhere
+    }
+    
+    private func setupNotificationsAndGestures(){
+//        setting up notification for keyboard pop up
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+//        setting up notification for keyboard hiding
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        //        gesture to close keyboard on cliking anywhere
         let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
         
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(clickedForgotPassword))
-        self.forgotPassLbl.addGestureRecognizer(tap2)
+//        gesture on clicking forgot label
+        let forgotPasswordTap = UITapGestureRecognizer(target: self, action: #selector(clickedForgotPassword))
+        self.forgotPassLbl.addGestureRecognizer(forgotPasswordTap)
         
-        let tap3 = UITapGestureRecognizer(target: self, action: #selector(clickedPlusIcon))
-        self.plusIcon.addGestureRecognizer(tap3)
+//        gesture on clicking plus icon for registering
+        let plusIconTap = UITapGestureRecognizer(target: self, action: #selector(clickedPlusIcon))
+        self.plusIcon.addGestureRecognizer(plusIconTap)
+    }
+    
+    @objc func keyboardShow(notification: Notification){
+//        code to attach keyboard size when keyboard pops up in scrollview
+        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else{return}
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        self.scrollView.contentInset.bottom = keyboardHeight
+        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
+    }
+    
+    @objc func keyboardHide(){
+//        code to adjust scrollview to zero after keyboard closing
+        self.scrollView.contentInset.bottom = .zero
+        self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
     }
 }
