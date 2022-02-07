@@ -100,7 +100,7 @@ class RegisterViewController: UIViewController {
         phoneNumberTextField.keyboardType = .phonePad
         emailTextField.keyboardType = .emailAddress
         
-        registerButton.layer.cornerRadius = 10
+        registerButton.layer.cornerRadius = 20
         
     }
 
