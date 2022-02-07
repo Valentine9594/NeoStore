@@ -31,7 +31,14 @@ extension UITextField{
     }
     
     func setCustomTextField(){
+//        function to set width, color and placeholder of color
         layer.borderWidth = 2
         layer.borderColor = UIColor.white.cgColor
+        
+//        get placeholde string and change the color of the placeholder text to white
+        if let placeHolder = placeholder{
+            attributedPlaceholder = NSAttributedString(string: placeHolder, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        }
+
     }
 }

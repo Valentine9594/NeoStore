@@ -28,6 +28,7 @@
 		92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC145D27AC1A33004C531D /* ReactiveListener.swift */; };
 		92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC146527AD028C004C531D /* RegisterViewController.swift */; };
 		92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC146627AD028C004C531D /* RegisterViewController.xib */; };
+		92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC146927B138BA004C531D /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		92DC145D27AC1A33004C531D /* ReactiveListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveListener.swift; sourceTree = "<group>"; };
 		92DC146527AD028C004C531D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		92DC146627AD028C004C531D /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		92DC146927B138BA004C531D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				92DC145B27AC159A004C531D /* LoginViewModel.swift */,
+				92DC146927B138BA004C531D /* RegisterViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -300,6 +303,7 @@
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
+				92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */,
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,

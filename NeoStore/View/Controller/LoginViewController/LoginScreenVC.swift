@@ -22,16 +22,19 @@ class LoginScreenVC: UIViewController {
         // Do any additional setup after loading the view.
         
         DispatchQueue.main.async {
-            self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
             self.setupUI()
             self.setupNotificationsAndGestures()
         }
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
+    }
+    
     init(viewModel: LoginViewModelType){
         self.viewModel = viewModel
-        super.init(nibName: TotalViewControllers.LoginScreenVC.rawValue, bundle: nil)
+        super.init(nibName: TotalViewControllers.LoginViewController.rawValue, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +62,8 @@ class LoginScreenVC: UIViewController {
     }
     
     @objc func clickedPlusIcon(_ sender: UITapGestureRecognizer){
-        let registerViewController = RegisterViewController(nibName: TotalViewControllers.RegisterScreenVC.rawValue, bundle: nil)
+        let registerViewModel = RegisterViewModel()
+        let registerViewController = RegisterViewController(viewModel: registerViewModel)
         navigationController?.pushViewController(registerViewController, animated: appAnimation)
     }
     
@@ -75,7 +79,7 @@ class LoginScreenVC: UIViewController {
         passwordTF.isSecureTextEntry = true
         
 //        login button radius
-        loginBtn.layer.cornerRadius = 20
+        loginBtn.layer.cornerRadius = 7
         
     }
     

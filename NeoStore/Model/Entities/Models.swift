@@ -20,17 +20,13 @@ struct jsonDataAny{
     let userMessage: String
 }
 
-struct UserLoginDetails{
-    let id: Int
-    let roleId: Int
-    let firstName: String
-    let lastName: String
+struct userDetails{
+    let firstname: String
+    let lastname: String
     let email: String
-    let username: String
+    let password: String
+    let confirmPassword: String
     let gender: String
-    let phoneNo: String
-    let isActive: Bool
-    let created: Date
-    let modified: Date
-    let accessToken: String
+    let phoneNumber: Int
 }
+

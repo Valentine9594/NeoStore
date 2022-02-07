@@ -1,19 +1,19 @@
 //
-//  LoginViewModel.swift
+//  RegisterViewModel.swift
 //  NeoStore
 //
-//  Created by neosoft on 03/02/22.
+//  Created by neosoft on 07/02/22.
 //
 
 import Foundation
 
-protocol LoginViewModelType {
-    func getUserLogInDetail(userName: String, userPassword: String)
+protocol RegisterViewModelType {
+    func getUserRegisterDetails(userRegisterDetails: userDetails)
 }
 
-class LoginViewModel: LoginViewModelType{
-    func getUserLogInDetail(userName: String, userPassword: String) {
-        UserService.userLogIn(username: userName, password: userPassword) { response in
+class RegisterViewModel: RegisterViewModelType{
+    func getUserRegisterDetails(userRegisterDetails: userDetails){
+        UserService.userRegistration(userDetails: userRegisterDetails){ response in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
@@ -27,16 +27,11 @@ class LoginViewModel: LoginViewModelType{
                     else{
                         print(CustomErrors.ResponseDataNil.localizedDescription)
                     }
-                print(data)
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
             }
-            
         }
     }
     
-
     
 }
-
-

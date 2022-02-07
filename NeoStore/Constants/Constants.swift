@@ -15,10 +15,11 @@ enum APIResponse<T>{
 
 //all view controller prsent in app
 enum TotalViewControllers: String{
-    case LoginScreenVC = "LoginScreenVC"
-    case RegisterScreenVC = "RegisterViewController"
+    case LoginViewController = "LoginScreenVC"
+    case RegisterViewController = "RegisterViewController"
 }
 
+//all icons name from assets
 enum textFieldIcons: String{
     case usernameIcon = "username_icon"
     case emailIcon = "email_icon"
@@ -27,8 +28,18 @@ enum textFieldIcons: String{
     case phoneIcon = "cellphone_icon"
 }
 
+//custom errors in app
+enum CustomErrors: Error{
+    case EmptyString
+    case NoTextFieldValue
+    case CannotConvertPhoneNumberFromStringToNumber
+    case CannotConvertJSONObject
+    case ResponseDataNil
+    case PasswordsDoNotMatch
+}
+
 // all app animations and switching animations true or false
-var appAnimation = false
+var appAnimation = true
 //enum AppAnimations{
 //    case animated = true
 //

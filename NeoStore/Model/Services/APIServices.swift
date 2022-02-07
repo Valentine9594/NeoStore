@@ -13,7 +13,8 @@ typealias AnyDictString = [String:String]
 let DEV_ROOT_POINT = "http://staging.php-dev.in:8844/trainingapp"
 let PROD_ROOT_POINT = "https://api.com"
 
-let contentValue = "application/json"
+//let contentValue = "application/json"
+let contentValue = "application/x-www-form-urlencoded"
 let contentKey = "Content-Type"
 
 enum NetworkEnvironment: String{
