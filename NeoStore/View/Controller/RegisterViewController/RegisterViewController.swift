@@ -15,8 +15,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var scrollView: UIScrollView!
-    
+    @IBOutlet weak var maleRadioButton: UIButton!
+    @IBOutlet weak var femaleRadioButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var agreeTermsAndConditions: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,6 +40,26 @@ class RegisterViewController: UIViewController {
         let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
     }
+    
+    @IBAction func maleRadioButtonSelected(_ sender: UIButton) {
+        maleRadioButton.isSelected = true
+        femaleRadioButton.isSelected = false
+    }
+    
+    @IBAction func femaleRadioButtonSelected(_ sender: UIButton) {
+        femaleRadioButton.isSelected = true
+        maleRadioButton.isSelected = false
+    }
+    
+    @IBAction func checkAgreeTermsAndConditions(_ sender: UIButton) {
+        if !agreeTermsAndConditions.isSelected{
+            agreeTermsAndConditions.isSelected = true
+        }
+        else{
+            agreeTermsAndConditions.isSelected = false
+        }
+    }
+    
     
     @objc func keyboardShow(notification: Notification){
 //        code to attach keyboard size when keyboard pops up in scrollview
@@ -62,18 +85,22 @@ class RegisterViewController: UIViewController {
         self.view.backgroundColor  = UIColor.appRed
         
 //        setting up border color, width and left image in all text fields
-        setTextField(textfield: self.firstNameTextField, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
-        setTextField(textfield: self.lastNameTextField, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
-        setTextField(textfield: self.emailTextField, image: UIImage(named: textFieldIcons.emailIcon.rawValue))
-        setTextField(textfield: self.passwordTextField, image: UIImage(named: textFieldIcons.openPasswordIcon.rawValue))
-        setTextField(textfield: self.confirmPasswordTextField, image: UIImage(named: textFieldIcons.passwordIcon.rawValue))
-        setTextField(textfield: self.phoneNumberTextField, image: UIImage(named: textFieldIcons.phoneIcon.rawValue))
+        setTextField(textfield: firstNameTextField, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
+        setTextField(textfield: lastNameTextField, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
+        setTextField(textfield: emailTextField, image: UIImage(named: textFieldIcons.emailIcon.rawValue))
+        setTextField(textfield: passwordTextField, image: UIImage(named: textFieldIcons.openPasswordIcon.rawValue))
+        setTextField(textfield: confirmPasswordTextField, image: UIImage(named: textFieldIcons.passwordIcon.rawValue))
+        setTextField(textfield: phoneNumberTextField, image: UIImage(named: textFieldIcons.phoneIcon.rawValue))
         
 //        setting password and confirm password textfields to secure entry
-        self.passwordTextField.isSecureTextEntry = true
-        self.confirmPasswordTextField.isSecureTextEntry = true
+        passwordTextField.isSecureTextEntry = true
+        confirmPasswordTextField.isSecureTextEntry = true
         
-        self.registerButton.layer.cornerRadius = 10
+//        setting phone number and email address keyboard type to respective types
+        phoneNumberTextField.keyboardType = .phonePad
+        emailTextField.keyboardType = .emailAddress
+        
+        registerButton.layer.cornerRadius = 10
         
     }
 

@@ -18,10 +18,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="NeoStore" customModuleProvider="target">
             <connections>
+                <outlet property="agreeTermsAndConditions" destination="3o0-In-dSt" id="hTO-Jc-kfc"/>
                 <outlet property="confirmPasswordTextField" destination="AbB-Of-2XJ" id="4Qy-TF-eR9"/>
                 <outlet property="emailTextField" destination="jfM-e4-kfo" id="3m5-aX-DGz"/>
+                <outlet property="femaleRadioButton" destination="H4j-zI-iIP" id="0zv-qR-s5F"/>
                 <outlet property="firstNameTextField" destination="iuG-ez-Os4" id="Lj8-GR-9qg"/>
                 <outlet property="lastNameTextField" destination="iYJ-Cr-SKm" id="3bB-Il-uvi"/>
+                <outlet property="maleRadioButton" destination="NCa-vw-a0i" id="nfK-VQ-RFZ"/>
                 <outlet property="passwordTextField" destination="M23-AO-f1J" id="ve9-6J-mpk"/>
                 <outlet property="phoneNumberTextField" destination="dJL-4G-LRC" id="Jig-aJ-Q86"/>
                 <outlet property="registerButton" destination="iCC-4O-4Xq" id="rSC-e0-XQX"/>
@@ -77,7 +80,7 @@
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="M23-AO-f1J">
                                     <rect key="frame" x="33" y="369" width="348" height="53"/>
@@ -87,7 +90,7 @@
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="password"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Phone Number" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-4G-LRC">
                                     <rect key="frame" x="33" y="563" width="348" height="53"/>
@@ -97,7 +100,7 @@
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Confirm Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="AbB-Of-2XJ">
                                     <rect key="frame" x="33" y="435" width="348" height="53"/>
@@ -107,7 +110,7 @@
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="password"/>
                                 </textField>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="13" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uW-U1-zYh">
                                     <rect key="frame" x="33" y="511" width="348" height="29"/>
@@ -125,6 +128,9 @@
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16"/>
                                             </state>
                                             <state key="selected" title="Male" image="chky"/>
+                                            <connections>
+                                                <action selector="maleRadioButtonSelected:" destination="-1" eventType="touchUpInside" id="BkK-Ns-u1c"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-zI-iIP">
                                             <rect key="frame" x="226.5" y="0.0" width="121.5" height="29"/>
@@ -133,6 +139,9 @@
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16"/>
                                             </state>
                                             <state key="selected" title="Female" image="chky"/>
+                                            <connections>
+                                                <action selector="femaleRadioButtonSelected:" destination="-1" eventType="touchUpInside" id="ypX-hQ-Xe0"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -146,9 +155,11 @@
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3o0-In-dSt">
                                     <rect key="frame" x="33" y="639" width="348" height="25"/>
+                                    <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="dFv-Wb-OyO"/>
                                     </constraints>
+                                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" image="uncheck_icon">
                                         <attributedString key="attributedTitle">
                                             <fragment content=" I agree the ">
@@ -157,7 +168,7 @@
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
                                                 </attributes>
                                             </fragment>
-                                            <fragment content="terms &amp; conditions">
+                                            <fragment content="Terms &amp; Conditions">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
@@ -175,7 +186,7 @@
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
-                                            <fragment content="terms &amp; conditions">
+                                            <fragment content="Terms &amp; Conditions">
                                                 <attributes>
                                                     <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
@@ -185,6 +196,9 @@
                                             </fragment>
                                         </attributedString>
                                     </state>
+                                    <connections>
+                                        <action selector="checkAgreeTermsAndConditions:" destination="-1" eventType="touchUpInside" id="fT0-B8-0KN"/>
+                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCC-4O-4Xq">
                                     <rect key="frame" x="33" y="677" width="348" height="61"/>

@@ -68,14 +68,14 @@ class LoginScreenVC: UIViewController {
         self.view.backgroundColor  = UIColor.appRed
         
 //        setting icon and border in all textfields
-        setTextField(textfield: self.usernameTF, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
-        setTextField(textfield: self.passwordTF, image: UIImage(named: textFieldIcons.passwordIcon.rawValue))
+        setTextField(textfield: usernameTF, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
+        setTextField(textfield: passwordTF, image: UIImage(named: textFieldIcons.passwordIcon.rawValue))
         
 //        keeping password field as secure text entry
-        self.passwordTF.isSecureTextEntry = true
+        passwordTF.isSecureTextEntry = true
         
 //        login button radius
-        self.loginBtn.layer.cornerRadius = 10
+        loginBtn.layer.cornerRadius = 10
         
     }
     
@@ -91,11 +91,11 @@ class LoginScreenVC: UIViewController {
         
 //        gesture on clicking forgot label
         let forgotPasswordTap = UITapGestureRecognizer(target: self, action: #selector(clickedForgotPassword))
-        self.forgotPassLbl.addGestureRecognizer(forgotPasswordTap)
+        forgotPassLbl.addGestureRecognizer(forgotPasswordTap)
         
 //        gesture on clicking plus icon for registering
         let plusIconTap = UITapGestureRecognizer(target: self, action: #selector(clickedPlusIcon))
-        self.plusIcon.addGestureRecognizer(plusIconTap)
+        plusIcon.addGestureRecognizer(plusIconTap)
     }
     
     @objc func keyboardShow(notification: Notification){
