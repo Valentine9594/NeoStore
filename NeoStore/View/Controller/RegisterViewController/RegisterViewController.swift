@@ -82,14 +82,14 @@ class RegisterViewController: UIViewController {
     @IBAction func registerButtonClicked(_ sender: UIButton) {
 //        function that validates all textfields and radio buttons on register button click and sends data to  viewmodel
         guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text, let phoneNoString = phoneNumberTextField.text else{
-            print("Error 1: \(CustomErrors.NoTextFieldValue.localizedDescription)")
+            print("Error 1: \(CustomErrors.NoTextFieldValue.description)")
             return}
         guard firstName != "", lastName != "", email != "", password.count >= 8, confirmPassword == password, phoneNoString != "" else{
-            print("Error 2: \(CustomErrors.EmptyString.localizedDescription)")
+            print("Error 2: \(CustomErrors.EmptyString.description)")
             return}
         guard let gender = maleRadioButton.isSelected ? "M" : "F" else{return}
         guard let phoneNo = Int(phoneNoString) else{
-            print("Error 3: \(CustomErrors.CannotConvertPhoneNumberFromStringToNumber.localizedDescription)")
+            print("Error 3: \(CustomErrors.CannotConvertPhoneNumberFromStringToNumber.description)")
             return}
 
         let userRegistrationDetails = userDetails(firstname: firstName, lastname: lastName, email: email, password: password, confirmPassword: confirmPassword, gender: gender, phoneNumber: phoneNo)
@@ -138,7 +138,6 @@ class RegisterViewController: UIViewController {
         registerButton.layer.cornerRadius = 7
         registerButton.isEnabled = false
         
-        agreeTermsAndConditions.setTitleColor(UIColor.white, for: .normal)
     }
     
     private func setupNavigationBar(){

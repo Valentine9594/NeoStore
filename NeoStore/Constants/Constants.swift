@@ -38,6 +38,19 @@ enum CustomErrors: Error{
     case PasswordsDoNotMatch
 }
 
+extension CustomErrors{
+    var description: String{
+        switch self{
+            case .ResponseDataNil: return "Response data eturned as Nil."
+            case .EmptyString: return "Empty String Found."
+            case .NoTextFieldValue: return "Textfield Value cannot be found."
+            case .CannotConvertPhoneNumberFromStringToNumber: return "Cannot convert String into Number."
+            case .CannotConvertJSONObject: return "Cannot convert JSON Data."
+            case .PasswordsDoNotMatch: return "Password does not match Confirm password."
+        }
+    }
+}
+
 // all app animations and switching animations true or false
 var appAnimation = true
 //enum AppAnimations{

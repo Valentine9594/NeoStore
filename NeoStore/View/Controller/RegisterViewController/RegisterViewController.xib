@@ -162,13 +162,13 @@
                                         <attributedString key="attributedTitle">
                                             <fragment content=" I agree the ">
                                                 <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="Terms &amp; Conditions">
                                                 <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
                                                     <integer key="NSUnderline" value="1"/>
                                                 </attributes>
@@ -179,14 +179,14 @@
                                         <attributedString key="attributedTitle">
                                             <fragment content=" I agree the ">
                                                 <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
                                             <fragment content="Terms &amp; Conditions">
                                                 <attributes>
-                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                     <integer key="NSUnderline" value="1"/>
