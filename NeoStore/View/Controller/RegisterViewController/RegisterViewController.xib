@@ -115,7 +115,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="13" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uW-U1-zYh">
                                     <rect key="frame" x="33" y="511" width="348" height="29"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lmt-cD-1Wb">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Lmt-cD-1Wb">
                                             <rect key="frame" x="0.0" y="0.0" width="98" height="29"/>
                                             <fontDescription key="fontDescription" name="HomepageBaukasten-Bold" family="HomepageBaukasten" pointSize="26"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -125,7 +125,7 @@
                                             <rect key="frame" x="111" y="0.0" width="102.5" height="29"/>
                                             <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
                                             <state key="normal" title="Male" image="chkn">
-                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16"/>
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="medium" weight="medium"/>
                                             </state>
                                             <state key="selected" title="Male" image="chky"/>
                                             <connections>
@@ -135,7 +135,9 @@
                                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-zI-iIP">
                                             <rect key="frame" x="226.5" y="0.0" width="121.5" height="29"/>
                                             <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
-                                            <state key="normal" title="Female" image="chkn"/>
+                                            <state key="normal" title="Female" image="chkn">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="medium" weight="medium"/>
+                                            </state>
                                             <state key="selected" title="Female" image="chky"/>
                                             <connections>
                                                 <action selector="femaleRadioButtonSelected:" destination="-1" eventType="touchUpInside" id="ypX-hQ-Xe0"/>

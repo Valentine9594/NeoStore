@@ -37,13 +37,14 @@ class RegisterViewController: UIViewController {
         DispatchQueue.main.async {
             self.setupUI()
             self.setupNotificationsAndGestures()
+            self.setupNavigationBar()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.navigationController?.isNavigationBarHidden = false
-            self.setupNavigationBar()
+//            self.setupNavigationBar()
         }
     }
     
@@ -71,10 +72,10 @@ class RegisterViewController: UIViewController {
     @IBAction func checkAgreeTermsAndConditions(_ sender: UIButton) {
         if !agreeTermsAndConditions.isSelected{
             agreeTermsAndConditions.isSelected = true
-            registerButton.isEnabled = true
+//            registerButton.isEnabled = true
         }
         else{
-            registerButton.isEnabled = false
+//            registerButton.isEnabled = false
             agreeTermsAndConditions.isSelected = false
         }
     }
@@ -136,14 +137,26 @@ class RegisterViewController: UIViewController {
         emailTextField.keyboardType = .emailAddress
         
         registerButton.layer.cornerRadius = 7
-        registerButton.isEnabled = false
+//        registerButton.isEnabled = false
         
     }
     
     private func setupNavigationBar(){
-        self.navigationController?.navigationBar.barTintColor = UIColor.appRed
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        self.navigationController?.navigationBar.isTranslucent = appAnimation
+//        function to setup navigation bar
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.barTintColor = self.view.backgroundColor
+        navigationBar?.tintColor = UIColor.white
+        navigationBar?.isTranslucent = appAnimation
+        navigationBar?.barStyle = .black
+        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
+        
+        navigationItem.title = "Register"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
+        
+    }
+    
+    @objc func popToPreviousViewController(){
+        self.navigationController?.popViewController(animated: appAnimation)
     }
 
 }
