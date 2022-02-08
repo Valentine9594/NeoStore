@@ -85,16 +85,22 @@ class RegisterViewController: UIViewController {
         guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text, let phoneNoString = phoneNumberTextField.text else{
             print("Error 1: \(CustomErrors.NoTextFieldValue.description)")
             return}
-        guard firstName != "", lastName != "", email != "", password.count >= 8, confirmPassword == password, phoneNoString != "" else{
-            print("Error 2: \(CustomErrors.EmptyString.description)")
-            return}
         guard let gender = maleRadioButton.isSelected ? "M" : "F" else{return}
         guard let phoneNo = Int(phoneNoString) else{
             print("Error 3: \(CustomErrors.CannotConvertPhoneNumberFromStringToNumber.description)")
             return}
-
-        let userRegistrationDetails = userDetails(firstname: firstName, lastname: lastName, email: email, password: password, confirmPassword: confirmPassword, gender: gender, phoneNumber: phoneNo)
-        self.viewModel.getUserRegisterDetails(userRegisterDetails: userRegistrationDetails)
+       let userRegisteredDetails = userDetails(firstname: firstName, lastname: lastName, email: email, password: password, confirmPassword: confirmPassword, gender: gender, phoneNumber: phoneNo)
+        
+        let isValidationRight = self.viewModel.validateUserRegistration(userRegisterDetals: userRegisteredDetails)
+    
+        if isValidationRight{
+            self.viewModel.getUserRegisterDetails(userRegisterDetails: userRegisteredDetails)
+            
+        }
+        else{
+            debugPrint("User Details not set correctly!")
+        }
+        
     }
     
     @objc func keyboardShow(notification: Notification){
@@ -160,9 +166,3 @@ class RegisterViewController: UIViewController {
     }
 
 }
-
-//extension RegisterViewController: UITextFieldDelegate{
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        print("typing")
-//    }
-//}

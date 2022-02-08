@@ -29,7 +29,18 @@
 		92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC146527AD028C004C531D /* RegisterViewController.swift */; };
 		92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC146627AD028C004C531D /* RegisterViewController.xib */; };
 		92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC146927B138BA004C531D /* RegisterViewModel.swift */; };
+		92DC147227B2AF3F004C531D /* NeoStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC147127B2AF3F004C531D /* NeoStoreTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92DC147427B2AF3F004C531D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92131AE827A817AF00E9A993 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92131AEF27A817AF00E9A993;
+			remoteInfo = NeoStore;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,10 +67,20 @@
 		92DC146527AD028C004C531D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		92DC146627AD028C004C531D /* RegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		92DC146927B138BA004C531D /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		92DC146F27B2AF3F004C531D /* NeoStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeoStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DC147127B2AF3F004C531D /* NeoStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeoStoreTests.swift; sourceTree = "<group>"; };
+		92DC147327B2AF3F004C531D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		92131AED27A817AF00E9A993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DC146C27B2AF3F004C531D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				92131AF227A817AF00E9A993 /* NeoStore */,
+				92DC147027B2AF3F004C531D /* NeoStoreTests */,
 				92131AF127A817AF00E9A993 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				92131AF027A817AF00E9A993 /* NeoStore.app */,
+				92DC146F27B2AF3F004C531D /* NeoStoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -227,6 +250,15 @@
 			path = RegisterViewController;
 			sourceTree = "<group>";
 		};
+		92DC147027B2AF3F004C531D /* NeoStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				92DC147127B2AF3F004C531D /* NeoStoreTests.swift */,
+				92DC147327B2AF3F004C531D /* Info.plist */,
+			);
+			path = NeoStoreTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +279,24 @@
 			productReference = 92131AF027A817AF00E9A993 /* NeoStore.app */;
 			productType = "com.apple.product-type.application";
 		};
+		92DC146E27B2AF3F004C531D /* NeoStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92DC147627B2AF3F004C531D /* Build configuration list for PBXNativeTarget "NeoStoreTests" */;
+			buildPhases = (
+				92DC146B27B2AF3F004C531D /* Sources */,
+				92DC146C27B2AF3F004C531D /* Frameworks */,
+				92DC146D27B2AF3F004C531D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92DC147527B2AF3F004C531D /* PBXTargetDependency */,
+			);
+			name = NeoStoreTests;
+			productName = NeoStoreTests;
+			productReference = 92DC146F27B2AF3F004C531D /* NeoStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -258,6 +308,10 @@
 				TargetAttributes = {
 					92131AEF27A817AF00E9A993 = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					92DC146E27B2AF3F004C531D = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 92131AEF27A817AF00E9A993;
 					};
 				};
 			};
@@ -275,6 +329,7 @@
 			projectRoot = "";
 			targets = (
 				92131AEF27A817AF00E9A993 /* NeoStore */,
+				92DC146E27B2AF3F004C531D /* NeoStoreTests */,
 			);
 		};
 /* End PBXProject section */
@@ -290,6 +345,13 @@
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DC146D27B2AF3F004C531D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +381,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		92DC146B27B2AF3F004C531D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DC147227B2AF3F004C531D /* NeoStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92DC147527B2AF3F004C531D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92131AEF27A817AF00E9A993 /* NeoStore */;
+			targetProxy = 92DC147427B2AF3F004C531D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		92131B0127A817B100E9A993 /* LaunchScreen.storyboard */ = {
@@ -485,6 +563,44 @@
 			};
 			name = Release;
 		};
+		92DC147727B2AF3F004C531D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeoStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NeosoftTechnologies.NeoStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoStore.app/NeoStore";
+			};
+			name = Debug;
+		};
+		92DC147827B2AF3F004C531D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NeoStoreTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = NeosoftTechnologies.NeoStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeoStore.app/NeoStore";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -502,6 +618,15 @@
 			buildConfigurations = (
 				92131B0827A817B100E9A993 /* Debug */,
 				92131B0927A817B100E9A993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92DC147627B2AF3F004C531D /* Build configuration list for PBXNativeTarget "NeoStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92DC147727B2AF3F004C531D /* Debug */,
+				92DC147827B2AF3F004C531D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
