@@ -55,11 +55,11 @@ extension CustomErrors{
 var appAnimation = true
 
 func jsonParser(jsonData: Data) -> APIResponse<Any>{
+//    function to decode data using json decoder/serialisation
     do {
-        let decoder = JSONDecoder()
-        let responseData = try decoder.decode(jsonDataResponse.self, from: jsonData)
-//        let jsonData = try JSONSerialization.jsonObject(with: content, options: .mutableContainers)
-        print(responseData)
+//        let decoder = JSONDecoder()
+//        let responseData = try decoder.decode(jsonDataResponse.self, from: jsonData)
+        let responseData = try JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers)
         return .success(value: responseData)
     } catch let error {
         debugPrint(error.localizedDescription)

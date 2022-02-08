@@ -16,7 +16,6 @@ class RegisterViewModel: RegisterViewModelType{
         UserService.userRegistration(userDetails: userRegisterDetails){ response in
             switch response{
                 case .success(let data):
-                    print("REGISTER VIEW MODEL")
                     print(data)
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
