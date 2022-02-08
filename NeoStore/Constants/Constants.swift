@@ -41,7 +41,7 @@ enum CustomErrors: Error{
 extension CustomErrors{
     var description: String{
         switch self{
-            case .ResponseDataNil: return "Response data eturned as Nil."
+            case .ResponseDataNil: return "Response data returned as Nil."
             case .EmptyString: return "Empty String Found."
             case .NoTextFieldValue: return "Textfield Value cannot be found."
             case .CannotConvertPhoneNumberFromStringToNumber: return "Cannot convert String into Number."
@@ -53,7 +53,16 @@ extension CustomErrors{
 
 // all app animations and switching animations true or false
 var appAnimation = true
-//enum AppAnimations{
-//    case animated = true
-//
-//}
+
+func jsonParser(jsonData: Data) -> APIResponse<Any>{
+    do {
+        let decoder = JSONDecoder()
+        let responseData = try decoder.decode(jsonDataResponse.self, from: jsonData)
+//        let jsonData = try JSONSerialization.jsonObject(with: content, options: .mutableContainers)
+        print(responseData)
+        return .success(value: responseData)
+    } catch let error {
+        debugPrint(error.localizedDescription)
+        return .failure(error: error)
+    }
+}
