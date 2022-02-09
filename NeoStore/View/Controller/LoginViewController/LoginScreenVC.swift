@@ -11,7 +11,7 @@ class LoginScreenVC: UIViewController {
     @IBOutlet weak var usernameTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
-    @IBOutlet weak var forgotPassLbl: UILabel!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var plusIcon: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     var viewModel: LoginViewModelType!
@@ -82,8 +82,10 @@ class LoginScreenVC: UIViewController {
         self.view.resignFirstResponder()
     }
     
-    @objc func clickedForgotPassword(_ sender: UITapGestureRecognizer){
-        print("Clicked Forgot Password!")
+    @IBAction func clickedForgotPassword(_ sender: UIButton){
+        let forgotPasswordViewModel = ForgotPasswordViewModel()
+        let forgotPasswordViewController = ForgotPasswordViewController(viewModel: forgotPasswordViewModel)
+        navigationController?.pushViewController(forgotPasswordViewController, animated: appAnimation)
     }
     
     @objc func clickedPlusIcon(_ sender: UITapGestureRecognizer){
@@ -117,10 +119,6 @@ class LoginScreenVC: UIViewController {
         //        gesture to close keyboard on cliking anywhere
         let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
-        
-//        gesture on clicking forgot label
-        let forgotPasswordTap = UITapGestureRecognizer(target: self, action: #selector(clickedForgotPassword))
-        forgotPassLbl.addGestureRecognizer(forgotPasswordTap)
         
 //        gesture on clicking plus icon for registering
         let plusIconTap = UITapGestureRecognizer(target: self, action: #selector(clickedPlusIcon))

@@ -17,6 +17,7 @@ enum APIResponse<T>{
 enum TotalViewControllers: String{
     case LoginViewController = "LoginScreenVC"
     case RegisterViewController = "RegisterViewController"
+    case ForgotPasswordViewController = "ForgotPasswordViewController"
 }
 
 //all icons name from assets
