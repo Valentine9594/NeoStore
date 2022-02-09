@@ -48,8 +48,10 @@ class LoginScreenVC: UIViewController {
                 case .success:
                     debugPrint("Succesfully Logged In.")
                 case .failure:
-                    let message = "Incorrect Email or Password!"
-                    self.callAlert(alertMessage: message)
+                    DispatchQueue.main.async {
+                        let message = "Incorrect Email or Password!"
+                        self.callAlert(alertMessage: message)
+                    }
                 case .none:
                     break
             }
@@ -70,8 +72,10 @@ class LoginScreenVC: UIViewController {
             self.viewModel.getUserLogInDetail(userName: userName, userPassword: userPassword)
         }
         else{
-            let message = "Username and Password not entered correctly!"
-            callAlert(alertMessage: message)
+            DispatchQueue.main.async {
+                let message = "Username and Password not entered correctly!"
+                self.callAlert(alertMessage: message)
+            }
         }
 
     }

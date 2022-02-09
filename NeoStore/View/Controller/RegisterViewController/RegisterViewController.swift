@@ -59,16 +59,20 @@ class RegisterViewController: UIViewController {
             
             switch RegisterResult{
                 case .success:
-                    alertTitle = "Registeration Successful!"
-                    actionTitle = "OK"
-                    self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
-                    self?.navigationController?.popToRootViewController(animated: appAnimation)
-                    
+                    DispatchQueue.main.async {
+                        alertTitle = "Registeration Successful!"
+                        actionTitle = "OK"
+                        self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
+                        self?.navigationController?.popToRootViewController(animated: appAnimation)
+                    }
+
                 case .failure:
-                    alertTitle = "Registeration Failed!"
-                    alertMessage = "Please try again later..."
-                    actionTitle = "Cancel"
-                    self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
+                    DispatchQueue.main.async {
+                        alertTitle = "Registeration Failed!"
+                        alertMessage = "Please try again later..."
+                        actionTitle = "Cancel"
+                        self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
+                    }
                 case .none:
                     break
             }

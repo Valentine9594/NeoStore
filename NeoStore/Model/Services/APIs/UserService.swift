@@ -19,6 +19,7 @@ class UserService{
                 case .success(let data):
                     if let content = data as? Data{
                         let responseData = jsonParser(jsonData: content)
+                        print(responseData)
                         completion(responseData)
                     }
                     else{
@@ -53,4 +54,27 @@ class UserService{
             }
         }
     }
+    
+    static func userForgotPassword(userName: String, completion: @escaping(APIResponse<Any>)->Void){
+        let params = ["email": userName]
+        
+        APIManager.sharedInstance.performRequest(serviceType: .forgotPassword(parameters: params)) { (response) in
+            switch response{
+                case .success(let data):
+                    if let content = data as? Data{
+                        let responseData = jsonParser(jsonData: content)
+                        completion(responseData)
+                    }
+                    else{
+                        print(CustomErrors.ResponseDataNil.description)
+                    }
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+                    completion(.failure(error: error))
+            }
+        }
+    }
+    
+    
+    
 }
