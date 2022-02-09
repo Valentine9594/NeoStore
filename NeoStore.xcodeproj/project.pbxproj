@@ -35,6 +35,7 @@
 		92DC148627B3D652004C531D /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148527B3D652004C531D /* UserDefaults.swift */; };
 		92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148727B3EA68004C531D /* ForgotPasswordViewController.swift */; };
 		92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC148827B3EA68004C531D /* ForgotPasswordViewController.xib */; };
+		92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148C27B3F15C004C531D /* ForgotPasswordViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		92DC148527B3D652004C531D /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		92DC148727B3EA68004C531D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		92DC148827B3EA68004C531D /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		92DC148C27B3F15C004C531D /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			children = (
 				92DC145B27AC159A004C531D /* LoginViewModel.swift */,
 				92DC146927B138BA004C531D /* RegisterViewModel.swift */,
+				92DC148C27B3F15C004C531D /* ForgotPasswordViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
 				92DC148127B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
+				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
 				92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */,
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
