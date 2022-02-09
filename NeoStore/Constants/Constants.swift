@@ -66,3 +66,5 @@ func jsonParser(jsonData: Data) -> APIResponse<Any>{
         return .failure(error: error)
     }
 }
+
+

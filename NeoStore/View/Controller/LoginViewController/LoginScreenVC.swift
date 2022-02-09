@@ -46,23 +46,32 @@ class LoginScreenVC: UIViewController {
         self.viewModel.loginStatus.bindAndFire { LoginResult in
             switch LoginResult{
                 case .success:
-                    debugPrint("Login Successful.")
-                    
+                    debugPrint("Succesfully Logged In.")
                 case .failure:
-                    debugPrint("Login Failed!")
+                    let message = "Incorrect Email or Password!"
+                    self.callAlert(alertMessage: message)
                 case .none:
                     break
             }
         }
     }
 
+    private func callAlert(alertMessage: String?){
+        let alert = UIAlertController(title: "Login Failed!", message: alertMessage, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
+            self?.dismiss(animated: appAnimation, completion: nil)
+        }
+        alert.addAction(alertAction)
+        self.present(alert, animated: appAnimation, completion: nil)
+    }
     
     @IBAction func loginUser(_ sender: UIButton) {
-        if let userName = usernameTF.text, let userPassword = passwordTF.text{
+        if let userName = usernameTF.text, let userPassword = passwordTF.text, userName != "", userPassword != ""{
             self.viewModel.getUserLogInDetail(userName: userName, userPassword: userPassword)
         }
         else{
-            print("NOT OK")
+            let message = "Username and Password not entered correctly!"
+            callAlert(alertMessage: message)
         }
 
     }

@@ -47,6 +47,7 @@ class RegisterViewModel: RegisterViewModelType{
 
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
+                    self.registerStatus.value = .failure
             }
         }
     }

@@ -32,6 +32,9 @@
 		92DC147227B2AF3F004C531D /* NeoStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC147127B2AF3F004C531D /* NeoStoreTests.swift */; };
 		92DC147F27B39F66004C531D /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC147E27B39F66004C531D /* JSONParser.swift */; };
 		92DC148127B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148027B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift */; };
+		92DC148627B3D652004C531D /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148527B3D652004C531D /* UserDefaults.swift */; };
+		92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148727B3EA68004C531D /* ForgotPasswordViewController.swift */; };
+		92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC148827B3EA68004C531D /* ForgotPasswordViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,9 @@
 		92DC147327B2AF3F004C531D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92DC147E27B39F66004C531D /* JSONParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
 		92DC148027B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyedDecodingContainer + Extension.swift"; sourceTree = "<group>"; };
+		92DC148527B3D652004C531D /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		92DC148727B3EA68004C531D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		92DC148827B3EA68004C531D /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,7 @@
 		92131B1127A81C9800E9A993 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				92DC148427B3D63C004C531D /* UserDefaults */,
 				92DC147D27B39F4F004C531D /* JSONParser */,
 				92DC147C27B39F39004C531D /* ReactiveListener */,
 				92DC144827AAB3C3004C531D /* Extensions */,
@@ -177,6 +184,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				92DC148B27B3EA73004C531D /* ForgotPasswordViewController */,
 				92DC146027AD020C004C531D /* RegisterViewController */,
 				92DC145F27ACE75D004C531D /* LoginViewController */,
 			);
@@ -281,6 +289,23 @@
 			path = JSONParser;
 			sourceTree = "<group>";
 		};
+		92DC148427B3D63C004C531D /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				92DC148527B3D652004C531D /* UserDefaults.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		92DC148B27B3EA73004C531D /* ForgotPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				92DC148727B3EA68004C531D /* ForgotPasswordViewController.swift */,
+				92DC148827B3EA68004C531D /* ForgotPasswordViewController.xib */,
+			);
+			path = ForgotPasswordViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -363,6 +388,7 @@
 			files = (
 				92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */,
 				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
+				92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */,
 				92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */,
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
@@ -397,8 +423,10 @@
 				92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */,
 				92DC147F27B39F66004C531D /* JSONParser.swift in Sources */,
 				92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */,
+				92DC148627B3D652004C531D /* UserDefaults.swift in Sources */,
 				92DC145A27ABF32E004C531D /* UserService.swift in Sources */,
 				92DC144D27AAB3FF004C531D /* UIFont+Extension.swift in Sources */,
+				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
 				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,
 				92DC144127AA6C4E004C531D /* Models.swift in Sources */,

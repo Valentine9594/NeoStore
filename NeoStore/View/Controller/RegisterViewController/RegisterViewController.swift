@@ -53,17 +53,33 @@ class RegisterViewController: UIViewController {
 //        function and uses reactive listener and bins with viewmodel to check API status
         self.viewModel.registerStatus.bindAndFire { [weak self] RegisterResult in
             guard self != nil else{ return }
+            var alertTitle = ""
+            var alertMessage: String? = nil
+            var actionTitle = ""
             
             switch RegisterResult{
                 case .success:
-                    debugPrint("Register Successful.")
+                    alertTitle = "Registeration Successful!"
+                    actionTitle = "OK"
+                    self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
+                    self?.navigationController?.popToRootViewController(animated: appAnimation)
                     
                 case .failure:
-                    debugPrint("Register Failed!")
+                    alertTitle = "Registeration Failed!"
+                    alertMessage = "Please try again later..."
+                    actionTitle = "Cancel"
+                    self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
                 case .none:
                     break
             }
         }
+    }
+    
+    func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+        alert.addAction(alertAction)
+        self.present(alert, animated: appAnimation, completion: nil)
     }
     
     private func setupNotificationsAndGestures(){
@@ -103,20 +119,27 @@ class RegisterViewController: UIViewController {
         guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text, let phoneNoString = phoneNumberTextField.text else{
             print("Error 1: \(CustomErrors.NoTextFieldValue.description)")
             return}
+        
+        let textfieldStringArray = [firstName, lastName, email, password, confirmPassword, phoneNoString]
+        if textfieldStringArray.contains("") {
+            self.callAlert(alertTitle: "Alert!", alertMessage: "Some Textfields are Empty", actionTitle: "OK")
+        }
+        
         guard let gender = maleRadioButton.isSelected ? "M" : "F" else{return}
         guard let phoneNo = Int(phoneNoString) else{
             print("Error 3: \(CustomErrors.CannotConvertPhoneNumberFromStringToNumber.description)")
+            self.callAlert(alertTitle: "Alert!", alertMessage: "Phone Number entered incorrectly", actionTitle: "OK")
             return}
+        
        let userRegisteredDetails = userDetails(firstname: firstName, lastname: lastName, email: email, password: password, confirmPassword: confirmPassword, gender: gender, phoneNumber: phoneNo)
         
         let isValidationRight = self.viewModel.validateUserRegistration(userRegisterDetals: userRegisteredDetails)
     
         if isValidationRight{
             self.viewModel.getUserRegisterDetails(userRegisterDetails: userRegisteredDetails)
-            
         }
         else{
-            debugPrint("User Details not set correctly!")
+            self.callAlert(alertTitle: "Alert", alertMessage: "Some Textfields are incorrect!", actionTitle: "OK")
         }
         
     }
