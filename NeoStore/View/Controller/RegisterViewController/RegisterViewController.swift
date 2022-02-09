@@ -44,7 +44,25 @@ class RegisterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.navigationController?.isNavigationBarHidden = false
+            self.setupObserver()
 //            self.setupNavigationBar()
+        }
+    }
+    
+    private func setupObserver(){
+//        function and uses reactive listener and bins with viewmodel to check API status
+        self.viewModel.registerStatus.bindAndFire { [weak self] RegisterResult in
+            guard self != nil else{ return }
+            
+            switch RegisterResult{
+                case .success:
+                    debugPrint("Register Successful.")
+                    
+                case .failure:
+                    debugPrint("Register Failed!")
+                case .none:
+                    break
+            }
         }
     }
     

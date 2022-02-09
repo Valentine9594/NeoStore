@@ -7,29 +7,44 @@
 
 import Foundation
 
-enum LoginResult{
+enum RegisterResult{
     case success
     case failure
     case none
 }
 
 protocol RegisterViewModelType {
-//    var loginStatus: ReactiveListener<LoginResult>{get set}
+    var registerStatus: ReactiveListener<RegisterResult>{get set}
     func getUserRegisterDetails(userRegisterDetails: userDetails)
     func validateUserRegistration(userRegisterDetals: userDetails) -> Bool
 }
 
 class RegisterViewModel: RegisterViewModelType{
     
-//    var loginStatus: ReactiveListener<LoginResult> = ReactiveListener
+    var registerStatus: ReactiveListener<RegisterResult> = ReactiveListener(.none)
     
     func getUserRegisterDetails(userRegisterDetails: userDetails){
 //        function which interacts with registerview controller regarding api response and successful registration
         UserService.userRegistration(userDetails: userRegisterDetails){ response in
             switch response{
                 case .success(let data):
-//                    print(data)
                     print(data)
+                    
+                    guard let content = data as? AnyDict else{
+                        self.registerStatus.value = .none
+                        return}
+                    
+                    
+                    if let statusCode = content["status"], statusCode as! Int == 200{
+//                        save data in userdefaults
+                        print("Status Code: \(statusCode)")
+                        self.registerStatus.value = .success
+                    }
+                    else{
+                        self.registerStatus.value = .failure
+                        debugPrint("cannot convert data!!")
+                    }
+
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
             }
@@ -72,7 +87,6 @@ class RegisterViewModel: RegisterViewModelType{
     func checkEmail(emailString: String) -> Bool{
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Z0-9a-z._%+-]+\\.[A-Za-z]{2,64}"
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
-        print(emailPredicate.evaluate(with: emailString))
         return emailPredicate.evaluate(with: emailString)
     }
     

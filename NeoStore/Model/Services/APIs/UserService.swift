@@ -41,8 +41,14 @@ class UserService{
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        let responseData = jsonParser(jsonData: content)
-                        completion(responseData)
+                        do {
+                            let responseDataValue = try JSONSerialization.jsonObject(with: content, options: .mutableContainers)
+                            let responseData = APIResponse.success(value: responseDataValue)
+                            completion(responseData)
+                        } catch let error{
+                            completion(.failure(error: error))
+                        }
+
                     }
                     else{
                         print(CustomErrors.ResponseDataNil.description)

@@ -66,7 +66,7 @@
                                     </constraints>
                                 </stackView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NeoSTORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11C-Ya-oup">
-                                    <rect key="frame" x="33" y="140" width="348" height="45"/>
+                                    <rect key="frame" x="33" y="123" width="348" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="mJg-YU-6aT"/>
                                     </constraints>
@@ -75,7 +75,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="LbM-lB-0jK">
-                                    <rect key="frame" x="33" y="234" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="217" width="348" height="53"/>
                                     <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="53" id="ipH-Ci-cLE"/>
@@ -85,7 +85,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Jbb-wS-1D5">
-                                    <rect key="frame" x="33" y="303" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="286" width="348" height="53"/>
                                     <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="53" id="wbS-DK-fKy"/>
@@ -95,7 +95,7 @@
                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b3v-hh-ecv">
-                                    <rect key="frame" x="33" y="389" width="348" height="61"/>
+                                    <rect key="frame" x="33" y="372" width="348" height="61"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="61" id="OoB-Ha-mtW"/>
@@ -109,7 +109,7 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BH8-ck-4Up">
-                                    <rect key="frame" x="33" y="471.5" width="348" height="18"/>
+                                    <rect key="frame" x="33" y="454.5" width="348" height="18"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
@@ -122,7 +122,7 @@
                                 <constraint firstAttribute="trailing" secondItem="LbM-lB-0jK" secondAttribute="trailing" constant="33" id="67Z-ff-Exm"/>
                                 <constraint firstItem="BH8-ck-4Up" firstAttribute="centerX" secondItem="k3L-4h-OgH" secondAttribute="centerX" id="6FK-Rj-HfN"/>
                                 <constraint firstItem="FJY-Zl-ZNJ" firstAttribute="centerX" secondItem="k3L-4h-OgH" secondAttribute="centerX" id="7sB-Mm-2CZ"/>
-                                <constraint firstItem="11C-Ya-oup" firstAttribute="top" secondItem="k3L-4h-OgH" secondAttribute="top" constant="140" id="ENS-r3-KzK"/>
+                                <constraint firstItem="11C-Ya-oup" firstAttribute="top" secondItem="k3L-4h-OgH" secondAttribute="top" constant="123" id="ENS-r3-KzK"/>
                                 <constraint firstItem="b3v-hh-ecv" firstAttribute="centerX" secondItem="k3L-4h-OgH" secondAttribute="centerX" id="Fol-Of-Xun"/>
                                 <constraint firstAttribute="trailing" secondItem="b3v-hh-ecv" secondAttribute="trailing" constant="33" id="HPf-Pu-mpG"/>
                                 <constraint firstItem="LbM-lB-0jK" firstAttribute="centerX" secondItem="k3L-4h-OgH" secondAttribute="centerX" id="Kea-Ni-ZwQ"/>
@@ -151,6 +151,7 @@
                         <constraint firstItem="k3L-4h-OgH" firstAttribute="top" secondItem="kXU-u3-276" secondAttribute="top" constant="52" id="J0Z-Fa-xKI"/>
                         <constraint firstItem="k3L-4h-OgH" firstAttribute="width" secondItem="kXU-u3-276" secondAttribute="width" id="Sw5-iC-mqY"/>
                         <constraint firstAttribute="bottom" secondItem="k3L-4h-OgH" secondAttribute="bottom" constant="42" id="Wpf-X1-he2"/>
+                        <constraint firstItem="k3L-4h-OgH" firstAttribute="centerX" secondItem="kXU-u3-276" secondAttribute="centerX" id="dRE-4b-4FI"/>
                         <constraint firstItem="k3L-4h-OgH" firstAttribute="height" secondItem="kXU-u3-276" secondAttribute="height" multiplier="0.944196" priority="250" constant="-44" id="yXf-o2-90n"/>
                     </constraints>
                 </scrollView>
@@ -158,10 +159,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="kXU-u3-276" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="C3m-60-CoM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="kXU-u3-276" secondAttribute="top" id="Vqw-5z-A5x"/>
                 <constraint firstItem="kXU-u3-276" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="WR6-aU-Z5a"/>
-                <constraint firstItem="kXU-u3-276" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.922" priority="250" id="eIq-Qc-OpC"/>
                 <constraint firstItem="kXU-u3-276" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="jl7-S5-Lhf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kXU-u3-276" secondAttribute="trailing" id="pz9-YZ-gVu"/>
                 <constraint firstItem="kXU-u3-276" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qJY-sF-E5d"/>

@@ -270,6 +270,7 @@
                         <constraint firstItem="WZ2-um-F0y" firstAttribute="top" secondItem="wbQ-Ra-nSf" secondAttribute="top" id="dd2-8V-vE1"/>
                         <constraint firstItem="WZ2-um-F0y" firstAttribute="leading" secondItem="wbQ-Ra-nSf" secondAttribute="leading" id="erB-xE-iUV"/>
                         <constraint firstAttribute="trailing" secondItem="WZ2-um-F0y" secondAttribute="trailing" id="gPi-wJ-VKM"/>
+                        <constraint firstItem="WZ2-um-F0y" firstAttribute="centerX" secondItem="wbQ-Ra-nSf" secondAttribute="centerX" id="mCU-aN-ICe"/>
                         <constraint firstItem="WZ2-um-F0y" firstAttribute="trailing" secondItem="wbQ-Ra-nSf" secondAttribute="trailing" id="wDH-Dj-bsh"/>
                         <constraint firstItem="WZ2-um-F0y" firstAttribute="top" secondItem="wbQ-Ra-nSf" secondAttribute="top" id="wSy-z8-xRh"/>
                     </constraints>
@@ -278,12 +279,10 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="wbQ-Ra-nSf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="6C3-IJ-nae"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="C6x-rL-rWk"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="CZy-Kp-aTv"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="NRM-31-toJ"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lee-g5-HtH"/>
-                <constraint firstItem="wbQ-Ra-nSf" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.913333" priority="250" id="osG-rW-Zp4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wbQ-Ra-nSf" secondAttribute="trailing" id="q7s-g2-yyD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wbQ-Ra-nSf" secondAttribute="bottom" id="vzc-1O-tiJ"/>
                 <constraint firstItem="wbQ-Ra-nSf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="wuB-Kz-euP"/>

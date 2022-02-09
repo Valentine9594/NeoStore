@@ -41,6 +41,22 @@ class LoginScreenVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func setupObserver(){
+//        function and uses reactive listener and bins with viewmodel to check API status
+        self.viewModel.loginStatus.bindAndFire { LoginResult in
+            switch LoginResult{
+                case .success:
+                    debugPrint("Login Successful.")
+                    
+                case .failure:
+                    debugPrint("Login Failed!")
+                case .none:
+                    break
+            }
+        }
+    }
+
+    
     @IBAction func loginUser(_ sender: UIButton) {
         if let userName = usernameTF.text, let userPassword = passwordTF.text{
             self.viewModel.getUserLogInDetail(userName: userName, userPassword: userPassword)
