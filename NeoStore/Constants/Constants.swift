@@ -30,30 +30,25 @@ enum textFieldIcons: String{
 }
 
 //custom errors in app
-enum CustomErrors: Error{
-    case EmptyString
-    case NoTextFieldValue
-    case CannotConvertPhoneNumberFromStringToNumber
-    case CannotConvertJSONObject
-    case ResponseDataNil
-    case PasswordsDoNotMatch
-}
-
-extension CustomErrors{
-    var description: String{
-        switch self{
-            case .ResponseDataNil: return "Response data returned as Nil."
-            case .EmptyString: return "Empty String Found."
-            case .NoTextFieldValue: return "Textfield Value cannot be found."
-            case .CannotConvertPhoneNumberFromStringToNumber: return "Cannot convert String into Number."
-            case .CannotConvertJSONObject: return "Cannot convert JSON Data."
-            case .PasswordsDoNotMatch: return "Password does not match Confirm password."
-        }
+enum CustomErrors: String, LocalizedError{
+    case EmptyString = "Empty String Found."
+    case NoTextFieldValue = "Textfield Value cannot be found."
+    case CannotConvertPhoneNumberFromStringToNumber = "Cannot convert String into Number."
+    case CannotConvertJSONObject = "Cannot convert JSON Data."
+    case ResponseDataNil = "Response data returned as Nil."
+    case PasswordsDoNotMatch = "Password does not match Confirm password."
+    
+    var errorDescription: String?{
+        return rawValue
     }
+    
 }
 
 // all app animations and switching animations true or false
 var appAnimation = true
+
+
+
 
 func jsonParser(jsonData: Data) -> APIResponse<Any>{
 //    function to decode data using json decoder/serialisation

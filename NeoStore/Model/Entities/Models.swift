@@ -17,6 +17,10 @@ struct userDetails{
     let phoneNumber: Int
 }
 
+struct userResponseDetails{
+    
+}
+
 struct jsonDataResponse{
 //    JSON data response format
     let status: Int?
@@ -31,6 +35,8 @@ struct jsonDataResponse{
         case userMessage = "user_msg"
     }
 }
+
+
 
 struct userResponse{
     let id: Int?
@@ -70,6 +76,24 @@ extension jsonDataResponse: Decodable{
         data = try codingKeysValue.decode(userResponse.self, forKey: .data)
         message = try codingKeysValue.decode(String.self, forKey: .message)
         userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
+    }
+}
+
+extension userResponse: Encodable{
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: codingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(roleId, forKey: .roleId)
+        try container.encode(firstname, forKey: .firstname)
+        try container.encode(lastname, forKey: .lastname)
+        try container.encode(email, forKey: .email)
+        try container.encode(username, forKey: .username)
+        try container.encode(gender, forKey: .gender)
+        try container.encode(phoneNo, forKey: .phoneNo)
+        try container.encode(isActive, forKey: .isActive)
+        try container.encode(created, forKey: .created)
+        try container.encode(modified, forKey: .modified)
+        try container.encode(accessToken, forKey: .accessToken)
     }
 }
 

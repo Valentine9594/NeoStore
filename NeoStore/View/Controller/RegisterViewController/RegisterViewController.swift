@@ -59,20 +59,16 @@ class RegisterViewController: UIViewController {
             
             switch RegisterResult{
                 case .success:
-                    DispatchQueue.main.async {
-                        alertTitle = "Registeration Successful!"
-                        actionTitle = "OK"
-                        self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
-                        self?.navigationController?.popToRootViewController(animated: appAnimation)
-                    }
+                    alertTitle = "Registeration Successful!"
+                    actionTitle = "OK"
+                    self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
+                    self?.navigationController?.popToRootViewController(animated: appAnimation)
 
                 case .failure:
-                    DispatchQueue.main.async {
-                        alertTitle = "Registeration Failed!"
-                        alertMessage = "Please try again later..."
-                        actionTitle = "Cancel"
-                        self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
-                    }
+                    alertTitle = "Registeration Failed!"
+                    alertMessage = "Please try again later..."
+                    actionTitle = "Cancel"
+                    self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
                 case .none:
                     break
             }
@@ -80,10 +76,12 @@ class RegisterViewController: UIViewController {
     }
     
     func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
-        alert.addAction(alertAction)
-        self.present(alert, animated: appAnimation, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: appAnimation, completion: nil)
+        }
     }
     
     private func setupNotificationsAndGestures(){
@@ -121,7 +119,7 @@ class RegisterViewController: UIViewController {
     @IBAction func registerButtonClicked(_ sender: UIButton) {
 //        function that validates all textfields and radio buttons on register button click and sends data to  viewmodel
         guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text, let phoneNoString = phoneNumberTextField.text else{
-            print("Error 1: \(CustomErrors.NoTextFieldValue.description)")
+            print("Error 1: \(String(describing: CustomErrors.NoTextFieldValue.errorDescription))")
             return}
         
         let textfieldStringArray = [firstName, lastName, email, password, confirmPassword, phoneNoString]
@@ -131,7 +129,7 @@ class RegisterViewController: UIViewController {
         
         guard let gender = maleRadioButton.isSelected ? "M" : "F" else{return}
         guard let phoneNo = Int(phoneNoString) else{
-            print("Error 3: \(CustomErrors.CannotConvertPhoneNumberFromStringToNumber.description)")
+            print("Error 3: \(String(describing: CustomErrors.CannotConvertPhoneNumberFromStringToNumber.errorDescription))")
             self.callAlert(alertTitle: "Alert!", alertMessage: "Phone Number entered incorrectly", actionTitle: "OK")
             return}
         

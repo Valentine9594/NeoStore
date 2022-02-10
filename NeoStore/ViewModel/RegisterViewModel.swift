@@ -28,8 +28,6 @@ class RegisterViewModel: RegisterViewModelType{
         UserService.userRegistration(userDetails: userRegisterDetails){ response in
             switch response{
                 case .success(let data):
-                    print(data)
-                    
                     guard let content = data as? AnyDict else{
                         self.registerStatus.value = .none
                         return}
@@ -37,7 +35,12 @@ class RegisterViewModel: RegisterViewModelType{
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
 //                        save data in userdefaults
-                        print("Status Code: \(statusCode)")
+                        print(content["data"] ?? "No Printing")
+                        guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
+                        getDataAndSaveToUserDefaults(object: contentData, key: UserDefaultsKeys.userDetails.rawValue)
+                        let userDetailsAll = showUserDefaultsData(key: UserDefaultsKeys.userDetails.rawValue)
+                        print(userDetailsAll ?? "No User Details to Display!!")
+                        
                         self.registerStatus.value = .success
                     }
                     else{

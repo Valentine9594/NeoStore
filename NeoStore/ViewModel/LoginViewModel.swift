@@ -26,8 +26,27 @@ class LoginViewModel: LoginViewModelType{
         
         UserService.userLogIn(username: userName, password: userPassword) { response in
             switch response{
-                case .success(_):
-                    self.loginStatus.value = .success
+                case .success(let data):
+                    
+                    guard let content = data as? AnyDict else{
+                        self.loginStatus.value = .none
+                        return}
+                    
+                    
+                    if let statusCode = content["status"], statusCode as! Int == 200{
+//                        save data in userdefaults
+                        guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
+                        getDataAndSaveToUserDefaults(object: contentData, key: UserDefaultsKeys.userDetails.rawValue)
+                        let userDetailsAll = showUserDefaultsData(key: UserDefaultsKeys.userDetails.rawValue)
+                        print(userDetailsAll ?? "No User Details to Display!!")
+                        
+                        self.loginStatus.value = .success
+                    }
+                    else{
+                        self.loginStatus.value = .failure
+                        debugPrint("cannot convert data!!")
+                    }
+                    
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
                     self.loginStatus.value = .failure

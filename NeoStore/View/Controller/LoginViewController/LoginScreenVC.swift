@@ -48,10 +48,8 @@ class LoginScreenVC: UIViewController {
                 case .success:
                     debugPrint("Succesfully Logged In.")
                 case .failure:
-                    DispatchQueue.main.async {
-                        let message = "Incorrect Email or Password!"
-                        self.callAlert(alertMessage: message)
-                    }
+                    let message = "Incorrect Email or Password!"
+                    self.callAlert(alertMessage: message)
                 case .none:
                     break
             }
@@ -59,12 +57,14 @@ class LoginScreenVC: UIViewController {
     }
 
     private func callAlert(alertMessage: String?){
-        let alert = UIAlertController(title: "Login Failed!", message: alertMessage, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
-            self?.dismiss(animated: appAnimation, completion: nil)
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: "Login Failed!", message: alertMessage, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: "OK", style: .default) { [weak self] action in
+                self?.dismiss(animated: appAnimation, completion: nil)
+            }
+            alert.addAction(alertAction)
+            self.present(alert, animated: appAnimation, completion: nil)
         }
-        alert.addAction(alertAction)
-        self.present(alert, animated: appAnimation, completion: nil)
     }
     
     @IBAction func loginUser(_ sender: UIButton) {
@@ -72,10 +72,8 @@ class LoginScreenVC: UIViewController {
             self.viewModel.getUserLogInDetail(userName: userName, userPassword: userPassword)
         }
         else{
-            DispatchQueue.main.async {
-                let message = "Username and Password not entered correctly!"
-                self.callAlert(alertMessage: message)
-            }
+            let message = "Username and Password not entered correctly!"
+            self.callAlert(alertMessage: message)
         }
 
     }

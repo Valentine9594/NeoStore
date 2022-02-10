@@ -19,11 +19,10 @@ class UserService{
                 case .success(let data):
                     if let content = data as? Data{
                         let responseData = jsonParser(jsonData: content)
-                        print(responseData)
                         completion(responseData)
                     }
                     else{
-                        print(CustomErrors.ResponseDataNil.description)
+                        print(CustomErrors.ResponseDataNil.localizedDescription)
                     }
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
@@ -46,7 +45,7 @@ class UserService{
                         completion(responseData)
                     }
                     else{
-                        print(CustomErrors.ResponseDataNil.description)
+                        print(CustomErrors.ResponseDataNil.localizedDescription)
                     }
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
@@ -66,7 +65,7 @@ class UserService{
                         completion(responseData)
                     }
                     else{
-                        print(CustomErrors.ResponseDataNil.description)
+                        print(CustomErrors.ResponseDataNil.localizedDescription)
                     }
                 case .failure(let error):
                     debugPrint(error.localizedDescription)

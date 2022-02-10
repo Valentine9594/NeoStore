@@ -14,15 +14,35 @@ enum ForgotPasswordResult{
 }
 
 protocol ForgotPasswordViewModelType {
-    var forgotPasswordStatus: ReactiveListener<LoginResult>{get set}
-    func getUserForgotPasswordDetail(userName: String, userPassword: String)
+    var forgotPasswordStatus: ReactiveListener<ForgotPasswordResult>{get set}
+    func getUserForgotPasswordDetail(userName: String)
 }
 
 class ForgotPasswordViewModel: ForgotPasswordViewModelType{
-    var forgotPasswordStatus: ReactiveListener<LoginResult> = ReactiveListener(.none)
+    var forgotPasswordStatus: ReactiveListener<ForgotPasswordResult> = ReactiveListener(.none)
     
-    func getUserForgotPasswordDetail(userName: String, userPassword: String) {
-        print("Forgot Password ViewModel")
+    func getUserForgotPasswordDetail(userName: String) {
+        UserService.userForgotPassword(userName: userName) { response in
+            switch response{
+                case .success(let data):
+                    
+                    guard let content = data as? AnyDict else{
+                        self.forgotPasswordStatus.value = .none
+                        return}
+                    
+                    if let statusCode = content["status"], statusCode as! Int == 200{
+                        self.forgotPasswordStatus.value = .success
+                    }
+                    else{
+                        self.forgotPasswordStatus.value = .failure
+                        debugPrint("cannot convert data!!")
+                    }
+                    
+                    break
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+            }
+        }
     }
     
     
