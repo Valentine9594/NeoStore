@@ -121,27 +121,32 @@ class RegisterViewController: UIViewController {
         guard let firstName = firstNameTextField.text, let lastName = lastNameTextField.text, let email = emailTextField.text, let password = passwordTextField.text, let confirmPassword = confirmPasswordTextField.text, let phoneNoString = phoneNumberTextField.text else{
             print("Error 1: \(String(describing: CustomErrors.NoTextFieldValue.errorDescription))")
             return}
+        guard let gender = maleRadioButton.isSelected ? "M" : "F" else{return}
         
+//        check if all strings contain ""
         let textfieldStringArray = [firstName, lastName, email, password, confirmPassword, phoneNoString]
         if textfieldStringArray.contains("") {
-            self.callAlert(alertTitle: "Alert!", alertMessage: "Some Textfields are Empty", actionTitle: "OK")
+            callAlert(alertTitle: "Alert!", alertMessage: "Some Textfields are Empty", actionTitle: "OK")
         }
         
-        guard let gender = maleRadioButton.isSelected ? "M" : "F" else{return}
+//        converting phone number into int with optional binding
         guard let phoneNo = Int(phoneNoString) else{
+            if phoneNoString == "" { return }
             print("Error 3: \(String(describing: CustomErrors.CannotConvertPhoneNumberFromStringToNumber.errorDescription))")
-            self.callAlert(alertTitle: "Alert!", alertMessage: "Phone Number entered incorrectly", actionTitle: "OK")
-            return}
+            callAlert(alertTitle: "Alert!", alertMessage: "Phone Number entered incorrectly", actionTitle: "OK")
+            return }
         
+//        managing all strings/textfield values in an object
        let userRegisteredDetails = userDetails(firstname: firstName, lastname: lastName, email: email, password: password, confirmPassword: confirmPassword, gender: gender, phoneNumber: phoneNo)
         
         let isValidationRight = self.viewModel.validateUserRegistration(userRegisterDetals: userRegisteredDetails)
     
+//        checking if all validation is true or false
         if isValidationRight{
             self.viewModel.getUserRegisterDetails(userRegisterDetails: userRegisteredDetails)
         }
         else{
-            self.callAlert(alertTitle: "Alert", alertMessage: "Some Textfields are incorrect!", actionTitle: "OK")
+            callAlert(alertTitle: "Alert", alertMessage: "Some Textfields are incorrect!", actionTitle: "OK")
         }
         
     }
