@@ -36,6 +36,11 @@
 		92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148727B3EA68004C531D /* ForgotPasswordViewController.swift */; };
 		92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC148827B3EA68004C531D /* ForgotPasswordViewController.xib */; };
 		92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148C27B3F15C004C531D /* ForgotPasswordViewModel.swift */; };
+		92DC149127B52F50004C531D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC148F27B52F50004C531D /* HomeViewController.swift */; };
+		92DC149227B52F50004C531D /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC149027B52F50004C531D /* HomeViewController.xib */; };
+		92DC149C27B53EDB004C531D /* SlideShowCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC149A27B53EDB004C531D /* SlideShowCollectionViewCell.swift */; };
+		92DC149D27B53EDB004C531D /* SlideShowCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC149B27B53EDB004C531D /* SlideShowCollectionViewCell.xib */; };
+		92DC149F27B54538004C531D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC149E27B54538004C531D /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,11 @@
 		92DC148727B3EA68004C531D /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		92DC148827B3EA68004C531D /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		92DC148C27B3F15C004C531D /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		92DC148F27B52F50004C531D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		92DC149027B52F50004C531D /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		92DC149A27B53EDB004C531D /* SlideShowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideShowCollectionViewCell.swift; sourceTree = "<group>"; };
+		92DC149B27B53EDB004C531D /* SlideShowCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SlideShowCollectionViewCell.xib; sourceTree = "<group>"; };
+		92DC149E27B54538004C531D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +158,7 @@
 				92DC145B27AC159A004C531D /* LoginViewModel.swift */,
 				92DC146927B138BA004C531D /* RegisterViewModel.swift */,
 				92DC148C27B3F15C004C531D /* ForgotPasswordViewModel.swift */,
+				92DC149E27B54538004C531D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -187,6 +198,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				92DC148E27B52EBB004C531D /* HomeViewController */,
 				92DC148B27B3EA73004C531D /* ForgotPasswordViewController */,
 				92DC146027AD020C004C531D /* RegisterViewController */,
 				92DC145F27ACE75D004C531D /* LoginViewController */,
@@ -309,6 +321,25 @@
 			path = ForgotPasswordViewController;
 			sourceTree = "<group>";
 		};
+		92DC148E27B52EBB004C531D /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				92DC149927B53E93004C531D /* HomeCollectionViewCells */,
+				92DC148F27B52F50004C531D /* HomeViewController.swift */,
+				92DC149027B52F50004C531D /* HomeViewController.xib */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		92DC149927B53E93004C531D /* HomeCollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				92DC149A27B53EDB004C531D /* SlideShowCollectionViewCell.swift */,
+				92DC149B27B53EDB004C531D /* SlideShowCollectionViewCell.xib */,
+			);
+			path = HomeCollectionViewCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -396,6 +427,8 @@
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
+				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
+				92DC149D27B53EDB004C531D /* SlideShowCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,7 +453,9 @@
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
 				92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */,
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
+				92DC149127B52F50004C531D /* HomeViewController.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,
+				92DC149C27B53EDB004C531D /* SlideShowCollectionViewCell.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
@@ -430,6 +465,7 @@
 				92DC148627B3D652004C531D /* UserDefaults.swift in Sources */,
 				92DC145A27ABF32E004C531D /* UserService.swift in Sources */,
 				92DC144D27AAB3FF004C531D /* UIFont+Extension.swift in Sources */,
+				92DC149F27B54538004C531D /* HomeViewModel.swift in Sources */,
 				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
 				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,

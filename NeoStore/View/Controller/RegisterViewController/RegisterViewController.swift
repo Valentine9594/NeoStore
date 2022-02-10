@@ -39,14 +39,15 @@ class RegisterViewController: UIViewController {
             self.setupNotificationsAndGestures()
             self.setupNavigationBar()
         }
+        self.setupObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.navigationController?.isNavigationBarHidden = false
-            self.setupObserver()
 //            self.setupNavigationBar()
         }
+        self.setupObserver()
     }
     
     private func setupObserver(){
@@ -62,7 +63,6 @@ class RegisterViewController: UIViewController {
                     alertTitle = "Registeration Successful!"
                     actionTitle = "OK"
                     self?.callAlert(alertTitle: alertTitle, alertMessage: alertMessage, actionTitle: actionTitle)
-                    self?.navigationController?.popToRootViewController(animated: appAnimation)
 
                 case .failure:
                     alertTitle = "Registeration Failed!"
@@ -78,7 +78,15 @@ class RegisterViewController: UIViewController {
     func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
         DispatchQueue.main.async {
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            var alertAction: UIAlertAction!
+            if self.viewModel.registerStatus.value == .success{
+                alertAction = UIAlertAction(title: alertTitle, style: .default) { [weak self] _ in
+                    self?.navigationController?.popToRootViewController(animated: appAnimation)
+                }
+            }
+            else{
+                alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            }
             alert.addAction(alertAction)
             self.present(alert, animated: appAnimation, completion: nil)
         }

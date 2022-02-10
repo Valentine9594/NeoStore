@@ -25,11 +25,14 @@ class LoginScreenVC: UIViewController {
             self.setupUI()
             self.setupNotificationsAndGestures()
         }
-
+        self.setupObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
+        DispatchQueue.main.async {
+            self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
+        }
+        self.setupObserver()
     }
     
     init(viewModel: LoginViewModelType){
@@ -43,16 +46,24 @@ class LoginScreenVC: UIViewController {
     
     private func setupObserver(){
 //        function and uses reactive listener and bins with viewmodel to check API status
-        self.viewModel.loginStatus.bindAndFire { LoginResult in
-            switch LoginResult{
+        self.viewModel.loginStatus.bindAndFire { [weak self] result in
+            switch result{
                 case .success:
-                    debugPrint("Succesfully Logged In.")
+                    self?.setupSuccessfullLogIn()
                 case .failure:
                     let message = "Incorrect Email or Password!"
-                    self.callAlert(alertMessage: message)
+                    self?.callAlert(alertMessage: message)
                 case .none:
                     break
             }
+        }
+    }
+    
+    private func setupSuccessfullLogIn(){
+        DispatchQueue.main.async {
+            let homeViewModel = HomeViewModel()
+            let homeViewController = HomeViewController(viewModel: homeViewModel)
+            self.navigationController?.pushViewController(homeViewController, animated: appAnimation)
         }
     }
 

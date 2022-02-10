@@ -15,17 +15,20 @@ class ForgotPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupNavigationBar()
-        setupUI()
-        setupNotificationsAndGestures()
+        DispatchQueue.main.async {
+            self.setupNavigationBar()
+            self.setupUI()
+            self.setupNotificationsAndGestures()
+        }
+        self.setupObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         DispatchQueue.main.async {
             self.navigationController?.isNavigationBarHidden = false
-            self.setupObserver()
 //            self.setupNavigationBar()
         }
+        self.setupObserver()
     }
     
     init(viewModel: ForgotPasswordViewModelType){
@@ -38,12 +41,12 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     private func setupObserver(){
-        self.viewModel.forgotPasswordStatus.bindAndFire { Result in
+        self.viewModel.forgotPasswordStatus.bindAndFire { [weak self] Result in
             switch Result{
                 case .success:
-                    self.callAlert(alertTitle: "Email Sent", alertMessage: "Please check the email sent to the entered email address.", actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Email Sent", alertMessage: "Please check the email sent to the entered email address.", actionTitle: "OK")
                 case .failure:
-                    self.callAlert(alertTitle: "Alert!", alertMessage: "There was an error sending email!", actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Alert!", alertMessage: "There was an error sending email!", actionTitle: "OK")
                 case .none:
                     break
             }
@@ -55,8 +58,8 @@ class ForgotPasswordViewController: UIViewController {
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
             var alertAction: UIAlertAction
             if self.viewModel.forgotPasswordStatus.value == .success{
-                alertAction = UIAlertAction(title: actionTitle, style: .default, handler: {_ in
-                    self.navigationController?.popToRootViewController(animated: appAnimation)
+                alertAction = UIAlertAction(title: actionTitle, style: .default, handler: {[weak self] _ in
+                    self?.navigationController?.popToRootViewController(animated: appAnimation)
                 })
             }
             else{

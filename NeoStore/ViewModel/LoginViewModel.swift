@@ -7,10 +7,14 @@
 
 import Foundation
 
-enum LoginResult{
+enum LoginResult: String{
     case success
     case failure
     case none
+    
+    var description: String{
+        rawValue
+    }
 }
 
 protocol LoginViewModelType {
@@ -31,20 +35,19 @@ class LoginViewModel: LoginViewModelType{
                     guard let content = data as? AnyDict else{
                         self.loginStatus.value = .none
                         return}
-                    
+//                    print(content)
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
+                        
 //                        save data in userdefaults
                         guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
                         getDataAndSaveToUserDefaults(object: contentData, key: UserDefaultsKeys.userDetails.rawValue)
-                        let userDetailsAll = showUserDefaultsData(key: UserDefaultsKeys.userDetails.rawValue)
-                        print(userDetailsAll ?? "No User Details to Display!!")
                         
                         self.loginStatus.value = .success
                     }
                     else{
                         self.loginStatus.value = .failure
-                        debugPrint("cannot convert data!!")
+                        debugPrint("Status: \(String(describing: content["status"]!))")
                     }
                     
                 case .failure(let error):

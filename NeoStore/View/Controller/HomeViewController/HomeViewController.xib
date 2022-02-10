@@ -19,9 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar clipsSubviews="YES" contentMode="scaleAspectFit" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgC-MU-4ia">
+                <navigationBar clipsSubviews="YES" contentMode="scaleAspectFit" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgC-MU-4ia">
                     <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                    <color key="barTintColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="barTintColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     <textAttributes key="titleTextAttributes">
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </textAttributes>
@@ -55,6 +55,10 @@
             <constraints>
                 <constraint firstItem="bgC-MU-4ia" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2FQ-0t-sNy"/>
                 <constraint firstItem="bgC-MU-4ia" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2M9-Uq-45p"/>
+                <constraint firstItem="bgC-MU-4ia" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="46z-FO-fPp"/>
+                <constraint firstItem="Qmq-ft-9V3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7xu-x2-r6w"/>
+                <constraint firstItem="Qmq-ft-9V3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="95Y-c9-Ikz"/>
+                <constraint firstItem="bgC-MU-4ia" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Qgd-Fi-Gb2"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="top" secondItem="bgC-MU-4ia" secondAttribute="bottom" id="Rc8-yF-kh7"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bSF-J4-dCE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qmq-ft-9V3" secondAttribute="trailing" id="dRB-qD-P8X"/>
