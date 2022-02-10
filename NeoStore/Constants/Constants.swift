@@ -18,6 +18,7 @@ enum TotalViewControllers: String{
     case LoginViewController = "LoginScreenVC"
     case RegisterViewController = "RegisterViewController"
     case ForgotPasswordViewController = "ForgotPasswordViewController"
+    case HomeViewController = "HomeViewController"
 }
 
 //all icons name from assets
