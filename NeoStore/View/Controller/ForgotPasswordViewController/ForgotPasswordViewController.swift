@@ -42,7 +42,6 @@ class ForgotPasswordViewController: UIViewController {
             switch Result{
                 case .success:
                     self.callAlert(alertTitle: "Email Sent", alertMessage: "Please check the email sent to the entered email address.", actionTitle: "OK")
-                    self.navigationController?.popToRootViewController(animated: appAnimation)
                 case .failure:
                     self.callAlert(alertTitle: "Alert!", alertMessage: "There was an error sending email!", actionTitle: "OK")
                 case .none:
@@ -54,7 +53,16 @@ class ForgotPasswordViewController: UIViewController {
     func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
         DispatchQueue.main.async {
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            var alertAction: UIAlertAction
+            if self.viewModel.forgotPasswordStatus.value == .success{
+                alertAction = UIAlertAction(title: actionTitle, style: .default, handler: {_ in
+                    self.navigationController?.popToRootViewController(animated: appAnimation)
+                })
+            }
+            else{
+                alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            }
+
             alert.addAction(alertAction)
             self.present(alert, animated: appAnimation, completion: nil)
         }
@@ -105,7 +113,7 @@ class ForgotPasswordViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
     }
     
-    @objc func popToPreviousViewController(){
+    @objc func popToPreviousViewController() -> Void{
         self.navigationController?.popViewController(animated: appAnimation)
     }
 
