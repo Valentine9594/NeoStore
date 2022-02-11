@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="NeoStore" customModuleProvider="target">
             <connections>
                 <outlet property="slideShowCollectionView" destination="Qmq-ft-9V3" id="HVD-PI-xjn"/>
+                <outlet property="slideShowPageControl" destination="AxF-85-2Jc" id="TBx-pP-HKY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,57 +20,72 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <navigationBar clipsSubviews="YES" contentMode="scaleAspectFit" barStyle="black" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgC-MU-4ia">
-                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                    <color key="barTintColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    <textAttributes key="titleTextAttributes">
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </textAttributes>
-                    <items>
-                        <navigationItem title="NeoSTORE" largeTitleDisplayMode="always" id="S1I-Ue-9OR">
-                            <barButtonItem key="leftBarButtonItem" title="Item" image="menu_icon" id="Tim-aO-T6h">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" title="Item" image="search_icon" id="TcX-Kz-alh">
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </barButtonItem>
-                        </navigationItem>
-                    </items>
-                </navigationBar>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-ft-9V3">
+                <collectionView multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-ft-9V3">
                     <rect key="frame" x="0.0" y="88" width="414" height="229"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="229" id="3LZ-Qo-HsH"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e4I-sv-Lqi">
-                        <size key="itemSize" width="128" height="128"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NYU-jY-PIT">
+                        <size key="itemSize" width="128" height="229"/>
+                        <size key="estimatedItemSize" width="128" height="229"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="AxF-85-2Jc">
+                    <rect key="frame" x="0.0" y="272" width="414" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="6Fd-2d-NTQ"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="currentPageIndicatorTintColor" systemColor="opaqueSeparatorColor"/>
+                </pageControl>
+                <navigationBar clipsSubviews="YES" contentMode="scaleAspectFit" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1g-Lf-G7b">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <color key="barTintColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <fontDescription key="fontDescription" name="HomepageBaukasten-Bold" family="HomepageBaukasten" pointSize="23"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="NeoSTORE" id="Rxq-ae-tI1">
+                            <barButtonItem key="leftBarButtonItem" title="menu" image="menu_icon" style="done" id="evG-0o-hYS">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" title="search" image="search_icon" style="done" id="t9O-z8-pJ0">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="bgC-MU-4ia" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2FQ-0t-sNy"/>
-                <constraint firstItem="bgC-MU-4ia" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2M9-Uq-45p"/>
-                <constraint firstItem="bgC-MU-4ia" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="46z-FO-fPp"/>
+                <constraint firstItem="n1g-Lf-G7b" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4A4-qx-e1b"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7xu-x2-r6w"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="95Y-c9-Ikz"/>
-                <constraint firstItem="bgC-MU-4ia" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Qgd-Fi-Gb2"/>
-                <constraint firstItem="Qmq-ft-9V3" firstAttribute="top" secondItem="bgC-MU-4ia" secondAttribute="bottom" id="Rc8-yF-kh7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AxF-85-2Jc" secondAttribute="trailing" id="AqZ-2m-f7W"/>
+                <constraint firstItem="AxF-85-2Jc" firstAttribute="width" secondItem="Qmq-ft-9V3" secondAttribute="width" multiplier="0.335749" constant="275" id="GG4-1Y-jNJ"/>
+                <constraint firstItem="AxF-85-2Jc" firstAttribute="top" secondItem="Qmq-ft-9V3" secondAttribute="bottom" constant="-45" id="NHz-eb-k8h"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bSF-J4-dCE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qmq-ft-9V3" secondAttribute="trailing" id="dRB-qD-P8X"/>
-                <constraint firstItem="bgC-MU-4ia" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="r98-YE-cZt"/>
+                <constraint firstItem="n1g-Lf-G7b" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hYK-3C-C6i"/>
+                <constraint firstItem="Qmq-ft-9V3" firstAttribute="top" secondItem="n1g-Lf-G7b" secondAttribute="bottom" id="hey-IY-BjS"/>
+                <constraint firstItem="n1g-Lf-G7b" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iO4-8j-EO3"/>
+                <constraint firstItem="n1g-Lf-G7b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="maL-Ob-5u5"/>
             </constraints>
-            <point key="canvasLocation" x="19" y="60"/>
+            <point key="canvasLocation" x="18.840579710144929" y="59.598214285714285"/>
         </view>
     </objects>
     <resources>
         <image name="menu_icon" width="22" height="25"/>
         <image name="search_icon" width="33" height="30"/>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

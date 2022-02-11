@@ -30,6 +30,15 @@ enum textFieldIcons: String{
     case phoneIcon = "cellphone_icon"
 }
 
+enum AppIcons: String{
+    case menu = "menu_icon"
+    case search = "search_icon"
+    
+    var description: String{
+        rawValue
+    }
+}
+
 //custom errors in app
 enum CustomErrors: String, LocalizedError{
     case EmptyString = "Empty String Found."

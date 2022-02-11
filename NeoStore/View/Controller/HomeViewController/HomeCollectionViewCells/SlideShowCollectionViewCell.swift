@@ -8,10 +8,13 @@
 import UIKit
 
 class SlideShowCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var slideShowImageView: UIImageView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+
+
     }
 
 }
