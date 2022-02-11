@@ -324,6 +324,7 @@
 		92DC148E27B52EBB004C531D /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				92DC14A027B67CCD004C531D /* HomeProductsTypeDisplayCollectionViewCells */,
 				92DC149927B53E93004C531D /* HomeCollectionViewCells */,
 				92DC148F27B52F50004C531D /* HomeViewController.swift */,
 				92DC149027B52F50004C531D /* HomeViewController.xib */,
@@ -338,6 +339,13 @@
 				92DC149B27B53EDB004C531D /* SlideShowCollectionViewCell.xib */,
 			);
 			path = HomeCollectionViewCells;
+			sourceTree = "<group>";
+		};
+		92DC14A027B67CCD004C531D /* HomeProductsTypeDisplayCollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HomeProductsTypeDisplayCollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

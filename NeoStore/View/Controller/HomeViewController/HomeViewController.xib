@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="NeoStore" customModuleProvider="target">
             <connections>
+                <outlet property="productsTypeCollectionView" destination="7lk-rn-Pxd" id="jvZ-Ej-OfA"/>
                 <outlet property="slideShowCollectionView" destination="Qmq-ft-9V3" id="HVD-PI-xjn"/>
                 <outlet property="slideShowPageControl" destination="AxF-85-2Jc" id="TBx-pP-HKY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -20,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-ft-9V3">
+                <collectionView multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-ft-9V3" userLabel="SlideShowCollectionView">
                     <rect key="frame" x="0.0" y="88" width="414" height="229"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -60,6 +61,16 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7lk-rn-Pxd" userLabel="ProductsCollectionView">
+                    <rect key="frame" x="13" y="332" width="388" height="515"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="11" minimumInteritemSpacing="11" id="Idf-X9-gnL">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -68,14 +79,20 @@
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7xu-x2-r6w"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="95Y-c9-Ikz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AxF-85-2Jc" secondAttribute="trailing" id="AqZ-2m-f7W"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7lk-rn-Pxd" secondAttribute="trailing" constant="13" id="FsD-iE-Rmt"/>
                 <constraint firstItem="AxF-85-2Jc" firstAttribute="width" secondItem="Qmq-ft-9V3" secondAttribute="width" multiplier="0.335749" constant="275" id="GG4-1Y-jNJ"/>
                 <constraint firstItem="AxF-85-2Jc" firstAttribute="top" secondItem="Qmq-ft-9V3" secondAttribute="bottom" constant="-45" id="NHz-eb-k8h"/>
+                <constraint firstItem="7lk-rn-Pxd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="13" id="ayj-J3-LW6"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bSF-J4-dCE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qmq-ft-9V3" secondAttribute="trailing" id="dRB-qD-P8X"/>
+                <constraint firstItem="Qmq-ft-9V3" firstAttribute="top" secondItem="n1g-Lf-G7b" secondAttribute="bottom" id="eeL-Nr-U0d"/>
+                <constraint firstItem="7lk-rn-Pxd" firstAttribute="top" secondItem="Qmq-ft-9V3" secondAttribute="bottom" constant="15" id="fOQ-Ia-QPT"/>
                 <constraint firstItem="n1g-Lf-G7b" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hYK-3C-C6i"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="top" secondItem="n1g-Lf-G7b" secondAttribute="bottom" id="hey-IY-BjS"/>
                 <constraint firstItem="n1g-Lf-G7b" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iO4-8j-EO3"/>
+                <constraint firstItem="7lk-rn-Pxd" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="m54-Oo-MNt"/>
                 <constraint firstItem="n1g-Lf-G7b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="maL-Ob-5u5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7lk-rn-Pxd" secondAttribute="bottom" constant="15" id="nxe-Rf-vGs"/>
             </constraints>
             <point key="canvasLocation" x="18.840579710144929" y="59.598214285714285"/>
         </view>

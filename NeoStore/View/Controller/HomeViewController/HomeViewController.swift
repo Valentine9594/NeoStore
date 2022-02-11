@@ -10,10 +10,11 @@ import UIKit
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var slideShowCollectionView: UICollectionView!
+    @IBOutlet weak var productsTypeCollectionView: UICollectionView!
     @IBOutlet weak var slideShowPageControl: UIPageControl!
     var viewModel: HomeViewModelType!
-    var timer: Timer!
-    var currentCellIndex = 0
+    private var timer: Timer!
+    private var currentCellIndex = 0
     
     enum TotalCollectionViewsCell: String{
         case slideShow = "SlideShow"
@@ -26,7 +27,13 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         DispatchQueue.main.async {
             self.setupSlideShow()
-            self.timer = Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(appAnimation)
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
     }
     
@@ -39,12 +46,9 @@ class HomeViewController: UIViewController {
             self.currentCellIndex = 0
         }
         
-        self.slideShowCollectionView.isScrollEnabled = true
         let indexPath = IndexPath(item: currentCellIndex, section: 0)
         self.slideShowCollectionView.layoutIfNeeded()
         self.slideShowCollectionView.scrollToItem(at: indexPath, at: .left, animated: appAnimation)
-        self.slideShowPageControl.currentPage = currentCellIndex
-
     }
     
     init(viewModel: HomeViewModelType){
@@ -61,11 +65,13 @@ class HomeViewController: UIViewController {
         self.slideShowCollectionView.register(slideShowCell, forCellWithReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue)
         self.slideShowCollectionView.dataSource = self
         self.slideShowCollectionView.delegate = self
+        self.slideShowCollectionView.isScrollEnabled = true
     }
 
-    
 
 }
+
+
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -79,18 +85,19 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == self.slideShowCollectionView{
-            let slideShowcell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue, for: indexPath) as! SlideShowCollectionViewCell
-            let imageName = slideShowImageArray[indexPath.row]
-            slideShowcell.slideShowImageView.image = UIImage(named: imageName)
+            if collectionView == self.slideShowCollectionView{
+                let slideShowcell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue, for: indexPath) as! SlideShowCollectionViewCell
+                let imageName = slideShowImageArray[indexPath.row]
+                slideShowcell.slideShowImageView.image = UIImage(named: imageName)
 
-            return slideShowcell
-        }
-        else{
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue, for: indexPath)
-            
-            return cell
-        }
+                return slideShowcell
+            }
+            else{
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue, for: indexPath)
+                
+                return cell
+            }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -102,7 +109,22 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         }
     }
     
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.currentCellIndex = indexPath.item
+        self.slideShowPageControl.currentPage = self.currentCellIndex
+    }
+    
+//    NEED TO CHECK DIRECTION OF SCROLLING !!!
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+////        if scroll view detects draggin on slideshow it will check cell index
+//        if self.currentCellIndex == 0{
+////            if cell index is first then go to last
+//
+//        }
+//        else if self.currentCellIndex == self.slideShowImageArray.count-1{
+////            if cell index is last then go to first
+//            self.slideToNext()
+//        }
 //    }
+    
 }
