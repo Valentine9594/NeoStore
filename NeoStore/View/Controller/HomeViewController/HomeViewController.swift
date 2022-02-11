@@ -30,6 +30,7 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             self.setupSlideShow()
             self.setupProductTypesDisplay()
+            self.setupPageControl()
         }
     }
     
@@ -64,11 +65,26 @@ class HomeViewController: UIViewController {
     }
 
     private func setupSlideShow(){
+//        setting the collectionview which performs slideshow
         let slideShowCell = UINib(nibName: "SlideShowCollectionViewCell", bundle: nil)
         self.slideShowCollectionView.register(slideShowCell, forCellWithReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue)
         self.slideShowCollectionView.dataSource = self
         self.slideShowCollectionView.delegate = self
         self.slideShowCollectionView.isScrollEnabled = true
+    }
+    
+    private func setupPageControl(){
+//        setting the page control and indicator with slideshow
+        self.slideShowPageControl.numberOfPages = self.slideShowImageArray.count
+        self.slideShowPageControl.pageIndicatorTintColor = UIColor.appRed
+        self.slideShowPageControl.currentPageIndicatorTintColor = UIColor.appGrey
+        self.slideShowPageControl.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+//        FOR WHITE BORDER
+//        for (_, dot) in slideShowPageControl.subviews.enumerated(){
+//            dot.layer.borderWidth = 1
+//            dot.layer.borderColor = UIColor.white.cgColor
+//            dot.layer.cornerRadius = dot.frame.size.height / 2
+//        }
     }
     
     private func setupProductTypesDisplay(){

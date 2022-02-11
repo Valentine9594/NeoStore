@@ -19,7 +19,7 @@ func setTextField(textfield: UITextField ,image: UIImage?){
 extension UITextField{
     
 //    function to set image to the left of textfields
-    func setLeftView(image: UIImage){
+    @nonobjc func setLeftView(image: UIImage){
         let imageView = UIImageView(frame: CGRect(x: 10, y: 0, width: 25, height: 30))
         imageView.image = image
         
@@ -30,7 +30,7 @@ extension UITextField{
         leftViewMode = .always
     }
     
-    func setCustomTextField(){
+    @nonobjc func setCustomTextField(){
 //        function to set width, color and placeholder of color
         layer.borderWidth = 2
         layer.borderColor = UIColor.white.cgColor
