@@ -18,8 +18,10 @@ class HomeViewController: UIViewController {
     
     enum TotalCollectionViewsCell: String{
         case slideShow = "SlideShow"
+        case productDisplay = "ProductDisplayType"
     }
-    var slideShowImageArray: [String] = ["slider_img1", "slider_img2", "slider_img3", "slider_img4"]
+    let slideShowImageArray: [String] = ["slider_img1", "slider_img2", "slider_img3", "slider_img4"]
+    let productTypesImageArray: [String] = ["tableicon", "sofaicon", "chairsicon", "cupboardicon"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,7 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
         DispatchQueue.main.async {
             self.setupSlideShow()
+            self.setupProductTypesDisplay()
         }
     }
     
@@ -67,6 +70,15 @@ class HomeViewController: UIViewController {
         self.slideShowCollectionView.delegate = self
         self.slideShowCollectionView.isScrollEnabled = true
     }
+    
+    private func setupProductTypesDisplay(){
+        
+        let productDisplayCell = UINib(nibName: "HomeProductsTypeDisplayCollectionViewCell", bundle: nil)
+        self.productsTypeCollectionView.register(productDisplayCell, forCellWithReuseIdentifier: TotalCollectionViewsCell.productDisplay.rawValue)
+        self.productsTypeCollectionView.dataSource = self
+        self.productsTypeCollectionView.delegate = self
+        self.productsTypeCollectionView.isScrollEnabled = true
+    }
 
 
 }
@@ -79,23 +91,26 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return slideShowImageArray.count
         }
         else{
-            return 0
+            return 4
         }
-
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             if collectionView == self.slideShowCollectionView{
                 let slideShowcell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue, for: indexPath) as! SlideShowCollectionViewCell
-                let imageName = slideShowImageArray[indexPath.row]
-                slideShowcell.slideShowImageView.image = UIImage(named: imageName)
-
+                let imageName = slideShowImageArray[indexPath.item]
+                if let slideShowImage = UIImage(named: imageName){
+                    slideShowcell.slideShowImageView.image = slideShowImage
+                }
                 return slideShowcell
             }
             else{
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue, for: indexPath)
-                
-                return cell
+                let productDisplaycell = collectionView.dequeueReusableCell(withReuseIdentifier: TotalCollectionViewsCell.productDisplay.rawValue, for: indexPath) as! HomeProductsTypeDisplayCollectionViewCell
+                let imageName = productTypesImageArray[indexPath.item]
+                if let productTypeImage = UIImage(named: imageName){
+                    productDisplaycell.productTypeImageView.image = productTypeImage
+                }
+                return productDisplaycell
             }
 
     }
@@ -105,13 +120,32 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         }
         else{
-            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+            let cellSize = (collectionView.frame.size.width - 12)/2
+            return CGSize(width: cellSize, height: cellSize)
         }
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        if self.productsTypeCollectionView == collectionView{
+            return 12
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if self.productsTypeCollectionView == collectionView{
+            return 12
+        }
+        return 0
+    }
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.currentCellIndex = indexPath.item
-        self.slideShowPageControl.currentPage = self.currentCellIndex
+        
+        if collectionView == self.slideShowCollectionView{
+            self.currentCellIndex = indexPath.item
+            self.slideShowPageControl.currentPage = self.currentCellIndex
+        }
+
     }
     
 //    NEED TO CHECK DIRECTION OF SCROLLING !!!
@@ -126,5 +160,11 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
 //            self.slideToNext()
 //        }
 //    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.productsTypeCollectionView{
+            print(productTypesImageArray[indexPath.item])
+        }
+    }
     
 }
