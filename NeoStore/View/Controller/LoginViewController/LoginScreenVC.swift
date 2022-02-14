@@ -35,9 +35,9 @@ class LoginScreenVC: UIViewController {
         self.setupObserver()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
-    }
+//    override var preferredStatusBarStyle: UIStatusBarStyle{
+//        return .lightContent
+//    }
     
     init(viewModel: LoginViewModelType){
         self.viewModel = viewModel
@@ -67,6 +67,11 @@ class LoginScreenVC: UIViewController {
         DispatchQueue.main.async {
             let homeViewModel = HomeViewModel()
             let homeViewController = HomeViewController(viewModel: homeViewModel)
+            
+//            UIApplication.shared.windows.first?.rootViewController = homeViewController
+//            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            //            self.navigationController?.popToRootViewController(animated: appAnimation)
+            
             self.navigationController?.pushViewController(homeViewController, animated: appAnimation)
         }
     }

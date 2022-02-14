@@ -16,6 +16,12 @@ func setTextField(textfield: UITextField ,image: UIImage?){
     }
 }
 
+extension UINavigationController{
+    open override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+}
+
 extension UITextField{
     
 //    function to set image to the left of textfields

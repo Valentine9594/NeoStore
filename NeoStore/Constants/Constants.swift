@@ -19,6 +19,8 @@ enum TotalViewControllers: String{
     case RegisterViewController = "RegisterViewController"
     case ForgotPasswordViewController = "ForgotPasswordViewController"
     case HomeViewController = "HomeViewController"
+    case MyAccountViewController = "MyAccountViewController"
+    case ResetPasswordViewController = "ResetPasswordViewController"
 }
 
 //all icons name from assets
@@ -28,6 +30,8 @@ enum textFieldIcons: String{
     case passwordIcon = "password_icon"
     case openPasswordIcon = "cpassword_icon"
     case phoneIcon = "cellphone_icon"
+    case dobIcon = "dob_icon"
+    case userIcon = "user_male"
 }
 
 enum AppIcons: String{
@@ -37,6 +41,10 @@ enum AppIcons: String{
     var description: String{
         rawValue
     }
+}
+
+extension Notification.Name{
+    static let didClickMenuButton = Notification.Name("didClickMenuButton")
 }
 
 //custom errors in app
@@ -55,7 +63,7 @@ enum CustomErrors: String, LocalizedError{
 }
 
 // all app animations and switching animations true or false
-var appAnimation = true
+var appAnimation = false
 
 
 

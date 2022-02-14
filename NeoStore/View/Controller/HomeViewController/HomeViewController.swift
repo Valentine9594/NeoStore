@@ -34,18 +34,29 @@ class HomeViewController: UIViewController {
             self.setupPageControl()
             self.setupCustomNavigationBar()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(goToMyAccount), name: .didClickMenuButton, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         DispatchQueue.main.async {
-            self.setNeedsStatusBarAppearanceUpdate()
             self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(appAnimation)
+        NotificationCenter.default.removeObserver(self, name: .didClickMenuButton, object: nil)
+    }
+    
+//    override var preferredStatusBarStyle: UIStatusBarStyle{
+//        return .lightContent
+//    }
+    
+    @objc func goToMyAccount(){
+        let myAccountViewController = MyAccountViewController(nibName: TotalViewControllers.MyAccountViewController.rawValue, bundle: nil)
+        navigationController?.pushViewController(myAccountViewController, animated: appAnimation)
     }
     
     private func setupCustomNavigationBar(){
