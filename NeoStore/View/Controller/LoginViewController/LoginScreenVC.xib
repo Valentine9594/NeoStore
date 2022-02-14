@@ -65,7 +65,7 @@
                                         <constraint firstItem="Lre-xg-SDE" firstAttribute="leading" secondItem="FJY-Zl-ZNJ" secondAttribute="leading" id="jf6-0U-ESp"/>
                                     </constraints>
                                 </stackView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NeoSTORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="11C-Ya-oup">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NeoSTORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="11C-Ya-oup">
                                     <rect key="frame" x="33" y="123" width="348" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="mJg-YU-6aT"/>
@@ -109,7 +109,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UlG-UD-Ftn">
-                                    <rect key="frame" x="33" y="455" width="348" height="30"/>
+                                    <rect key="frame" x="33" y="455" width="348" height="33"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <state key="normal" title="Forgot Password?">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

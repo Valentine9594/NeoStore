@@ -43,6 +43,8 @@
 		92DC149F27B54538004C531D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC149E27B54538004C531D /* HomeViewModel.swift */; };
 		92DC14A327B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14A127B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.swift */; };
 		92DC14A427B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14A227B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.xib */; };
+		92DC14AB27BA2903004C531D /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14AA27BA2903004C531D /* CustomNavigationBar.swift */; };
+		92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14B027BA2CCA004C531D /* CustomNavigationBar.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		92DC149E27B54538004C531D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		92DC14A127B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeProductsTypeDisplayCollectionViewCell.swift; sourceTree = "<group>"; };
 		92DC14A227B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeProductsTypeDisplayCollectionViewCell.xib; sourceTree = "<group>"; };
+		92DC14AA27BA2903004C531D /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		92DC14B027BA2CCA004C531D /* CustomNavigationBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomNavigationBar.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -328,6 +332,7 @@
 		92DC148E27B52EBB004C531D /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				92DC14A527BA25DF004C531D /* HomeViewControllerNavigationBar */,
 				92DC14A027B67CCD004C531D /* HomeProductsTypeDisplayCollectionViewCells */,
 				92DC149927B53E93004C531D /* HomeCollectionViewCells */,
 				92DC148F27B52F50004C531D /* HomeViewController.swift */,
@@ -352,6 +357,15 @@
 				92DC14A227B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.xib */,
 			);
 			path = HomeProductsTypeDisplayCollectionViewCells;
+			sourceTree = "<group>";
+		};
+		92DC14A527BA25DF004C531D /* HomeViewControllerNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				92DC14AA27BA2903004C531D /* CustomNavigationBar.swift */,
+				92DC14B027BA2CCA004C531D /* CustomNavigationBar.xib */,
+			);
+			path = HomeViewControllerNavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +455,7 @@
 				92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */,
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
+				92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
 				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
 				92DC149D27B53EDB004C531D /* SlideShowCollectionViewCell.xib in Resources */,
@@ -481,6 +496,7 @@
 				92DC145A27ABF32E004C531D /* UserService.swift in Sources */,
 				92DC144D27AAB3FF004C531D /* UIFont+Extension.swift in Sources */,
 				92DC149F27B54538004C531D /* HomeViewModel.swift in Sources */,
+				92DC14AB27BA2903004C531D /* CustomNavigationBar.swift in Sources */,
 				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
 				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,

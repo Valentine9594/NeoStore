@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var slideShowCollectionView: UICollectionView!
     @IBOutlet weak var productsTypeCollectionView: UICollectionView!
     @IBOutlet weak var slideShowPageControl: UIPageControl!
+    @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     var viewModel: HomeViewModelType!
     private var timer: Timer!
     private var currentCellIndex = 0
@@ -31,6 +32,7 @@ class HomeViewController: UIViewController {
             self.setupSlideShow()
             self.setupProductTypesDisplay()
             self.setupPageControl()
+            self.setupCustomNavigationBar()
         }
     }
     
@@ -39,6 +41,17 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
+    }
+    
+    private func setupCustomNavigationBar(){
+        let navigationBarView = UINib(nibName: "CustomNavigationBar", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+        navigationBarView.translatesAutoresizingMaskIntoConstraints = false
+        self.customNavigationBar.addSubview(navigationBarView)
+        
+        navigationBarView.topAnchor.constraint(equalTo: self.customNavigationBar.topAnchor).isActive = true
+        navigationBarView.leadingAnchor.constraint(equalTo: self.customNavigationBar.leadingAnchor).isActive = true
+        navigationBarView.trailingAnchor.constraint(equalTo: self.customNavigationBar.trailingAnchor).isActive = true
+        navigationBarView.bottomAnchor.constraint(equalTo: self.customNavigationBar.bottomAnchor).isActive = true
     }
     
     @objc func slideToNext(){
@@ -93,7 +106,7 @@ class HomeViewController: UIViewController {
         self.productsTypeCollectionView.register(productDisplayCell, forCellWithReuseIdentifier: TotalCollectionViewsCell.productDisplay.rawValue)
         self.productsTypeCollectionView.dataSource = self
         self.productsTypeCollectionView.delegate = self
-        self.productsTypeCollectionView.isScrollEnabled = true
+        self.productsTypeCollectionView.isScrollEnabled = false
     }
 
 
@@ -136,7 +149,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         }
         else{
-            let cellSize = (collectionView.frame.size.width - 12)/2
+            let minimumSize = min(collectionView.frame.size.width, collectionView.frame.size.height)
+            let cellSize = (minimumSize - 12)/2
+            if minimumSize == collectionView.frame.size.height{
+                let toAdjustWidth = collectionView.frame.size.width - 2*cellSize
+                let constantToAddWidth = (toAdjustWidth - 12)/2
+                return CGSize(width: cellSize + constantToAddWidth, height: cellSize)
+            }
             return CGSize(width: cellSize, height: cellSize)
         }
     }
