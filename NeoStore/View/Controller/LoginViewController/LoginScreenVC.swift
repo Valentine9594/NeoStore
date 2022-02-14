@@ -35,6 +35,10 @@ class LoginScreenVC: UIViewController {
         self.setupObserver()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    
     init(viewModel: LoginViewModelType){
         self.viewModel = viewModel
         super.init(nibName: TotalViewControllers.LoginViewController.rawValue, bundle: nil)

@@ -39,11 +39,19 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         DispatchQueue.main.async {
+            self.setNeedsStatusBarAppearanceUpdate()
             self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
+    
     private func setupCustomNavigationBar(){
+//        setting status bar color
+        self.view.backgroundColor = UIColor.appRed
+        
         let navigationBarView = UINib(nibName: "CustomNavigationBar", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
         navigationBarView.translatesAutoresizingMaskIntoConstraints = false
         self.customNavigationBar.addSubview(navigationBarView)
@@ -107,6 +115,7 @@ class HomeViewController: UIViewController {
         self.productsTypeCollectionView.dataSource = self
         self.productsTypeCollectionView.delegate = self
         self.productsTypeCollectionView.isScrollEnabled = false
+        self.productsTypeCollectionView.backgroundColor = UIColor.white
     }
 
 
