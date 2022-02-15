@@ -31,13 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     }
     
-    func switchRootViewcontrollerToHome(viewController: UIViewController){
-//        let homeViewModel = HomeViewModel()
-//        let homeViewController = HomeViewController(viewModel: homeViewModel)
-        let navigationController = UINavigationController(rootViewController: viewController)
+    func switchRootViewcontrollerToHome(){
+        let homeViewModel = HomeViewModel()
+        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        let navigationController = UINavigationController(rootViewController: homeViewController)
         
         self.window?.rootViewController = navigationController
-        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController?.navigationController?.pushViewController(homeViewController, animated: appAnimation)
+//        self.window?.makeKeyAndVisible()
     }
     
     func switchRootViewcontrollerToLogin(){

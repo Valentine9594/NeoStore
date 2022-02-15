@@ -41,6 +41,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
 
         DispatchQueue.main.async {
+            let appdelegate = UIApplication.shared.delegate as! AppDelegate
+            appdelegate.switchRootViewcontrollerToHome()
             self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
     }

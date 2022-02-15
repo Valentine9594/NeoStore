@@ -68,10 +68,10 @@ class LoginScreenVC: UIViewController {
     
     private func setupSuccessfullLogIn(){
         DispatchQueue.main.async {
-            let appDelgate = UIApplication.shared.delegate as! AppDelegate
+//            let appDelgate = UIApplication.shared.delegate as! AppDelegate
             let homeViewModel = HomeViewModel()
             let homeViewController = HomeViewController(viewModel: homeViewModel)
-            appDelgate.switchRootViewcontrollerToHome(viewController: homeViewController)
+//            appDelgate.switchRootViewcontrollerToHome()
             self.navigationController?.pushViewController(homeViewController, animated: appAnimation)
         }
     }
@@ -102,6 +102,7 @@ class LoginScreenVC: UIViewController {
 //        function to close keyboard if clicked anywhere
         self.view.endEditing(true)
         self.view.resignFirstResponder()
+        self.scrollView.isScrollEnabled = false
     }
     
     @IBAction func clickedForgotPassword(_ sender: UIButton){
@@ -119,6 +120,7 @@ class LoginScreenVC: UIViewController {
     private func setupUI(){
 //        custom background color
         self.view.backgroundColor  = UIColor.appRed
+        self.scrollView.isScrollEnabled = false
         
 //        setting icon and border in all textfields
         setTextField(textfield: usernameTF, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
@@ -154,11 +156,13 @@ class LoginScreenVC: UIViewController {
         let keyboardHeight = keyboardRectangle.height
         self.scrollView.contentInset.bottom = keyboardHeight
         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
+        self.scrollView.isScrollEnabled = true
     }
     
     @objc func keyboardHide(){
 //        code to adjust scrollview to zero after keyboard closing
         self.scrollView.contentInset.bottom = .zero
         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
+        self.scrollView.isScrollEnabled = false
     }
 }
