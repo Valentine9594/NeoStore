@@ -39,14 +39,14 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(appAnimation)
+
         NotificationCenter.default.removeObserver(self, name: .didClickMenuButton, object: nil)
     }
     
@@ -128,7 +128,6 @@ class HomeViewController: UIViewController {
         self.productsTypeCollectionView.isScrollEnabled = false
         self.productsTypeCollectionView.backgroundColor = UIColor.white
     }
-
 
 }
 

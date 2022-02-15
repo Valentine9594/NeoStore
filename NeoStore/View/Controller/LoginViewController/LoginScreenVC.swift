@@ -53,6 +53,9 @@ class LoginScreenVC: UIViewController {
         self.viewModel.loginStatus.bindAndFire { [weak self] result in
             switch result{
                 case .success:
+                    DispatchQueue.main.async {
+                        self?.dismissKeyboard()
+                    }
                     self?.setupSuccessfullLogIn()
                 case .failure:
                     let message = "Incorrect Email or Password!"
@@ -65,13 +68,10 @@ class LoginScreenVC: UIViewController {
     
     private func setupSuccessfullLogIn(){
         DispatchQueue.main.async {
+            let appDelgate = UIApplication.shared.delegate as! AppDelegate
             let homeViewModel = HomeViewModel()
             let homeViewController = HomeViewController(viewModel: homeViewModel)
-            
-//            UIApplication.shared.windows.first?.rootViewController = homeViewController
-//            UIApplication.shared.windows.first?.makeKeyAndVisible()
-            //            self.navigationController?.popToRootViewController(animated: appAnimation)
-            
+            appDelgate.switchRootViewcontrollerToHome(viewController: homeViewController)
             self.navigationController?.pushViewController(homeViewController, animated: appAnimation)
         }
     }
@@ -134,7 +134,7 @@ class LoginScreenVC: UIViewController {
     
     private func setupNotificationsAndGestures(){
 //        setting up notification for keyboard pop up
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow(notification:)), name: UIResponder.keyboardDidShowNotification, object: nil)
 //        setting up notification for keyboard hiding
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         

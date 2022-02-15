@@ -27,8 +27,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-    }
+        
 
+    }
+    
+    func switchRootViewcontrollerToHome(viewController: UIViewController){
+//        let homeViewModel = HomeViewModel()
+//        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+    }
+    
+    func switchRootViewcontrollerToLogin(){
+        let loginViewModel = LoginViewModel()
+        let loginViewController = LoginScreenVC(viewModel: loginViewModel)
+        let navigationController = UINavigationController(rootViewController: loginViewController)
+        
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+    }
+    
     // MARK: - Core Data stack
 
     lazy var persistentContainer: NSPersistentContainer = {

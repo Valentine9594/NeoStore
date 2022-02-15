@@ -63,7 +63,7 @@ enum CustomErrors: String, LocalizedError{
 }
 
 // all app animations and switching animations true or false
-var appAnimation = false
+var appAnimation = true
 
 
 
