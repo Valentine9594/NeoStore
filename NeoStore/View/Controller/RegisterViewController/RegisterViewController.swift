@@ -39,7 +39,6 @@ class RegisterViewController: UIViewController {
             self.setupNotificationsAndGestures()
             self.setupNavigationBar()
         }
-        self.setupObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {

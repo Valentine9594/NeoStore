@@ -65,9 +65,6 @@ enum CustomErrors: String, LocalizedError{
 // all app animations and switching animations true or false
 var appAnimation = true
 
-
-
-
 func jsonParser(jsonData: Data) -> APIResponse<Any>{
 //    function to decode data using json decoder/serialisation
     do {

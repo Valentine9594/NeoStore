@@ -17,8 +17,13 @@ struct userDetails{
     let phoneNumber: Int
 }
 
-struct userResponseDetails{
-    
+struct userAccountDetails{
+    let firstname: String
+    let lastname: String
+    let profileImage: String
+    let email: String
+    let dob: String
+    let phoneNo: String
 }
 
 struct jsonDataResponse{

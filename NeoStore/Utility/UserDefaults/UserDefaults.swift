@@ -106,3 +106,9 @@ func convertDictionaryToObject(dictionary: AnyDict) throws -> userResponse?{
         throw ObjectSavableError.conversionError
     }
 }
+
+func createUserResponseObject(id: Int, roleId: Int, firstname: String, lastname: String, email: String, username: String, gender: String, phoneNo: Int, isActive: Bool, created: Date, modified: Date, accessToken: String){
+    
+    debugPrint("Converting into user response object.")
+    
+}

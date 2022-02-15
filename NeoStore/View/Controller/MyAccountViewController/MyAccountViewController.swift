@@ -84,8 +84,9 @@ class MyAccountViewController: UIViewController {
     }
     
     @IBAction func clickedResetPasswordButton(_ sender: UIButton) {
-        let resetPasswordVC = ResetPasswordViewController(nibName: TotalViewControllers.ResetPasswordViewController.rawValue, bundle: nil)
-        navigationController?.pushViewController(resetPasswordVC, animated: appAnimation)
+        let resetPasswordViewModel = ResetPasswordViewModel()
+        let resetPasswordViewController = ResetPasswordViewController(viewModel: resetPasswordViewModel)
+        navigationController?.pushViewController(resetPasswordViewController, animated: appAnimation)
     }
     
 

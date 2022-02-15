@@ -50,6 +50,8 @@
 		92DC14BA27BA7F3D004C531D /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14B827BA7F3D004C531D /* ResetPasswordViewController.swift */; };
 		92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14B927BA7F3D004C531D /* ResetPasswordViewController.xib */; };
 		92DC14BD27BB6690004C531D /* UIViews+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14BC27BB6690004C531D /* UIViews+Extension.swift */; };
+		92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14BE27BBC91C004C531D /* ResetPasswordViewModel.swift */; };
+		92DC14C127BBC93B004C531D /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +112,8 @@
 		92DC14B827BA7F3D004C531D /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		92DC14B927BA7F3D004C531D /* ResetPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResetPasswordViewController.xib; sourceTree = "<group>"; };
 		92DC14BC27BB6690004C531D /* UIViews+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViews+Extension.swift"; sourceTree = "<group>"; };
+		92DC14BE27BBC91C004C531D /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
+		92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +181,8 @@
 				92DC146927B138BA004C531D /* RegisterViewModel.swift */,
 				92DC148C27B3F15C004C531D /* ForgotPasswordViewModel.swift */,
 				92DC149E27B54538004C531D /* HomeViewModel.swift */,
+				92DC14BE27BBC91C004C531D /* ResetPasswordViewModel.swift */,
+				92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -514,7 +520,9 @@
 				92DC148127B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
+				92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
+				92DC14C127BBC93B004C531D /* MyAccountViewModel.swift in Sources */,
 				92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */,
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
 				92DC149127B52F50004C531D /* HomeViewController.swift in Sources */,

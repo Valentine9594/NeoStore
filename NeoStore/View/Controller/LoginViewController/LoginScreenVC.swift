@@ -25,7 +25,6 @@ class LoginScreenVC: UIViewController {
             self.setupUI()
             self.setupNotificationsAndGestures()
         }
-        self.setupObserver()
     }
     
     override func viewWillAppear(_ animated: Bool) {

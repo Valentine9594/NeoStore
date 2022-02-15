@@ -13,6 +13,7 @@ class ResetPasswordViewController: UIViewController {
     @IBOutlet weak var confirmNewPasswordTextfield: UITextField!
     @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    var viewModel: ResetPasswordViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +22,21 @@ class ResetPasswordViewController: UIViewController {
         DispatchQueue.main.async {
             self.setupUI()
             self.setupNotificationsAndGestures()
+            self.setupObservers()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.setupObservers()
+    }
+    
+    init(viewModel: ResetPasswordViewModelType){
+        self.viewModel = viewModel
+        super.init(nibName: TotalViewControllers.ResetPasswordViewController.rawValue, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupUI(){
@@ -48,6 +63,24 @@ class ResetPasswordViewController: UIViewController {
         
     }
     
+    private func setupObservers(){
+        self.viewModel.resetPasswordStatus.bindAndFire { resetPasswordResult in
+            switch resetPasswordResult{
+                case .success:
+                    self.callAlert(alertTitle: "Reset Password Successful", alertMessage: "Password has been reset successfully.", actionTitle: "OK")
+                    DispatchQueue.main.async {
+                        let loginViewModel = LoginViewModel()
+                        let loginViewController = LoginScreenVC(viewModel: loginViewModel)
+                        self.navigationController?.pushViewController(loginViewController, animated: appAnimation)
+                    }
+                case .failure:
+                    self.callAlert(alertTitle: "Reset Password Failed!", alertMessage: "Could not reset password please try again later.", actionTitle: "OK")
+                case .none:
+                    break
+            }
+        }
+    }
+    
     @objc func dismissKeyboard(){
 //        function to close keyboard if clicked anywhere
         self.view.endEditing(true)
@@ -70,7 +103,30 @@ class ResetPasswordViewController: UIViewController {
     }
     
     @IBAction func clickedResetPassword(_ sender: UIButton) {
-        debugPrint("Clicked Reset Password!!")
+        if let currentPassword = currentPasswordTextfield.text, let newPassword = newPasswordTextfield.text, let confirmPassword = confirmNewPasswordTextfield.text{
+            debugPrint("Going ahead")
+            let validationResult = self.viewModel.validateResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword)
+            if validationResult{
+                
+                self.viewModel.getResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword)
+            }
+            else{
+                callAlert(alertTitle: "Alert!", alertMessage: "Textfields Incorrect or cannot set old password again.", actionTitle: "OK")
+            }
+        }
+        else{
+            callAlert(alertTitle: "Alert!", alertMessage: "Some textfields are empty.", actionTitle: "OK")
+        }
+    }
+    
+    func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+            var alertAction: UIAlertAction!
+            alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: appAnimation, completion: nil)
+        }
     }
     
 }
