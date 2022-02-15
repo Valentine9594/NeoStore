@@ -17,6 +17,7 @@ class MyAccountViewController: UIViewController {
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var resetPasswordTextfield: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+    var viewModel: MyAccountUpdateViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,15 @@ class MyAccountViewController: UIViewController {
             self.setupUI()
             self.setupNotificationsAndGestures()
         }
+    }
+    
+    init(viewModel: MyAccountUpdateViewModelType){
+        self.viewModel = viewModel
+        super.init(nibName: TotalViewControllers.MyAccountViewController.rawValue, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
     private func setupUI(){

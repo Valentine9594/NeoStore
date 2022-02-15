@@ -57,7 +57,8 @@ class HomeViewController: UIViewController {
 //    }
     
     @objc func goToMyAccount(){
-        let myAccountViewController = MyAccountViewController(nibName: TotalViewControllers.MyAccountViewController.rawValue, bundle: nil)
+        let myAccountViewModel = MyAccountUpdateViewModel()
+        let myAccountViewController = MyAccountViewController(viewModel: myAccountViewModel)
         navigationController?.pushViewController(myAccountViewController, animated: appAnimation)
     }
     
