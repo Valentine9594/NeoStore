@@ -35,12 +35,11 @@
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kXU-u3-276">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <view contentMode="scaleToFill" id="k3L-4h-OgH" userLabel="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3L-4h-OgH" userLabel="contentView">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="772.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJY-Zl-ZNJ">
-                                    <rect key="frame" x="33" y="759" width="348" height="46"/>
+                                    <rect key="frame" x="33" y="726.5" width="348" height="46"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Lre-xg-SDE">
                                             <rect key="frame" x="0.0" y="0.0" width="302" height="46"/>
@@ -135,7 +134,7 @@
                                 <constraint firstItem="UlG-UD-Ftn" firstAttribute="top" secondItem="b3v-hh-ecv" secondAttribute="bottom" constant="22" id="LCI-7U-aaQ"/>
                                 <constraint firstItem="Jbb-wS-1D5" firstAttribute="top" secondItem="LbM-lB-0jK" secondAttribute="bottom" constant="16" id="MiZ-tx-5Su"/>
                                 <constraint firstItem="LbM-lB-0jK" firstAttribute="leading" secondItem="k3L-4h-OgH" secondAttribute="leading" constant="33" id="ZN3-eI-v8q"/>
-                                <constraint firstAttribute="bottom" secondItem="FJY-Zl-ZNJ" secondAttribute="bottom" constant="13" id="ZoQ-fm-udY"/>
+                                <constraint firstAttribute="bottom" secondItem="FJY-Zl-ZNJ" secondAttribute="bottom" id="ZoQ-fm-udY"/>
                                 <constraint firstItem="FJY-Zl-ZNJ" firstAttribute="leading" secondItem="k3L-4h-OgH" secondAttribute="leading" constant="33" id="eDZ-c9-9os"/>
                                 <constraint firstItem="b3v-hh-ecv" firstAttribute="top" secondItem="Jbb-wS-1D5" secondAttribute="bottom" constant="33" id="f5M-1D-wsN"/>
                                 <constraint firstItem="LbM-lB-0jK" firstAttribute="top" secondItem="11C-Ya-oup" secondAttribute="bottom" constant="49" id="i2o-Q9-aqp"/>
@@ -147,10 +146,10 @@
                         </view>
                     </subviews>
                     <constraints>
+                        <constraint firstItem="k3L-4h-OgH" firstAttribute="width" secondItem="kXU-u3-276" secondAttribute="width" id="3Fa-i0-1io"/>
                         <constraint firstItem="k3L-4h-OgH" firstAttribute="leading" secondItem="kXU-u3-276" secondAttribute="leading" id="AbS-qo-aJR"/>
                         <constraint firstAttribute="trailing" secondItem="k3L-4h-OgH" secondAttribute="trailing" id="Do8-rY-nMw"/>
                         <constraint firstItem="k3L-4h-OgH" firstAttribute="top" secondItem="kXU-u3-276" secondAttribute="top" id="J0Z-Fa-xKI"/>
-                        <constraint firstItem="k3L-4h-OgH" firstAttribute="width" secondItem="kXU-u3-276" secondAttribute="width" id="Sw5-iC-mqY"/>
                         <constraint firstAttribute="bottom" secondItem="k3L-4h-OgH" secondAttribute="bottom" id="Wpf-X1-he2"/>
                         <constraint firstItem="k3L-4h-OgH" firstAttribute="height" secondItem="kXU-u3-276" secondAttribute="height" multiplier="0.944196" priority="250" id="yXf-o2-90n"/>
                     </constraints>
@@ -160,10 +159,12 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="kXU-u3-276" secondAttribute="top" id="Vqw-5z-A5x"/>
+                <constraint firstItem="kXU-u3-276" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="dgi-Wy-3AE"/>
                 <constraint firstItem="kXU-u3-276" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="jl7-S5-Lhf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kXU-u3-276" secondAttribute="trailing" id="pz9-YZ-gVu"/>
                 <constraint firstItem="kXU-u3-276" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="qJY-sF-E5d"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="131.8840579710145" y="41.517857142857139"/>
         </view>
     </objects>

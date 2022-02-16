@@ -177,6 +177,7 @@
                 <constraint firstItem="aAg-nB-HDJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="l5e-sL-cE6"/>
                 <constraint firstItem="aAg-nB-HDJ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="qux-3C-Zb7"/>
             </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="2.8985507246376816" y="30.803571428571427"/>
         </view>
     </objects>
