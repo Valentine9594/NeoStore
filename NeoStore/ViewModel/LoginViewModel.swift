@@ -41,7 +41,7 @@ class LoginViewModel: LoginViewModelType{
 //                        save data in userdefaults
                         guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
                         do {
-                            try saveDataToUserDefaults(responseContent: contentData)
+                            try saveLoginAndRegisterDataToUserDefaults(responseContent: contentData)
                         }
                         catch (let error){
                             debugPrint(error.localizedDescription)

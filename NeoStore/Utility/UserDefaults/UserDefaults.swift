@@ -20,6 +20,8 @@ enum UserDefaultsKeys: String{
     case created = "created"
     case modified = "modified"
     case accessToken = "access_token"
+    case dob = "dob"
+    case profilePicture = "profile_pic"
     
     var description: String{
         rawValue
@@ -148,16 +150,14 @@ extension UserDefaults{
 }
 
 
-func saveDataToUserDefaults(responseContent: AnyDict) throws{
-    
-    let userDefaults = UserDefaults.standard
+func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 
     guard let id = responseContent[UserDefaultsKeys.id.description], let roleId = responseContent[UserDefaultsKeys.roleId.description], let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description], let email = responseContent[UserDefaultsKeys.email.description], let username = responseContent[UserDefaultsKeys.username.description], let gender = responseContent[UserDefaultsKeys.gender.description], let phoneNo = responseContent[UserDefaultsKeys.phoneNo.description], let isActive = responseContent[UserDefaultsKeys.isActive.description], let created = responseContent[UserDefaultsKeys.created.description], let modified = responseContent[UserDefaultsKeys.modified.description], let accessToken = responseContent[UserDefaultsKeys.accessToken.description] else{
         throw CustomErrors.CouldNotSaveInUserDefaults }
     
-//    guard let createdDate = formatDate(dateStringAny: created), let modifiedDate = formatDate(dateStringAny: modified) else{throw CustomErrors.CouldNotSaveInUserDefaults }
+    let userDefaults = UserDefaults.standard
     
-    debugPrint("NOW SAVING IN USERDEFAULTS")
+//    guard let createdDate = formatDate(dateStringAny: created), let modifiedDate = formatDate(dateStringAny: modified) else{throw CustomErrors.CouldNotSaveInUserDefaults }
     
 //    userDefaults.setCreated(value: createdDate)
 //    userDefaults.setModified(value: modifiedDate)
@@ -181,6 +181,19 @@ func saveDataToUserDefaults(responseContent: AnyDict) throws{
         throw error
     }
 
+}
+
+func saveEditedMyAccountDataToUserDefaults(responseContent: AnyDict) throws{
+    guard let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description] else{ throw CustomErrors.CouldNotSaveInUserDefaults }
+    
+    let userDefaults = UserDefaults.standard
+    
+    do {
+        try userDefaults.setFirstname(value: firstname)
+        try userDefaults.setLastname(value: lastname)
+    } catch let error {
+        throw error
+    }
 }
 
 func getDataFromUserDefaults(key: UserDefaultsKeys) -> String?{

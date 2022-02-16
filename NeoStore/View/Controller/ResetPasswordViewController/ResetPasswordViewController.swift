@@ -22,11 +22,15 @@ class ResetPasswordViewController: UIViewController {
         DispatchQueue.main.async {
             self.setupUI()
             self.setupNotificationsAndGestures()
-            self.setupObservers()
+            self.setupNavigationBar()
+//            self.setupObservers()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.navigationController?.isNavigationBarHidden = false
+        }
         self.setupObservers()
     }
     
@@ -79,6 +83,24 @@ class ResetPasswordViewController: UIViewController {
                     break
             }
         }
+    }
+    
+    
+    private func setupNavigationBar(){
+//        function to setup navigation bar
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.barTintColor = UIColor.appRed
+        navigationBar?.tintColor = UIColor.white
+        navigationBar?.isTranslucent = appAnimation
+        navigationBar?.barStyle = .black
+        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
+        
+        navigationItem.title = "Reset Password"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
+    }
+    
+    @objc func popToPreviousViewController() -> Void{
+        self.navigationController?.popViewController(animated: appAnimation)
     }
     
     @objc func dismissKeyboard(){

@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
         DispatchQueue.main.async {
 //            let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //            appdelegate.switchRootViewcontrollerToHome()
+            self.navigationController?.isNavigationBarHidden = true
             self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
     }
@@ -74,9 +75,9 @@ class HomeViewController: UIViewController {
         self.navigationController?.popViewController(animated: appAnimation)
     }
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle{
-//        return .lightContent
-//    }
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     
     @objc func goToMyAccount(){
         let myAccountViewModel = MyAccountUpdateViewModel()

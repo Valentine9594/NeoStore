@@ -20,7 +20,6 @@ class LoginScreenVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         DispatchQueue.main.async {
             self.setupUI()
             self.setupNotificationsAndGestures()
@@ -34,9 +33,9 @@ class LoginScreenVC: UIViewController {
         self.setupObserver()
     }
     
-//    override var preferredStatusBarStyle: UIStatusBarStyle{
-//        return .lightContent
-//    }
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        return .lightContent
+    }
     
     init(viewModel: LoginViewModelType){
         self.viewModel = viewModel

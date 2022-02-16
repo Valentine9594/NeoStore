@@ -20,9 +20,9 @@ struct userDetails{
 struct userAccountDetails{
     let firstname: String
     let lastname: String
-    let profileImage: String
+    let profileImage: String?
     let email: String
-    let dob: String
+    let dob: String?
     let phoneNo: String
 }
 

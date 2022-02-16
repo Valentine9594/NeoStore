@@ -17,6 +17,8 @@ class MyAccountViewController: UIViewController {
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var resetPasswordTextfield: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
+//    var imagePicker = ImagePicker!
+    var imagePicker: ImagePicker!
     var viewModel: MyAccountUpdateViewModelType!
     
     override func viewDidLoad() {
@@ -24,9 +26,18 @@ class MyAccountViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         DispatchQueue.main.async {
-            self.setupUI()
             self.setupNotificationsAndGestures()
+            self.setupUI()
+            self.setupNavigationBar()
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(appAnimation)
+        DispatchQueue.main.async {
+            self.navigationController?.isNavigationBarHidden = false
+        }
+        self.setupObservers()
     }
     
     init(viewModel: MyAccountUpdateViewModelType){
@@ -37,14 +48,33 @@ class MyAccountViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    private func setupObservers(){
+        self.viewModel.myAccountUpdateStatus.bindAndFire { MyAccountUpdateResult in
+            switch MyAccountUpdateResult{
+                case .success:
+                    debugPrint("Success Alert")
+                    self.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
+                case .failure:
+                    debugPrint("Failure Alert")
+                    self.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
+                case .none:
+                    break
+            }
+        }
+    }
 
     private func setupUI(){
+        self.becomeFirstResponder()
+        self.imagePicker = ImagePicker(presentationController: self, delegate: self)
+        
         if let image = UIImage(named: textFieldIcons.userIcon.rawValue){
             profilImageView.image = image
         }
         profilImageView.layer.cornerRadius = 67
         profilImageView.layer.borderWidth = 2
         profilImageView.layer.borderColor = UIColor.white.cgColor
+        profilImageView.isUserInteractionEnabled = true
         
         setTextField(textfield: firstnameTextfield, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
         setTextField(textfield: lastnameTextfield, image: UIImage(named: textFieldIcons.usernameIcon.rawValue))
@@ -66,6 +96,14 @@ class MyAccountViewController: UIViewController {
         let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
         
+        let profileImageTap = UITapGestureRecognizer(target: self, action: #selector(clickedProfileImageView))
+        self.profilImageView.addGestureRecognizer(profileImageTap)
+        
+    }
+    
+    @objc func clickedProfileImageView(){
+        debugPrint("Clicked Profile Image!!!")
+        self.imagePicker.present(from: self.scrollView)
     }
     
     @objc func dismissKeyboard(){
@@ -89,8 +127,55 @@ class MyAccountViewController: UIViewController {
         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
     }
     
-    @IBAction func clickedResetPassword(_ sender: UIButton) {
-        debugPrint("Clicked Reset Password!!")
+    
+    @IBAction func clickedEditProfileButton(_ sender: UIButton) {
+        self.editProfileButton.setTitle("Save", for: .normal)
+        
+        var profileImageString: String? = nil
+        if let profileImage = profilImageView.image{
+            profileImageString = convertImageIntoString(image: profileImage)
+        }
+        
+        var dateOfBirth: String? = nil
+        if let dob = dateOfBirthTextField.text{
+            dateOfBirth = dob
+        }
+        
+        if let firstname = firstnameTextfield.text, let lastname = lastnameTextfield.text, let email = emailTextfield.text, let phoneNo = phoneNumberTextfield.text{
+            
+            let userNewAccountDetails = userAccountDetails(firstname: firstname, lastname: lastname, profileImage: profileImageString, email: email, dob: dateOfBirth, phoneNo: phoneNo)
+            let validationResult = self.viewModel.validateEditMyAccountDetails(userEditAccountDetails: userNewAccountDetails)
+            
+            if validationResult{
+                self.viewModel.getmyAccountUpdateDetails(userEditAccountDetails: userNewAccountDetails)
+            }
+            else{
+                debugPrint("Incorrect Alert")
+                callAlert(alertTitle: "Alert!", alertMessage: "Some textfields have incorrect values.", actionTitle: "OK")
+            }
+            
+        }else{
+            debugPrint("No Text Alert")
+            callAlert(alertTitle: "Alert!", alertMessage: "Some textfields are empty please fill them!", actionTitle: "OK")
+        }
+        
+    }
+    
+    func convertImageIntoString(image: UIImage) -> String?{
+        var imageData: Data? = nil
+        if let imageDataPng = image.pngData(){
+            imageData = imageDataPng
+        }
+        else if let imageDataJpeg = image.jpegData(compressionQuality: 1){
+            imageData = imageDataJpeg
+        }
+        
+        if imageData != nil{
+            let imageString = imageData?.base64EncodedString()
+            return imageString
+        }
+        
+        return nil
     }
     
     @IBAction func clickedResetPasswordButton(_ sender: UIButton) {
@@ -99,5 +184,39 @@ class MyAccountViewController: UIViewController {
         navigationController?.pushViewController(resetPasswordViewController, animated: appAnimation)
     }
     
+    
+    private func setupNavigationBar(){
+//        function to setup navigation bar
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.barTintColor = UIColor.appRed
+        navigationBar?.tintColor = UIColor.white
+        navigationBar?.isTranslucent = appAnimation
+        navigationBar?.barStyle = .black
+        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
+        
+        navigationItem.title = "My Account"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
+    }
+    
+    @objc func popToPreviousViewController() -> Void{
+        self.navigationController?.popViewController(animated: appAnimation)
+    }
+    
+    func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+            var alertAction: UIAlertAction!
+            alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: appAnimation, completion: nil)
+        }
+    }
+    
 
+}
+
+extension MyAccountViewController: ImagePickerDelegate{
+    func didSelect(image: UIImage?) {
+        self.profilImageView.image = image
+    }
 }

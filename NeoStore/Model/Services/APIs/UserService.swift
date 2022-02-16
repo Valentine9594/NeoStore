@@ -96,7 +96,7 @@ class UserService{
     
     static func userUpdateAccountDetails(userAccountDetails: userAccountDetails, completion: @escaping(APIResponse<Any>)->Void){
         
-        let params = ["first_name": userAccountDetails.firstname, "last_name": userAccountDetails.lastname, "email": userAccountDetails.email, "dob": userAccountDetails.dob, "phone_no": userAccountDetails.phoneNo, "profile_pic": userAccountDetails.profileImage]
+        let params = ["first_name": userAccountDetails.firstname, "last_name": userAccountDetails.lastname, "email": userAccountDetails.email, "dob": userAccountDetails.dob ?? "", "phone_no": userAccountDetails.phoneNo, "profile_pic": userAccountDetails.profileImage ?? ""] as AnyDict
         
         APIManager.sharedInstance.performRequest(serviceType: .updateAccount(parameters: params)) { (response) in
             switch response{

@@ -101,7 +101,7 @@
                                             <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="tel"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RGp-Uh-vMg">
+                                        <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Date of Birth" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RGp-Uh-vMg">
                                             <rect key="frame" x="0.0" y="264" width="348" height="53"/>
                                             <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -135,6 +135,9 @@
                                     <state key="normal" title="EDIT PROFILE">
                                         <color key="titleColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
+                                    <connections>
+                                        <action selector="clickedEditProfileButton:" destination="-1" eventType="touchUpInside" id="MLv-zC-mbn"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -165,7 +168,7 @@
                 </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="aAg-nB-HDJ" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="0S6-3S-fhn"/>
                 <constraint firstItem="aAg-nB-HDJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="2RG-pu-bDR"/>

@@ -101,6 +101,8 @@ extension APIServices{
         
         switch self{
             case .changePassword(_):
+                fallthrough
+            case .updateAccount(_):
                 let currentAccessToken = getDataFromUserDefaults(key: .accessToken) ?? "NO TOKEN"
                 headerDict = [contentKey: contentValue, UserDefaultsKeys.accessToken.description: currentAccessToken]
             default:

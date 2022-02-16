@@ -105,7 +105,7 @@ class ForgotPasswordViewController: UIViewController {
     private func setupNavigationBar(){
 //        function to setup navigation bar
         let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = self.view.backgroundColor
+        navigationBar?.barTintColor = UIColor.appRed
         navigationBar?.tintColor = UIColor.white
         navigationBar?.isTranslucent = appAnimation
         navigationBar?.barStyle = .black

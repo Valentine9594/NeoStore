@@ -38,7 +38,7 @@ class RegisterViewModel: RegisterViewModelType{
                         print(content["data"] ?? "No Printing")
                         guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
                         do {
-                            try saveDataToUserDefaults(responseContent: contentData)
+                            try saveLoginAndRegisterDataToUserDefaults(responseContent: contentData)
                         }
                         catch (let error){
                             debugPrint(error.localizedDescription)
@@ -67,8 +67,8 @@ class RegisterViewModel: RegisterViewModelType{
         let confirmPassword = userRegisterDetals.confirmPassword
         let phoneNo = userRegisterDetals.phoneNumber
         
-        let operationQueue = OperationQueue()
-        operationQueue.maxConcurrentOperationCount = 2
+//        let operationQueue = OperationQueue()
+//        operationQueue.maxConcurrentOperationCount = 2
                 
         if checkPasswords(passwordString: password, confirmPasswordString: confirmPassword), checkPhoneNo(phoneNo: phoneNo), checkEmail(emailString: email), checkNames(nameString: firstName), checkNames(nameString: lastName){
             return true
