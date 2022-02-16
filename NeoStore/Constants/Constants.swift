@@ -55,6 +55,7 @@ enum CustomErrors: String, LocalizedError{
     case CannotConvertJSONObject = "Cannot convert JSON Data."
     case ResponseDataNil = "Response data returned as Nil."
     case PasswordsDoNotMatch = "Password does not match Confirm password."
+    case CouldNotSaveInUserDefaults = "Could not save data in userdefaults."
     
     var errorDescription: String?{
         return rawValue

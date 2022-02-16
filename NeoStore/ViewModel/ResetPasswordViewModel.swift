@@ -19,15 +19,16 @@ enum ResetPasswordResult: String{
 
 protocol ResetPasswordViewModelType {
     var resetPasswordStatus: ReactiveListener<ResetPasswordResult>{get set}
-    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String)
+    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String, accessToken: String)
     func validateResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String) -> Bool
 }
 
 class ResetPasswordViewModel: ResetPasswordViewModelType{
+    
     var resetPasswordStatus: ReactiveListener<ResetPasswordResult> = ReactiveListener(.none)
     
-    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String) {
-        UserService.userResetPassword(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword) { (response) in
+    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String, accessToken: String) {
+        UserService.userResetPassword(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword, accessToken: accessToken) { (response) in
             switch response{
                 case .success(let data):
                     guard let content = data as? AnyDict else{
@@ -35,14 +36,6 @@ class ResetPasswordViewModel: ResetPasswordViewModelType{
                         return}
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
-//                        save data in userdefaults
-                        print(content["data"] ?? "No Printing")
-                        guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
-//                        getDataAndSaveToUserDefaults(object: contentData, key: UserDefaultsKeys.userDetails.rawValue)
-//                        let userDetailsAll = showUserDefaultsData(key: UserDefaultsKeys.userDetails.rawValue)
-//                        print(userDetailsAll ?? "No User Details to Display!!")
-                        debugPrint(contentData["message"] ?? "No message in content response.")
-                        
                         self.resetPasswordStatus.value = .success
                     }
                     else{

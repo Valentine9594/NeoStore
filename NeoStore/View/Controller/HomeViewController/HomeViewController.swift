@@ -29,6 +29,10 @@ class HomeViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         DispatchQueue.main.async {
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            appDelegate.switchRootViewcontrollerToHome()
+//            self.navigationController?.isNavigationBarHidden = false
+            
             self.setupSlideShow()
             self.setupProductTypesDisplay()
             self.setupPageControl()
@@ -39,17 +43,35 @@ class HomeViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
+        debugPrint(getDataFromUserDefaults(key: .accessToken) ?? "NO ACCESS TOKEN")
         DispatchQueue.main.async {
-            let appdelegate = UIApplication.shared.delegate as! AppDelegate
-            appdelegate.switchRootViewcontrollerToHome()
+//            let appdelegate = UIApplication.shared.delegate as! AppDelegate
+//            appdelegate.switchRootViewcontrollerToHome()
             self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
         }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-
         NotificationCenter.default.removeObserver(self, name: .didClickMenuButton, object: nil)
+    }
+    
+    
+    private func setupNavigationBar(){
+//        function to setup navigation bar
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.barTintColor = self.view.backgroundColor
+        navigationBar?.tintColor = UIColor.white
+        navigationBar?.isTranslucent = appAnimation
+        navigationBar?.barStyle = .black
+        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
+        
+        navigationItem.title = "Register"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
+        
+    }
+    
+    @objc func popToPreviousViewController(){
+        self.navigationController?.popViewController(animated: appAnimation)
     }
     
 //    override var preferredStatusBarStyle: UIStatusBarStyle{

@@ -37,9 +37,12 @@ class RegisterViewModel: RegisterViewModelType{
 //                        save data in userdefaults
                         print(content["data"] ?? "No Printing")
                         guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
-                        getDataAndSaveToUserDefaults(object: contentData, key: UserDefaultsKeys.userDetails.rawValue)
-                        let userDetailsAll = showUserDefaultsData(key: UserDefaultsKeys.userDetails.rawValue)
-                        print(userDetailsAll ?? "No User Details to Display!!")
+                        do {
+                            try saveDataToUserDefaults(responseContent: contentData)
+                        }
+                        catch (let error){
+                            debugPrint(error.localizedDescription)
+                        }
                         
                         self.registerStatus.value = .success
                     }

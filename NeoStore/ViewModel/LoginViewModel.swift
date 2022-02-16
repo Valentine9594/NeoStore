@@ -35,15 +35,19 @@ class LoginViewModel: LoginViewModelType{
                     guard let content = data as? AnyDict else{
                         self.loginStatus.value = .none
                         return}
-//                    print(content)
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
                         
 //                        save data in userdefaults
                         guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
-                        getDataAndSaveToUserDefaults(object: contentData, key: UserDefaultsKeys.userDetails.rawValue)
-                        
+                        do {
+                            try saveDataToUserDefaults(responseContent: contentData)
+                        }
+                        catch (let error){
+                            debugPrint(error.localizedDescription)
+                        }
                         self.loginStatus.value = .success
+
                     }
                     else{
                         self.loginStatus.value = .failure

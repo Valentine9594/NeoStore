@@ -74,7 +74,7 @@ class UserService{
         }
     }
     
-    static func userResetPassword(currentPassword: String, newPassword: String, confirmPassword: String, completion: @escaping(APIResponse<Any>)->Void){
+    static func userResetPassword(currentPassword: String, newPassword: String, confirmPassword: String, accessToken: String, completion: @escaping(APIResponse<Any>)->Void){
         let params = ["old_password": currentPassword, "password": newPassword, "confirm_password": confirmPassword]
         
         APIManager.sharedInstance.performRequest(serviceType: .changePassword(parameters: params)) { (response) in

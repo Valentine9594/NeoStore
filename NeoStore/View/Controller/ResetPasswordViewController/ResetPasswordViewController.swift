@@ -107,8 +107,8 @@ class ResetPasswordViewController: UIViewController {
             debugPrint("Going ahead")
             let validationResult = self.viewModel.validateResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword)
             if validationResult{
-                
-                self.viewModel.getResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword)
+                let accessToken = getDataFromUserDefaults(key: .accessToken) ?? "NO TOKEN"
+                self.viewModel.getResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword, accessToken: accessToken)
             }
             else{
                 callAlert(alertTitle: "Alert!", alertMessage: "Textfields Incorrect or cannot set old password again.", actionTitle: "OK")

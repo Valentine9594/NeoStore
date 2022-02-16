@@ -7,108 +7,203 @@
 
 import Foundation
 
-protocol ObjectSavable {
-    func setObject<object>(object: object, forKey: String) throws where object: Encodable
-    func getObject<object>(forkey: String, castTo type: object.Type) throws -> object where object: Decodable
+enum UserDefaultsKeys: String{
+    case id = "id"
+    case roleId = "role_id"
+    case firstname = "first_name"
+    case lastname = "last_name"
+    case email = "email"
+    case username = "username"
+    case gender = "gender"
+    case phoneNo = "phone_no"
+    case isActive = "is_active"
+    case created = "created"
+    case modified = "modified"
+    case accessToken = "access_token"
+    
+    var description: String{
+        rawValue
+    }
 }
 
-extension UserDefaults: ObjectSavable{
-    func setObject<object>(object: object, forKey: String) throws where object : Encodable {
-        let encoder = JSONEncoder()
-        
-        do {
-            let data = try encoder.encode(object)
-            set(data, forKey: forKey)
-        } catch {
-            throw ObjectSavableError.unableToEncode
-        }
-    }
-    
-    func getObject<object>(forkey: String, castTo type: object.Type) throws -> object where object : Decodable {
-        guard let data = data(forKey: forkey) else { throw ObjectSavableError.noValue }
-        
-        let decoder = JSONDecoder()
-        do {
-            let object = try decoder.decode(type.self, from: data)
-            return object
-        }
-        catch {
-            throw ObjectSavableError.unableToDecode
-        }
-    }
-    
-}
-
-enum ObjectSavableError: String, LocalizedError{
-    case unableToEncode = "Unable to encode object into data."
-    case unableToDecode = "Unable to decode data into object."
-    case noValue = "No data object found for the given value."
-    case conversionError = "Cannot convert dictionary into object."
+enum UserDefaultErrors: String, LocalizedError{
+    case CannotConvetIntoInteger = "Cannot convert type of Any into Integer."
+    case CannotConvetIntoString = "Cannot convert type of Any into String."
+    case CannotConvetIntoDate = "Cannot convert type of Any into Date."
+    case CannotConvetIntoBool = "Cannot convert type of Any into Boolean."
     
     var errorDescription: String?{
         rawValue
     }
 }
 
-func getDataAndSaveToUserDefaults(object: AnyDict, key: String){
+extension UserDefaults{
+    func setAccessToken(value: Any) throws{
+        if let safeValue = value as? String{
+            setValue(safeValue, forKey: UserDefaultsKeys.accessToken.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoString
+        }
+
+    }
+    
+    func setId(value: Any) throws{
+        if let safeValue = value as? Int{
+            setValue(safeValue, forKey: UserDefaultsKeys.id.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoInteger
+        }
+
+    }
+    
+    func setRoleId(value: Any) throws{
+        if let safeValue = value as? Int{
+            setValue(safeValue, forKey: UserDefaultsKeys.roleId.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoInteger
+        }
+    }
+    
+    func setFirstname(value: Any) throws{
+        if let safeValue = value as? String{
+            setValue(safeValue, forKey: UserDefaultsKeys.firstname.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoString
+        }
+
+    }
+    
+    func setLastname(value: Any) throws{
+        if let safeValue = value as? String{
+            setValue(safeValue, forKey: UserDefaultsKeys.lastname.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoString
+        }
+
+    }
+    
+    func setEmail(value: Any) throws{
+        if let safeValue = value as? String{
+            setValue(safeValue, forKey: UserDefaultsKeys.email.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoString
+        }
+
+    }
+    
+    func setUsername(value: Any) throws{
+        if let safeValue = value as? String{
+            setValue(safeValue, forKey: UserDefaultsKeys.username.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoString
+        }
+
+    }
+    
+    func setGender(value: Any) throws{
+        if let safeValue = value as? String{
+            setValue(safeValue, forKey: UserDefaultsKeys.gender.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoString
+        }
+ 
+    }
+    
+    func setPhoneNumber(value: Any) throws{
+        if let stringValue = value as? String, let safeValue = Int(stringValue){
+            setValue(safeValue, forKey: UserDefaultsKeys.firstname.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoInteger
+        }
+    }
+    
+    func setIsActive(value: Any) throws{
+        if let safeValue = value as? Bool{
+            setValue(safeValue, forKey: UserDefaultsKeys.isActive.description)
+        }
+        else{
+            throw UserDefaultErrors.CannotConvetIntoBool
+        }
+
+    }
+    
+    func setCreated(value: Any){
+        setValue(value, forKey: UserDefaultsKeys.created.description)
+
+    }
+    
+    func setModified(value: Any){
+        setValue(value, forKey: UserDefaultsKeys.modified.description)
+    }
+    
+}
+
+
+func saveDataToUserDefaults(responseContent: AnyDict) throws{
     
     let userDefaults = UserDefaults.standard
+
+    guard let id = responseContent[UserDefaultsKeys.id.description], let roleId = responseContent[UserDefaultsKeys.roleId.description], let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description], let email = responseContent[UserDefaultsKeys.email.description], let username = responseContent[UserDefaultsKeys.username.description], let gender = responseContent[UserDefaultsKeys.gender.description], let phoneNo = responseContent[UserDefaultsKeys.phoneNo.description], let isActive = responseContent[UserDefaultsKeys.isActive.description], let created = responseContent[UserDefaultsKeys.created.description], let modified = responseContent[UserDefaultsKeys.modified.description], let accessToken = responseContent[UserDefaultsKeys.accessToken.description] else{
+        throw CustomErrors.CouldNotSaveInUserDefaults }
+    
+//    guard let createdDate = formatDate(dateStringAny: created), let modifiedDate = formatDate(dateStringAny: modified) else{throw CustomErrors.CouldNotSaveInUserDefaults }
+    
+    debugPrint("NOW SAVING IN USERDEFAULTS")
+    
+//    userDefaults.setCreated(value: createdDate)
+//    userDefaults.setModified(value: modifiedDate)
+    userDefaults.setCreated(value: created)
+    userDefaults.setModified(value: modified)
+    
     
     do {
-        let convertObject = try convertDictionaryToObject(dictionary: object)
-        try userDefaults.setObject(object: convertObject, forKey: key)
-    } catch {
-        debugPrint(error.localizedDescription)
+        try userDefaults.setId(value: id)
+        try userDefaults.setAccessToken(value: accessToken)
+        try userDefaults.setRoleId(value: roleId)
+        try userDefaults.setFirstname(value: firstname)
+        try userDefaults.setLastname(value: lastname)
+        try userDefaults.setEmail(value: email)
+        try userDefaults.setUsername(value: username)
+        try userDefaults.setGender(value: gender)
+        try userDefaults.setPhoneNumber(value: phoneNo)
+        try userDefaults.setIsActive(value: isActive)
+
+    } catch let error {
+        throw error
     }
 
 }
 
-func showUserDefaultsData(key: String) -> userResponse?{
+func getDataFromUserDefaults(key: UserDefaultsKeys) -> String?{
     let userDefaults = UserDefaults.standard
     
-    do {
-        let userObject = try userDefaults.getObject(forkey: key, castTo: userResponse.self)
-        return userObject
-    } catch {
-        debugPrint(error.localizedDescription)
+    if let value = userDefaults.value(forKey: key.description){
+        return String(describing: value)
+    }
+   
+    return nil
+}
+
+private func formatDate(dateStringAny: Any) -> Date?{
+    if let dateString = dateStringAny as? String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        let dateValue = dateFormatter.date(from: dateString)
+        debugPrint("Date: \(String(describing: dateValue))")
+        return dateValue
     }
     return nil
 }
 
-enum UserDefaultsKeys: String{
-    case userDetails = "UserDetails"
-}
 
-func convertDictionaryToObject(dictionary: AnyDict) throws -> userResponse?{
-// function to convert dictionary of AnyDict into uerResponse object
-    if let firstname = dictionary["first_name"] as! String?,
-       let lastname = dictionary["last_name"] as! String?,
-       let username = dictionary["username"] as! String?,
-       let id = dictionary["id"] as! Int?,
-       let roleId = dictionary["role_id"] as! Int?,
-       let email = dictionary["email"] as! String?,
-       let gender = dictionary["gender"] as! String?,
-       let phoneNoString = dictionary["phone_no"] as! String?,
-       let isActive = dictionary["is_active"] as! Bool?,
-       let createdString = dictionary["created"] as! String?,
-       let modifiedString = dictionary["modified"] as! String?,
-       let accessToken = dictionary["access_token"] as! String?, let phoneNo = Int(phoneNoString){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        
-        let created = dateFormatter.date(from: createdString)
-        let modified = dateFormatter.date(from: modifiedString)
-        
-        let userDetails = userResponse(id: id, roleId: roleId, firstname: firstname, lastname: lastname, email: email, username: username, gender: gender, phoneNo: phoneNo, isActive: isActive, created: created, modified: modified, accessToken: accessToken)
-        return userDetails
-    }
-    else{
-        throw ObjectSavableError.conversionError
-    }
-}
 
-func createUserResponseObject(id: Int, roleId: Int, firstname: String, lastname: String, email: String, username: String, gender: String, phoneNo: Int, isActive: Bool, created: Date, modified: Date, accessToken: String){
-    
-    debugPrint("Converting into user response object.")
-    
-}
+

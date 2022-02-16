@@ -64,7 +64,7 @@ struct userResponse{
         case firstname = "first_name"
         case lastname = "last_name"
         case email = "email"
-        case username = "user"
+        case username = "username"
         case gender = "gender"
         case phoneNo = "phone_no"
         case isActive = "is_active"

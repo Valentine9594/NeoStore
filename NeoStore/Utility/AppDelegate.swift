@@ -37,8 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: homeViewController)
         
         self.window?.rootViewController = navigationController
-        self.window?.rootViewController?.navigationController?.pushViewController(homeViewController, animated: appAnimation)
-//        self.window?.makeKeyAndVisible()
+        self.window?.makeKeyAndVisible()
     }
     
     func switchRootViewcontrollerToLogin(){

@@ -98,6 +98,14 @@ extension APIServices{
     var headers: AnyDict{
         var headerDict = AnyDictString()
         headerDict[contentKey] = contentValue
+        
+        switch self{
+            case .changePassword(_):
+                let currentAccessToken = getDataFromUserDefaults(key: .accessToken) ?? "NO TOKEN"
+                headerDict = [contentKey: contentValue, UserDefaultsKeys.accessToken.description: currentAccessToken]
+            default:
+                break
+        }
         return headerDict
     }
     
