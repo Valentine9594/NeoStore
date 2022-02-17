@@ -8,6 +8,14 @@
 import Foundation
 
 enum UserDefaultsKeys: String, CaseIterable{
+    case message = "message"
+    case userMessage = "user_msg"
+    
+    case userData = "user_data"
+    case productCategories = "product_categories"
+    case totalCarts = "total_carts"
+    case totalOrders = "total_orders"
+    
     case id = "id"
     case roleId = "role_id"
     case firstname = "first_name"
@@ -174,6 +182,15 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
     
 //    userDefaults.setCreated(value: createdDate)
 //    userDefaults.setModified(value: modifiedDate)
+    
+    if let profileImageString = responseContent[UserDefaultsKeys.profilePicture.description] as? String{
+        userDefaults.setProfilePicture(value: profileImageString)
+    }
+    
+    if let dobString = responseContent[UserDefaultsKeys.dob.description] as? String{
+        userDefaults.setDateOfBirth(value: dobString)
+    }
+    
     userDefaults.setCreated(value: created)
     userDefaults.setModified(value: modified)
     
@@ -196,18 +213,18 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 
 }
 
-func saveEditedMyAccountDataToUserDefaults(responseContent: AnyDict) throws{
-    guard let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description] else{ throw CustomErrors.CouldNotSaveInUserDefaults }
+func fetchAndSaveUserData(responseContent: AnyDict) throws{
+    debugPrint(responseContent)
+    guard let userDetailsResponse = responseContent[UserDefaultsKeys.userData.description] as? AnyDict else{
+        throw CustomErrors.CouldNotSaveInUserDefaults
+    }
     
-    let userDefaults = UserDefaults.standard
-
     do {
-        try userDefaults.setFirstname(value: firstname)
-        try userDefaults.setLastname(value: lastname)
+        try     saveLoginAndRegisterDataToUserDefaults(responseContent: userDetailsResponse)
     } catch let error {
         throw error
     }
-    
+
 }
 
 func getDataFromUserDefaults(key: UserDefaultsKeys) -> String?{

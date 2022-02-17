@@ -60,8 +60,9 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
                     guard let content = data as? AnyDict else{return}
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
+                        debugPrint(content)
                         do {
-                            try saveEditedMyAccountDataToUserDefaults(responseContent: content)
+                            try fetchAndSaveUserData(responseContent: content)
                         } catch let error {
                             debugPrint(error.localizedDescription)
                         }

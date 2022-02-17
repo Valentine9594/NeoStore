@@ -54,8 +54,6 @@ class MyAccountViewController: UIViewController {
             switch MyAccountUpdateResult{
                 case .success:
                     self.didEditAnything = false
-                    UserDefaults.standard.setProfilePicture(value: self.profileImageString)
-                    UserDefaults.standard.setDateOfBirth(value: self.dobString)
                     self.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
                 case .failure:
                     self.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
@@ -206,6 +204,9 @@ class MyAccountViewController: UIViewController {
         if let dob = dateOfBirthTextField.text{
             self.dobString = dob
         }
+        
+        debugPrint(self.profileImageString ?? "No Profile Image String!!")
+        debugPrint(self.dobString ?? "No DOB String!!!")
         
         if let firstname = firstnameTextfield.text, let lastname = lastnameTextfield.text, let email = emailTextfield.text, let phoneNo = phoneNumberTextfield.text{
             
