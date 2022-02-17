@@ -17,10 +17,12 @@ class MyAccountViewController: UIViewController {
     @IBOutlet weak var editProfileButton: UIButton!
     @IBOutlet weak var resetPasswordTextfield: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
-//    var imagePicker = ImagePicker!
+    var datePicker: UIDatePicker!
     var imagePicker: ImagePicker!
     var viewModel: MyAccountUpdateViewModelType!
     var canEditTextfields: Bool = false
+//    var clickedSaveButton: Bool = false
+    var didEditAnything: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,6 @@ class MyAccountViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
-        self.navigationController?.isNavigationBarHidden = false
         self.fetchUserDetails()
         self.setupObservers()
     }
@@ -51,10 +52,10 @@ class MyAccountViewController: UIViewController {
         self.viewModel.myAccountUpdateStatus.bindAndFire { MyAccountUpdateResult in
             switch MyAccountUpdateResult{
                 case .success:
-                    debugPrint("Success Alert")
+                    self.didEditAnything = false
+                    self.fetchUserDetails()
                     self.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
                 case .failure:
-                    debugPrint("Failure Alert")
                     self.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
                 case .none:
                     break
@@ -84,6 +85,33 @@ class MyAccountViewController: UIViewController {
         
         editProfileButton.setTitle(ButtonTitles.canEdit.description, for: .normal)
         editProfileButton.layer.cornerRadius = 7
+        
+        self.setupDatepicker()
+    }
+    
+    private func setupDatepicker(){
+        self.datePicker = UIDatePicker()
+        datePicker.datePickerMode = .date
+        datePicker.locale = .current
+        datePicker.preferredDatePickerStyle = .wheels
+        datePicker.sizeToFit()
+        
+        let toolBar = UIToolbar()
+        toolBar.tintColor = UIColor.appGreyFont
+        toolBar.backgroundColor = .white
+        toolBar.isTranslucent = appAnimation
+        toolBar.sizeToFit()
+        
+        let titleFontHeight = toolBar.frame.size.height/2
+        let doneButton = UIBarButtonItem(title: ButtonTitles.done.description, style: .done, target: self, action: #selector(dismissDatePicker))
+        doneButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
+        let cancelButton = UIBarButtonItem(title: ButtonTitles.cancel.description, style: .done, target: self, action: nil)
+        cancelButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
+        
+        toolBar.setItems([cancelButton, .flexibleSpace(), doneButton], animated: appAnimation)
+        toolBar.isUserInteractionEnabled = true
+        dateOfBirthTextField.inputAccessoryView = toolBar
+        dateOfBirthTextField.inputView = datePicker
     }
     
     private func textfieldsShouldBeEditable(shouldBeEnabled: Bool){
@@ -93,6 +121,16 @@ class MyAccountViewController: UIViewController {
         phoneNumberTextfield.isEnabled = shouldBeEnabled
         dateOfBirthTextField.isEnabled = shouldBeEnabled
         profilImageView.gestureRecognizers?.first?.isEnabled = shouldBeEnabled
+    }
+    
+    @objc func dismissDatePicker(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        let dateString = dateFormatter.string(from: datePicker.date)
+        dateOfBirthTextField.text = dateString
+        
+        self.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
     private func setupNotificationsAndGestures(){
@@ -138,14 +176,18 @@ class MyAccountViewController: UIViewController {
     
     @IBAction func clickedEditProfileButton(_ sender: UIButton) {
         
-        self.editProfileButton.setTitle(ButtonTitles.saveChanges.description, for: .normal)
-        self.canEditTextfields = true
-        self.textfieldsShouldBeEditable(shouldBeEnabled: canEditTextfields)
-        
-        if editProfileButton.currentTitle == ButtonTitles.saveChanges.description{
-        let shouldSave = self.myAccountIsEditing()
-            
-            if shouldSave{
+        let currentTitle = editProfileButton.currentTitle
+    
+        if currentTitle == ButtonTitles.canEdit.description{
+            self.editProfileButton.setTitle(ButtonTitles.saveChanges.description, for: .normal)
+            self.canEditTextfields = true
+            self.textfieldsShouldBeEditable(shouldBeEnabled: canEditTextfields)
+//            editProfileButton.isSelected = false
+        }
+        else if currentTitle == ButtonTitles.saveChanges.description{
+//            editProfileButton.isSelected = true
+            let isAccountEdited = myAccountIsEditing()
+            if isAccountEdited{
                 self.editProfileButton.setTitle(ButtonTitles.canEdit.description, for: .normal)
                 self.canEditTextfields = false
                 self.textfieldsShouldBeEditable(shouldBeEnabled: canEditTextfields)
@@ -153,39 +195,12 @@ class MyAccountViewController: UIViewController {
         }
                 
     }
-    
-    private func fetchUserDetails(){
-        debugPrint("Firstname: \(String(describing: getDataFromUserDefaults(key: .firstname)))")
-        debugPrint("Lastname: \(String(describing: getDataFromUserDefaults(key: .lastname)))")
-        debugPrint("Email: \(String(describing: getDataFromUserDefaults(key: .email)))")
-        debugPrint("Phone Number: \(String(describing: getDataFromUserDefaults(key: .phoneNo)))")
         
-        if let firstname = getDataFromUserDefaults(key: .firstname), let lastname = getDataFromUserDefaults(key: .lastname), let email = getDataFromUserDefaults(key: .email), let phoneNo = getDataFromUserDefaults(key: .phoneNo){
-            firstnameTextfield.text = firstname
-            lastnameTextfield.text = lastname
-            emailTextfield.text = email
-            phoneNumberTextfield.text = phoneNo
-            
-            if let dob = getDataFromUserDefaults(key: .dob){
-                dateOfBirthTextField.text = dob
-            }
-            
-            if let profileImageString = getDataFromUserDefaults(key: .profilePicture){
-                if let imageData = Data(base64Encoded: profileImageString){
-                    let profileImage = UIImage(data: imageData)
-                    self.profilImageView.image = profileImage
-                }
-            }
-        }
-        else{
-         callAlert(alertTitle: "Alert!", alertMessage: "Could not fetch account details!", actionTitle: "OK")
-        }
-    }
-    
     private func myAccountIsEditing() -> Bool{
         var profileImageString: String? = nil
         if let profileImage = profilImageView.image{
             profileImageString = convertImageIntoString(image: profileImage)
+            debugPrint("Profile Image String: \(String(describing: profileImageString))")
         }
         
         var dateOfBirth: String? = nil
@@ -204,6 +219,36 @@ class MyAccountViewController: UIViewController {
             }
         }
         return false
+    }
+    
+    private func fetchUserDetails(){
+        self.viewModel.fetchUserAccountDetails()
+        UserDefaults.standard.setIsProfileUpdated(value: false)
+        
+//        function to fetch user data. currently with USERDEFAULTS
+        DispatchQueue.main.async {
+            if let firstname = getDataFromUserDefaults(key: .firstname), let lastname = getDataFromUserDefaults(key: .lastname), let email = getDataFromUserDefaults(key: .email), let phoneNo = getDataFromUserDefaults(key: .phoneNo){
+                self.firstnameTextfield.text = firstname
+                self.lastnameTextfield.text = lastname
+                self.emailTextfield.text = email
+                self.phoneNumberTextfield.text = phoneNo
+                
+                if let dob = getDataFromUserDefaults(key: .dob){
+                    self.dateOfBirthTextField.text = dob
+                }
+                
+                if let profileImageString = getDataFromUserDefaults(key: .profilePicture){
+                    if let imageData = Data(base64Encoded: profileImageString){
+                        let profileImage = UIImage(data: imageData)
+                        self.profilImageView.image = profileImage
+                    }
+                }
+            }
+            else{
+                self.callAlert(alertTitle: "Alert!", alertMessage: "Could not fetch account details!", actionTitle: "OK")
+            }
+
+        }
     }
     
     func convertImageIntoString(image: UIImage) -> String?{
@@ -232,6 +277,7 @@ class MyAccountViewController: UIViewController {
     
     private func setupNavigationBar(){
 //        function to setup navigation bar
+        self.navigationController?.isNavigationBarHidden = false
         let navigationBar = self.navigationController?.navigationBar
         navigationBar?.barTintColor = UIColor.appRed
         navigationBar?.tintColor = UIColor.white
@@ -268,4 +314,12 @@ extension MyAccountViewController: ImagePickerDelegate, UITextFieldDelegate{
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return self.canEditTextfields
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if self.editProfileButton.currentTitle == ButtonTitles.saveChanges.description{
+            didEditAnything = true
+        }
+        didEditAnything = false
+    }
+    
 }

@@ -96,7 +96,7 @@ class UserService{
     
     static func userUpdateAccountDetails(userAccountDetails: userAccountDetails, completion: @escaping(APIResponse<Any>)->Void){
         
-        let params = ["first_name": userAccountDetails.firstname, "last_name": userAccountDetails.lastname, "email": userAccountDetails.email, "dob": userAccountDetails.dob ?? "", "phone_no": userAccountDetails.phoneNo, "profile_pic": userAccountDetails.profileImage ?? ""] as AnyDict
+        let params = ["first_name": userAccountDetails.firstname, "last_name": userAccountDetails.lastname, "email": userAccountDetails.email, "dob": userAccountDetails.dob ?? "", "phone_no": userAccountDetails.phoneNo, "profile_pic": userAccountDetails.profileImage ?? "NO String"] as AnyDict
         
         APIManager.sharedInstance.performRequest(serviceType: .updateAccount(parameters: params)) { (response) in
             switch response{
@@ -111,6 +111,24 @@ class UserService{
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
                     completion(.failure(error: error))
+            }
+        }
+    }
+    
+    static func fetchUserAccountDetails(completion: @escaping(APIResponse<Any>)->Void){
+        
+        APIManager.sharedInstance.performRequest(serviceType: .getUserDetails) { (response) in            switch response{
+            case .success(let data):
+                if let content = data as? Data{
+                    let responseData = jsonParser(jsonData: content)
+                    completion(responseData)
+                }
+                else{
+                    print(CustomErrors.ResponseDataNil.localizedDescription)
+                }
+            case .failure(let error):
+                debugPrint(error.localizedDescription)
+                completion(.failure(error: error))
             }
         }
     }

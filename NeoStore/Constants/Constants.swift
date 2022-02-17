@@ -70,6 +70,8 @@ var appAnimation = true
 enum ButtonTitles: String{
     case canEdit = "Edit Profile"
     case saveChanges = "Save"
+    case done = "Done"
+    case cancel = "Cancel"
     
     var description: String?{
         rawValue

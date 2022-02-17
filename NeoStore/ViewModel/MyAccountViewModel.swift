@@ -10,6 +10,8 @@ import Foundation
 enum MyAccountUpdateResult: String{
     case success
     case failure
+//    case fetchSuccess
+//    case fetchFailure
     case none
     
     var description: String{
@@ -21,6 +23,7 @@ protocol MyAccountUpdateViewModelType {
     var myAccountUpdateStatus: ReactiveListener<MyAccountUpdateResult>{get set}
     func getmyAccountUpdateDetails(userEditAccountDetails: userAccountDetails)
     func validateEditMyAccountDetails(userEditAccountDetails: userAccountDetails) -> Bool
+    func fetchUserAccountDetails()
 }
 
 class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
@@ -46,6 +49,32 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
                     self.myAccountUpdateStatus.value = .failure
+            }
+        }
+    }
+    
+    func fetchUserAccountDetails() {
+        UserService.fetchUserAccountDetails { (response) in
+            switch response{
+                case .success(let data):
+                    guard let content = data as? AnyDict else{return}
+                    
+                    if let statusCode = content["status"], statusCode as! Int == 200{
+                        do {
+                            try saveEditedMyAccountDataToUserDefaults(responseContent: content)
+                        } catch let error {
+                            debugPrint(error.localizedDescription)
+                        }
+//                        self.myAccountUpdateStatus.value = .fetchSuccess
+                    }
+                    else{
+//                        self.myAccountUpdateStatus.value = .fetchFailure
+                        debugPrint(content["status"] ?? "NO Code")
+                    }
+                    
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+//                    self.myAccountUpdateStatus.value = .fetchFailure
             }
         }
     }

@@ -22,6 +22,7 @@ enum UserDefaultsKeys: String, CaseIterable{
     case accessToken = "access_token"
     case dob = "dob"
     case profilePicture = "profile_pic"
+    case isProfileUpdated
     
     var description: String{
         rawValue
@@ -147,6 +148,18 @@ extension UserDefaults{
         setValue(value, forKey: UserDefaultsKeys.modified.description)
     }
     
+    func setProfilePicture(value: String?){
+        setValue(value, forKey: UserDefaultsKeys.profilePicture.description)
+    }
+    
+    func setDateOfBirth(value: String?){
+        setValue(value, forKey: UserDefaultsKeys.dob.description)
+    }
+    
+    func setIsProfileUpdated(value: Bool){
+        setValue(value, forKey: UserDefaultsKeys.isProfileUpdated.description)
+    }
+    
 }
 
 
@@ -185,14 +198,35 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 
 func saveEditedMyAccountDataToUserDefaults(responseContent: AnyDict) throws{
     guard let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description] else{ throw CustomErrors.CouldNotSaveInUserDefaults }
+    var profilePicture: String? = nil
+    var dob: String? = nil
+    
+    if let imageString = responseContent[UserDefaultsKeys.profilePicture.description] as? String{
+        profilePicture = imageString
+    }
+    
+    if let dobString = responseContent[UserDefaultsKeys.dob.description] as? String{
+        dob = dobString
+    }
     
     let userDefaults = UserDefaults.standard
-    
+    userDefaults.setDateOfBirth(value: dob)
+    userDefaults.setProfilePicture(value: profilePicture)
+
     do {
         try userDefaults.setFirstname(value: firstname)
         try userDefaults.setLastname(value: lastname)
     } catch let error {
         throw error
+    }
+    
+    if let email = responseContent[UserDefaultsKeys.email.description], let phoneNo = responseContent[UserDefaultsKeys.phoneNo.description]{
+        do {
+            try userDefaults.setEmail(value: email)
+            try userDefaults.setPhoneNumber(value: phoneNo)
+        } catch let error {
+            throw error
+        }
     }
 }
 
