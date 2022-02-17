@@ -23,7 +23,6 @@ class CustomNavigationBar: UIView{
     }
     
     @IBAction func clickedMenuButton(_ sender: UIButton) {
-        debugPrint("Clicked Menu Button")
         NotificationCenter.default.post(name: .didClickMenuButton, object: nil)
 
     }

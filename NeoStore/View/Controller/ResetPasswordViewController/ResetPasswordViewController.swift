@@ -68,11 +68,6 @@ class ResetPasswordViewController: UIViewController {
             switch resetPasswordResult{
                 case .success:
                     self.callAlert(alertTitle: "Reset Password Successful", alertMessage: "Password has been reset successfully.", actionTitle: "OK")
-                    DispatchQueue.main.async {
-                        let loginViewModel = LoginViewModel()
-                        let loginViewController = LoginScreenVC(viewModel: loginViewModel)
-                        self.navigationController?.pushViewController(loginViewController, animated: appAnimation)
-                    }
                 case .failure:
                     self.callAlert(alertTitle: "Reset Password Failed!", alertMessage: "Could not reset password please try again later.", actionTitle: "OK")
                 case .none:
@@ -122,11 +117,9 @@ class ResetPasswordViewController: UIViewController {
     
     @IBAction func clickedResetPassword(_ sender: UIButton) {
         if let currentPassword = currentPasswordTextfield.text, let newPassword = newPasswordTextfield.text, let confirmPassword = confirmNewPasswordTextfield.text{
-            debugPrint("Going ahead")
+ 
             let validationResult = self.viewModel.validateResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword)
-            if validationResult{
-                let accessToken = getDataFromUserDefaults(key: .accessToken) ?? "NO TOKEN"
-                self.viewModel.getResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword, accessToken: accessToken)
+            if validationResult{                self.viewModel.getResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword)
             }
             else{
                 callAlert(alertTitle: "Alert!", alertMessage: "Textfields Incorrect or cannot set old password again.", actionTitle: "OK")
@@ -141,7 +134,17 @@ class ResetPasswordViewController: UIViewController {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
             var alertAction: UIAlertAction!
-            alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            if self.viewModel.resetPasswordStatus.value == .success{
+                alertAction = UIAlertAction(title: actionTitle, style: .default) { [weak self] _ in
+                    let loginViewModel = LoginViewModel()
+                    let loginViewController = LoginScreenVC(viewModel: loginViewModel)
+                    self?.navigationController?.pushViewController(loginViewController, animated: appAnimation)
+                }
+            }
+            else{
+                alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            }
+
             alert.addAction(alertAction)
             self.present(alert, animated: appAnimation, completion: nil)
         }

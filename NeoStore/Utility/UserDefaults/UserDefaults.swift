@@ -198,20 +198,8 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 
 func saveEditedMyAccountDataToUserDefaults(responseContent: AnyDict) throws{
     guard let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description] else{ throw CustomErrors.CouldNotSaveInUserDefaults }
-    var profilePicture: String? = nil
-    var dob: String? = nil
-    
-    if let imageString = responseContent[UserDefaultsKeys.profilePicture.description] as? String{
-        profilePicture = imageString
-    }
-    
-    if let dobString = responseContent[UserDefaultsKeys.dob.description] as? String{
-        dob = dobString
-    }
     
     let userDefaults = UserDefaults.standard
-    userDefaults.setDateOfBirth(value: dob)
-    userDefaults.setProfilePicture(value: profilePicture)
 
     do {
         try userDefaults.setFirstname(value: firstname)
@@ -220,14 +208,6 @@ func saveEditedMyAccountDataToUserDefaults(responseContent: AnyDict) throws{
         throw error
     }
     
-    if let email = responseContent[UserDefaultsKeys.email.description], let phoneNo = responseContent[UserDefaultsKeys.phoneNo.description]{
-        do {
-            try userDefaults.setEmail(value: email)
-            try userDefaults.setPhoneNumber(value: phoneNo)
-        } catch let error {
-            throw error
-        }
-    }
 }
 
 func getDataFromUserDefaults(key: UserDefaultsKeys) -> String?{

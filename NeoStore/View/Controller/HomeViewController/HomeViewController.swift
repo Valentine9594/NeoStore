@@ -36,14 +36,13 @@ class HomeViewController: UIViewController {
         self.setupProductTypesDisplay()
         self.setupPageControl()
         self.setupCustomNavigationBar()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(goToMyAccount), name: .didClickMenuButton, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
 //            let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //            appdelegate.switchRootViewcontrollerToHome()
+        NotificationCenter.default.addObserver(self, selector: #selector(goToTemporaryMenuBar), name: .didClickMenuButton, object: nil)
         self.navigationController?.isNavigationBarHidden = true
         self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
     }
@@ -75,10 +74,9 @@ class HomeViewController: UIViewController {
         return .lightContent
     }
     
-    @objc func goToMyAccount(){
-        let myAccountViewModel = MyAccountUpdateViewModel()
-        let myAccountViewController = MyAccountViewController(viewModel: myAccountViewModel)
-        navigationController?.pushViewController(myAccountViewController, animated: appAnimation)
+    @objc func goToTemporaryMenuBar(){
+        let temporaryMenuBar = TemporaryMenuBarViewController()
+        navigationController?.pushViewController(temporaryMenuBar, animated: appAnimation)
     }
     
     private func setupCustomNavigationBar(){

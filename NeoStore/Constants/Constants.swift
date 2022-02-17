@@ -21,6 +21,7 @@ enum TotalViewControllers: String{
     case HomeViewController = "HomeViewController"
     case MyAccountViewController = "MyAccountViewController"
     case ResetPasswordViewController = "ResetPasswordViewController"
+    case TemporaryMenuBar = "TemporaryMenuBarViewController"
 }
 
 //all icons name from assets

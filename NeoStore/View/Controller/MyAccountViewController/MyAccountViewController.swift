@@ -21,7 +21,8 @@ class MyAccountViewController: UIViewController {
     var imagePicker: ImagePicker!
     var viewModel: MyAccountUpdateViewModelType!
     var canEditTextfields: Bool = false
-//    var clickedSaveButton: Bool = false
+    var dobString: String? = nil
+    var profileImageString: String? = nil
     var didEditAnything: Bool = false
     
     override func viewDidLoad() {
@@ -53,7 +54,8 @@ class MyAccountViewController: UIViewController {
             switch MyAccountUpdateResult{
                 case .success:
                     self.didEditAnything = false
-                    self.fetchUserDetails()
+                    UserDefaults.standard.setProfilePicture(value: self.profileImageString)
+                    UserDefaults.standard.setDateOfBirth(value: self.dobString)
                     self.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
                 case .failure:
                     self.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
@@ -197,20 +199,17 @@ class MyAccountViewController: UIViewController {
     }
         
     private func myAccountIsEditing() -> Bool{
-        var profileImageString: String? = nil
         if let profileImage = profilImageView.image{
-            profileImageString = convertImageIntoString(image: profileImage)
-            debugPrint("Profile Image String: \(String(describing: profileImageString))")
+            self.profileImageString = convertImageIntoString(image: profileImage)
         }
         
-        var dateOfBirth: String? = nil
         if let dob = dateOfBirthTextField.text{
-            dateOfBirth = dob
+            self.dobString = dob
         }
         
         if let firstname = firstnameTextfield.text, let lastname = lastnameTextfield.text, let email = emailTextfield.text, let phoneNo = phoneNumberTextfield.text{
             
-            let userNewAccountDetails = userAccountDetails(firstname: firstname, lastname: lastname, profileImage: profileImageString, email: email, dob: dateOfBirth, phoneNo: phoneNo)
+            let userNewAccountDetails = userAccountDetails(firstname: firstname, lastname: lastname, profileImage: profileImageString, email: email, dob: dobString, phoneNo: phoneNo)
             let validationResult = self.viewModel.validateEditMyAccountDetails(userEditAccountDetails: userNewAccountDetails)
             
             if validationResult{
@@ -297,7 +296,14 @@ class MyAccountViewController: UIViewController {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
             var alertAction: UIAlertAction!
-            alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            if self.viewModel.myAccountUpdateStatus.value == .success{
+                alertAction = UIAlertAction(title: actionTitle, style: .default){ [weak self] _ in
+                    self?.fetchUserDetails()
+                }
+            }
+            else{
+                alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            }
             alert.addAction(alertAction)
             self.present(alert, animated: appAnimation, completion: nil)
         }

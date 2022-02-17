@@ -19,7 +19,7 @@ enum ResetPasswordResult: String{
 
 protocol ResetPasswordViewModelType {
     var resetPasswordStatus: ReactiveListener<ResetPasswordResult>{get set}
-    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String, accessToken: String)
+    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String)
     func validateResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String) -> Bool
 }
 
@@ -27,8 +27,8 @@ class ResetPasswordViewModel: ResetPasswordViewModelType{
     
     var resetPasswordStatus: ReactiveListener<ResetPasswordResult> = ReactiveListener(.none)
     
-    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String, accessToken: String) {
-        UserService.userResetPassword(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword, accessToken: accessToken) { (response) in
+    func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String) {
+        UserService.userResetPassword(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword) { (response) in
             switch response{
                 case .success(let data):
                     guard let content = data as? AnyDict else{
