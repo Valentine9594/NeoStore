@@ -20,23 +20,21 @@ class MyAccountViewController: UIViewController {
 //    var imagePicker = ImagePicker!
     var imagePicker: ImagePicker!
     var viewModel: MyAccountUpdateViewModelType!
+    var canEditTextfields: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        DispatchQueue.main.async {
-            self.setupNotificationsAndGestures()
-            self.setupUI()
-            self.setupNavigationBar()
-        }
+        self.setupNotificationsAndGestures()
+        self.setupUI()
+        self.setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
-        DispatchQueue.main.async {
-            self.navigationController?.isNavigationBarHidden = false
-        }
+        self.navigationController?.isNavigationBarHidden = false
+        self.fetchUserDetails()
         self.setupObservers()
     }
     
@@ -82,8 +80,19 @@ class MyAccountViewController: UIViewController {
         setTextField(textfield: phoneNumberTextfield, image: UIImage(named: textFieldIcons.phoneIcon.rawValue))
         setTextField(textfield: dateOfBirthTextField, image: UIImage(named: textFieldIcons.dobIcon.rawValue))
         
+        textfieldsShouldBeEditable(shouldBeEnabled: canEditTextfields)
         
+        editProfileButton.setTitle(ButtonTitles.canEdit.description, for: .normal)
         editProfileButton.layer.cornerRadius = 7
+    }
+    
+    private func textfieldsShouldBeEditable(shouldBeEnabled: Bool){
+        firstnameTextfield.isEnabled = shouldBeEnabled
+        lastnameTextfield.isEnabled = shouldBeEnabled
+        emailTextfield.isEnabled = shouldBeEnabled
+        phoneNumberTextfield.isEnabled = shouldBeEnabled
+        dateOfBirthTextField.isEnabled = shouldBeEnabled
+        profilImageView.gestureRecognizers?.first?.isEnabled = shouldBeEnabled
     }
     
     private func setupNotificationsAndGestures(){
@@ -102,7 +111,6 @@ class MyAccountViewController: UIViewController {
     }
     
     @objc func clickedProfileImageView(){
-        debugPrint("Clicked Profile Image!!!")
         self.imagePicker.present(from: self.scrollView)
     }
     
@@ -129,8 +137,52 @@ class MyAccountViewController: UIViewController {
     
     
     @IBAction func clickedEditProfileButton(_ sender: UIButton) {
-        self.editProfileButton.setTitle("Save", for: .normal)
         
+        self.editProfileButton.setTitle(ButtonTitles.saveChanges.description, for: .normal)
+        self.canEditTextfields = true
+        self.textfieldsShouldBeEditable(shouldBeEnabled: canEditTextfields)
+        
+        if editProfileButton.currentTitle == ButtonTitles.saveChanges.description{
+        let shouldSave = self.myAccountIsEditing()
+            
+            if shouldSave{
+                self.editProfileButton.setTitle(ButtonTitles.canEdit.description, for: .normal)
+                self.canEditTextfields = false
+                self.textfieldsShouldBeEditable(shouldBeEnabled: canEditTextfields)
+            }
+        }
+                
+    }
+    
+    private func fetchUserDetails(){
+        debugPrint("Firstname: \(String(describing: getDataFromUserDefaults(key: .firstname)))")
+        debugPrint("Lastname: \(String(describing: getDataFromUserDefaults(key: .lastname)))")
+        debugPrint("Email: \(String(describing: getDataFromUserDefaults(key: .email)))")
+        debugPrint("Phone Number: \(String(describing: getDataFromUserDefaults(key: .phoneNo)))")
+        
+        if let firstname = getDataFromUserDefaults(key: .firstname), let lastname = getDataFromUserDefaults(key: .lastname), let email = getDataFromUserDefaults(key: .email), let phoneNo = getDataFromUserDefaults(key: .phoneNo){
+            firstnameTextfield.text = firstname
+            lastnameTextfield.text = lastname
+            emailTextfield.text = email
+            phoneNumberTextfield.text = phoneNo
+            
+            if let dob = getDataFromUserDefaults(key: .dob){
+                dateOfBirthTextField.text = dob
+            }
+            
+            if let profileImageString = getDataFromUserDefaults(key: .profilePicture){
+                if let imageData = Data(base64Encoded: profileImageString){
+                    let profileImage = UIImage(data: imageData)
+                    self.profilImageView.image = profileImage
+                }
+            }
+        }
+        else{
+         callAlert(alertTitle: "Alert!", alertMessage: "Could not fetch account details!", actionTitle: "OK")
+        }
+    }
+    
+    private func myAccountIsEditing() -> Bool{
         var profileImageString: String? = nil
         if let profileImage = profilImageView.image{
             profileImageString = convertImageIntoString(image: profileImage)
@@ -148,17 +200,10 @@ class MyAccountViewController: UIViewController {
             
             if validationResult{
                 self.viewModel.getmyAccountUpdateDetails(userEditAccountDetails: userNewAccountDetails)
+                return true
             }
-            else{
-                debugPrint("Incorrect Alert")
-                callAlert(alertTitle: "Alert!", alertMessage: "Some textfields have incorrect values.", actionTitle: "OK")
-            }
-            
-        }else{
-            debugPrint("No Text Alert")
-            callAlert(alertTitle: "Alert!", alertMessage: "Some textfields are empty please fill them!", actionTitle: "OK")
         }
-        
+        return false
     }
     
     func convertImageIntoString(image: UIImage) -> String?{
@@ -215,8 +260,12 @@ class MyAccountViewController: UIViewController {
 
 }
 
-extension MyAccountViewController: ImagePickerDelegate{
+extension MyAccountViewController: ImagePickerDelegate, UITextFieldDelegate{
     func didSelect(image: UIImage?) {
         self.profilImageView.image = image
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return self.canEditTextfields
     }
 }

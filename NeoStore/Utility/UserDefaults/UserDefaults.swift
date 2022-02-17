@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UserDefaultsKeys: String{
+enum UserDefaultsKeys: String, CaseIterable{
     case id = "id"
     case roleId = "role_id"
     case firstname = "first_name"
@@ -121,7 +121,7 @@ extension UserDefaults{
     
     func setPhoneNumber(value: Any) throws{
         if let stringValue = value as? String, let safeValue = Int(stringValue){
-            setValue(safeValue, forKey: UserDefaultsKeys.firstname.description)
+            setValue(safeValue, forKey: UserDefaultsKeys.phoneNo.description)
         }
         else{
             throw UserDefaultErrors.CannotConvetIntoInteger
@@ -204,6 +204,12 @@ func getDataFromUserDefaults(key: UserDefaultsKeys) -> String?{
     }
    
     return nil
+}
+
+func fetchAllData(){
+    for i in UserDefaultsKeys.allCases{
+        debugPrint("\(i.description): \(String(describing: getDataFromUserDefaults(key: i)))")
+    }
 }
 
 private func formatDate(dateStringAny: Any) -> Date?{

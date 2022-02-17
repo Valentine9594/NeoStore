@@ -23,10 +23,8 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
 //            self.setupNavigationBar()
-        }
         self.setupObserver()
     }
     

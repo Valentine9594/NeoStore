@@ -34,18 +34,14 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        DispatchQueue.main.async {
-            self.setupUI()
-            self.setupNotificationsAndGestures()
-            self.setupNavigationBar()
-        }
+        self.setupUI()
+        self.setupNotificationsAndGestures()
+        self.setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.isNavigationBarHidden = false
 //            self.setupNavigationBar()
-        }
         self.setupObserver()
     }
     

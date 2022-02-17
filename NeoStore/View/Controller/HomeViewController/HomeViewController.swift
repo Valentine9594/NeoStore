@@ -28,28 +28,24 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        DispatchQueue.main.async {
 //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
 //            appDelegate.switchRootViewcontrollerToHome()
 //            self.navigationController?.isNavigationBarHidden = false
             
-            self.setupSlideShow()
-            self.setupProductTypesDisplay()
-            self.setupPageControl()
-            self.setupCustomNavigationBar()
-        }
+        self.setupSlideShow()
+        self.setupProductTypesDisplay()
+        self.setupPageControl()
+        self.setupCustomNavigationBar()
         
         NotificationCenter.default.addObserver(self, selector: #selector(goToMyAccount), name: .didClickMenuButton, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        debugPrint(getDataFromUserDefaults(key: .accessToken) ?? "NO ACCESS TOKEN")
-        DispatchQueue.main.async {
+        super.viewWillAppear(appAnimation)
 //            let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //            appdelegate.switchRootViewcontrollerToHome()
-            self.navigationController?.isNavigationBarHidden = true
-            self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
-        }
+        self.navigationController?.isNavigationBarHidden = true
+        self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

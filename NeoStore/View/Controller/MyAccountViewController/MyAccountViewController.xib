@@ -58,8 +58,8 @@
                                         <action selector="clickedResetPasswordButton:" destination="-1" eventType="touchUpInside" id="ZwY-wN-d80"/>
                                     </connections>
                                 </button>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="13" translatesAutoresizingMaskIntoConstraints="NO" id="TwP-dM-HeB">
-                                    <rect key="frame" x="33" y="174" width="348" height="317"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="TwP-dM-HeB">
+                                    <rect key="frame" x="33" y="174" width="348" height="305"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="pQM-0f-dsa">
                                             <rect key="frame" x="0.0" y="0.0" width="348" height="53"/>
@@ -72,7 +72,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Kvk-y4-6gD">
-                                            <rect key="frame" x="0.0" y="66" width="348" height="53"/>
+                                            <rect key="frame" x="0.0" y="63" width="348" height="53"/>
                                             <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="53" id="Vib-iB-FDF"/>
@@ -82,7 +82,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="bMa-pH-WQw">
-                                            <rect key="frame" x="0.0" y="132" width="348" height="53"/>
+                                            <rect key="frame" x="0.0" y="126" width="348" height="53"/>
                                             <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="53" id="A4s-Yh-wtH"/>
@@ -92,7 +92,7 @@
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="email"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Phone Number" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="m3P-1X-NYv">
-                                            <rect key="frame" x="0.0" y="198" width="348" height="53"/>
+                                            <rect key="frame" x="0.0" y="189" width="348" height="53"/>
                                             <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="53" id="KMB-uL-H3a"/>
@@ -102,7 +102,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="tel"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Date of Birth" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RGp-Uh-vMg">
-                                            <rect key="frame" x="0.0" y="264" width="348" height="53"/>
+                                            <rect key="frame" x="0.0" y="252" width="348" height="53"/>
                                             <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="53" id="xAu-xG-hrW"/>
@@ -126,7 +126,7 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t3b-Eo-QOr">
-                                    <rect key="frame" x="33" y="511" width="348" height="61"/>
+                                    <rect key="frame" x="33" y="499" width="348" height="61"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="61" id="ORj-cU-5q4"/>

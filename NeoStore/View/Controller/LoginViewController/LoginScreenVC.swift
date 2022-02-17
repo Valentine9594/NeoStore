@@ -20,16 +20,12 @@ class LoginScreenVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        DispatchQueue.main.async {
-            self.setupUI()
-            self.setupNotificationsAndGestures()
-        }
+        self.setupUI()
+        self.setupNotificationsAndGestures()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
-        }
+        self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
         self.setupObserver()
     }
     

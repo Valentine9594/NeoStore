@@ -66,6 +66,16 @@ enum CustomErrors: String, LocalizedError{
 // all app animations and switching animations true or false
 var appAnimation = true
 
+
+enum ButtonTitles: String{
+    case canEdit = "Edit Profile"
+    case saveChanges = "Save"
+    
+    var description: String?{
+        rawValue
+    }
+}
+
 func jsonParser(jsonData: Data) -> APIResponse<Any>{
 //    function to decode data using json decoder/serialisation
     do {
