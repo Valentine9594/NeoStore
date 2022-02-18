@@ -46,9 +46,9 @@ class ProductListingTableViewCell: UITableViewCell {
     private func setupProductRatingView(stars: Int){
         DispatchQueue.main.async {
             
-            let productRatingView = UINib(nibName: "ProductRatingView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+            let productRatingView = UINib(nibName: "ProductRatingView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProductRatingView
 //            let productRatingView = ProductRatingView()
-            
+            productRatingView.loadRatings(ratings: self.productRatings)
             
             productRatingView.translatesAutoresizingMaskIntoConstraints = false
             
@@ -66,6 +66,7 @@ class ProductListingTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        self.productRatings = 0
     }
     
 }

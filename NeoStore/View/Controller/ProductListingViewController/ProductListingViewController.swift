@@ -58,14 +58,9 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProductListingTableViewCell = tableView.dequeueReusableCell(withIdentifier: productListingCell, for: indexPath) as! ProductListingTableViewCell
-        var rating: Int = 0
-        if indexPath.row < 10{
-            rating = indexPath.row
-        }
-        else{
-            rating = Int(indexPath.row/2)
-        }
         
+        let rating: Int = Int.random(in: 2..<5)
+        debugPrint("Actual Rating: \(rating)")
         var productImage: UIImage? = nil
         if let image = UIImage(named: "slider_img1"){
             productImage = image
