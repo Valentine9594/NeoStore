@@ -214,13 +214,9 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 }
 
 func fetchAndSaveUserData(responseContent: AnyDict) throws{
-    debugPrint(responseContent)
-    guard let userDetailsResponse = responseContent[UserDefaultsKeys.userData.description] as? AnyDict else{
-        throw CustomErrors.CouldNotSaveInUserDefaults
-    }
     
     do {
-        try     saveLoginAndRegisterDataToUserDefaults(responseContent: userDetailsResponse)
+        try     saveLoginAndRegisterDataToUserDefaults(responseContent: responseContent)
     } catch let error {
         throw error
     }

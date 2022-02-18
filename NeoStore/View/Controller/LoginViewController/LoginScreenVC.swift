@@ -25,6 +25,7 @@ class LoginScreenVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(appAnimation)
         self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
         self.setupObserver()
     }

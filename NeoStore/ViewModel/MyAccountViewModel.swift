@@ -60,22 +60,20 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
                     guard let content = data as? AnyDict else{return}
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
-                        debugPrint(content)
+                        guard let response = content["data"] as? AnyDict else{return}
+                        guard let userContent = response[UserDefaultsKeys.userData.description] as? AnyDict else{return}
                         do {
-                            try fetchAndSaveUserData(responseContent: content)
+                            try fetchAndSaveUserData(responseContent: userContent)
                         } catch let error {
                             debugPrint(error.localizedDescription)
                         }
-//                        self.myAccountUpdateStatus.value = .fetchSuccess
                     }
                     else{
-//                        self.myAccountUpdateStatus.value = .fetchFailure
                         debugPrint(content["status"] ?? "NO Code")
                     }
                     
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
-//                    self.myAccountUpdateStatus.value = .fetchFailure
             }
         }
     }
@@ -85,9 +83,9 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
         let lastname = userEditAccountDetails.lastname
         let email = userEditAccountDetails.email
         let phoneNo = userEditAccountDetails.phoneNo
-//        let dob = userEditAccountDetails.dob
+        let dob = userEditAccountDetails.dob
         
-        if checkNames(nameString: firstname), checkNames(nameString: lastname), checkEmail(emailString: email), checkPhoneNo(phoneNo: phoneNo){
+        if checkNames(nameString: firstname), checkNames(nameString: lastname), checkEmail(emailString: email), checkPhoneNo(phoneNo: phoneNo), checkDOB(dobString: dob){
             return true
         }
         
@@ -96,9 +94,18 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
     }
     
     func checkDOB(dobString: String?) -> Bool{
-        if let _ = dobString{
+        guard let dob = dobString, dob != "" else{ return true }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        dateFormatter.locale = .current
+        let currentDate = Date()
+        guard let birthDate = dateFormatter.date(from: dob) else{ return false }
+        
+        if currentDate.compare(birthDate) == .orderedDescending{
             return true
         }
+        
         return false
     }
     

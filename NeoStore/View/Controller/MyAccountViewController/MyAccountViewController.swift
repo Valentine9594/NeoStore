@@ -21,9 +21,8 @@ class MyAccountViewController: UIViewController {
     var imagePicker: ImagePicker!
     var viewModel: MyAccountUpdateViewModelType!
     var canEditTextfields: Bool = false
-    var dobString: String? = nil
-    var profileImageString: String? = nil
     var didEditAnything: Bool = false
+    var changedProfileImage: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +35,17 @@ class MyAccountViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
+        self.resetViewController()
         self.fetchUserDetails()
         self.setupObservers()
+    }
+    
+    private func resetViewController(){
+        self.canEditTextfields = false
+        self.didEditAnything = false
+        self.viewModel.myAccountUpdateStatus.value = .none
+        self.textfieldsShouldBeEditable(shouldBeEnabled: canEditTextfields)
+        self.changedProfileImage = false
     }
     
     init(viewModel: MyAccountUpdateViewModelType){
@@ -53,7 +61,7 @@ class MyAccountViewController: UIViewController {
         self.viewModel.myAccountUpdateStatus.bindAndFire { MyAccountUpdateResult in
             switch MyAccountUpdateResult{
                 case .success:
-                    self.didEditAnything = false
+                    self.resetViewController()
                     self.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
                 case .failure:
                     self.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
@@ -90,41 +98,48 @@ class MyAccountViewController: UIViewController {
     }
     
     private func setupDatepicker(){
-        self.datePicker = UIDatePicker()
-        datePicker.datePickerMode = .date
-        datePicker.locale = .current
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.sizeToFit()
-        
-        let toolBar = UIToolbar()
-        toolBar.tintColor = UIColor.appGreyFont
-        toolBar.backgroundColor = .white
-        toolBar.isTranslucent = appAnimation
-        toolBar.sizeToFit()
-        
-        let titleFontHeight = toolBar.frame.size.height/2
-        let doneButton = UIBarButtonItem(title: ButtonTitles.done.description, style: .done, target: self, action: #selector(dismissDatePicker))
-        doneButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
-        let cancelButton = UIBarButtonItem(title: ButtonTitles.cancel.description, style: .done, target: self, action: nil)
-        cancelButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
-        
-        toolBar.setItems([cancelButton, .flexibleSpace(), doneButton], animated: appAnimation)
-        toolBar.isUserInteractionEnabled = true
-        dateOfBirthTextField.inputAccessoryView = toolBar
-        dateOfBirthTextField.inputView = datePicker
+        DispatchQueue.main.async {
+            self.datePicker = UIDatePicker()
+            self.datePicker.datePickerMode = .date
+            self.datePicker.locale = .current
+            self.datePicker.preferredDatePickerStyle = .wheels
+            self.datePicker.sizeToFit()
+            let currentDate = Date()
+            self.datePicker.maximumDate = currentDate
+            
+            let toolBar = UIToolbar()
+            toolBar.tintColor = UIColor.appGreyFont
+            toolBar.backgroundColor = .white
+            toolBar.isTranslucent = appAnimation
+            toolBar.sizeToFit()
+            
+            let titleFontHeight = toolBar.frame.size.height/2.5
+            let doneButton = UIBarButtonItem(title: ButtonTitles.done.description, style: .done, target: self, action: #selector(self.dismissDatePicker))
+            doneButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
+            let cancelButton = UIBarButtonItem(title: ButtonTitles.cancel.description, style: .done, target: self, action: nil)
+            cancelButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
+            
+            toolBar.setItems([cancelButton, .flexibleSpace(), doneButton], animated: appAnimation)
+            toolBar.isUserInteractionEnabled = true
+            self.dateOfBirthTextField.inputAccessoryView = toolBar
+            self.dateOfBirthTextField.inputView = self.datePicker
+        }
     }
     
     private func textfieldsShouldBeEditable(shouldBeEnabled: Bool){
-        firstnameTextfield.isEnabled = shouldBeEnabled
-        lastnameTextfield.isEnabled = shouldBeEnabled
-        emailTextfield.isEnabled = shouldBeEnabled
-        phoneNumberTextfield.isEnabled = shouldBeEnabled
-        dateOfBirthTextField.isEnabled = shouldBeEnabled
-        profilImageView.gestureRecognizers?.first?.isEnabled = shouldBeEnabled
+        DispatchQueue.main.async {
+            self.firstnameTextfield.isEnabled = shouldBeEnabled
+            self.lastnameTextfield.isEnabled = shouldBeEnabled
+            self.emailTextfield.isEnabled = shouldBeEnabled
+            self.phoneNumberTextfield.isEnabled = shouldBeEnabled
+            self.dateOfBirthTextField.isEnabled = shouldBeEnabled
+            self.profilImageView.gestureRecognizers?.first?.isEnabled = shouldBeEnabled
+        }
     }
     
     @objc func dismissDatePicker(){
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = .current
         dateFormatter.dateFormat = "dd-MM-yyyy"
         let dateString = dateFormatter.string(from: datePicker.date)
         dateOfBirthTextField.text = dateString
@@ -197,16 +212,16 @@ class MyAccountViewController: UIViewController {
     }
         
     private func myAccountIsEditing() -> Bool{
-        if let profileImage = profilImageView.image{
-            self.profileImageString = convertImageIntoString(image: profileImage)
+        var profileImageString: String? = nil
+        if self.changedProfileImage, let profileImage = profilImageView.image{
+            profileImageString = convertImageIntoString(image: profileImage)
         }
+//        debugPrint(profileImageString ?? "No Profile Image String!!")
         
+        var dobString: String? = nil
         if let dob = dateOfBirthTextField.text{
-            self.dobString = dob
+            dobString = dob
         }
-        
-        debugPrint(self.profileImageString ?? "No Profile Image String!!")
-        debugPrint(self.dobString ?? "No DOB String!!!")
         
         if let firstname = firstnameTextfield.text, let lastname = lastnameTextfield.text, let email = emailTextfield.text, let phoneNo = phoneNumberTextfield.text{
             
@@ -237,7 +252,7 @@ class MyAccountViewController: UIViewController {
                     self.dateOfBirthTextField.text = dob
                 }
                 
-                if let profileImageString = getDataFromUserDefaults(key: .profilePicture){
+                if self.changedProfileImage, let profileImageString = getDataFromUserDefaults(key: .profilePicture), profileImageString != ""{
                     if let imageData = Data(base64Encoded: profileImageString){
                         let profileImage = UIImage(data: imageData)
                         self.profilImageView.image = profileImage
@@ -299,7 +314,7 @@ class MyAccountViewController: UIViewController {
             var alertAction: UIAlertAction!
             if self.viewModel.myAccountUpdateStatus.value == .success{
                 alertAction = UIAlertAction(title: actionTitle, style: .default){ [weak self] _ in
-                    self?.fetchUserDetails()
+                    self?.viewDidLoad()
                 }
             }
             else{
@@ -316,6 +331,7 @@ class MyAccountViewController: UIViewController {
 extension MyAccountViewController: ImagePickerDelegate, UITextFieldDelegate{
     func didSelect(image: UIImage?) {
         self.profilImageView.image = image
+        self.changedProfileImage = true
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {

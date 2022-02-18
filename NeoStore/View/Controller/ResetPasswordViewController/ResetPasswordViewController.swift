@@ -26,6 +26,7 @@ class ResetPasswordViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(appAnimation)
         self.navigationController?.isNavigationBarHidden = false
         self.setupObservers()
     }
