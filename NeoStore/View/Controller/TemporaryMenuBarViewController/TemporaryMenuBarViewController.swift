@@ -10,6 +10,7 @@ import UIKit
 class TemporaryMenuBarViewController: UIViewController {
     @IBOutlet weak var myAccountButton: UIButton!
 
+    @IBOutlet weak var productListingButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -46,5 +47,10 @@ class TemporaryMenuBarViewController: UIViewController {
         navigationController?.pushViewController(myAccountViewController, animated: appAnimation)
     }
     
-
+    
+    @IBAction func clickedProductListingButton(_ sender: UIButton) {
+        let productListingViewController = ProductListingViewController(nibName: TotalViewControllers.ProductListingViewController.rawValue, bundle: nil)
+        self.navigationController?.pushViewController(productListingViewController, animated: appAnimation)
+    }
+    
 }

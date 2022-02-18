@@ -55,6 +55,12 @@
 		92DC14C627BD149E004C531D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14C527BD149E004C531D /* ImagePicker.swift */; };
 		92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14C727BE81CA004C531D /* TemporaryMenuBarViewController.swift */; };
 		92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14C827BE81CA004C531D /* TemporaryMenuBarViewController.xib */; };
+		92DC14CF27BF923B004C531D /* ProductListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14CD27BF923B004C531D /* ProductListingViewController.swift */; };
+		92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14CE27BF923B004C531D /* ProductListingViewController.xib */; };
+		92DC14D427BF93D6004C531D /* ProductListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */; };
+		92DC14D527BF93D6004C531D /* ProductListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */; };
+		92DC14D827BFA49F004C531D /* ProductRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14D727BFA49F004C531D /* ProductRatingView.xib */; };
+		92DC14DA27BFA4EB004C531D /* ProductRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14D927BFA4EB004C531D /* ProductRatingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +126,12 @@
 		92DC14C527BD149E004C531D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		92DC14C727BE81CA004C531D /* TemporaryMenuBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryMenuBarViewController.swift; sourceTree = "<group>"; };
 		92DC14C827BE81CA004C531D /* TemporaryMenuBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemporaryMenuBarViewController.xib; sourceTree = "<group>"; };
+		92DC14CD27BF923B004C531D /* ProductListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingViewController.swift; sourceTree = "<group>"; };
+		92DC14CE27BF923B004C531D /* ProductListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListingViewController.xib; sourceTree = "<group>"; };
+		92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingTableViewCell.swift; sourceTree = "<group>"; };
+		92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListingTableViewCell.xib; sourceTree = "<group>"; };
+		92DC14D727BFA49F004C531D /* ProductRatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductRatingView.xib; sourceTree = "<group>"; };
+		92DC14D927BFA4EB004C531D /* ProductRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRatingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +240,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				92DC14CC27BF9209004C531D /* ProductListingViewController */,
 				92DC14CB27BE81D4004C531D /* TemporaryMenuBarViewController */,
 				92DC14B727BA7EDB004C531D /* ResetPasswordViewController */,
 				92DC14B227BA5348004C531D /* MyAccountViewController */,
@@ -422,6 +435,35 @@
 			path = TemporaryMenuBarViewController;
 			sourceTree = "<group>";
 		};
+		92DC14CC27BF9209004C531D /* ProductListingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				92DC14D627BFA3B1004C531D /* ProductRatingView */,
+				92DC14D127BF9373004C531D /* ProductListingTaleViewCell */,
+				92DC14CD27BF923B004C531D /* ProductListingViewController.swift */,
+				92DC14CE27BF923B004C531D /* ProductListingViewController.xib */,
+			);
+			path = ProductListingViewController;
+			sourceTree = "<group>";
+		};
+		92DC14D127BF9373004C531D /* ProductListingTaleViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */,
+				92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */,
+			);
+			path = ProductListingTaleViewCell;
+			sourceTree = "<group>";
+		};
+		92DC14D627BFA3B1004C531D /* ProductRatingView */ = {
+			isa = PBXGroup;
+			children = (
+				92DC14D727BFA49F004C531D /* ProductRatingView.xib */,
+				92DC14D927BFA4EB004C531D /* ProductRatingView.swift */,
+			);
+			path = ProductRatingView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -503,8 +545,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DC14A427B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.xib in Resources */,
+				92DC14D827BFA49F004C531D /* ProductRatingView.xib in Resources */,
 				92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */,
 				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
+				92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */,
 				92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */,
 				92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */,
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
@@ -515,6 +559,7 @@
 				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
 				92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */,
 				92DC14B627BA539C004C531D /* MyAccountViewController.xib in Resources */,
+				92DC14D527BF93D6004C531D /* ProductListingTableViewCell.xib in Resources */,
 				92DC149D27B53EDB004C531D /* SlideShowCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +597,7 @@
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
+				92DC14CF27BF923B004C531D /* ProductListingViewController.swift in Sources */,
 				92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */,
 				92DC147F27B39F66004C531D /* JSONParser.swift in Sources */,
 				92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */,
@@ -563,7 +609,9 @@
 				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
 				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,
+				92DC14DA27BFA4EB004C531D /* ProductRatingView.swift in Sources */,
 				92DC14A327B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.swift in Sources */,
+				92DC14D427BF93D6004C531D /* ProductListingTableViewCell.swift in Sources */,
 				92DC144127AA6C4E004C531D /* Models.swift in Sources */,
 				92DC14BA27BA7F3D004C531D /* ResetPasswordViewController.swift in Sources */,
 			);

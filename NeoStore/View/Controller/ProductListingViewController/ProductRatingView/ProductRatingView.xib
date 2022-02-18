@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleAspectFit" id="Tqf-zg-pjX" customClass="ProductRatingView" customModule="NeoStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="490-lz-lf8" userLabel="RatingStackView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="110"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="hJp-1W-2ND">
+                            <rect key="frame" x="0.0" y="0.0" width="120" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="kUX-iN-6p8"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="epl-co-CGu">
+                            <rect key="frame" x="120" y="0.0" width="120" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="UHe-SF-5nX"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="fNv-7b-gbZ">
+                            <rect key="frame" x="240" y="0.0" width="120" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="BBB-At-5dA"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="3Ql-fj-8BA">
+                            <rect key="frame" x="360" y="0.0" width="120" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="yFf-3l-o6d"/>
+                            </constraints>
+                        </imageView>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="fox-Jp-MVB">
+                            <rect key="frame" x="480" y="0.0" width="120" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="IhD-gn-0RE"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="epl-co-CGu" firstAttribute="top" secondItem="490-lz-lf8" secondAttribute="top" id="0bs-U0-6hK"/>
+                        <constraint firstAttribute="bottom" secondItem="hJp-1W-2ND" secondAttribute="bottom" id="2lI-wW-D1B"/>
+                        <constraint firstAttribute="bottom" secondItem="epl-co-CGu" secondAttribute="bottom" id="2uj-FT-72Y"/>
+                        <constraint firstAttribute="bottom" secondItem="fox-Jp-MVB" secondAttribute="bottom" id="3tT-sX-RLj"/>
+                        <constraint firstAttribute="bottom" secondItem="3Ql-fj-8BA" secondAttribute="bottom" id="4vu-1w-kIc"/>
+                        <constraint firstItem="3Ql-fj-8BA" firstAttribute="top" secondItem="490-lz-lf8" secondAttribute="top" id="I6W-sN-3Pc"/>
+                        <constraint firstAttribute="bottom" secondItem="fNv-7b-gbZ" secondAttribute="bottom" id="TMB-iR-SWb"/>
+                        <constraint firstItem="fNv-7b-gbZ" firstAttribute="top" secondItem="490-lz-lf8" secondAttribute="top" id="YBK-ll-zS2"/>
+                        <constraint firstItem="fox-Jp-MVB" firstAttribute="top" secondItem="490-lz-lf8" secondAttribute="top" id="iGK-zu-ydG"/>
+                        <constraint firstItem="hJp-1W-2ND" firstAttribute="top" secondItem="490-lz-lf8" secondAttribute="top" id="q4p-7h-K29"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="490-lz-lf8" secondAttribute="bottom" id="IgV-IM-mgr"/>
+                <constraint firstAttribute="trailing" secondItem="490-lz-lf8" secondAttribute="trailing" id="PcF-9x-5KG"/>
+                <constraint firstItem="490-lz-lf8" firstAttribute="width" secondItem="Tqf-zg-pjX" secondAttribute="width" id="QpR-Ao-ODj"/>
+                <constraint firstItem="490-lz-lf8" firstAttribute="top" secondItem="Tqf-zg-pjX" secondAttribute="top" id="T5o-D8-e1g"/>
+                <constraint firstItem="490-lz-lf8" firstAttribute="height" secondItem="Tqf-zg-pjX" secondAttribute="height" id="aEv-TM-1hE"/>
+                <constraint firstItem="490-lz-lf8" firstAttribute="leading" secondItem="Tqf-zg-pjX" secondAttribute="leading" id="lbd-Nv-1al"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="ratingStackView" destination="490-lz-lf8" id="Vwn-AF-lFN"/>
+                <outlet property="starRatingImage1" destination="hJp-1W-2ND" id="Qnv-eG-I2w"/>
+                <outlet property="starRatingImage2" destination="epl-co-CGu" id="J3c-JD-RS8"/>
+                <outlet property="starRatingImage3" destination="fNv-7b-gbZ" id="phO-fY-6gd"/>
+                <outlet property="starRatingImage4" destination="3Ql-fj-8BA" id="v1F-r3-kUW"/>
+                <outlet property="starRatingImage5" destination="fox-Jp-MVB" id="ki1-nC-ASh"/>
+            </connections>
+            <point key="canvasLocation" x="227.536231884058" y="-53.571428571428569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="star_uncheck" width="44" height="44"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

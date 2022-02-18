@@ -51,20 +51,19 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: .didClickMenuButton, object: nil)
     }
     
-    
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = self.view.backgroundColor
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "Register"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-        
-    }
+//    private func setupNavigationBar(){
+////        function to setup navigation bar
+//        let navigationBar = self.navigationController?.navigationBar
+//        navigationBar?.barTintColor = self.view.backgroundColor
+//        navigationBar?.tintColor = UIColor.white
+//        navigationBar?.isTranslucent = appAnimation
+//        navigationBar?.barStyle = .black
+//        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
+//
+//        navigationItem.title = "Register"
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
+//
+//    }
     
     @objc func popToPreviousViewController(){
         self.navigationController?.popViewController(animated: appAnimation)
@@ -80,6 +79,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupCustomNavigationBar(){
+        DispatchQueue.main.async {
 //        setting status bar color
         self.view.backgroundColor = UIColor.appRed
         
@@ -91,6 +91,7 @@ class HomeViewController: UIViewController {
         navigationBarView.leadingAnchor.constraint(equalTo: self.customNavigationBar.leadingAnchor).isActive = true
         navigationBarView.trailingAnchor.constraint(equalTo: self.customNavigationBar.trailingAnchor).isActive = true
         navigationBarView.bottomAnchor.constraint(equalTo: self.customNavigationBar.bottomAnchor).isActive = true
+        }
     }
     
     @objc func slideToNext(){

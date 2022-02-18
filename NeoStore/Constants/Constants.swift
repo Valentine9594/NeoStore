@@ -21,6 +21,8 @@ enum TotalViewControllers: String{
     case HomeViewController = "HomeViewController"
     case MyAccountViewController = "MyAccountViewController"
     case ResetPasswordViewController = "ResetPasswordViewController"
+    case ProductListingViewController = "ProductListingViewController"
+    
     case TemporaryMenuBar = "TemporaryMenuBarViewController"
 }
 
@@ -38,6 +40,8 @@ enum textFieldIcons: String{
 enum AppIcons: String{
     case menu = "menu_icon"
     case search = "search_icon"
+    case starChecked = "star_check"
+    case starUnchecked = "star_uncheck"
     
     var description: String{
         rawValue
