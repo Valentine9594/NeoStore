@@ -10,8 +10,6 @@ import Foundation
 enum MyAccountUpdateResult: String{
     case success
     case failure
-//    case fetchSuccess
-//    case fetchFailure
     case none
     
     var description: String{

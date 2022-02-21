@@ -9,8 +9,8 @@ import UIKit
 
 class TemporaryMenuBarViewController: UIViewController {
     @IBOutlet weak var myAccountButton: UIButton!
-
     @IBOutlet weak var productListingButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +21,8 @@ class TemporaryMenuBarViewController: UIViewController {
 
     private func setupUI(){
         myAccountButton.layer.cornerRadius = 7
+        productListingButton.layer.cornerRadius = 7
+        logOutButton.layer.cornerRadius = 7
     }
     
     private func setupNavigationBar(){
@@ -49,8 +51,18 @@ class TemporaryMenuBarViewController: UIViewController {
     
     
     @IBAction func clickedProductListingButton(_ sender: UIButton) {
-        let productListingViewController = ProductListingViewController(nibName: TotalViewControllers.ProductListingViewController.rawValue, bundle: nil)
+        let produtListingViewModel = ProductListingViewModel()
+        let productListingViewController = ProductListingViewController(viewModel: produtListingViewModel)
         self.navigationController?.pushViewController(productListingViewController, animated: appAnimation)
+        
+
+    }
+    
+    @IBAction func clickedLogOutButton(_ sender: UIButton) {
+        let loginViewModel = LoginViewModel()
+        let loginViewController = LoginScreenVC(viewModel: loginViewModel)
+        UserDefaults.standard.setIsLoggedIn(value: false)
+        self.navigationController?.pushViewController(loginViewController, animated: appAnimation)
     }
     
 }

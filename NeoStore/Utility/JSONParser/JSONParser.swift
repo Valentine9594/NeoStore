@@ -8,7 +8,7 @@
 import Foundation
 
 struct JsonParser{
-    static func processResponse<T:Decodable>(result: Data?, type: T.Type) -> T?{
+    static func processResponse<T: Decodable>(result: Data?, type: T.Type) -> T?{
         if let response = result{
             do {
                 return try type.decode(data: response)
@@ -21,6 +21,7 @@ struct JsonParser{
 extension Decodable{
     static func decode(data: Data) throws -> Self{
         let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .formatted(.dateFormatter)
         return try decoder.decode(Self.self, from: data)
     }
 }
@@ -41,4 +42,12 @@ func convertModelToJSON<T: Codable>(model: T) -> AnyDict?{
     } catch {
         return nil
     }
+}
+
+extension DateFormatter{
+    static let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return formatter
+    }()
 }

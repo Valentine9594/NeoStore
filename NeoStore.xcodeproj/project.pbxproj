@@ -61,6 +61,7 @@
 		92DC14D527BF93D6004C531D /* ProductListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */; };
 		92DC14D827BFA49F004C531D /* ProductRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14D727BFA49F004C531D /* ProductRatingView.xib */; };
 		92DC14DA27BFA4EB004C531D /* ProductRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14D927BFA4EB004C531D /* ProductRatingView.swift */; };
+		92DC14DE27C365C2004C531D /* ProductListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +133,7 @@
 		92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListingTableViewCell.xib; sourceTree = "<group>"; };
 		92DC14D727BFA49F004C531D /* ProductRatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductRatingView.xib; sourceTree = "<group>"; };
 		92DC14D927BFA4EB004C531D /* ProductRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRatingView.swift; sourceTree = "<group>"; };
+		92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				92DC149E27B54538004C531D /* HomeViewModel.swift */,
 				92DC14BE27BBC91C004C531D /* ResetPasswordViewModel.swift */,
 				92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */,
+				92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				92DC14B527BA539C004C531D /* MyAccountViewController.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,
 				92DC14C627BD149E004C531D /* ImagePicker.swift in Sources */,
+				92DC14DE27C365C2004C531D /* ProductListingViewModel.swift in Sources */,
 				92DC149C27B53EDB004C531D /* SlideShowCollectionViewCell.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */,

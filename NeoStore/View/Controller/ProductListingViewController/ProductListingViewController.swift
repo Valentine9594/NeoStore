@@ -9,6 +9,7 @@ import UIKit
 
 class ProductListingViewController: UIViewController{
     @IBOutlet weak var productListingTableview: UITableView!
+    var viewModel: ProductListingViewModelType!
     let productListingCell = "ProductListingCell"
     
     override func viewDidLoad() {
@@ -22,14 +23,37 @@ class ProductListingViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         self.navigationController?.isNavigationBarHidden = false
+        self.setupLoadTableViewData()
     }
 
+    init(viewModel: ProductListingViewModelType){
+        self.viewModel = viewModel
+        super.init(nibName: TotalViewControllers.ProductListingViewController.rawValue, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupLoadTableViewData(){
+        self.viewModel.tableShouldReload.bindAndFire { shouldReload in
+            if shouldReload{
+                DispatchQueue.main.async {
+                    self.productListingTableview.reloadData()
+                }
+            }
+        }
+    }
+    
     private func setupProductListingTableView(){
         let productListingCellNib = UINib(nibName: "ProductListingTableViewCell", bundle: nil)
         self.productListingTableview.register(productListingCellNib, forCellReuseIdentifier: productListingCell)
         
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
+        
+        productListingTableview.estimatedRowHeight = 120
+        productListingTableview.rowHeight = UITableView.automaticDimension
     }
 
     private func setupNavigationBar(){
@@ -53,28 +77,25 @@ class ProductListingViewController: UIViewController{
 
 extension ProductListingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.viewModel.totalNumberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ProductListingTableViewCell = tableView.dequeueReusableCell(withIdentifier: productListingCell, for: indexPath) as! ProductListingTableViewCell
         
-        let rating: Int = Int.random(in: 2..<5)
-        debugPrint("Actual Rating: \(rating)")
-        var productImage: UIImage? = nil
-        if let image = UIImage(named: "slider_img1"){
-            productImage = image
-        }
+        let productData = self.viewModel.getItemAtIndex(index: indexPath.row)
         
-        cell.load(productImage: productImage, productName: "Sample Name", productDescription: "Sample Description", productPrice: 10, productRating: rating)
-
+        if let rating: Int = productData.rating, let name = productData.name, let productDesc = productData.description, let price = productData.cost{
+//            let image = UIImage()
+            cell.load(productImage: nil, productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
+        }
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
-    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 120
+//    }
     
 }
+

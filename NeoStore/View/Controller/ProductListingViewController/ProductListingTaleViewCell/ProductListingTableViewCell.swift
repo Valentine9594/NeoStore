@@ -47,20 +47,16 @@ class ProductListingTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             
             let productRatingView = UINib(nibName: "ProductRatingView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProductRatingView
-//            let productRatingView = ProductRatingView()
-            productRatingView.loadRatings(ratings: self.productRatings)
             
             productRatingView.translatesAutoresizingMaskIntoConstraints = false
-            
             self.productRatingView.addSubview(productRatingView)
             
-            debugPrint(productRatingView.subviews.count)
             productRatingView.topAnchor.constraint(equalTo: self.productRatingView.topAnchor).isActive = true
             productRatingView.leadingAnchor.constraint(equalTo: self.productRatingView.leadingAnchor).isActive = true
             productRatingView.trailingAnchor.constraint(equalTo: self.productRatingView.trailingAnchor).isActive = true
             productRatingView.bottomAnchor.constraint(equalTo: self.productRatingView.bottomAnchor).isActive = true
             
-//            productRatingView.loadRatings(ratings: self.productRatings ?? 0)
+            productRatingView.loadRatings(ratings: self.productRatings)
         }
     }
     

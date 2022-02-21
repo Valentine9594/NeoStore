@@ -21,57 +21,40 @@ class ProductRatingView: UIView{
     }
     
     func loadRatings(ratings: Int){
-        DispatchQueue.main.async {
-//        self.createAllUnchecked()
+        self.setupRatingsView()
         self.ratings = ratings - 1
         if self.ratings > 0{
             self.setupProductRatings(stars: self.ratings)
         }
-        }
     }
         
     private func setupProductRatings(stars: Int){
-        DispatchQueue.main.async {
             var i: Int = 0
             guard let starChecked = UIImage(named: AppIcons.starChecked.description) else{return}
-            let changeImageFunctionArray: [()] = [self.changeImage1(image: starChecked), self.changeImage2(image: starChecked), self.changeImage3(image: starChecked), self.changeImage4(image: starChecked), self.changeImage5(image: starChecked)]
+            let changeImageFunctionArray: [UIImageView] = [self.starRatingImage1, self.starRatingImage2, self.starRatingImage3, self.starRatingImage4, self.starRatingImage5]
             while i < stars{
                 debugPrint(i)
-                changeImageFunctionArray[i]
+                self.changeImageOfImagView(imageView: changeImageFunctionArray[i], image: starChecked)
                 i += 1
             }
-        }
     }
     
-    func createAllUnchecked(){
-        DispatchQueue.main.async {
+    func setupRatingsView(stars: Int = 5){
+            var i: Int = 0
             guard let starUnchecked = UIImage(named: AppIcons.starUnchecked.description) else{return}
-            self.changeImage1(image: starUnchecked)
-            self.changeImage2(image: starUnchecked)
-            self.changeImage3(image: starUnchecked)
-            self.changeImage4(image: starUnchecked)
-            self.changeImage5(image: starUnchecked)
+            let changeImageFunctionArray: [UIImageView] = [self.starRatingImage1, self.starRatingImage2, self.starRatingImage3, self.starRatingImage4, self.starRatingImage5]
+            while i < stars{
+                self.changeImageOfImagView(imageView: changeImageFunctionArray[i], image: starUnchecked)
+                i += 1
+            }
+    }
+    
+    func changeImageOfImagView(imageView: UIImageView, image: UIImage?){
+        if let confirmedImage = image{
+            DispatchQueue.main.async {
+                imageView.image = confirmedImage
+            }
         }
-    }
-    
-    func changeImage1(image: UIImage){
-        self.starRatingImage1.image = image
-    }
-    
-    func changeImage2(image: UIImage){
-        self.starRatingImage2.image = image
-    }
-    
-    func changeImage3(image: UIImage){
-        self.starRatingImage3.image = image
-    }
-    
-    func changeImage4(image: UIImage){
-        self.starRatingImage4.image = image
-    }
-    
-    func changeImage5(image: UIImage){
-        self.starRatingImage5.image = image
     }
     
     override class func prepareForInterfaceBuilder() {
