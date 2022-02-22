@@ -19,6 +19,9 @@ class UserService{
                 case .success(let data):
                     if let content = data as? Data{
                         let responseData = jsonParser(jsonData: content)
+//                        guard let jsonData = JsonParser.processResponse(result: content, type: jsonDataResponse.self) else{ return }
+//                        debugPrint(jsonData)
+//                        let responseData: APIResponse<Any> = .success(value: jsonData)
                         completion(responseData)
                     }
                     else{

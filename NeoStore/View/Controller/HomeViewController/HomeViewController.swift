@@ -238,7 +238,27 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.productsTypeCollectionView{
-            print(productTypesImageArray[indexPath.item])
+            let itemSelected = indexPath.item
+            var productCategory: ProductCategory!
+            
+            switch itemSelected {
+                case 0:
+                    productCategory = .tables
+                case 1:
+                    productCategory = .sofas
+                case 2:
+                    productCategory = .chairs
+                case 3:
+                    productCategory = .cupboards
+                default:
+                    productCategory = .tables
+            }
+            
+            let produtListingViewModel = ProductListingViewModel()
+            let productListingViewController = ProductListingViewController(viewModel: produtListingViewModel)
+            productListingViewController.productCategory = productCategory
+            self.navigationController?.pushViewController(productListingViewController, animated: appAnimation)
+            
         }
     }
     

@@ -80,7 +80,6 @@
                                     </state>
                                     <connections>
                                         <action selector="clickedLogOutButton:" destination="-1" eventType="touchUpInside" id="uQy-aK-viY"/>
-                                        <action selector="clickedProductListingButton:" destination="-1" eventType="touchUpInside" id="aFL-oi-LAV"/>
                                     </connections>
                                 </button>
                             </subviews>

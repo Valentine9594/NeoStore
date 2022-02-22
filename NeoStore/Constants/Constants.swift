@@ -69,8 +69,18 @@ enum CustomErrors: String, LocalizedError{
 }
 
 // all app animations and switching animations true or false
-var appAnimation = true
+var appAnimation = false
 
+enum ProductCategory: Int{
+    case tables = 1
+    case chairs = 2
+    case sofas = 3
+    case cupboards = 4
+    
+    var id: Int{
+        rawValue
+    }
+}
 
 enum ButtonTitles: String{
     case canEdit = "Edit Profile"
@@ -96,4 +106,16 @@ func jsonParser(jsonData: Data) -> APIResponse<Any>{
     }
 }
 
-
+func jsonProductDecoder(jsonData: Data) -> APIResponse<jsonProductResponse>{
+    do {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssz"
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.dateDecodingStrategy = .formatted(formatter)
+        let responseData = try jsonDecoder.decode(jsonProductResponse.self, from: jsonData)
+        return .success(value: responseData)
+    } catch let error {
+        debugPrint(error.localizedDescription)
+        return .failure(error: error)
+    }
+}

@@ -10,16 +10,14 @@ import Foundation
 class ProductService{
     static func getProductListing(productCateoryId: Int, completion: @escaping(APIResponse<jsonProductResponse>)->Void){
         
-        let params = [ProductListingParameter.productCategoryId.description: 1, ProductListingParameter.limit.description: 10, ProductListingParameter.page.description: 1]
+        let params = [ProductListingParameter.productCategoryId.description: productCateoryId, ProductListingParameter.limit.description: 10, ProductListingParameter.page.description: 1]
         
         APIManager.sharedInstance.performRequest(serviceType: .getProductList(parameters: params)) { response in
             
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        debugPrint(content)
-                        guard let productData = JsonParser.processResponse(result: content, type: jsonProductResponse.self) else{ return }
-                        let responseData: APIResponse<jsonProductResponse> = .success(value: productData)
+                        let responseData = jsonProductDecoder(jsonData: content)
                             completion(responseData)
                         }
                     else{

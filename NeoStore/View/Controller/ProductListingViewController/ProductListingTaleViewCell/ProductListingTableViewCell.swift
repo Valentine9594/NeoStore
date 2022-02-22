@@ -21,25 +21,25 @@ class ProductListingTableViewCell: UITableViewCell {
     var productRatings: Int!
     
     func load(productImage: UIImage?, productName: String, productDescription: String, productPrice: Int, productRating: Int){
-        DispatchQueue.main.async {
-            self.productImage = productImage
-            self.productName = productName
-            self.productDescription = productDescription
-            self.productPrice = productPrice
-            self.productRatings = productRating
-            
-            self.setupProductData()
-            self.setupProductRatingView(stars: self.productRatings ?? 0)
-        }
+        self.productImage = productImage
+        self.productName = productName
+        self.productDescription = productDescription
+        self.productPrice = productPrice
+        self.productRatings = productRating
+        
+        self.setupProductData()
+        self.setupProductRatingView(stars: self.productRatings ?? 0)
     }
     
     private func setupProductData(){
-        self.productNameLabel.text = self.productName
-        self.productDescriptionLabel.text = self.productDescription
-        self.productPriceLabel.text = "Rs. \(self.productPrice ?? 0)"
-        
-        if let image = self.productImage{
-            self.productImageView.image = image
+        DispatchQueue.main.async {
+            self.productNameLabel.text = self.productName
+            self.productDescriptionLabel.text = self.productDescription
+            self.productPriceLabel.text = "Rs. \(self.productPrice ?? 0)"
+            
+            if let image = self.productImage{
+                self.productImageView.image = image
+            }
         }
     }
     

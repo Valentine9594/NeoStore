@@ -21,10 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupInitialLaunch(){
         window = UIWindow(frame: UIScreen.main.bounds)
         var navigationController: UINavigationController!
-        
-        let loginViewModel = LoginViewModel()
-        let loginViewController = LoginScreenVC(viewModel: loginViewModel)
-        navigationController = UINavigationController(rootViewController: loginViewController)
+        if let loggedIn = getDataFromUserDefaults(key: .isLoggedIn), loggedIn == "1"{
+            let homeViewModel = HomeViewModel()
+            let homeViewController = HomeViewController(viewModel: homeViewModel)
+            navigationController = UINavigationController(rootViewController: homeViewController)
+        }
+        else{
+            let loginViewModel = LoginViewModel()
+            let loginViewController = LoginScreenVC(viewModel: loginViewModel)
+            navigationController = UINavigationController(rootViewController: loginViewController)
+        }
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

@@ -7,27 +7,17 @@
 
 import Foundation
 
-enum ProductListingResult: String{
-    case success
-    case failure
-    case none
-    
-    var description: String{
-        rawValue
-    }
-}
-
 protocol ProductListingViewModelType {
-    var productListingStatus: ReactiveListener<ProductListingResult>{get set}
     var tableShouldReload: ReactiveListener<Bool>{get set}
     func fetchProductData(productCategoryId: Int)
-    func totalNumberOfRows() -> Int
     
+    func totalNumberOfRows() -> Int
     func getItemAtIndex(index: Int) -> ProductData
+    
+    func convertStringURLToImage(urlString: String) -> Data?
 }
 
 class ProductListingViewModel: ProductListingViewModelType{
-    var productListingStatus: ReactiveListener<ProductListingResult> = ReactiveListener(.none)
     var tableShouldReload: ReactiveListener<Bool> = ReactiveListener(true)
     
     var productList = [ProductData]()
@@ -46,16 +36,36 @@ class ProductListingViewModel: ProductListingViewModelType{
                 case .success(let data):
                     if data.status == 200{
                         self.productList += data.data
-                        self.productListingStatus.value = .success
+                        self.tableShouldReload.value = true
                     }
                     
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
-                    self.productListingStatus.value = .failure
+                    self.tableShouldReload.value = false
             }
         }
         debugPrint("Product Listing View Model.")
     }
     
+    func convertStringURLToImage(urlString: String) -> Data?{
+        guard let url = URL(string: urlString) else{ return nil}
+        var imageData: Data? = nil
+        debugPrint("String to ImageData 1")
+        
+        self.getDataFromSession(url: url) { data, response, error in
+            guard let data = data, error == nil else{ return }
+            debugPrint("String to ImageData 2")
+            imageData = data
+        }
+        
+        debugPrint("String to ImageData 3")
+        return imageData
+    }
+    
+    private func getDataFromSession(url: URL, completion: @escaping(Data?, URLResponse?, Error?) -> ()){
+        URLSession.shared.dataTask(with: url) {(data, response, error) in
+        }.resume()
+    }
+
     
 }

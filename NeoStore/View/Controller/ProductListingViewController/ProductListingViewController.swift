@@ -11,6 +11,7 @@ class ProductListingViewController: UIViewController{
     @IBOutlet weak var productListingTableview: UITableView!
     var viewModel: ProductListingViewModelType!
     let productListingCell = "ProductListingCell"
+    var productCategory: ProductCategory!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class ProductListingViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         self.navigationController?.isNavigationBarHidden = false
+        self.viewModel.fetchProductData(productCategoryId: productCategory.id)
         self.setupLoadTableViewData()
     }
 
@@ -52,7 +54,7 @@ class ProductListingViewController: UIViewController{
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
         
-        productListingTableview.estimatedRowHeight = 120
+        productListingTableview.estimatedRowHeight = 94
         productListingTableview.rowHeight = UITableView.automaticDimension
     }
 
@@ -65,12 +67,28 @@ class ProductListingViewController: UIViewController{
         navigationBar?.barStyle = .black
         navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
         
-        navigationItem.title = "Product?"
+        let title = getCurrentProductName(productCategoryId: self.productCategory.id)
+        navigationItem.title = title
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
     }
     
     @objc func popToPreviousViewController() -> Void{
         self.navigationController?.popViewController(animated: appAnimation)
+    }
+    
+    private func getCurrentProductName(productCategoryId: Int) -> String{
+        switch productCategoryId {
+            case 0:
+                return "Tables"
+            case 2:
+                return "Chairs"
+            case 3:
+                return "Sofas"
+            case 4:
+                return "Cupboards"
+            default:
+                return "Tables"
+        }
     }
 
 }
@@ -86,8 +104,21 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         let productData = self.viewModel.getItemAtIndex(index: indexPath.row)
         
         if let rating: Int = productData.rating, let name = productData.name, let productDesc = productData.description, let price = productData.cost{
-//            let image = UIImage()
-            cell.load(productImage: nil, productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
+
+            DispatchQueue.global(qos: .userInteractive).async {
+                var productImage: UIImage? = nil
+                if let productImageString = productData.productImages?.description{
+                    if let productImageData = self.viewModel.convertStringURLToImage(urlString: productImageString){
+                        debugPrint("Product Image Data: \(productImageData)")
+                        if let image = UIImage(data: productImageData){
+                            productImage = image
+                        }
+                    }
+                }
+                
+                cell.load(productImage: productImage, productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
+            }
+
         }
         
         return cell
