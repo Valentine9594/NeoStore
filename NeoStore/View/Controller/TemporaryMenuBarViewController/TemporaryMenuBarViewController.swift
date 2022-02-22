@@ -53,6 +53,7 @@ class TemporaryMenuBarViewController: UIViewController {
     @IBAction func clickedProductListingButton(_ sender: UIButton) {
         let produtListingViewModel = ProductListingViewModel()
         let productListingViewController = ProductListingViewController(viewModel: produtListingViewModel)
+        productListingViewController.productCategory = .tables
         self.navigationController?.pushViewController(productListingViewController, animated: appAnimation)
         
 

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProductListingViewController: UIViewController{
     @IBOutlet weak var productListingTableview: UITableView!
@@ -54,7 +55,7 @@ class ProductListingViewController: UIViewController{
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
         
-        productListingTableview.estimatedRowHeight = 94
+        productListingTableview.estimatedRowHeight = 150
         productListingTableview.rowHeight = UITableView.automaticDimension
     }
 
@@ -106,17 +107,11 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         if let rating: Int = productData.rating, let name = productData.name, let productDesc = productData.description, let price = productData.cost{
 
             DispatchQueue.global(qos: .userInteractive).async {
-                var productImage: UIImage? = nil
-                if let productImageString = productData.productImages?.description{
-                    if let productImageData = self.viewModel.convertStringURLToImage(urlString: productImageString){
-                        debugPrint("Product Image Data: \(productImageData)")
-                        if let image = UIImage(data: productImageData){
-                            productImage = image
-                        }
-                    }
-                }
+                guard let imageUrl = productData.productImages?.description else{ return }
+                let url = URL(string: imageUrl)
                 
-                cell.load(productImage: productImage, productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
+                cell.load(productImageUrl: url, productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
+                cell.productImageView.sd_setImage(with: url, completed: nil)
             }
 
         }

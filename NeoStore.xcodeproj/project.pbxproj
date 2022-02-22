@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9208632927C52D35007D2FED /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9208632827C52D35007D2FED /* SDWebImage */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -141,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9208632927C52D35007D2FED /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,8 +483,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				9208632B27C52D54007D2FED /* PBXTargetDependency */,
 			);
 			name = NeoStore;
+			packageProductDependencies = (
+				9208632827C52D35007D2FED /* SDWebImage */,
+			);
 			productName = NeoStore;
 			productReference = 92131AF027A817AF00E9A993 /* NeoStore.app */;
 			productType = "com.apple.product-type.application";
@@ -532,6 +538,9 @@
 				Base,
 			);
 			mainGroup = 92131AE727A817AF00E9A993;
+			packageReferences = (
+				9208632727C52D35007D2FED /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 92131AF127A817AF00E9A993 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -632,6 +641,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9208632B27C52D54007D2FED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 9208632A27C52D54007D2FED /* SDWebImage */;
+		};
 		92DC147527B2AF3F004C531D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 92131AEF27A817AF00E9A993 /* NeoStore */;
@@ -872,6 +885,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9208632727C52D35007D2FED /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.12.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9208632827C52D35007D2FED /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9208632727C52D35007D2FED /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		9208632A27C52D54007D2FED /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9208632727C52D35007D2FED /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */ = {

@@ -14,14 +14,14 @@ class ProductListingTableViewCell: UITableViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productRatingView: UIView!
     
-    var productImage: UIImage? = nil
+    var productImageUrl: URL!
     var productName: String!
     var productDescription: String!
     var productPrice: Int!
     var productRatings: Int!
     
-    func load(productImage: UIImage?, productName: String, productDescription: String, productPrice: Int, productRating: Int){
-        self.productImage = productImage
+    func load(productImageUrl: URL?, productName: String, productDescription: String, productPrice: Int, productRating: Int){
+        self.productImageUrl = productImageUrl
         self.productName = productName
         self.productDescription = productDescription
         self.productPrice = productPrice
@@ -37,9 +37,7 @@ class ProductListingTableViewCell: UITableViewCell {
             self.productDescriptionLabel.text = self.productDescription
             self.productPriceLabel.text = "Rs. \(self.productPrice ?? 0)"
             
-            if let image = self.productImage{
-                self.productImageView.image = image
-            }
+            self.productImageView.sd_setImage(with: self.productImageUrl, completed: nil)
         }
     }
     
