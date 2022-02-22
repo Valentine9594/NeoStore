@@ -20,10 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func setupInitialLaunch(){
         window = UIWindow(frame: UIScreen.main.bounds)
+        var navigationController: UINavigationController!
         
         let loginViewModel = LoginViewModel()
         let loginViewController = LoginScreenVC(viewModel: loginViewModel)
-        let navigationController = UINavigationController(rootViewController: loginViewController)
+        navigationController = UINavigationController(rootViewController: loginViewController)
         
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

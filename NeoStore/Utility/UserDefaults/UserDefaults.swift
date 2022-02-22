@@ -173,6 +173,15 @@ extension UserDefaults{
         setValue(value, forKey: UserDefaultsKeys.isLoggedIn.description)
     }
     
+//    static func getDataFromUserDefaults<T>(key: UserDefaultsKeys) -> T?{
+//
+//        if let keyValue = value(forKey: key.description){
+//            return keyValue as! T?
+//        }
+//
+//       return nil
+//    }
+    
 }
 
 
@@ -238,11 +247,11 @@ func getDataFromUserDefaults(key: UserDefaultsKeys) -> String?{
     return nil
 }
 
-func fetchAllData(){
-    for i in UserDefaultsKeys.allCases{
-        debugPrint("\(i.description): \(String(describing: getDataFromUserDefaults(key: i)))")
-    }
-}
+//func fetchAllData(){
+//    for i in UserDefaultsKeys.allCases{
+//        debugPrint("\(i.description): \(getDataFromUserDefaults(key: i))")
+//    }
+//}
 
 private func formatDate(dateStringAny: Any) -> Date?{
     if let dateString = dateStringAny as? String{

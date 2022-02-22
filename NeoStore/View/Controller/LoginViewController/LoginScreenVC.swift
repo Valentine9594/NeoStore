@@ -62,6 +62,7 @@ class LoginScreenVC: UIViewController {
     }
     
     private func setupSuccessfullLogIn(){
+        UserDefaults.standard.setIsLoggedIn(value: true)
         DispatchQueue.main.async {
 //            let appDelgate = UIApplication.shared.delegate as! AppDelegate
             let homeViewModel = HomeViewModel()
