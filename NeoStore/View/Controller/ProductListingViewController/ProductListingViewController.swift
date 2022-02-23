@@ -122,6 +122,11 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        self.pageNumber += 1
+        self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: pageNumber)
+    }
+    
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 120
 //    }

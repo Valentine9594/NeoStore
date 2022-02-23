@@ -49,6 +49,7 @@ class HomeViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self, name: .didClickMenuButton, object: nil)
+        self.timer.invalidate()
     }
     
 //    private func setupNavigationBar(){
