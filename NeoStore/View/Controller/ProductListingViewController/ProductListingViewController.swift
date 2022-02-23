@@ -15,6 +15,7 @@ class ProductListingViewController: UIViewController{
     var productCategory: ProductCategory!
     private var productsLimit: Int = 10
     private var pageNumber: Int = 1
+    private var bottomCells: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class ProductListingViewController: UIViewController{
     private func setupLoadTableViewData(){
         self.viewModel.tableShouldReload.bindAndFire { shouldReload in
             if shouldReload{
+                self.bottomCells = self.pageNumber * self.productsLimit
                 DispatchQueue.main.async {
                     self.productListingTableview.reloadData()
                 }
@@ -57,7 +59,7 @@ class ProductListingViewController: UIViewController{
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
         
-        productListingTableview.estimatedRowHeight = 110
+        productListingTableview.estimatedRowHeight = 95
         productListingTableview.rowHeight = UITableView.automaticDimension
     }
 
@@ -122,9 +124,11 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         return cell
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        self.pageNumber += 1
-        self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: pageNumber)
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row >= bottomCells - 4, indexPath.row <= bottomCells{
+            self.pageNumber += 1
+            self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: pageNumber)
+        }
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

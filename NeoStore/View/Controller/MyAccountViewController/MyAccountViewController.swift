@@ -78,7 +78,7 @@ class MyAccountViewController: UIViewController {
         if let image = UIImage(named: textFieldIcons.userIcon.rawValue){
             profilImageView.image = image
         }
-        profilImageView.layer.cornerRadius = 67
+        profilImageView.layer.cornerRadius = 66
         profilImageView.layer.borderWidth = 2
         profilImageView.layer.borderColor = UIColor.white.cgColor
         profilImageView.isUserInteractionEnabled = true
