@@ -55,7 +55,7 @@ class ProductListingViewController: UIViewController{
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
         
-        productListingTableview.estimatedRowHeight = 150
+        productListingTableview.estimatedRowHeight = 95
         productListingTableview.rowHeight = UITableView.automaticDimension
     }
 
@@ -107,13 +107,14 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         if let rating: Int = productData.rating, let name = productData.name, let productDesc = productData.description, let price = productData.cost{
 
             DispatchQueue.global(qos: .userInteractive).async {
+                cell.load(productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
+            }
+            DispatchQueue.main.async {
                 guard let imageUrl = productData.productImages?.description else{ return }
                 let url = URL(string: imageUrl)
-                
-                cell.load(productImageUrl: url, productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
-                cell.productImageView.sd_setImage(with: url, completed: nil)
+                cell.productImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
+                cell.productImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             }
-
         }
         
         return cell

@@ -14,39 +14,38 @@ class ProductRatingView: UIView{
     @IBOutlet weak var starRatingImage3: UIImageView!
     @IBOutlet weak var starRatingImage4: UIImageView!
     @IBOutlet weak var starRatingImage5: UIImageView!
-    var ratings: Int!
+    private var ratings: Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     func loadRatings(ratings: Int){
-        self.setupRatingsView()
         self.ratings = ratings - 1
-        if self.ratings > 0{
-            self.setupProductRatings(stars: self.ratings)
-        }
+        self.setupRatings()
     }
         
-    private func setupProductRatings(stars: Int){
+    func setupRatings(){
+        guard let starChecked = UIImage(named: AppIcons.starChecked.description) else{ return }
+        guard let starUnchecked = UIImage(named: AppIcons.starUnchecked.description) else{ return }
+        let imageViewArray: [UIImageView] = [self.starRatingImage1, self.starRatingImage2, self.starRatingImage3, self.starRatingImage4, self.starRatingImage5]
+        
+        DispatchQueue.main.async {
             var i: Int = 0
-            guard let starChecked = UIImage(named: AppIcons.starChecked.description) else{return}
-            let changeImageFunctionArray: [UIImageView] = [self.starRatingImage1, self.starRatingImage2, self.starRatingImage3, self.starRatingImage4, self.starRatingImage5]
-            while i < stars{
-                debugPrint(i)
-                self.changeImageOfImagView(imageView: changeImageFunctionArray[i], image: starChecked)
+            while i < imageViewArray.count{
+                let currentImageView = imageViewArray[i]
+                var image: UIImage? = nil
+                if i <= self.ratings{
+                    image = starChecked
+                }
+                else{
+                    image = starUnchecked
+                }
+                self.changeImageOfImagView(imageView: currentImageView, image: image)
                 i += 1
             }
-    }
-    
-    func setupRatingsView(stars: Int = 5){
-            var i: Int = 0
-            guard let starUnchecked = UIImage(named: AppIcons.starUnchecked.description) else{return}
-            let changeImageFunctionArray: [UIImageView] = [self.starRatingImage1, self.starRatingImage2, self.starRatingImage3, self.starRatingImage4, self.starRatingImage5]
-            while i < stars{
-                self.changeImageOfImagView(imageView: changeImageFunctionArray[i], image: starUnchecked)
-                i += 1
-            }
+        }
+        
     }
     
     func changeImageOfImagView(imageView: UIImageView, image: UIImage?){

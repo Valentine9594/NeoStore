@@ -14,14 +14,12 @@ class ProductListingTableViewCell: UITableViewCell {
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productRatingView: UIView!
     
-    var productImageUrl: URL!
     var productName: String!
     var productDescription: String!
     var productPrice: Int!
     var productRatings: Int!
     
-    func load(productImageUrl: URL?, productName: String, productDescription: String, productPrice: Int, productRating: Int){
-        self.productImageUrl = productImageUrl
+    func load(productName: String, productDescription: String, productPrice: Int, productRating: Int){
         self.productName = productName
         self.productDescription = productDescription
         self.productPrice = productPrice
@@ -36,8 +34,6 @@ class ProductListingTableViewCell: UITableViewCell {
             self.productNameLabel.text = self.productName
             self.productDescriptionLabel.text = self.productDescription
             self.productPriceLabel.text = "Rs. \(self.productPrice ?? 0)"
-            
-            self.productImageView.sd_setImage(with: self.productImageUrl, completed: nil)
         }
     }
     
