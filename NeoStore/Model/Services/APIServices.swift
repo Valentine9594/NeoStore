@@ -47,7 +47,7 @@ enum APIServices{
     case updateAccount(parameters: AnyDict)
     case getUserDetails
     case getProductList(parameters: AnyDict)
-    case getProductDetails
+    case getProductDetails(parameters: AnyDict)
     case setProductRatings(paramters: AnyDict)
     case addToCart(paramters: AnyDict)
     case EditCart(paramters: AnyDict)
@@ -88,7 +88,7 @@ extension APIServices{
     
     var parameters: AnyDict?{
         switch self {
-            case .userRegister(let param), .userLogin(let param), .updateAccount(let param), .setProductRatings(let param), .placeOrder(let param), .forgotPassword(let param), .changePassword(let param), .addToCart(let param), .EditCart(let param), .DeleteCart(let param), .getProductList(let param):
+            case .userRegister(let param), .userLogin(let param), .updateAccount(let param), .setProductRatings(let param), .placeOrder(let param), .forgotPassword(let param), .changePassword(let param), .addToCart(let param), .EditCart(let param), .DeleteCart(let param), .getProductList(let param), .getProductDetails(let param):
                 return param
             default:
                 return nil

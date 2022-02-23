@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9208632927C52D35007D2FED /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9208632827C52D35007D2FED /* SDWebImage */; };
+		9208632F27C6544E007D2FED /* ProductDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208632D27C6544E007D2FED /* ProductDetailedViewController.swift */; };
+		9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -74,6 +76,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9208632D27C6544E007D2FED /* ProductDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailedViewController.swift; sourceTree = "<group>"; };
+		9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailedViewController.xib; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9208632C27C653E7007D2FED /* ProductDetailedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9208632D27C6544E007D2FED /* ProductDetailedViewController.swift */,
+				9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */,
+			);
+			path = ProductDetailedViewController;
+			sourceTree = "<group>";
+		};
 		92131AE727A817AF00E9A993 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +254,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9208632C27C653E7007D2FED /* ProductDetailedViewController */,
 				92DC14CC27BF9209004C531D /* ProductListingViewController */,
 				92DC14CB27BE81D4004C531D /* TemporaryMenuBarViewController */,
 				92DC14B727BA7EDB004C531D /* ResetPasswordViewController */,
@@ -553,6 +567,7 @@
 				92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
 				92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */,
+				9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */,
 				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
 				92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */,
 				92DC14B627BA539C004C531D /* MyAccountViewController.xib in Resources */,
@@ -590,6 +605,7 @@
 				92DC14B527BA539C004C531D /* MyAccountViewController.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,
 				92DC14C627BD149E004C531D /* ImagePicker.swift in Sources */,
+				9208632F27C6544E007D2FED /* ProductDetailedViewController.swift in Sources */,
 				92DC14DE27C365C2004C531D /* ProductListingViewModel.swift in Sources */,
 				92DC149C27B53EDB004C531D /* SlideShowCollectionViewCell.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,

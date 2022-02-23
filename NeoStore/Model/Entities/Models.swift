@@ -132,9 +132,9 @@ enum ProductListingParameter: String{
     }
 }
 
-struct jsonProductResponse{
+struct jsonProductResponse<T: Decodable>{
     let status: Int?
-    let data: [ProductData]
+    let data: [T]
     
     enum codingKeys: String, CodingKey{
         case status = "status"
@@ -147,7 +147,7 @@ extension jsonProductResponse: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         status = try codingKeysValue.decode(Int.self, forKey: .status)
-        data = try codingKeysValue.decode([ProductData].self, forKey: .data)
+        data = try codingKeysValue.decode([T].self, forKey: .data)
     }
 }
 

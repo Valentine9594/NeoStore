@@ -131,6 +131,11 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let productDetailedViewController = ProductDetailedViewController()
+        self.navigationController?.pushViewController(productDetailedViewController, animated: appAnimation)
+    }
+    
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 //        return 120
 //    }

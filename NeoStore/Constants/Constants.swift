@@ -22,6 +22,7 @@ enum TotalViewControllers: String{
     case MyAccountViewController = "MyAccountViewController"
     case ResetPasswordViewController = "ResetPasswordViewController"
     case ProductListingViewController = "ProductListingViewController"
+    case ProductDetailedViewController = "ProductDetailedViewController"
     
     case TemporaryMenuBar = "TemporaryMenuBarViewController"
 }
@@ -106,13 +107,13 @@ func jsonParser(jsonData: Data) -> APIResponse<Any>{
     }
 }
 
-func jsonProductDecoder(jsonData: Data) -> APIResponse<jsonProductResponse>{
+func jsonProductDecoder<T: Decodable>(jsonData: Data) -> APIResponse<jsonProductResponse<T>>{
     do {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssz"
         let jsonDecoder = JSONDecoder()
         jsonDecoder.dateDecodingStrategy = .formatted(formatter)
-        let responseData = try jsonDecoder.decode(jsonProductResponse.self, from: jsonData)
+        let responseData = try jsonDecoder.decode(jsonProductResponse<T>.self, from: jsonData)
         return .success(value: responseData)
     } catch let error {
         debugPrint(error.localizedDescription)
