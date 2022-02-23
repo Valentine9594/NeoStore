@@ -439,20 +439,20 @@
 		92DC14CC27BF9209004C531D /* ProductListingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				92DC14D127BF9373004C531D /* ProductListingTaleViewCell */,
+				92DC14D127BF9373004C531D /* ProductListingTableViewCell */,
 				92DC14CD27BF923B004C531D /* ProductListingViewController.swift */,
 				92DC14CE27BF923B004C531D /* ProductListingViewController.xib */,
 			);
 			path = ProductListingViewController;
 			sourceTree = "<group>";
 		};
-		92DC14D127BF9373004C531D /* ProductListingTaleViewCell */ = {
+		92DC14D127BF9373004C531D /* ProductListingTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
 				92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */,
 				92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */,
 			);
-			path = ProductListingTaleViewCell;
+			path = ProductListingTableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

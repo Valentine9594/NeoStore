@@ -9,7 +9,7 @@ import Foundation
 
 protocol ProductListingViewModelType {
     var tableShouldReload: ReactiveListener<Bool>{get set}
-    func fetchProductData(productCategoryId: Int)
+    func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int)
     
     func totalNumberOfRows() -> Int
     func getItemAtIndex(index: Int) -> ProductData
@@ -28,8 +28,8 @@ class ProductListingViewModel: ProductListingViewModelType{
         return productList[index]
     }
     
-    func fetchProductData(productCategoryId: Int) {
-        ProductService.getProductListing(productCateoryId: productCategoryId){ (response) in
+    func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int) {
+        ProductService.getProductListing(productCategoryId: productCategoryId, productsLimit: productsLimit, productsPageNumber: productsPageNumber){ (response) in
             switch response{
                 case .success(let data):
                     if data.status == 200{
@@ -42,7 +42,7 @@ class ProductListingViewModel: ProductListingViewModelType{
                     self.tableShouldReload.value = false
             }
         }
-        debugPrint("Product Listing View Model.")
+
     }
 
     

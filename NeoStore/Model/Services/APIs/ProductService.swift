@@ -8,9 +8,9 @@
 import Foundation
 
 class ProductService{
-    static func getProductListing(productCateoryId: Int, completion: @escaping(APIResponse<jsonProductResponse>)->Void){
+    static func getProductListing(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int, completion: @escaping(APIResponse<jsonProductResponse>)->Void){
         
-        let params = [ProductListingParameter.productCategoryId.description: productCateoryId, ProductListingParameter.limit.description: 10, ProductListingParameter.page.description: 1]
+        let params = [ProductListingParameter.productCategoryId.description: productCategoryId, ProductListingParameter.limit.description: productsLimit, ProductListingParameter.page.description: productsPageNumber]
         
         APIManager.sharedInstance.performRequest(serviceType: .getProductList(parameters: params)) { response in
             

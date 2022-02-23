@@ -10,9 +10,11 @@ import SDWebImage
 
 class ProductListingViewController: UIViewController{
     @IBOutlet weak var productListingTableview: UITableView!
-    var viewModel: ProductListingViewModelType!
-    let productListingCell = "ProductListingCell"
+    private var viewModel: ProductListingViewModelType!
+    private let productListingCell = "ProductListingCell"
     var productCategory: ProductCategory!
+    private var productsLimit: Int = 10
+    private var pageNumber: Int = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +27,7 @@ class ProductListingViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         self.navigationController?.isNavigationBarHidden = false
-        self.viewModel.fetchProductData(productCategoryId: productCategory.id)
+        self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: 1)
         self.setupLoadTableViewData()
     }
 
