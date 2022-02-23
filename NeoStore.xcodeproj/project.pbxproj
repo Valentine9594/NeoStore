@@ -60,8 +60,6 @@
 		92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14CE27BF923B004C531D /* ProductListingViewController.xib */; };
 		92DC14D427BF93D6004C531D /* ProductListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */; };
 		92DC14D527BF93D6004C531D /* ProductListingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */; };
-		92DC14D827BFA49F004C531D /* ProductRatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14D727BFA49F004C531D /* ProductRatingView.xib */; };
-		92DC14DA27BFA4EB004C531D /* ProductRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14D927BFA4EB004C531D /* ProductRatingView.swift */; };
 		92DC14DE27C365C2004C531D /* ProductListingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,8 +130,6 @@
 		92DC14CE27BF923B004C531D /* ProductListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListingViewController.xib; sourceTree = "<group>"; };
 		92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingTableViewCell.swift; sourceTree = "<group>"; };
 		92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListingTableViewCell.xib; sourceTree = "<group>"; };
-		92DC14D727BFA49F004C531D /* ProductRatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductRatingView.xib; sourceTree = "<group>"; };
-		92DC14D927BFA4EB004C531D /* ProductRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRatingView.swift; sourceTree = "<group>"; };
 		92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -443,7 +439,6 @@
 		92DC14CC27BF9209004C531D /* ProductListingViewController */ = {
 			isa = PBXGroup;
 			children = (
-				92DC14D627BFA3B1004C531D /* ProductRatingView */,
 				92DC14D127BF9373004C531D /* ProductListingTaleViewCell */,
 				92DC14CD27BF923B004C531D /* ProductListingViewController.swift */,
 				92DC14CE27BF923B004C531D /* ProductListingViewController.xib */,
@@ -458,15 +453,6 @@
 				92DC14D327BF93D6004C531D /* ProductListingTableViewCell.xib */,
 			);
 			path = ProductListingTaleViewCell;
-			sourceTree = "<group>";
-		};
-		92DC14D627BFA3B1004C531D /* ProductRatingView */ = {
-			isa = PBXGroup;
-			children = (
-				92DC14D727BFA49F004C531D /* ProductRatingView.xib */,
-				92DC14D927BFA4EB004C531D /* ProductRatingView.swift */,
-			);
-			path = ProductRatingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,7 +543,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				92DC14A427B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.xib in Resources */,
-				92DC14D827BFA49F004C531D /* ProductRatingView.xib in Resources */,
 				92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */,
 				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
 				92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */,
@@ -622,7 +607,6 @@
 				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
 				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,
-				92DC14DA27BFA4EB004C531D /* ProductRatingView.swift in Sources */,
 				92DC14A327B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.swift in Sources */,
 				92DC14D427BF93D6004C531D /* ProductListingTableViewCell.swift in Sources */,
 				92DC144127AA6C4E004C531D /* Models.swift in Sources */,

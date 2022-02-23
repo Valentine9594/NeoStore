@@ -13,6 +13,12 @@ class ProductListingTableViewCell: UITableViewCell {
     @IBOutlet weak var productDescriptionLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     @IBOutlet weak var productRatingView: UIView!
+    @IBOutlet weak var productRatingStackView: UIStackView!
+    @IBOutlet weak var productRatingStar1: UIImageView!
+    @IBOutlet weak var productRatingStar2: UIImageView!
+    @IBOutlet weak var productRatingStar3: UIImageView!
+    @IBOutlet weak var productRatingStar4: UIImageView!
+    @IBOutlet weak var productRatingStar5: UIImageView!
     
     var productName: String!
     var productDescription: String!
@@ -26,7 +32,7 @@ class ProductListingTableViewCell: UITableViewCell {
         self.productRatings = productRating
         
         self.setupProductData()
-        self.setupProductRatingView(stars: self.productRatings ?? 0)
+        self.setupProductRating()
     }
     
     private func setupProductData(){
@@ -37,20 +43,33 @@ class ProductListingTableViewCell: UITableViewCell {
         }
     }
     
-    private func setupProductRatingView(stars: Int){
+    private func setupProductRating(){
+        guard let starChecked = UIImage(named: AppIcons.starChecked.description) else{ return }
+        guard let starUnchecked = UIImage(named: AppIcons.starUnchecked.description) else{ return }
+        let productRatingImageViewArray: [UIImageView] = [productRatingStar1, productRatingStar2, productRatingStar3, productRatingStar4, productRatingStar5]
+        
         DispatchQueue.main.async {
-            
-            let productRatingView = UINib(nibName: "ProductRatingView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! ProductRatingView
-            
-            productRatingView.translatesAutoresizingMaskIntoConstraints = false
-            self.productRatingView.addSubview(productRatingView)
-            
-            productRatingView.topAnchor.constraint(equalTo: self.productRatingView.topAnchor).isActive = true
-            productRatingView.leadingAnchor.constraint(equalTo: self.productRatingView.leadingAnchor).isActive = true
-            productRatingView.trailingAnchor.constraint(equalTo: self.productRatingView.trailingAnchor).isActive = true
-            productRatingView.bottomAnchor.constraint(equalTo: self.productRatingView.bottomAnchor).isActive = true
-            
-            productRatingView.loadRatings(ratings: self.productRatings)
+            var i: Int = 0
+            while i < productRatingImageViewArray.count{
+                let currentImageView = productRatingImageViewArray[i]
+                var image: UIImage? = nil
+                if i <= self.productRatings{
+                    image = starChecked
+                }
+                else{
+                    image = starUnchecked
+                }
+                self.changeImageOfImageView(imageView: currentImageView, image: image)
+                i += 1
+            }
+        }
+    }
+    
+    private func changeImageOfImageView(imageView: UIImageView, image: UIImage?){
+        if let confirmedImage = image{
+            DispatchQueue.main.async {
+                imageView.image = confirmedImage
+            }
         }
     }
     

@@ -16,37 +16,67 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductListingCell" rowHeight="64" id="KGk-i7-Jjw" customClass="ProductListingTableViewCell" customModule="NeoStore" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1dA-W2-JwQ">
-                        <rect key="frame" x="13" y="13" width="73" height="67"/>
+                        <rect key="frame" x="13" y="16.5" width="73" height="67"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="67" id="9re-8L-RlX"/>
                             <constraint firstAttribute="width" constant="73" id="qSJ-36-AVI"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="RQi-tU-MlW">
-                        <rect key="frame" x="98" y="62" width="296" height="20"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RQi-tU-MlW">
+                        <rect key="frame" x="98" y="62" width="296" height="25"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HbS-Dc-p4m">
-                                <rect key="frame" x="0.0" y="0.0" width="193" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="216" height="25"/>
                                 <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="20"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.25098039220000001" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-D5-ksD" userLabel="ratingsView">
-                                <rect key="frame" x="209" y="2" width="87" height="16"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wq-Ge8">
+                                <rect key="frame" x="216" y="0.0" width="80" height="25"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="H3z-xh-Zxl">
+                                        <rect key="frame" x="0.0" y="0.0" width="16" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="wo9-7f-A2f"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="iD3-dX-ghz">
+                                        <rect key="frame" x="16" y="0.0" width="16" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="ee6-xx-lRh"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="iZ9-XT-26V">
+                                        <rect key="frame" x="32" y="0.0" width="16" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="v7k-dq-Z2b"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="MOC-ba-c4r">
+                                        <rect key="frame" x="48" y="0.0" width="16" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="Qoy-Fm-Z9y"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="UcC-Ax-GFC">
+                                        <rect key="frame" x="64" y="0.0" width="16" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="16" id="8bi-xx-oGa"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="16" id="UHd-7N-DME"/>
-                                    <constraint firstAttribute="width" constant="87" id="fFn-DU-byd"/>
+                                    <constraint firstAttribute="width" constant="80" id="kuZ-Cd-b6J"/>
                                 </constraints>
-                            </view>
+                            </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="62n-ja-ph4"/>
-                            <constraint firstItem="MX9-D5-ksD" firstAttribute="centerY" secondItem="RQi-tU-MlW" secondAttribute="centerY" id="WUK-Ch-A1x"/>
+                            <constraint firstItem="Sr6-Wq-Ge8" firstAttribute="centerY" secondItem="RQi-tU-MlW" secondAttribute="centerY" id="Erx-Eb-Thu"/>
                         </constraints>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5dP-cz-F2T">
@@ -71,19 +101,17 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="NXW-8I-5nf" firstAttribute="leading" secondItem="1dA-W2-JwQ" secondAttribute="trailing" constant="13" id="4G4-f4-Qu8"/>
-                    <constraint firstItem="1dA-W2-JwQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="5Ni-NH-THy"/>
                     <constraint firstAttribute="trailing" secondItem="RQi-tU-MlW" secondAttribute="trailing" constant="20" id="86u-zj-1Tr"/>
                     <constraint firstAttribute="trailing" secondItem="5dP-cz-F2T" secondAttribute="trailing" constant="20" id="DfZ-fn-ii1"/>
                     <constraint firstAttribute="trailing" secondItem="NXW-8I-5nf" secondAttribute="trailing" constant="20" id="ERS-YH-VqM"/>
                     <constraint firstItem="RQi-tU-MlW" firstAttribute="top" secondItem="5dP-cz-F2T" secondAttribute="bottom" constant="9" id="GmC-tc-dXd"/>
+                    <constraint firstItem="1dA-W2-JwQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KFO-Y5-B5l"/>
                     <constraint firstItem="NXW-8I-5nf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="O0V-XM-fmB"/>
                     <constraint firstItem="RQi-tU-MlW" firstAttribute="leading" secondItem="1dA-W2-JwQ" secondAttribute="trailing" constant="12" id="OZb-Jv-ryT"/>
-                    <constraint firstAttribute="bottom" secondItem="RQi-tU-MlW" secondAttribute="bottom" constant="23" id="afQ-uX-tHd"/>
+                    <constraint firstAttribute="bottom" secondItem="RQi-tU-MlW" secondAttribute="bottom" constant="13" id="afQ-uX-tHd"/>
                     <constraint firstItem="1dA-W2-JwQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="cfp-4c-nVY"/>
                     <constraint firstItem="5dP-cz-F2T" firstAttribute="top" secondItem="NXW-8I-5nf" secondAttribute="bottom" constant="8" id="did-HY-drY"/>
                     <constraint firstItem="5dP-cz-F2T" firstAttribute="leading" secondItem="1dA-W2-JwQ" secondAttribute="trailing" constant="13" id="kzB-YY-kkV"/>
-                    <constraint firstAttribute="bottom" secondItem="1dA-W2-JwQ" secondAttribute="bottom" constant="13" id="qkj-l3-rGp"/>
-                    <constraint firstItem="1dA-W2-JwQ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xGm-f1-CQA"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,9 +120,17 @@
                 <outlet property="productImageView" destination="1dA-W2-JwQ" id="3QC-WU-dhl"/>
                 <outlet property="productNameLabel" destination="NXW-8I-5nf" id="hM2-ii-Cye"/>
                 <outlet property="productPriceLabel" destination="HbS-Dc-p4m" id="f9d-y1-VOq"/>
-                <outlet property="productRatingView" destination="MX9-D5-ksD" id="PeL-iF-4Ag"/>
+                <outlet property="productRatingStackView" destination="Sr6-Wq-Ge8" id="Kp5-Fb-OFP"/>
+                <outlet property="productRatingStar1" destination="H3z-xh-Zxl" id="aWa-lh-z0k"/>
+                <outlet property="productRatingStar2" destination="iD3-dX-ghz" id="cJx-gp-sOr"/>
+                <outlet property="productRatingStar3" destination="iZ9-XT-26V" id="5IE-AQ-wvW"/>
+                <outlet property="productRatingStar4" destination="MOC-ba-c4r" id="a0y-yu-46n"/>
+                <outlet property="productRatingStar5" destination="UcC-Ax-GFC" id="TpC-jF-kcn"/>
             </connections>
             <point key="canvasLocation" x="169.56521739130437" y="107.8125"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="star_uncheck" width="44" height="44"/>
+    </resources>
 </document>

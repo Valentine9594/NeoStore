@@ -55,7 +55,7 @@ class ProductListingViewController: UIViewController{
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
         
-        productListingTableview.estimatedRowHeight = 95
+        productListingTableview.estimatedRowHeight = 110
         productListingTableview.rowHeight = UITableView.automaticDimension
     }
 
@@ -113,7 +113,7 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
                 guard let imageUrl = productData.productImages?.description else{ return }
                 let url = URL(string: imageUrl)
                 cell.productImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
-                cell.productImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+//                cell.productImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
             }
         }
         
