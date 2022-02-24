@@ -16,6 +16,8 @@ class HomeProductsTypeDisplayCollectionViewCell: UICollectionViewCell {
         // Initialization code
         self.backgroundColor = UIColor.appRed
     }
-    
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }

@@ -10,6 +10,8 @@
 		9208632927C52D35007D2FED /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 9208632827C52D35007D2FED /* SDWebImage */; };
 		9208632F27C6544E007D2FED /* ProductDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208632D27C6544E007D2FED /* ProductDetailedViewController.swift */; };
 		9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */; };
+		9208633427C79D23007D2FED /* ProductImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633227C79D23007D2FED /* ProductImagesCollectionViewCell.swift */; };
+		9208633527C79D23007D2FED /* ProductImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208633327C79D23007D2FED /* ProductImagesCollectionViewCell.xib */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -78,6 +80,8 @@
 /* Begin PBXFileReference section */
 		9208632D27C6544E007D2FED /* ProductDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailedViewController.swift; sourceTree = "<group>"; };
 		9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailedViewController.xib; sourceTree = "<group>"; };
+		9208633227C79D23007D2FED /* ProductImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesCollectionViewCell.swift; sourceTree = "<group>"; };
+		9208633327C79D23007D2FED /* ProductImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductImagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,10 +163,20 @@
 		9208632C27C653E7007D2FED /* ProductDetailedViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9208633127C79CD9007D2FED /* ProductImagesCell */,
 				9208632D27C6544E007D2FED /* ProductDetailedViewController.swift */,
 				9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */,
 			);
 			path = ProductDetailedViewController;
+			sourceTree = "<group>";
+		};
+		9208633127C79CD9007D2FED /* ProductImagesCell */ = {
+			isa = PBXGroup;
+			children = (
+				9208633227C79D23007D2FED /* ProductImagesCollectionViewCell.swift */,
+				9208633327C79D23007D2FED /* ProductImagesCollectionViewCell.xib */,
+			);
+			path = ProductImagesCell;
 			sourceTree = "<group>";
 		};
 		92131AE727A817AF00E9A993 = {
@@ -556,6 +570,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9208633527C79D23007D2FED /* ProductImagesCollectionViewCell.xib in Resources */,
 				92DC14A427B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.xib in Resources */,
 				92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */,
 				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
@@ -610,6 +625,7 @@
 				92DC149C27B53EDB004C531D /* SlideShowCollectionViewCell.swift in Sources */,
 				92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */,
 				92DC146727AD028C004C531D /* RegisterViewController.swift in Sources */,
+				9208633427C79D23007D2FED /* ProductImagesCollectionViewCell.swift in Sources */,
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
 				92DC14CF27BF923B004C531D /* ProductListingViewController.swift in Sources */,
 				92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */,

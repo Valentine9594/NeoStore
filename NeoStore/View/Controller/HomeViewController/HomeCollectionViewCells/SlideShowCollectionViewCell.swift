@@ -16,5 +16,9 @@ class SlideShowCollectionViewCell: UICollectionViewCell {
 
 
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 
 }

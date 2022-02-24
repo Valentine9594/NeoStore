@@ -204,8 +204,8 @@
                                                         <constraint firstAttribute="width" constant="257" id="aoF-Gh-uxP"/>
                                                     </constraints>
                                                 </imageView>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ISn-mq-Wrc">
-                                                    <rect key="frame" x="13" y="232" width="362" height="80"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ISn-mq-Wrc">
+                                                    <rect key="frame" x="13" y="235" width="362" height="80"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="1li-WF-zjI"/>
@@ -226,7 +226,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="RtO-sT-9y1" secondAttribute="trailing" constant="13" id="Vw7-ZZ-PGQ"/>
                                                 <constraint firstItem="QAP-nu-Hkf" firstAttribute="centerX" secondItem="3mW-bS-BlY" secondAttribute="centerX" id="ekI-rZ-1CM"/>
                                                 <constraint firstItem="RtO-sT-9y1" firstAttribute="leading" secondItem="3mW-bS-BlY" secondAttribute="leading" constant="13" id="fuO-rd-k3b"/>
-                                                <constraint firstItem="ISn-mq-Wrc" firstAttribute="top" secondItem="QAP-nu-Hkf" secondAttribute="bottom" constant="13" id="j8D-mL-igC"/>
+                                                <constraint firstItem="ISn-mq-Wrc" firstAttribute="top" secondItem="QAP-nu-Hkf" secondAttribute="bottom" constant="16" id="j8D-mL-igC"/>
                                                 <constraint firstItem="ISn-mq-Wrc" firstAttribute="leading" secondItem="3mW-bS-BlY" secondAttribute="leading" constant="13" id="lyD-mh-kGv"/>
                                             </constraints>
                                         </view>
