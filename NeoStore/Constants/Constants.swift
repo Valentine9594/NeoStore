@@ -120,3 +120,18 @@ func jsonProductDecoder<T: Decodable>(jsonData: Data) -> APIResponse<jsonProduct
         return .failure(error: error)
     }
 }
+
+func productCategoryFromId(productCategoryId: Int) -> String{
+    switch productCategoryId {
+        case 0:
+            return "Tables"
+        case 2:
+            return "Chairs"
+        case 3:
+            return "Sofas"
+        case 4:
+            return "Cupboards"
+        default:
+            return "Tables"
+    }
+}

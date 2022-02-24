@@ -10,7 +10,7 @@ import UIKit
 class ProductDetailedViewController: UIViewController {
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productCategory: UILabel!
-    @IBOutlet weak var productType: UILabel!
+    @IBOutlet weak var productProducer: UILabel!
     @IBOutlet weak var ratingStar1: UIImageView!
     @IBOutlet weak var ratingStar2: UIImageView!
     @IBOutlet weak var ratingStar3: UIImageView!
@@ -31,6 +31,8 @@ class ProductDetailedViewController: UIViewController {
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var buyNowButton: UIButton!
     @IBOutlet weak var rateButton: UIButton!
+    var viewModel: ProductDetailViewModelType!
+    var productId: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,47 @@ class ProductDetailedViewController: UIViewController {
         setupUI()
         setupNavigationBar()
         setupProductImagesCollection()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(appAnimation)
+        setupObservers()
+        fetchProductDetails()
+    }
+    
+    init(viewModel: ProductDetailViewModelType){
+        self.viewModel = viewModel
+        super.init(nibName: TotalViewControllers.ProductDetailedViewController.rawValue, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func fetchProductDetails(){
+        DispatchQueue.global(qos: .userInteractive).async {
+            self.viewModel.fetchProductDetails(productId: self.productId)
+        }
+    }
+    
+    private func setupObservers(){
+        self.viewModel.viewControllerShouldReload.bindAndFire { [weak self] shouldReload in
+            guard let `self` = self else{ return }
+            if shouldReload, self.viewModel.productDetails != nil{
+                self.reloadViewController(productDetails: self.viewModel.productDetails!)
+            }
+        }
+    }
+    
+    private func reloadViewController(productDetails: ProductDetails){
+        DispatchQueue.main.async {
+            self.productName.text = productDetails.name
+            let productCategoryInText = productCategoryFromId(productCategoryId: productDetails.productCategoryId ?? 1)
+            self.productCategory.text = "Category - \(productCategoryInText)"
+            self.productProducer.text = productDetails.producer
+            self.productPrice.text = "Rs. \(String(describing: productDetails.cost ?? 0))"
+            self.productDescription.text = productDetails.description
+        }
     }
 
     private func setupUI(){
@@ -49,9 +92,6 @@ class ProductDetailedViewController: UIViewController {
         descriptionView.layer.cornerRadius = cornerRadius
         imageContainerView.layer.cornerRadius = cornerRadius
         scrollContentView.layer.cornerRadius = cornerRadius
-        
-        self.productName.text = "Product Name?"
-        
         
     }
     
@@ -72,7 +112,7 @@ class ProductDetailedViewController: UIViewController {
         navigationBar?.barStyle = .black
         navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
         
-        navigationItem.title = self.productName.text
+        navigationItem.title = productCategoryFromId(productCategoryId: self.productId)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
     }
     
@@ -91,7 +131,7 @@ class ProductDetailedViewController: UIViewController {
 
 extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -102,10 +142,15 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 78, height: collectionView.frame.size.height)
+        let cellHeight = collectionView.frame.size.height
+        return CGSize(width: cellHeight * 1.125, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 13
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        debugPrint("Changing Color!")
     }
 }

@@ -12,6 +12,7 @@
 		9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */; };
 		9208633427C79D23007D2FED /* ProductImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633227C79D23007D2FED /* ProductImagesCollectionViewCell.swift */; };
 		9208633527C79D23007D2FED /* ProductImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208633327C79D23007D2FED /* ProductImagesCollectionViewCell.xib */; };
+		9208633727C7AE26007D2FED /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		9208632E27C6544E007D2FED /* ProductDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductDetailedViewController.xib; sourceTree = "<group>"; };
 		9208633227C79D23007D2FED /* ProductImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		9208633327C79D23007D2FED /* ProductImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductImagesCollectionViewCell.xib; sourceTree = "<group>"; };
+		9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				92DC14BE27BBC91C004C531D /* ResetPasswordViewModel.swift */,
 				92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */,
 				92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */,
+				9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */,
 				92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
+				9208633727C7AE26007D2FED /* ProductDetailViewModel.swift in Sources */,
 				92DC14C127BBC93B004C531D /* MyAccountViewModel.swift in Sources */,
 				92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */,
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,

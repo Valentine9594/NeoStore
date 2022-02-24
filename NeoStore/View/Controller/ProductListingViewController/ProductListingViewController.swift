@@ -82,18 +82,7 @@ class ProductListingViewController: UIViewController{
     }
     
     private func getCurrentProductName(productCategoryId: Int) -> String{
-        switch productCategoryId {
-            case 0:
-                return "Tables"
-            case 2:
-                return "Chairs"
-            case 3:
-                return "Sofas"
-            case 4:
-                return "Cupboards"
-            default:
-                return "Tables"
-        }
+        return productCategoryFromId(productCategoryId: productCategoryId)
     }
 
 }
@@ -132,7 +121,10 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let productDetailedViewController = ProductDetailedViewController()
+        let productData = self.viewModel.getItemAtIndex(index: indexPath.row)
+        let productDetailViewModel = ProductDetailViewModel()
+        let productDetailedViewController = ProductDetailedViewController(viewModel: productDetailViewModel)
+        productDetailedViewController.productId = productData.id
         self.navigationController?.pushViewController(productDetailedViewController, animated: appAnimation)
     }
     
