@@ -153,6 +153,7 @@
                         <constraint firstAttribute="bottom" secondItem="BVb-LJ-hC9" secondAttribute="bottom" constant="8" id="T3L-Up-cdo"/>
                         <constraint firstAttribute="trailing" secondItem="BVb-LJ-hC9" secondAttribute="trailing" constant="13" id="Wwf-Yz-zan"/>
                         <constraint firstItem="BVb-LJ-hC9" firstAttribute="width" secondItem="t8A-lq-ypf" secondAttribute="width" multiplier="1.00526" id="n9y-og-Jrd"/>
+                        <constraint firstItem="BVb-LJ-hC9" firstAttribute="leading" secondItem="t8A-lq-ypf" secondAttribute="trailing" constant="7" id="uCo-Oo-Yxe"/>
                         <constraint firstItem="t8A-lq-ypf" firstAttribute="height" secondItem="BVb-LJ-hC9" secondAttribute="height" id="zwA-qb-Xvk"/>
                     </constraints>
                 </view>
