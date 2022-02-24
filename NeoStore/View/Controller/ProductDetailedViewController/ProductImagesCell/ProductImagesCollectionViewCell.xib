@@ -3,7 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -16,26 +16,40 @@
                 <rect key="frame" x="0.0" y="0.0" width="335" height="146"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_img1" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-wS-JG0">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpY-J3-j73">
                         <rect key="frame" x="0.0" y="0.0" width="335" height="146"/>
-                    </imageView>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-wS-JG0">
+                                <rect key="frame" x="6" y="6" width="323" height="134"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="M8a-wS-JG0" secondAttribute="trailing" constant="6" id="8TU-tD-ksg"/>
+                            <constraint firstItem="M8a-wS-JG0" firstAttribute="leading" secondItem="EpY-J3-j73" secondAttribute="leading" constant="6" id="CNP-6I-IaH"/>
+                            <constraint firstAttribute="bottom" secondItem="M8a-wS-JG0" secondAttribute="bottom" constant="6" id="FEG-Oy-sow"/>
+                            <constraint firstItem="M8a-wS-JG0" firstAttribute="top" secondItem="EpY-J3-j73" secondAttribute="top" constant="6" id="V6d-yj-0cm"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="M8a-wS-JG0" secondAttribute="bottom" id="iM2-hl-mIs"/>
-                <constraint firstItem="M8a-wS-JG0" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jYw-RX-OoQ"/>
-                <constraint firstAttribute="trailing" secondItem="M8a-wS-JG0" secondAttribute="trailing" id="qug-MT-P8x"/>
-                <constraint firstItem="M8a-wS-JG0" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yI0-8o-jKL"/>
+                <constraint firstAttribute="trailing" secondItem="EpY-J3-j73" secondAttribute="trailing" id="0Xc-B0-QwL"/>
+                <constraint firstAttribute="bottom" secondItem="EpY-J3-j73" secondAttribute="bottom" id="koG-eL-LKY"/>
+                <constraint firstItem="EpY-J3-j73" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nWT-CA-sUh"/>
+                <constraint firstItem="EpY-J3-j73" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="yLS-Hg-oPZ"/>
             </constraints>
             <size key="customSize" width="335" height="146"/>
             <connections>
+                <outlet property="containerView" destination="EpY-J3-j73" id="zya-s9-rTf"/>
                 <outlet property="productImageSeries" destination="M8a-wS-JG0" id="0JQ-5g-KpI"/>
             </connections>
             <point key="canvasLocation" x="209.42028985507247" y="72.991071428571431"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="slider_img1" width="1500" height="750"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

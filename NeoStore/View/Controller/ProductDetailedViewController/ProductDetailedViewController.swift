@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProductDetailedViewController: UIViewController {
     @IBOutlet weak var productName: UILabel!
@@ -68,19 +69,25 @@ class ProductDetailedViewController: UIViewController {
         self.viewModel.viewControllerShouldReload.bindAndFire { [weak self] shouldReload in
             guard let `self` = self else{ return }
             if shouldReload, self.viewModel.productDetails != nil{
-                self.reloadViewController(productDetails: self.viewModel.productDetails!)
+                DispatchQueue.main.async {
+                    self.reloadViewController(productDetails: self.viewModel.productDetails!)
+                    self.productImagesCollectionView.reloadData()
+                    self.navigationItem.title = self.viewModel.productDetails?.name ?? ""
+                }
             }
         }
     }
     
     private func reloadViewController(productDetails: ProductDetails){
-        DispatchQueue.main.async {
-            self.productName.text = productDetails.name
-            let productCategoryInText = productCategoryFromId(productCategoryId: productDetails.productCategoryId ?? 1)
-            self.productCategory.text = "Category - \(productCategoryInText)"
-            self.productProducer.text = productDetails.producer
-            self.productPrice.text = "Rs. \(String(describing: productDetails.cost ?? 0))"
-            self.productDescription.text = productDetails.description
+        self.productName.text = productDetails.name
+        let productCategoryInText = productCategoryFromId(productCategoryId: productDetails.productCategoryId ?? 1)
+        self.productCategory.text = "Category - \(productCategoryInText)"
+        self.productProducer.text = productDetails.producer
+        self.productPrice.text = "Rs. \(String(describing: productDetails.cost ?? 0))"
+        self.productDescription.text = productDetails.description
+        
+        if let imageURL = self.viewModel.getProductImageURLAtIndex(index: 0){
+            self.productImage.sd_setImage(with: imageURL, completed: nil)
         }
     }
 
@@ -101,6 +108,7 @@ class ProductDetailedViewController: UIViewController {
         
         self.productImagesCollectionView.delegate = self
         self.productImagesCollectionView.dataSource = self
+        self.productImagesCollectionView.isMultipleTouchEnabled = false
     }
 
     private func setupNavigationBar(){
@@ -112,7 +120,6 @@ class ProductDetailedViewController: UIViewController {
         navigationBar?.barStyle = .black
         navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
         
-        navigationItem.title = productCategoryFromId(productCategoryId: self.productId)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
     }
     
@@ -131,12 +138,14 @@ class ProductDetailedViewController: UIViewController {
 
 extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return self.viewModel.totalNumberOfProductImages()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! ProductImagesCollectionViewCell
-        
+        if let imageURL = self.viewModel.getProductImageURLAtIndex(index: indexPath.row){
+            cell.productImageSeries.sd_setImage(with: imageURL, completed: nil)
+        }
         
         return cell
     }
@@ -146,11 +155,16 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
         return CGSize(width: cellHeight * 1.125, height: cellHeight)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 13
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ProductImagesCollectionViewCell
+        cell.containerView.backgroundColor = .lightGray
+        if let imageURL = self.viewModel.getProductImageURLAtIndex(index: indexPath.row){
+            self.productImage.sd_setImage(with: imageURL, completed: nil)
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        debugPrint("Changing Color!")
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! ProductImagesCollectionViewCell
+        cell.containerView.backgroundColor = .white
     }
 }

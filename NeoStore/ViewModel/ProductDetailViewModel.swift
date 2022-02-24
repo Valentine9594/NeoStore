@@ -12,22 +12,24 @@ protocol ProductDetailViewModelType {
     func fetchProductDetails(productId: Int)
     var productDetails: ProductDetails?{get}
     func totalNumberOfProductImages() -> Int
-    func getProductImageAtIndex(index: Int) -> URL?
+    func getProductImageURLAtIndex(index: Int) -> URL?
 }
 
 class ProductDetailViewModel: ProductDetailViewModelType{
+    
     var viewControllerShouldReload: ReactiveListener<Bool> = ReactiveListener(false)
     var productDetails: ProductDetails? = nil
-    var productImagesList = [String]()
+    var productImagesList = [ProductImagesCollection]()
     
     func fetchProductDetails(productId: Int) {
         ProductService.getProductDetails(productId: productId) { (response) in
             switch response{
                 case .success(let data):
                     if data.status == 200{
-                        debugPrint(data.data)
-//                        self.productImagesList += productDetails
                         self.productDetails = data.data
+                        if let productImages = self.productDetails?.productImages{
+                            self.productImagesList = productImages
+                        }
                         self.viewControllerShouldReload.value = true
                     }
                     
@@ -41,9 +43,12 @@ class ProductDetailViewModel: ProductDetailViewModelType{
         return productImagesList.count
     }
     
-    func getProductImageAtIndex(index: Int) -> URL? {
-        let url = URL(string: productImagesList[index])
-        return url
+    func getProductImageURLAtIndex(index: Int) -> URL? {
+        if let productImageURLString = productImagesList[index].productImages{
+            let url = URL(string: productImageURLString)
+            return url
+        }
+        return nil
     }
     
 
