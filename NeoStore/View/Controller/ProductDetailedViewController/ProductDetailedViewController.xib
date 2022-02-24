@@ -15,6 +15,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductDetailedViewController" customModule="NeoStore" customModuleProvider="target">
             <connections>
+                <outlet property="bodyContainerView" destination="trc-X3-KaS" id="idw-xt-4QD"/>
+                <outlet property="buyNowButton" destination="t8A-lq-ypf" id="SyK-YB-ldn"/>
+                <outlet property="descriptionView" destination="clF-Sa-q8c" id="Gc0-e4-IoT"/>
+                <outlet property="imageContainerView" destination="3mW-bS-BlY" id="6U4-5b-Ct4"/>
+                <outlet property="productCategory" destination="J1E-ss-TMM" id="kcJ-Lp-SFo"/>
+                <outlet property="productDescription" destination="UDm-9v-QgA" id="oxj-CE-wMN"/>
+                <outlet property="productImage" destination="QAP-nu-Hkf" id="smO-xJ-AJw"/>
+                <outlet property="productImagesCollectionView" destination="ISn-mq-Wrc" id="LTe-hP-D0T"/>
+                <outlet property="productName" destination="Rq9-3h-5hF" id="m0N-do-bJ7"/>
+                <outlet property="productPrice" destination="HdH-cH-XsN" id="6B5-Qk-Hdh"/>
+                <outlet property="productType" destination="wPd-0h-l8q" id="qoE-HT-Q0z"/>
+                <outlet property="rateButton" destination="BVb-LJ-hC9" id="0Rc-v1-dvh"/>
+                <outlet property="ratingStar1" destination="Nxv-4i-HA8" id="4Wm-nX-sHV"/>
+                <outlet property="ratingStar2" destination="NeE-eB-0jW" id="8yw-Sl-XRZ"/>
+                <outlet property="ratingStar3" destination="o7c-k2-s8k" id="wA7-Eo-ID7"/>
+                <outlet property="ratingStar4" destination="66F-Ra-Jsh" id="3yh-2n-Ht5"/>
+                <outlet property="ratingStar5" destination="SBm-x1-fvw" id="Yw7-8e-sAE"/>
+                <outlet property="scrollContentView" destination="Ltd-ib-dVj" id="TkE-eu-joz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -124,7 +142,7 @@
                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ltd-ib-dVj" userLabel="scrollContentView">
                                     <rect key="frame" x="0.0" y="0.0" width="388" height="533"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clF-Sa-q8c" userLabel="descriptionView">
+                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="clF-Sa-q8c" userLabel="descriptionView">
                                             <rect key="frame" x="0.0" y="333" width="388" height="200"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhE-33-2nH">
@@ -133,8 +151,9 @@
                                                     <color key="textColor" red="0.066666666666666666" green="0.066666666666666666" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-9v-QgA">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UDm-9v-QgA">
                                                     <rect key="frame" x="8" y="35" width="372" height="16"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="16"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -150,7 +169,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="UDm-9v-QgA" secondAttribute="trailing" constant="8" id="xhr-CG-QPJ"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mW-bS-BlY">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mW-bS-BlY" userLabel="imageContainerView">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="328"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleAspectFit" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-sT-9y1">
@@ -162,13 +181,17 @@
                                                             <color key="textColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share" translatesAutoresizingMaskIntoConstraints="NO" id="lfj-D3-8mo">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-Tl-kgB">
                                                             <rect key="frame" x="339" y="0.0" width="23" height="23"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="23" id="UTS-ZC-DlJ"/>
-                                                                <constraint firstAttribute="height" constant="23" id="vn2-Ui-khf"/>
+                                                                <constraint firstAttribute="height" constant="23" id="Xsd-Oi-mPa"/>
+                                                                <constraint firstAttribute="width" constant="23" id="mtA-9V-fgq"/>
                                                             </constraints>
-                                                        </imageView>
+                                                            <state key="normal" image="share"/>
+                                                            <connections>
+                                                                <action selector="clickedShareButton:" destination="-1" eventType="touchUpInside" id="u69-jP-FLl"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="HdH-cH-XsN" firstAttribute="centerY" secondItem="RtO-sT-9y1" secondAttribute="centerY" id="amS-EE-BhE"/>
