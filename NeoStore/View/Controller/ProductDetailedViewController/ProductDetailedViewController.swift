@@ -86,6 +86,7 @@ class ProductDetailedViewController: UIViewController {
         self.productPrice.text = "Rs. \(String(describing: productDetails.cost ?? 0))"
         self.productDescription.text = productDetails.description
         self.productImagesCollectionView.reloadData()
+        self.setupProductRating(productRatings: productDetails.rating ?? 3)
         
         if let imageURL = self.viewModel.getProductImageURLAtIndex(index: 0){
             self.productImage.sd_setImage(with: imageURL, completed: nil)
@@ -128,6 +129,36 @@ class ProductDetailedViewController: UIViewController {
         navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
+    }
+    
+    private func setupProductRating(productRatings: Int){
+        guard let starChecked = UIImage(named: AppIcons.starChecked.description) else{ return }
+        guard let starUnchecked = UIImage(named: AppIcons.starUnchecked.description) else{ return }
+        let productRatingImageViewArray: [UIImageView] = [ratingStar1, ratingStar2, ratingStar3, ratingStar4, ratingStar5]
+        
+        DispatchQueue.main.async {
+            var i: Int = 0
+            while i < productRatingImageViewArray.count{
+                let currentImageView = productRatingImageViewArray[i]
+                var image: UIImage? = nil
+                if i <= productRatings{
+                    image = starChecked
+                }
+                else{
+                    image = starUnchecked
+                }
+                self.changeImageOfImageView(imageView: currentImageView, image: image)
+                i += 1
+            }
+        }
+    }
+    
+    private func changeImageOfImageView(imageView: UIImageView, image: UIImage?){
+        if let confirmedImage = image{
+            DispatchQueue.main.async {
+                imageView.image = confirmedImage
+            }
+        }
     }
     
     @IBAction func clickedShareButton(_ sender: UIButton) {
