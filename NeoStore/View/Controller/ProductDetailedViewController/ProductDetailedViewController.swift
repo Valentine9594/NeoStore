@@ -71,27 +71,26 @@ class ProductDetailedViewController: UIViewController {
             if shouldReload, self.viewModel.productDetails != nil{
                 DispatchQueue.main.async {
                     self.reloadViewController(productDetails: self.viewModel.productDetails!)
-                    self.productImagesCollectionView.reloadData()
-                    self.navigationItem.title = self.viewModel.productDetails?.name ?? ""
                 }
             }
         }
     }
     
     private func reloadViewController(productDetails: ProductDetails){
+        self.navigationItem.title = self.viewModel.productDetails?.name ?? "Product"
+        
         self.productName.text = productDetails.name
         let productCategoryInText = productCategoryFromId(productCategoryId: productDetails.productCategoryId ?? 1)
         self.productCategory.text = "Category - \(productCategoryInText)"
         self.productProducer.text = productDetails.producer
         self.productPrice.text = "Rs. \(String(describing: productDetails.cost ?? 0))"
         self.productDescription.text = productDetails.description
+        self.productImagesCollectionView.reloadData()
         
         if let imageURL = self.viewModel.getProductImageURLAtIndex(index: 0){
             self.productImage.sd_setImage(with: imageURL, completed: nil)
-//            if self.viewModel.totalNumberOfProductImages() > 0{
-//                let indexPath = IndexPath(index: 0)
-//                (self.productImagesCollectionView.cellForItem(at: indexPath) as! ProductImagesCollectionViewCell).containerView.backgroundColor = .lightGray
-//            }
+            let indexPath = IndexPath(item: 0, section: 0)
+            self.productImagesCollectionView.selectItem(at: indexPath, animated: false, scrollPosition: .left)
         }
         
     }
@@ -145,6 +144,7 @@ class ProductDetailedViewController: UIViewController {
 
 
 extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.viewModel.totalNumberOfProductImages()
     }
@@ -154,6 +154,9 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
         if let imageURL = self.viewModel.getProductImageURLAtIndex(index: indexPath.row){
             cell.productImageSeries.sd_setImage(with: imageURL, completed: nil)
         }
+        if indexPath.row == 0{
+            cell.containerView.backgroundColor = .lightGray
+        }
         
         return cell
     }
@@ -161,6 +164,10 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellHeight = collectionView.frame.size.height
         return CGSize(width: cellHeight * 1.125, height: cellHeight)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -175,4 +182,5 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
         let cell = collectionView.cellForItem(at: indexPath) as! ProductImagesCollectionViewCell
         cell.containerView.backgroundColor = .white
     }
+    
 }

@@ -16,7 +16,7 @@ protocol ProductListingViewModelType {
 
 class ProductListingViewModel: ProductListingViewModelType{
     var tableShouldReload: ReactiveListener<Bool> = ReactiveListener(true)
-    
+    var currentPage = 0
     var productList = [ProductData]()
     
     func totalNumberOfRows() -> Int {
@@ -28,11 +28,14 @@ class ProductListingViewModel: ProductListingViewModelType{
     }
     
     func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int) {
+        guard currentPage + 1 == productsPageNumber else{ return }
+        
         ProductService.getProductListing(productCategoryId: productCategoryId, productsLimit: productsLimit, productsPageNumber: productsPageNumber){ (response) in
             switch response{
                 case .success(let data):
                     if data.status == 200{
                         self.productList += data.data
+                        self.currentPage += 1
                         self.tableShouldReload.value = true
                     }
                     
