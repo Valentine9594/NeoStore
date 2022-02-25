@@ -32,11 +32,6 @@ class ProductListingViewController: UIViewController{
         self.setupLoadTableViewData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(appAnimation)
-        self.viewModel.productList = []
-    }
-    
     init(viewModel: ProductListingViewModelType){
         self.viewModel = viewModel
         super.init(nibName: TotalViewControllers.ProductListingViewController.rawValue, bundle: nil)

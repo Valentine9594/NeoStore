@@ -152,9 +152,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" layoutMarginsFollowReadableWidth="YES" text="Label" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="UDm-9v-QgA">
-                                                    <rect key="frame" x="8" y="35" width="372" height="157"/>
+                                                    <rect key="frame" x="8" y="35" width="372" height="16"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="157" id="Eg6-DB-Ivz"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="16" id="Eg6-DB-Ivz"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="16"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,8 +166,9 @@
                                                 <constraint firstItem="XhE-33-2nH" firstAttribute="top" secondItem="clF-Sa-q8c" secondAttribute="top" constant="8" id="2Jz-qm-0kx"/>
                                                 <constraint firstAttribute="trailing" secondItem="XhE-33-2nH" secondAttribute="trailing" constant="8" id="JG2-Cz-DHf"/>
                                                 <constraint firstItem="XhE-33-2nH" firstAttribute="leading" secondItem="clF-Sa-q8c" secondAttribute="leading" constant="8" id="Msx-c0-FRJ"/>
-                                                <constraint firstItem="UDm-9v-QgA" firstAttribute="top" secondItem="XhE-33-2nH" secondAttribute="bottom" constant="8" symbolic="YES" id="Pv5-g0-b8G"/>
+                                                <constraint firstItem="UDm-9v-QgA" firstAttribute="top" secondItem="XhE-33-2nH" secondAttribute="bottom" constant="8" id="Pv5-g0-b8G"/>
                                                 <constraint firstItem="UDm-9v-QgA" firstAttribute="leading" secondItem="XhE-33-2nH" secondAttribute="leading" id="Qqo-I7-OOV"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="UDm-9v-QgA" secondAttribute="bottom" constant="8" id="ngk-NJ-Exr"/>
                                                 <constraint firstItem="UDm-9v-QgA" firstAttribute="trailing" secondItem="XhE-33-2nH" secondAttribute="trailing" id="y9s-wP-0uz"/>
                                             </constraints>
                                         </view>

@@ -88,7 +88,12 @@ class ProductDetailedViewController: UIViewController {
         
         if let imageURL = self.viewModel.getProductImageURLAtIndex(index: 0){
             self.productImage.sd_setImage(with: imageURL, completed: nil)
+//            if self.viewModel.totalNumberOfProductImages() > 0{
+//                let indexPath = IndexPath(index: 0)
+//                (self.productImagesCollectionView.cellForItem(at: indexPath) as! ProductImagesCollectionViewCell).containerView.backgroundColor = .lightGray
+//            }
         }
+        
     }
 
     private func setupUI(){
@@ -100,6 +105,9 @@ class ProductDetailedViewController: UIViewController {
         imageContainerView.layer.cornerRadius = cornerRadius
         scrollContentView.layer.cornerRadius = cornerRadius
         
+        productDescription.numberOfLines = 0
+        productDescription.lineBreakMode = .byWordWrapping
+        productDescription.sizeToFit()
     }
     
     private func setupProductImagesCollection(){

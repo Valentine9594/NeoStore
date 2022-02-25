@@ -10,7 +10,6 @@ import Foundation
 protocol ProductListingViewModelType {
     var tableShouldReload: ReactiveListener<Bool>{get set}
     func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int)
-    var productList: [ProductData]{get set}
     func totalNumberOfRows() -> Int
     func getItemAtIndex(index: Int) -> ProductData
 }
