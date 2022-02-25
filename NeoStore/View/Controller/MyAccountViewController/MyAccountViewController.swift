@@ -116,7 +116,7 @@ class MyAccountViewController: UIViewController {
             let titleFontHeight = toolBar.frame.size.height/2.5
             let doneButton = UIBarButtonItem(title: ButtonTitles.done.description, style: .done, target: self, action: #selector(self.dismissDatePicker))
             doneButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
-            let cancelButton = UIBarButtonItem(title: ButtonTitles.cancel.description, style: .done, target: self, action: nil)
+            let cancelButton = UIBarButtonItem(title: ButtonTitles.cancel.description, style: .done, target: self, action: #selector(self.cancelDatePicker))
             cancelButton.setTitleTextAttributes([.font: UIFont(name: "iCiel Gotham Medium", size: titleFontHeight)!], for: .normal)
             
             toolBar.setItems([cancelButton, .flexibleSpace(), doneButton], animated: appAnimation)
@@ -144,6 +144,11 @@ class MyAccountViewController: UIViewController {
         let dateString = dateFormatter.string(from: datePicker.date)
         dateOfBirthTextField.text = dateString
         
+        self.resignFirstResponder()
+        self.view.endEditing(true)
+    }
+    
+    @objc func cancelDatePicker(){
         self.resignFirstResponder()
         self.view.endEditing(true)
     }

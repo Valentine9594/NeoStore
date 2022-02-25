@@ -18,7 +18,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -85,9 +85,10 @@
                 <constraint firstAttribute="trailing" secondItem="DBR-ZZ-NRz" secondAttribute="trailing" id="KZw-gV-Grn"/>
                 <constraint firstItem="DBR-ZZ-NRz" firstAttribute="top" secondItem="AxF-85-2Jc" secondAttribute="bottom" id="MAv-u2-Bwt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zqG-cm-zcL" secondAttribute="trailing" id="Mdo-f6-vPb"/>
-                <constraint firstItem="AxF-85-2Jc" firstAttribute="top" secondItem="Qmq-ft-9V3" secondAttribute="bottom" constant="-45" id="NHz-eb-k8h"/>
+                <constraint firstItem="AxF-85-2Jc" firstAttribute="top" secondItem="zqG-cm-zcL" secondAttribute="bottom" constant="185" id="NAb-Cv-Fla"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bSF-J4-dCE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qmq-ft-9V3" secondAttribute="trailing" id="dRB-qD-P8X"/>
+                <constraint firstItem="DBR-ZZ-NRz" firstAttribute="top" secondItem="AxF-85-2Jc" secondAttribute="bottom" id="kyt-6l-k4c"/>
                 <constraint firstItem="zqG-cm-zcL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="pL0-nU-i0S"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="top" secondItem="zqG-cm-zcL" secondAttribute="bottom" id="sOI-By-dEy"/>
                 <constraint firstItem="DBR-ZZ-NRz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x3t-oz-aUv"/>

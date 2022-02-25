@@ -15,6 +15,7 @@ enum APIResponse<T>{
 
 //all view controller prsent in app
 enum TotalViewControllers: String{
+//    all screens viewcontroller
     case LoginViewController = "LoginScreenVC"
     case RegisterViewController = "RegisterViewController"
     case ForgotPasswordViewController = "ForgotPasswordViewController"
@@ -24,6 +25,10 @@ enum TotalViewControllers: String{
     case ProductListingViewController = "ProductListingViewController"
     case ProductDetailedViewController = "ProductDetailedViewController"
     
+//    popup view controllers
+    case rateNowPopUpViewcontrollerViewController = "RateNowPopUpViewcontrollerViewController"
+    
+//    temporary viewcontrollers
     case TemporaryMenuBar = "TemporaryMenuBarViewController"
 }
 

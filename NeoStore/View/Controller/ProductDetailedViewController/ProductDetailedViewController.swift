@@ -32,8 +32,11 @@ class ProductDetailedViewController: UIViewController {
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var buyNowButton: UIButton!
     @IBOutlet weak var rateButton: UIButton!
+    var rateNowPopUp: RateNowPopUpViewcontrollerViewController!
+    
     var viewModel: ProductDetailViewModelType!
     var productId: Int!
+    var productDetails: ProductDetails!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,9 +71,10 @@ class ProductDetailedViewController: UIViewController {
     private func setupObservers(){
         self.viewModel.viewControllerShouldReload.bindAndFire { [weak self] shouldReload in
             guard let `self` = self else{ return }
-            if shouldReload, self.viewModel.productDetails != nil{
+            if shouldReload, let productDetailsViewModel = self.viewModel.productDetails{
                 DispatchQueue.main.async {
-                    self.reloadViewController(productDetails: self.viewModel.productDetails!)
+                    self.productDetails = productDetailsViewModel
+                    self.reloadViewController(productDetails: self.productDetails)
                 }
             }
         }
@@ -108,6 +112,12 @@ class ProductDetailedViewController: UIViewController {
         productDescription.numberOfLines = 0
         productDescription.lineBreakMode = .byWordWrapping
         productDescription.sizeToFit()
+        
+        self.definesPresentationContext = true
+        
+        //        gesture to close keyboard on cliking anywhere
+        let dismissPopUpTap = UITapGestureRecognizer(target: self, action: #selector(dismissPopUp))
+        self.view.addGestureRecognizer(dismissPopUpTap)
     }
     
     private func setupProductImagesCollection(){
@@ -161,13 +171,42 @@ class ProductDetailedViewController: UIViewController {
         }
     }
     
+    private func setupRateNowPopUpViewController(){
+        self.rateNowPopUp = RateNowPopUpViewcontrollerViewController(nibName: TotalViewControllers.rateNowPopUpViewcontrollerViewController.rawValue, bundle: nil)
+        self.rateNowPopUp.modalPresentationStyle = .overCurrentContext
+        self.rateNowPopUp.modalTransitionStyle = .crossDissolve
+    }
+    
     @IBAction func clickedShareButton(_ sender: UIButton) {
         debugPrint("Tapped to Share!")
+    }
+    
+    @IBAction func clickedBuyNowButton(_ sender: UIButton) {
+        debugPrint("Buy Now")
+    }
+    
+    @IBAction func clickedRateNowButton(_ sender: UIButton) {
+        debugPrint("Rate Now")
+        
+        DispatchQueue.main.async {
+            self.setupRateNowPopUpViewController()
+            
+            debugPrint(self.productDetails.name ?? "No Name")
+//            self.rateNowPopUp.productNameLabel.text = self.productDetails.name
+            
+            self.present(self.rateNowPopUp, animated: appAnimation, completion: nil)
+            
+        }
+
     }
     
     
     @objc func popToPreviousViewController() -> Void{
         self.navigationController?.popViewController(animated: appAnimation)
+    }
+    
+    @objc func dismissPopUp(){
+        self.dismiss(animated: appAnimation, completion: nil)
     }
     
 
