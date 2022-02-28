@@ -29,24 +29,24 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
     var myAccountUpdateStatus: ReactiveListener<MyAccountUpdateResult> = ReactiveListener(.none)
     
     func getmyAccountUpdateDetails(userEditAccountDetails: userAccountDetails) {
-        UserService.userUpdateAccountDetails(userAccountDetails: userEditAccountDetails) { (response) in
+        UserService.userUpdateAccountDetails(userAccountDetails: userEditAccountDetails) { [weak self] (response) in
             switch response{
                 case .success(let data):
                     guard let content = data as? AnyDict else{
-                        self.myAccountUpdateStatus.value = .none
+                        self?.myAccountUpdateStatus.value = .none
                         return}
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
-                        self.myAccountUpdateStatus.value = .success
+                        self?.myAccountUpdateStatus.value = .success
                     }
                     else{
-                        self.myAccountUpdateStatus.value = .failure
+                        self?.myAccountUpdateStatus.value = .failure
                         debugPrint(content["status"] ?? "NO Code")
                     }
                     
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
-                    self.myAccountUpdateStatus.value = .failure
+                    self?.myAccountUpdateStatus.value = .failure
             }
         }
     }

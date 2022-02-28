@@ -82,8 +82,8 @@ class HomeViewController: UIViewController {
     private func setupCustomNavigationBar(){
         DispatchQueue.main.async {
 //        setting status bar color
-        self.view.backgroundColor = UIColor.appRed
-        
+//        self.view.backgroundColor = UIColor.appRed
+            
         let navigationBarView = UINib(nibName: "CustomNavigationBar", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
         navigationBarView.translatesAutoresizingMaskIntoConstraints = false
         self.customNavigationBar.addSubview(navigationBarView)

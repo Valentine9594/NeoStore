@@ -42,11 +42,11 @@ class ProductListingViewController: UIViewController{
     }
     
     private func setupLoadTableViewData(){
-        self.viewModel.tableShouldReload.bindAndFire { shouldReload in
+        self.viewModel.tableShouldReload.bindAndFire { [weak self] shouldReload in
             if shouldReload{
-                self.bottomCells = self.pageNumber * self.productsLimit
+                self?.bottomCells = (self?.pageNumber ?? 1) * (self?.productsLimit ?? 1)
                 DispatchQueue.main.async {
-                    self.productListingTableview.reloadData()
+                    self?.productListingTableview.reloadData()
                 }
             }
         }

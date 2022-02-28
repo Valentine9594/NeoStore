@@ -65,12 +65,12 @@ class ResetPasswordViewController: UIViewController {
     }
     
     private func setupObservers(){
-        self.viewModel.resetPasswordStatus.bindAndFire { resetPasswordResult in
+        self.viewModel.resetPasswordStatus.bindAndFire { [weak self] resetPasswordResult in
             switch resetPasswordResult{
                 case .success:
-                    self.callAlert(alertTitle: "Reset Password Successful", alertMessage: "Password has been reset successfully.", actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Reset Password Successful", alertMessage: "Password has been reset successfully.", actionTitle: "OK")
                 case .failure:
-                    self.callAlert(alertTitle: "Reset Password Failed!", alertMessage: "Could not reset password please try again later.", actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Reset Password Failed!", alertMessage: "Could not reset password please try again later.", actionTitle: "OK")
                 case .none:
                     break
             }

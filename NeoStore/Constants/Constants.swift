@@ -27,6 +27,7 @@ enum TotalViewControllers: String{
     
 //    popup view controllers
     case rateNowPopUpViewcontrollerViewController = "RateNowPopUpViewcontrollerViewController"
+    case buyNowPopUpViewController = "BuyNowPopUpViewController"
     
 //    temporary viewcontrollers
     case TemporaryMenuBar = "TemporaryMenuBarViewController"

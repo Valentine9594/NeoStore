@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func setupInitialLaunch(){
+    func setupInitialLaunch(){      
         window = UIWindow(frame: UIScreen.main.bounds)
         var navigationController: UINavigationController!
         if let loggedIn = getDataFromUserDefaults(key: .isLoggedIn), loggedIn == "1"{

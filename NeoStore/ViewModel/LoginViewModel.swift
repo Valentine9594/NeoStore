@@ -28,12 +28,12 @@ class LoginViewModel: LoginViewModelType{
     
     func getUserLogInDetail(userName: String, userPassword: String) {
         
-        UserService.userLogIn(username: userName, password: userPassword) { response in
+        UserService.userLogIn(username: userName, password: userPassword) { [weak self] response in
             switch response{
                 case .success(let data):
                     
                     guard let content = data as? AnyDict else{
-                        self.loginStatus.value = .none
+                        self?.loginStatus.value = .none
                         return}
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
@@ -46,17 +46,17 @@ class LoginViewModel: LoginViewModelType{
                         catch (let error){
                             debugPrint(error.localizedDescription)
                         }
-                        self.loginStatus.value = .success
+                        self?.loginStatus.value = .success
 
                     }
                     else{
-                        self.loginStatus.value = .failure
+                        self?.loginStatus.value = .failure
                         debugPrint("Status: \(String(describing: content["status"]!))")
                     }
                     
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
-                    self.loginStatus.value = .failure
+                    self?.loginStatus.value = .failure
             }
             
         }

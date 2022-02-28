@@ -28,23 +28,23 @@ class ResetPasswordViewModel: ResetPasswordViewModelType{
     var resetPasswordStatus: ReactiveListener<ResetPasswordResult> = ReactiveListener(.none)
     
     func getResetPasswordDetails(currentPassword: String, newPassword: String, confirmPassword: String) {
-        UserService.userResetPassword(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword) { (response) in
+        UserService.userResetPassword(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword) { [weak self] (response) in
             switch response{
                 case .success(let data):
                     guard let content = data as? AnyDict else{
-                        self.resetPasswordStatus.value = .none
+                        self?.resetPasswordStatus.value = .none
                         return}
                     
                     if let statusCode = content["status"], statusCode as! Int == 200{
-                        self.resetPasswordStatus.value = .success
+                        self?.resetPasswordStatus.value = .success
                     }
                     else{
-                        self.resetPasswordStatus.value = .failure
+                        self?.resetPasswordStatus.value = .failure
                         debugPrint("cannot convert data: \(String(describing: content["status"]))")
                     }
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
-                    self.resetPasswordStatus.value = .failure
+                    self?.resetPasswordStatus.value = .failure
             }
         }
     }

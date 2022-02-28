@@ -58,13 +58,13 @@ class MyAccountViewController: UIViewController {
     }
     
     private func setupObservers(){
-        self.viewModel.myAccountUpdateStatus.bindAndFire { MyAccountUpdateResult in
+        self.viewModel.myAccountUpdateStatus.bindAndFire { [weak self] MyAccountUpdateResult in
             switch MyAccountUpdateResult{
                 case .success:
-                    self.resetViewController()
-                    self.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
+                    self?.resetViewController()
+                    self?.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
                 case .failure:
-                    self.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
                 case .none:
                     break
             }

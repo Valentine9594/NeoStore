@@ -25,11 +25,11 @@ class RegisterViewModel: RegisterViewModelType{
     
     func getUserRegisterDetails(userRegisterDetails: userDetails){
 //        function which interacts with registerview controller regarding api response and successful registration
-        UserService.userRegistration(userDetails: userRegisterDetails){ response in
+        UserService.userRegistration(userDetails: userRegisterDetails){ [weak self] response in
             switch response{
                 case .success(let data):
                     guard let content = data as? AnyDict else{
-                        self.registerStatus.value = .none
+                        self?.registerStatus.value = .none
                         return}
                     
                     
@@ -44,16 +44,16 @@ class RegisterViewModel: RegisterViewModelType{
                             debugPrint(error.localizedDescription)
                         }
                         
-                        self.registerStatus.value = .success
+                        self?.registerStatus.value = .success
                     }
                     else{
-                        self.registerStatus.value = .failure
+                        self?.registerStatus.value = .failure
                         debugPrint("cannot convert data!!")
                     }
 
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
-                    self.registerStatus.value = .failure
+                    self?.registerStatus.value = .failure
             }
         }
     }

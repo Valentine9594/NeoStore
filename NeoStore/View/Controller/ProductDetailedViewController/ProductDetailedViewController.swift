@@ -32,7 +32,6 @@ class ProductDetailedViewController: UIViewController {
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var buyNowButton: UIButton!
     @IBOutlet weak var rateButton: UIButton!
-    var rateNowPopUp: RateNowPopUpViewcontrollerViewController!
     
     var viewModel: ProductDetailViewModelType!
     var productId: Int!
@@ -167,31 +166,31 @@ class ProductDetailedViewController: UIViewController {
         }
     }
     
-    private func setupRateNowPopUpViewController(){
-        self.rateNowPopUp = RateNowPopUpViewcontrollerViewController(nibName: TotalViewControllers.rateNowPopUpViewcontrollerViewController.rawValue, bundle: nil)
-        self.rateNowPopUp.modalPresentationStyle = .overCurrentContext
-        self.rateNowPopUp.modalTransitionStyle = .crossDissolve
-    }
-    
     @IBAction func clickedShareButton(_ sender: UIButton) {
         debugPrint("Tapped to Share!")
     }
     
     @IBAction func clickedBuyNowButton(_ sender: UIButton) {
-        debugPrint("Buy Now")
+        DispatchQueue.main.async {
+            let buyNowPopUp = BuyNowPopUpViewController(nibName: TotalViewControllers.buyNowPopUpViewController.rawValue, bundle: nil)
+            buyNowPopUp.modalPresentationStyle = .overCurrentContext
+            buyNowPopUp.modalTransitionStyle = .crossDissolve
+            
+            self.present(buyNowPopUp, animated: appAnimation, completion: nil)
+        }
     }
     
     @IBAction func clickedRateNowButton(_ sender: UIButton) {
-        debugPrint("Rate Now")
-        
         DispatchQueue.main.async {
-            self.setupRateNowPopUpViewController()
             
-            debugPrint(self.productDetails.name ?? "No Name")
-//            self.rateNowPopUp.productNameLabel.text = self.productDetails.name
+            let rateNowPopUp = RateNowPopUpViewcontrollerViewController(nibName: TotalViewControllers.rateNowPopUpViewcontrollerViewController.rawValue, bundle: nil)
+            rateNowPopUp.modalPresentationStyle = .overCurrentContext
+            rateNowPopUp.modalTransitionStyle = .crossDissolve
             
-            self.present(self.rateNowPopUp, animated: appAnimation, completion: nil)
             
+//            rateNowPopUp.productNameLabel.text = self.productDetails.name
+            
+            self.present(rateNowPopUp, animated: appAnimation, completion: nil)
         }
 
     }
@@ -201,6 +200,14 @@ class ProductDetailedViewController: UIViewController {
         self.navigationController?.popViewController(animated: appAnimation)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "rateNowPopUp"{
+            debugPrint("Inside Segue Function")
+            if let rateNowPopUpViewController = segue.destination as? RateNowPopUpViewcontrollerViewController{
+                rateNowPopUpViewController.productNameLabel.text = self.productDetails.name
+            }
+        }
+    }
 
 }
 

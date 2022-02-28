@@ -15,6 +15,8 @@
 		9208633727C7AE26007D2FED /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */; };
 		9208633C27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208633A27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib */; };
 		9208633F27C915C1007D2FED /* RateNowPopUpViewcontrollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633927C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.swift */; };
+		9208634327CCB79C007D2FED /* BuyNowPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634127CCB79C007D2FED /* BuyNowPopUpViewController.swift */; };
+		9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208634227CCB79C007D2FED /* BuyNowPopUpViewController.xib */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -88,6 +90,8 @@
 		9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
 		9208633927C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateNowPopUpViewcontrollerViewController.swift; sourceTree = "<group>"; };
 		9208633A27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateNowPopUpViewcontrollerViewController.xib; sourceTree = "<group>"; };
+		9208634127CCB79C007D2FED /* BuyNowPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowPopUpViewController.swift; sourceTree = "<group>"; };
+		9208634227CCB79C007D2FED /* BuyNowPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyNowPopUpViewController.xib; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 		9208632C27C653E7007D2FED /* ProductDetailedViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9208634027CCB773007D2FED /* BuyNowPopUpViewController */,
 				9208633827C8C355007D2FED /* RateNowPopUpViewController */,
 				9208633127C79CD9007D2FED /* ProductImagesCell */,
 				9208632D27C6544E007D2FED /* ProductDetailedViewController.swift */,
@@ -193,6 +198,15 @@
 				9208633A27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib */,
 			);
 			path = RateNowPopUpViewController;
+			sourceTree = "<group>";
+		};
+		9208634027CCB773007D2FED /* BuyNowPopUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9208634127CCB79C007D2FED /* BuyNowPopUpViewController.swift */,
+				9208634227CCB79C007D2FED /* BuyNowPopUpViewController.xib */,
+			);
+			path = BuyNowPopUpViewController;
 			sourceTree = "<group>";
 		};
 		92131AE727A817AF00E9A993 = {
@@ -600,6 +614,7 @@
 				92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
 				92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */,
+				9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */,
 				9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */,
 				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
 				92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */,
@@ -658,6 +673,7 @@
 				92DC14AB27BA2903004C531D /* CustomNavigationBar.swift in Sources */,
 				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
+				9208634327CCB79C007D2FED /* BuyNowPopUpViewController.swift in Sources */,
 				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,
 				92DC14A327B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.swift in Sources */,
 				92DC14D427BF93D6004C531D /* ProductListingTableViewCell.swift in Sources */,
