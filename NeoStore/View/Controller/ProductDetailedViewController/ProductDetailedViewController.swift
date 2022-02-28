@@ -36,6 +36,7 @@ class ProductDetailedViewController: UIViewController{
     var viewModel: ProductDetailViewModelType!
     var productId: Int!
     var productDetails: ProductDetails!
+    var newProductRating: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()

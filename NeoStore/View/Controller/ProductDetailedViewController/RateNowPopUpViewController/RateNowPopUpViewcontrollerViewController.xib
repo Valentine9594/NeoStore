@@ -18,11 +18,11 @@
                 <outlet property="productImageView" destination="Gz0-Uq-KcI" id="FM8-We-MtA"/>
                 <outlet property="productNameLabel" destination="Aoh-fa-r5A" id="VA4-N4-fk4"/>
                 <outlet property="rateNowButton" destination="pps-Ve-oXB" id="4RL-Ye-IGa"/>
-                <outlet property="starRating1" destination="9Pr-Oe-Vzf" id="pS6-OG-6Nr"/>
-                <outlet property="starRating2" destination="bFS-sd-4ob" id="cwX-vp-71j"/>
-                <outlet property="starRating3" destination="ika-n6-ISv" id="uuX-1C-kcS"/>
-                <outlet property="starRating4" destination="OkZ-b9-8tR" id="VRn-hj-Egi"/>
-                <outlet property="starRating5" destination="hKH-N6-D7g" id="u8T-M8-vxh"/>
+                <outlet property="starRating1" destination="Iph-Fj-Hp5" id="swI-Le-dYU"/>
+                <outlet property="starRating2" destination="zx6-RU-tv7" id="K53-fn-tnK"/>
+                <outlet property="starRating3" destination="EjD-1b-bGx" id="nNf-ye-QMn"/>
+                <outlet property="starRating4" destination="OWw-bU-4Bf" id="78r-sJ-X6C"/>
+                <outlet property="starRating5" destination="51s-5H-5Rl" id="OUR-OZ-Tbx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -58,53 +58,68 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="7vC-fr-0F9">
                                     <rect key="frame" x="28" y="271" width="248" height="44"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="9Pr-Oe-Vzf">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iph-Fj-Hp5">
                                             <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="BAS-PI-UkB"/>
-                                                <constraint firstAttribute="width" constant="44" id="lKI-2P-nTp"/>
+                                                <constraint firstAttribute="width" constant="44" id="1o9-2M-DKl"/>
+                                                <constraint firstAttribute="height" constant="44" id="L2U-h9-eLW"/>
                                             </constraints>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="bFS-sd-4ob">
+                                            <state key="normal" image="star_uncheck"/>
+                                            <state key="highlighted" image="star_check"/>
+                                            <connections>
+                                                <action selector="clickedStarRatingButton:" destination="-1" eventType="touchUpInside" id="4oT-TD-DGM"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zx6-RU-tv7">
                                             <rect key="frame" x="51" y="0.0" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="44" id="6np-0W-AoL"/>
-                                                <constraint firstAttribute="height" constant="44" id="qN4-39-746"/>
+                                                <constraint firstAttribute="height" constant="44" id="Z9Z-Qd-ZyI"/>
+                                                <constraint firstAttribute="width" constant="44" id="jQ6-zE-5Oe"/>
                                             </constraints>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="ika-n6-ISv">
+                                            <state key="normal" image="star_uncheck"/>
+                                            <state key="highlighted" image="star_check"/>
+                                            <connections>
+                                                <action selector="clickedStarRatingButton:" destination="-1" eventType="touchUpInside" id="MCL-Ug-sXy"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EjD-1b-bGx">
                                             <rect key="frame" x="102" y="0.0" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="BNR-9H-Sf9"/>
-                                                <constraint firstAttribute="width" constant="44" id="ZSm-gV-iHm"/>
+                                                <constraint firstAttribute="height" constant="44" id="CK0-4F-NSr"/>
+                                                <constraint firstAttribute="width" constant="44" id="h4V-jq-31X"/>
                                             </constraints>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="OkZ-b9-8tR">
+                                            <state key="normal" image="star_uncheck"/>
+                                            <state key="highlighted" image="star_check"/>
+                                            <connections>
+                                                <action selector="clickedStarRatingButton:" destination="-1" eventType="touchUpInside" id="j3b-Mr-n1z"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OWw-bU-4Bf">
                                             <rect key="frame" x="153" y="0.0" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="44" id="ewK-YX-SQP"/>
-                                                <constraint firstAttribute="height" constant="44" id="nP6-fn-VPx"/>
+                                                <constraint firstAttribute="height" constant="44" id="LWi-7K-YHa"/>
+                                                <constraint firstAttribute="width" constant="44" id="q2s-4q-HuH"/>
                                             </constraints>
-                                        </imageView>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_uncheck" translatesAutoresizingMaskIntoConstraints="NO" id="hKH-N6-D7g">
+                                            <state key="normal" image="star_uncheck"/>
+                                            <state key="highlighted" image="star_check"/>
+                                            <connections>
+                                                <action selector="clickedStarRatingButton:" destination="-1" eventType="touchUpInside" id="mNX-jH-kaG"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51s-5H-5Rl">
                                             <rect key="frame" x="204" y="0.0" width="44" height="44"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="LHU-Bd-ClH"/>
-                                                <constraint firstAttribute="width" constant="44" id="TCc-BC-gcO"/>
+                                                <constraint firstAttribute="width" constant="44" id="MSq-gH-I38"/>
+                                                <constraint firstAttribute="height" constant="44" id="fnf-CV-Ba9"/>
                                             </constraints>
-                                        </imageView>
+                                            <state key="normal" image="star_uncheck"/>
+                                            <state key="highlighted" image="star_check"/>
+                                            <connections>
+                                                <action selector="clickedStarRatingButton:" destination="-1" eventType="touchUpInside" id="WNZ-b9-dfw"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="OkZ-b9-8tR" firstAttribute="width" secondItem="hKH-N6-D7g" secondAttribute="width" id="1hf-J6-cel"/>
-                                        <constraint firstItem="9Pr-Oe-Vzf" firstAttribute="width" secondItem="bFS-sd-4ob" secondAttribute="width" id="1jF-Lm-1FN"/>
-                                        <constraint firstItem="9Pr-Oe-Vzf" firstAttribute="height" secondItem="bFS-sd-4ob" secondAttribute="height" id="DoR-ux-awc"/>
-                                        <constraint firstItem="OkZ-b9-8tR" firstAttribute="height" secondItem="hKH-N6-D7g" secondAttribute="height" id="HUY-ob-bbR"/>
-                                        <constraint firstItem="bFS-sd-4ob" firstAttribute="width" secondItem="ika-n6-ISv" secondAttribute="width" id="QNn-Up-hb7"/>
-                                        <constraint firstItem="bFS-sd-4ob" firstAttribute="height" secondItem="ika-n6-ISv" secondAttribute="height" id="TLv-CV-eSH"/>
-                                        <constraint firstItem="hKH-N6-D7g" firstAttribute="height" secondItem="9Pr-Oe-Vzf" secondAttribute="height" id="VQS-Wy-dUK"/>
-                                        <constraint firstItem="ika-n6-ISv" firstAttribute="width" secondItem="OkZ-b9-8tR" secondAttribute="width" id="VS0-s8-os6"/>
-                                        <constraint firstItem="hKH-N6-D7g" firstAttribute="width" secondItem="9Pr-Oe-Vzf" secondAttribute="width" id="YmU-bR-yqC"/>
-                                        <constraint firstItem="ika-n6-ISv" firstAttribute="height" secondItem="OkZ-b9-8tR" secondAttribute="height" id="sJx-MZ-E8Z"/>
                                         <constraint firstAttribute="height" constant="44" id="xrm-Bj-xfg"/>
                                     </constraints>
                                 </stackView>
@@ -156,6 +171,7 @@
         </view>
     </objects>
     <resources>
+        <image name="star_check" width="44" height="44"/>
         <image name="star_uncheck" width="44" height="44"/>
     </resources>
 </document>
