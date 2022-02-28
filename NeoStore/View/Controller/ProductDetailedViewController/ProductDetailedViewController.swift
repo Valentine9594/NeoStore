@@ -114,10 +114,6 @@ class ProductDetailedViewController: UIViewController {
         productDescription.sizeToFit()
         
         self.definesPresentationContext = true
-        
-        //        gesture to close keyboard on cliking anywhere
-        let dismissPopUpTap = UITapGestureRecognizer(target: self, action: #selector(dismissPopUp))
-        self.view.addGestureRecognizer(dismissPopUpTap)
     }
     
     private func setupProductImagesCollection(){
@@ -203,10 +199,6 @@ class ProductDetailedViewController: UIViewController {
     
     @objc func popToPreviousViewController() -> Void{
         self.navigationController?.popViewController(animated: appAnimation)
-    }
-    
-    @objc func dismissPopUp(){
-        self.dismiss(animated: appAnimation, completion: nil)
     }
     
 

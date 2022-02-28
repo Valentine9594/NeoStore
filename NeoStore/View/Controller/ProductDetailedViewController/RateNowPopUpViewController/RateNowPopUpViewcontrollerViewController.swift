@@ -40,7 +40,14 @@ class RateNowPopUpViewcontrollerViewController: UIViewController {
         productNameLabel.sizeToFit()
         
         rateNowButton.layer.cornerRadius = 7
+        
+        //        gesture to close keyboard on cliking anywhere
+        let dismissPopUpTap = UITapGestureRecognizer(target: self, action: #selector(dismissPopUp))
+        self.view.addGestureRecognizer(dismissPopUpTap)
     }
 
+    @objc func dismissPopUp(){
+        self.dismiss(animated: appAnimation, completion: nil)
+    }
 
 }
