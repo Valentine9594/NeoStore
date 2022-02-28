@@ -82,7 +82,7 @@ class ProductDetailedViewController: UIViewController {
     private func reloadViewController(productDetails: ProductDetails){
         self.navigationItem.title = self.viewModel.productDetails?.name ?? "Product"
         
-        self.productName.text = productDetails.name
+        self.productName.text = productDetails.name?.capitalized
         let productCategoryInText = productCategoryFromId(productCategoryId: productDetails.productCategoryId ?? 1)
         self.productCategory.text = "Category - \(productCategoryInText)"
         self.productProducer.text = productDetails.producer
@@ -232,7 +232,7 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellHeight = collectionView.frame.size.height
-        return CGSize(width: cellHeight * 1.125, height: cellHeight)
+        return CGSize(width: cellHeight * 1.1, height: cellHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

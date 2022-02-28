@@ -37,7 +37,7 @@ class ProductListingTableViewCell: UITableViewCell {
     
     private func setupProductData(){
         DispatchQueue.main.async {
-            self.productNameLabel.text = self.productName
+            self.productNameLabel.text = self.productName.capitalized
             self.productDescriptionLabel.text = self.productDescription
             self.productPriceLabel.text = "Rs. \(self.productPrice ?? 0)"
         }
