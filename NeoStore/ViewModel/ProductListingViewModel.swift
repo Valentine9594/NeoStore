@@ -30,18 +30,20 @@ class ProductListingViewModel: ProductListingViewModelType{
     func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int) {
         guard currentPage + 1 == productsPageNumber else{ return }
         
-        ProductService.getProductListing(productCategoryId: productCategoryId, productsLimit: productsLimit, productsPageNumber: productsPageNumber){ [weak self] (response) in
-            switch response{
-                case .success(let data):
-                    if data.status == 200{
-                        self?.productList += data.data
-                        self?.currentPage += 1
-                        self?.tableShouldReload.value = true
-                    }
-                    
-                case .failure(let error):
-                    debugPrint(error.localizedDescription)
-                    self?.tableShouldReload.value = false
+        DispatchQueue.global(qos: .userInteractive).async {
+            ProductService.getProductListing(productCategoryId: productCategoryId, productsLimit: productsLimit, productsPageNumber: productsPageNumber){ [weak self] (response) in
+                switch response{
+                    case .success(let data):
+                        if data.status == 200{
+                            self?.productList += data.data
+                            self?.currentPage += 1
+                            self?.tableShouldReload.value = true
+                        }
+                        
+                    case .failure(let error):
+                        debugPrint(error.localizedDescription)
+                        self?.tableShouldReload.value = false
+                }
             }
         }
 

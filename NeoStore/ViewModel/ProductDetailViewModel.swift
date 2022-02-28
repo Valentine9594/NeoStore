@@ -22,21 +22,24 @@ class ProductDetailViewModel: ProductDetailViewModelType{
     var productImagesList = [ProductImagesCollection]()
     
     func fetchProductDetails(productId: Int) {
-        ProductService.getProductDetails(productId: productId) { [weak self] (response) in
-            switch response{
-                case .success(let data):
-                    if data.status == 200{
-                        self?.productDetails = data.data
-                        if let productImages = self?.productDetails?.productImages{
-                            self?.productImagesList = productImages
+        DispatchQueue.global(qos: .userInteractive).async {
+            ProductService.getProductDetails(productId: productId) { [weak self] (response) in
+                switch response{
+                    case .success(let data):
+                        if data.status == 200{
+                            self?.productDetails = data.data
+                            if let productImages = self?.productDetails?.productImages{
+                                self?.productImagesList = productImages
+                            }
+                            self?.viewControllerShouldReload.value = true
                         }
-                        self?.viewControllerShouldReload.value = true
-                    }
-                    
-                case .failure(let error):
-                    debugPrint(error.localizedDescription)
-                    self?.viewControllerShouldReload.value = false
-            }        }
+                        
+                    case .failure(let error):
+                        debugPrint(error.localizedDescription)
+                        self?.viewControllerShouldReload.value = false
+                }
+            }
+        }
     }
     
     func totalNumberOfProductImages() -> Int {
