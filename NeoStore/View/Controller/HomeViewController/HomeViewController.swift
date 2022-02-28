@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
 //            appdelegate.switchRootViewcontrollerToHome()
         NotificationCenter.default.addObserver(self, selector: #selector(goToTemporaryMenuBar), name: .didClickMenuButton, object: nil)
         self.navigationController?.isNavigationBarHidden = true
-        self.timer = Timer.scheduledTimer(timeInterval: 3.2, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
+        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

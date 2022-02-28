@@ -21,8 +21,9 @@ class ProductListingViewController: UIViewController{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setupProductListingTableView()
         self.setupNavigationBar()
+        self.setupProductListingTableView()
+        self.setupLoadTableViewData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,8 +60,11 @@ class ProductListingViewController: UIViewController{
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
         
-        productListingTableview.estimatedRowHeight = 110
-        productListingTableview.rowHeight = UITableView.automaticDimension
+        DispatchQueue.main.async {
+            self.productListingTableview.estimatedRowHeight = 110
+            self.productListingTableview.rowHeight = UITableView.automaticDimension
+        }
+
     }
 
     private func setupNavigationBar(){
