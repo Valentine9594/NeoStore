@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class ProductDetailedViewController: UIViewController {
+class ProductDetailedViewController: UIViewController{
     @IBOutlet weak var productName: UILabel!
     @IBOutlet weak var productCategory: UILabel!
     @IBOutlet weak var productProducer: UILabel!
@@ -60,7 +60,7 @@ class ProductDetailedViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+        
     private func fetchProductDetails(){
         DispatchQueue.global(qos: .userInteractive).async {
             self.viewModel.fetchProductDetails(productId: self.productId)
@@ -175,40 +175,24 @@ class ProductDetailedViewController: UIViewController {
             let buyNowPopUp = BuyNowPopUpViewController(nibName: TotalViewControllers.buyNowPopUpViewController.rawValue, bundle: nil)
             buyNowPopUp.modalPresentationStyle = .overCurrentContext
             buyNowPopUp.modalTransitionStyle = .crossDissolve
-            
+            buyNowPopUp.productDetails = self.productDetails
             self.present(buyNowPopUp, animated: appAnimation, completion: nil)
         }
     }
     
     @IBAction func clickedRateNowButton(_ sender: UIButton) {
         DispatchQueue.main.async {
-            
             let rateNowPopUp = RateNowPopUpViewcontrollerViewController(nibName: TotalViewControllers.rateNowPopUpViewcontrollerViewController.rawValue, bundle: nil)
             rateNowPopUp.modalPresentationStyle = .overCurrentContext
             rateNowPopUp.modalTransitionStyle = .crossDissolve
-            
-            
-//            rateNowPopUp.productNameLabel.text = self.productDetails.name
-            
+            rateNowPopUp.productDetails = self.productDetails
             self.present(rateNowPopUp, animated: appAnimation, completion: nil)
         }
-
     }
-    
     
     @objc func popToPreviousViewController() -> Void{
         self.navigationController?.popViewController(animated: appAnimation)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "rateNowPopUp"{
-            debugPrint("Inside Segue Function")
-            if let rateNowPopUpViewController = segue.destination as? RateNowPopUpViewcontrollerViewController{
-                rateNowPopUpViewController.productNameLabel.text = self.productDetails.name
-            }
-        }
-    }
-
 }
 
 

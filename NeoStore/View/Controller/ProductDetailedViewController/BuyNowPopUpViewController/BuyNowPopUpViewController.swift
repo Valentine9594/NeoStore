@@ -13,6 +13,7 @@ class BuyNowPopUpViewController: UIViewController {
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var enterQuantityTextfield: UITextField!
     @IBOutlet weak var submitButton: UIButton!
+    var productDetails: ProductDetails!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,10 @@ class BuyNowPopUpViewController: UIViewController {
         setupUI()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(appAnimation)
+        setupProductDetailsInView()
+    }
 
     private func setupUI(){
         self.view.backgroundColor = .appGreyFont.withAlphaComponent(0.25)
@@ -43,6 +48,17 @@ class BuyNowPopUpViewController: UIViewController {
         //        gesture to close keyboard on cliking anywhere
         let dismissPopUpTap = UITapGestureRecognizer(target: self, action: #selector(dismissPopUp))
         self.view.addGestureRecognizer(dismissPopUpTap)
+    }
+    
+    private func setupProductDetailsInView(){
+        if let productName = self.productDetails.name{
+            self.productNameLabel.text = productName
+        }
+        
+        if let productImageURLString = self.productDetails.productImages?[0].productImages{
+            let url = URL(string: productImageURLString)
+            self.productImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
+        }
     }
 
     @objc func dismissPopUp(){
