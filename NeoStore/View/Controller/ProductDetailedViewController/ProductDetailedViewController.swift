@@ -23,9 +23,10 @@ class ProductDetailedViewController: UIViewController{
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var imageContainerView: UIView!
     @IBOutlet weak var scrollContentView: UIView!
-    
+    @IBOutlet weak var outOfStockLabel: UILabel!
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var productPrice: UILabel!
+    
     @IBOutlet weak var productImagesCollectionView: UICollectionView!
     let cellReuseIdentifier = "ProductImagesCollection"
     
@@ -130,6 +131,8 @@ class ProductDetailedViewController: UIViewController{
         productDescription.lineBreakMode = .byWordWrapping
         productDescription.sizeToFit()
         
+        outOfStockLabel.isHidden = true
+        
         self.definesPresentationContext = true
     }
     
@@ -190,7 +193,9 @@ class ProductDetailedViewController: UIViewController{
     
     @IBAction func clickedBuyNowButton(_ sender: UIButton) {
         DispatchQueue.main.async {
-            let buyNowPopUp = BuyNowPopUpViewController(nibName: TotalViewControllers.buyNowPopUpViewController.rawValue, bundle: nil)
+//            let buyNowPopUp = BuyNowPopUpViewController(nibName: TotalViewControllers.buyNowPopUpViewController.rawValue, bundle: nil)
+            let buyNowPopUpViewModel = BuyNowViewModel()
+            let buyNowPopUp = BuyNowPopUpViewController(viewModel: buyNowPopUpViewModel)
             buyNowPopUp.modalPresentationStyle = .overCurrentContext
             buyNowPopUp.modalTransitionStyle = .crossDissolve
             buyNowPopUp.productDetails = self.productDetails

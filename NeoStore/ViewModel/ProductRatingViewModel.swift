@@ -25,7 +25,6 @@ class ProductRatingViewModel: ProductRatingViewModelType{
         ProductService.setProductRating(productId: productId, rating: rating) { [weak self] response in
             switch response{
                 case .success(let data):
-                    debugPrint("Status: \(data.status ?? 0)")
                     if data.status == 200{
                         self?.productRatingResult.value = .success
                     }

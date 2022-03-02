@@ -67,7 +67,7 @@
                                                     <color key="textColor" red="0.17254901959999999" green="0.16862745100000001" blue="0.16862745100000001" alpha="0.8980392157" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQT-Gg-byJ">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PQT-Gg-byJ">
                                                     <rect key="frame" x="43" y="42" width="112" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="112" id="T8d-6q-y8o"/>
@@ -88,6 +88,9 @@
                                                     <state key="normal" title="Submit">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="clickedBuyNowSubmitButton:" destination="-1" eventType="touchUpInside" id="yoi-qa-TcU"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>

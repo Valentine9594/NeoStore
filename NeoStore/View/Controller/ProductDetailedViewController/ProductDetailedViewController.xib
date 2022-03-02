@@ -19,6 +19,7 @@
                 <outlet property="buyNowButton" destination="t8A-lq-ypf" id="SyK-YB-ldn"/>
                 <outlet property="descriptionView" destination="clF-Sa-q8c" id="Gc0-e4-IoT"/>
                 <outlet property="imageContainerView" destination="3mW-bS-BlY" id="6U4-5b-Ct4"/>
+                <outlet property="outOfStockLabel" destination="bhh-9P-jWl" id="l1P-y0-mnx"/>
                 <outlet property="productCategory" destination="J1E-ss-TMM" id="kcJ-Lp-SFo"/>
                 <outlet property="productDescription" destination="UDm-9v-QgA" id="oxj-CE-wMN"/>
                 <outlet property="productImage" destination="QAP-nu-Hkf" id="smO-xJ-AJw"/>
@@ -140,7 +141,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="388" height="529"/>
                                     <subviews>
                                         <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="clF-Sa-q8c" userLabel="descriptionView">
-                                            <rect key="frame" x="0.0" y="333" width="388" height="196"/>
+                                            <rect key="frame" x="0.0" y="347" width="388" height="182"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XhE-33-2nH">
                                                     <rect key="frame" x="8" y="8" width="372" height="19"/>
@@ -170,15 +171,21 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mW-bS-BlY" userLabel="imageContainerView">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="328"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="342"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleAspectFit" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-sT-9y1">
+                                                <stackView opaque="NO" contentMode="scaleAspectFit" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="RtO-sT-9y1">
                                                     <rect key="frame" x="13" y="13" width="362" height="23"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-cH-XsN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="239" height="23"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Rs. " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdH-cH-XsN">
+                                                            <rect key="frame" x="0.0" y="0.0" width="236.5" height="23"/>
                                                             <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="21"/>
                                                             <color key="textColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Out of Stock" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhh-9P-jWl">
+                                                            <rect key="frame" x="243.5" y="0.0" width="88.5" height="23"/>
+                                                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="14"/>
+                                                            <color key="textColor" red="0.85882352941176465" green="0.086274509803921567" blue="0.082352941176470587" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1q-Tl-kgB">
@@ -195,6 +202,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="HdH-cH-XsN" firstAttribute="centerY" secondItem="RtO-sT-9y1" secondAttribute="centerY" id="amS-EE-BhE"/>
+                                                        <constraint firstItem="bhh-9P-jWl" firstAttribute="centerY" secondItem="RtO-sT-9y1" secondAttribute="centerY" id="v7c-IK-M4r"/>
                                                     </constraints>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider_img1" translatesAutoresizingMaskIntoConstraints="NO" id="QAP-nu-Hkf">
@@ -223,6 +231,7 @@
                                                 <constraint firstItem="QAP-nu-Hkf" firstAttribute="top" secondItem="RtO-sT-9y1" secondAttribute="bottom" constant="16" id="Dfr-c7-xei"/>
                                                 <constraint firstAttribute="trailing" secondItem="ISn-mq-Wrc" secondAttribute="trailing" constant="13" id="Htd-TK-nNk"/>
                                                 <constraint firstItem="RtO-sT-9y1" firstAttribute="top" secondItem="3mW-bS-BlY" secondAttribute="top" constant="13" id="Mys-wI-lIR"/>
+                                                <constraint firstAttribute="bottom" secondItem="ISn-mq-Wrc" secondAttribute="bottom" constant="16" id="T8r-JV-Ncc"/>
                                                 <constraint firstAttribute="trailing" secondItem="RtO-sT-9y1" secondAttribute="trailing" constant="13" id="Vw7-ZZ-PGQ"/>
                                                 <constraint firstItem="QAP-nu-Hkf" firstAttribute="centerX" secondItem="3mW-bS-BlY" secondAttribute="centerX" id="ekI-rZ-1CM"/>
                                                 <constraint firstItem="RtO-sT-9y1" firstAttribute="leading" secondItem="3mW-bS-BlY" secondAttribute="leading" constant="13" id="fuO-rd-k3b"/>
@@ -236,7 +245,7 @@
                                         <constraint firstItem="3mW-bS-BlY" firstAttribute="leading" secondItem="Ltd-ib-dVj" secondAttribute="leading" id="1NN-5l-Aur"/>
                                         <constraint firstAttribute="bottom" secondItem="clF-Sa-q8c" secondAttribute="bottom" id="2tA-sK-1pH"/>
                                         <constraint firstAttribute="trailing" secondItem="3mW-bS-BlY" secondAttribute="trailing" id="9bm-OQ-aYe"/>
-                                        <constraint firstItem="clF-Sa-q8c" firstAttribute="top" secondItem="Ltd-ib-dVj" secondAttribute="top" constant="333" id="Idc-Cn-zPo"/>
+                                        <constraint firstItem="clF-Sa-q8c" firstAttribute="top" secondItem="Ltd-ib-dVj" secondAttribute="top" constant="347" id="Idc-Cn-zPo"/>
                                         <constraint firstItem="3mW-bS-BlY" firstAttribute="top" secondItem="Ltd-ib-dVj" secondAttribute="top" id="Xlj-52-f28"/>
                                         <constraint firstItem="clF-Sa-q8c" firstAttribute="top" secondItem="3mW-bS-BlY" secondAttribute="bottom" constant="5" id="ajS-hQ-sJi"/>
                                         <constraint firstAttribute="trailing" secondItem="clF-Sa-q8c" secondAttribute="trailing" id="jYn-s7-6vi"/>

@@ -230,7 +230,7 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 func fetchAndSaveUserData(responseContent: AnyDict) throws{
     
     do {
-        try     saveLoginAndRegisterDataToUserDefaults(responseContent: responseContent)
+        try saveLoginAndRegisterDataToUserDefaults(responseContent: responseContent)
     } catch let error {
         throw error
     }

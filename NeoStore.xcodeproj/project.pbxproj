@@ -18,6 +18,8 @@
 		9208634327CCB79C007D2FED /* BuyNowPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634127CCB79C007D2FED /* BuyNowPopUpViewController.swift */; };
 		9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208634227CCB79C007D2FED /* BuyNowPopUpViewController.xib */; };
 		9208634627CE0700007D2FED /* ProductRatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634527CE0700007D2FED /* ProductRatingViewModel.swift */; };
+		9208634827CF54BF007D2FED /* BuyNowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634727CF54BF007D2FED /* BuyNowViewModel.swift */; };
+		9208634A27CF579A007D2FED /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634927CF579A007D2FED /* CartService.swift */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -94,6 +96,8 @@
 		9208634127CCB79C007D2FED /* BuyNowPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowPopUpViewController.swift; sourceTree = "<group>"; };
 		9208634227CCB79C007D2FED /* BuyNowPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyNowPopUpViewController.xib; sourceTree = "<group>"; };
 		9208634527CE0700007D2FED /* ProductRatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRatingViewModel.swift; sourceTree = "<group>"; };
+		9208634727CF54BF007D2FED /* BuyNowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowViewModel.swift; sourceTree = "<group>"; };
+		9208634927CF579A007D2FED /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +267,7 @@
 				92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */,
 				9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */,
 				9208634527CE0700007D2FED /* ProductRatingViewModel.swift */,
+				9208634727CF54BF007D2FED /* BuyNowViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 			children = (
 				92DC143E27AA68B5004C531D /* ProductService.swift */,
 				92DC145927ABF32E004C531D /* UserService.swift */,
+				9208634927CF579A007D2FED /* CartService.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -652,6 +658,7 @@
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
 				9208633727C7AE26007D2FED /* ProductDetailViewModel.swift in Sources */,
 				92DC14C127BBC93B004C531D /* MyAccountViewModel.swift in Sources */,
+				9208634A27CF579A007D2FED /* CartService.swift in Sources */,
 				92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */,
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
 				92DC149127B52F50004C531D /* HomeViewController.swift in Sources */,
@@ -672,6 +679,7 @@
 				92DC148627B3D652004C531D /* UserDefaults.swift in Sources */,
 				92DC145A27ABF32E004C531D /* UserService.swift in Sources */,
 				92DC144D27AAB3FF004C531D /* UITextfields+Extension.swift in Sources */,
+				9208634827CF54BF007D2FED /* BuyNowViewModel.swift in Sources */,
 				92DC149F27B54538004C531D /* HomeViewModel.swift in Sources */,
 				92DC14AB27BA2903004C531D /* CustomNavigationBar.swift in Sources */,
 				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,

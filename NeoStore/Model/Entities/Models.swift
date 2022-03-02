@@ -314,3 +314,31 @@ extension ProductRatingResponseData: Decodable{
         modified = try codingKeysValue.decode(Date.self, forKey: .modified)
     }
 }
+
+
+struct CartData{
+    let status: Int?
+    let data: Bool?
+    let totalCarts: Int?
+    let message: String?
+    let userMessage: String?
+    
+    enum codingKeys: String, CodingKey{
+        case status = "status"
+        case data = "data"
+        case totalCarts = "total_carts"
+        case message = "message"
+        case userMessage = "user_msg"
+    }
+}
+
+extension CartData: Decodable{
+    init(from decoder: Decoder) throws {
+        let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
+        status = try codingKeysValue.decode(Int.self, forKey: .status)
+        data = try codingKeysValue.decode(Bool.self, forKey: .data)
+        totalCarts = try codingKeysValue.decode(Int.self, forKey: .totalCarts)
+        message =  try codingKeysValue.decode(String.self, forKey: .message)
+        userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
+    }
+}
