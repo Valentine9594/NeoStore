@@ -22,7 +22,7 @@ class RateNowPopUpViewcontroller: UIViewController{
     
     var productDetails: ProductDetails!
     var productRatedOnClick: Int!
-    var productRatingViewModel: ProductRatingViewModel!
+    var viewModel: ProductRatingViewModelType!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +35,34 @@ class RateNowPopUpViewcontroller: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         setupProductDetailsInView()
-        self.productRatingViewModel = ProductRatingViewModel()
+        setupObservers()
     }
 
+    init(viewModel: ProductRatingViewModelType){
+        self.viewModel = viewModel
+        super.init(nibName: TotalViewControllers.rateNowPopUpViewcontroller.rawValue, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupObservers(){
+        self.viewModel.productRatingResult.bindAndFire { [weak self] result in
+            switch result{
+                case .success:
+                    DispatchQueue.main.async {
+                        self?.dismiss(animated: appAnimation, completion: nil)
+                    }
+                case .failure:
+                    let message = "There was an error rating the product. Please try again later..."
+                    self?.callAlert(alertTitle: "Error!", alertMessage: message, actionTitle: "OK")
+                case .none:
+                    break
+            }
+        }
+    }
+    
     private func setupUI(){
         self.view.backgroundColor = .appGreyFont.withAlphaComponent(0.25)
         
@@ -114,12 +139,9 @@ class RateNowPopUpViewcontroller: UIViewController{
     }
     
     @IBAction func clickedRatingButton(_ sender: UIButton) {
-        if let productIdInt = self.productDetails.id{
-            let productId = "\(productIdInt)"
-            self.productRatingViewModel.setProductRating(productId: productId, rating: self.productRatedOnClick)
-            self.dismiss(animated: appAnimation, completion: nil)
-        }
-
+        guard let productId = self.productDetails.id else{ return }
+        let productIdString = "\(productId)"
+        self.viewModel.setProductRating(productId: productIdString, rating: self.productRatedOnClick)
     }
     
     
