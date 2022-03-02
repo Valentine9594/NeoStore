@@ -21,6 +21,7 @@ class BuyNowPopUpViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupUI()
+        setupGestures()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +46,7 @@ class BuyNowPopUpViewController: UIViewController {
         enterQuantityTextfield.layer.cornerRadius = commonCornerRadius
         
         submitButton.layer.cornerRadius = commonCornerRadius
+        scrollView.isScrollEnabled = false
     }
     
     private func setupGestures(){
@@ -75,6 +77,7 @@ class BuyNowPopUpViewController: UIViewController {
     
     @objc func keyboardShow(notification: Notification){
 //        code to attach keyboard size when keyboard pops up in scrollview
+        scrollView.isScrollEnabled = true
         guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else{return}
         let keyboardRectangle = keyboardFrame.cgRectValue
         let keyboardHeight = keyboardRectangle.height
@@ -85,12 +88,14 @@ class BuyNowPopUpViewController: UIViewController {
     @objc func keyboardHide(){
         self.scrollView.contentInset.bottom = .zero
         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
+        scrollView.isScrollEnabled = false
     }
     
     @objc func dismissKeyboard(){
 //        function to close keyboard if clicked anywhere
         self.view.endEditing(true)
         self.view.resignFirstResponder()
+        scrollView.isScrollEnabled = false
     }
 
     @objc func dismissPopUp(){
