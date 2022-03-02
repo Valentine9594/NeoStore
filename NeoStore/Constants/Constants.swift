@@ -26,7 +26,7 @@ enum TotalViewControllers: String{
     case ProductDetailedViewController = "ProductDetailedViewController"
     
 //    popup view controllers
-    case rateNowPopUpViewcontrollerViewController = "RateNowPopUpViewcontrollerViewController"
+    case rateNowPopUpViewcontroller = "RateNowPopUpViewcontroller"
     case buyNowPopUpViewController = "BuyNowPopUpViewController"
     
 //    temporary viewcontrollers
@@ -129,7 +129,7 @@ func jsonProductDecoder<T: Decodable>(jsonData: Data) -> APIResponse<jsonProduct
 
 func productCategoryFromId(productCategoryId: Int) -> String{
     switch productCategoryId {
-        case 0:
+        case 1:
             return "Tables"
         case 2:
             return "Chairs"

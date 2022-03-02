@@ -13,10 +13,11 @@
 		9208633427C79D23007D2FED /* ProductImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633227C79D23007D2FED /* ProductImagesCollectionViewCell.swift */; };
 		9208633527C79D23007D2FED /* ProductImagesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208633327C79D23007D2FED /* ProductImagesCollectionViewCell.xib */; };
 		9208633727C7AE26007D2FED /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */; };
-		9208633C27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208633A27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib */; };
-		9208633F27C915C1007D2FED /* RateNowPopUpViewcontrollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633927C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.swift */; };
+		9208633C27C8C395007D2FED /* RateNowPopUpViewcontroller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208633A27C8C395007D2FED /* RateNowPopUpViewcontroller.xib */; };
+		9208633F27C915C1007D2FED /* RateNowPopUpViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208633927C8C395007D2FED /* RateNowPopUpViewcontroller.swift */; };
 		9208634327CCB79C007D2FED /* BuyNowPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634127CCB79C007D2FED /* BuyNowPopUpViewController.swift */; };
 		9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208634227CCB79C007D2FED /* BuyNowPopUpViewController.xib */; };
+		9208634627CE0700007D2FED /* ProductRatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634527CE0700007D2FED /* ProductRatingViewModel.swift */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -88,10 +89,11 @@
 		9208633227C79D23007D2FED /* ProductImagesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 		9208633327C79D23007D2FED /* ProductImagesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductImagesCollectionViewCell.xib; sourceTree = "<group>"; };
 		9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
-		9208633927C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateNowPopUpViewcontrollerViewController.swift; sourceTree = "<group>"; };
-		9208633A27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateNowPopUpViewcontrollerViewController.xib; sourceTree = "<group>"; };
+		9208633927C8C395007D2FED /* RateNowPopUpViewcontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateNowPopUpViewcontroller.swift; sourceTree = "<group>"; };
+		9208633A27C8C395007D2FED /* RateNowPopUpViewcontroller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RateNowPopUpViewcontroller.xib; sourceTree = "<group>"; };
 		9208634127CCB79C007D2FED /* BuyNowPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowPopUpViewController.swift; sourceTree = "<group>"; };
 		9208634227CCB79C007D2FED /* BuyNowPopUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BuyNowPopUpViewController.xib; sourceTree = "<group>"; };
+		9208634527CE0700007D2FED /* ProductRatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRatingViewModel.swift; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -194,8 +196,8 @@
 		9208633827C8C355007D2FED /* RateNowPopUpViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9208633927C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.swift */,
-				9208633A27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib */,
+				9208633927C8C395007D2FED /* RateNowPopUpViewcontroller.swift */,
+				9208633A27C8C395007D2FED /* RateNowPopUpViewcontroller.xib */,
 			);
 			path = RateNowPopUpViewController;
 			sourceTree = "<group>";
@@ -260,6 +262,7 @@
 				92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */,
 				92DC14DD27C365C2004C531D /* ProductListingViewModel.swift */,
 				9208633627C7AE26007D2FED /* ProductDetailViewModel.swift */,
+				9208634527CE0700007D2FED /* ProductRatingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -606,7 +609,7 @@
 				92DC144527AAAB8C004C531D /* LoginScreenVC.xib in Resources */,
 				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
 				92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */,
-				9208633C27C8C395007D2FED /* RateNowPopUpViewcontrollerViewController.xib in Resources */,
+				9208633C27C8C395007D2FED /* RateNowPopUpViewcontroller.xib in Resources */,
 				92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */,
 				92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */,
 				92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */,
@@ -641,7 +644,7 @@
 				92DC14BD27BB6690004C531D /* UIViews+Extension.swift in Sources */,
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
 				92DC148127B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift in Sources */,
-				9208633F27C915C1007D2FED /* RateNowPopUpViewcontrollerViewController.swift in Sources */,
+				9208633F27C915C1007D2FED /* RateNowPopUpViewcontroller.swift in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
 				92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */,
@@ -673,6 +676,7 @@
 				92DC14AB27BA2903004C531D /* CustomNavigationBar.swift in Sources */,
 				92DC148927B3EA68004C531D /* ForgotPasswordViewController.swift in Sources */,
 				92DC143927A9714C004C531D /* Constants.swift in Sources */,
+				9208634627CE0700007D2FED /* ProductRatingViewModel.swift in Sources */,
 				9208634327CCB79C007D2FED /* BuyNowPopUpViewController.swift in Sources */,
 				92DC145E27AC1A33004C531D /* ReactiveListener.swift in Sources */,
 				92DC14A327B6813C004C531D /* HomeProductsTypeDisplayCollectionViewCell.swift in Sources */,

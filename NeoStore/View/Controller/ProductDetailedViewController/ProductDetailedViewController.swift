@@ -34,6 +34,7 @@ class ProductDetailedViewController: UIViewController{
     @IBOutlet weak var rateButton: UIButton!
     
     var viewModel: ProductDetailViewModelType!
+    var productRatingViewModel: ProductRatingViewModel!
     var productId: Int!
     var productDetails: ProductDetails!
     var newProductRating: Int!
@@ -45,6 +46,7 @@ class ProductDetailedViewController: UIViewController{
         setupUI()
         setupNavigationBar()
         setupProductImagesCollection()
+        self.productRatingViewModel = ProductRatingViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,6 +80,21 @@ class ProductDetailedViewController: UIViewController{
                 }
             }
         }
+        
+        self.productRatingViewModel.productRatingResult.bindAndFire { [weak self] result in
+            guard let `self` = self else{return}
+            switch result{
+                case .success:
+                    debugPrint("Success")
+                    break
+                case .failure:
+                    debugPrint("Failure")
+                    break
+                case .none:
+                    break
+            }
+        }
+        
     }
     
     private func reloadViewController(productDetails: ProductDetails){
@@ -183,7 +200,9 @@ class ProductDetailedViewController: UIViewController{
     
     @IBAction func clickedRateNowButton(_ sender: UIButton) {
         DispatchQueue.main.async {
-            let rateNowPopUp = RateNowPopUpViewcontrollerViewController(nibName: TotalViewControllers.rateNowPopUpViewcontrollerViewController.rawValue, bundle: nil)
+//            let rateNowPopUpViewModel = ProductRatingViewModel()
+//            let rateNowPopUp = RateNowPopUpViewcontroller(viewModel: rateNowPopUpViewModel)
+            let rateNowPopUp = RateNowPopUpViewcontroller(nibName: TotalViewControllers.rateNowPopUpViewcontroller.rawValue, bundle: nil)
             rateNowPopUp.modalPresentationStyle = .overCurrentContext
             rateNowPopUp.modalTransitionStyle = .crossDissolve
             rateNowPopUp.productDetails = self.productDetails

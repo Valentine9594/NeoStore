@@ -133,6 +133,9 @@
                                     <state key="normal" title="Rate Now">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="clickedRatingButton:" destination="-1" eventType="touchUpInside" id="ppp-pb-6Qk"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <constraints>

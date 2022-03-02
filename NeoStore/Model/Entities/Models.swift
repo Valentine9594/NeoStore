@@ -272,3 +272,45 @@ extension ProductImagesCollection: Decodable{
         modified = try codingKeysValue.decode(Date.self, forKey: .modified)
     }
 }
+
+struct ProductRatingResponseData{
+    let id: Int?
+    let productCategoryId: Int?
+    let name: String?
+    let producer: String?
+    let description: String?
+    let cost: Int?
+    let rating: Float?
+    let viewCount: Int?
+    let created: Date?
+    let modified: Date?
+    
+    enum codingKeys: String, CodingKey{
+        case id
+        case productCategoryId = "product_category_id"
+        case name = "name"
+        case producer = "producer"
+        case description = "description"
+        case cost = "cost"
+        case rating = "rating"
+        case viewCount = "view_count"
+        case created = "created"
+        case modified = "modified"
+    }
+}
+
+extension ProductRatingResponseData: Decodable{
+    init(from decoder: Decoder) throws {
+        let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
+        id = try codingKeysValue.decode(Int.self, forKey: .id)
+        productCategoryId = try codingKeysValue.decode(Int.self, forKey: .productCategoryId)
+        name = try codingKeysValue.decode(String.self, forKey: .name)
+        producer = try codingKeysValue.decode(String.self, forKey: .producer)
+        description = try codingKeysValue.decode(String.self, forKey: .description)
+        cost = try codingKeysValue.decode(Int.self, forKey: .cost)
+        rating = try codingKeysValue.decode(Float.self, forKey: .rating)
+        viewCount = try codingKeysValue.decode(Int.self, forKey: .viewCount)
+        created = try codingKeysValue.decode(Date.self, forKey: .created)
+        modified = try codingKeysValue.decode(Date.self, forKey: .modified)
+    }
+}

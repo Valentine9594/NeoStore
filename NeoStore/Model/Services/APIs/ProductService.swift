@@ -50,6 +50,31 @@ class ProductService{
             }
         }
     }
+    
+    static func setProductRating(productId: String, rating: Int, completion: @escaping(APIResponse<jsonProductResponse<ProductRatingResponseData>>)->Void){
+        
+        let params = ["product_id": productId, "rating": rating] as AnyDict
+        APIManager.sharedInstance.performRequest(serviceType: .setProductRatings(paramters: params)) { (response) in
+
+            switch response{
+                case .success(let data):
+                    if let content = data as? Data{
+                        let responseData: APIResponse<jsonProductResponse<ProductRatingResponseData>> = jsonProductDecoder(jsonData: content)
+                            completion(responseData)
+                        }
+                    else{
+                        print(CustomErrors.ResponseDataNil.localizedDescription)
+                    }
+            
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+            }
+            
+        }
+        
+    }
+    
+    
 }
 
 

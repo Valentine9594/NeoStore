@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RateNowPopUpViewcontrollerViewController: UIViewController{
+class RateNowPopUpViewcontroller: UIViewController{
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productImageView: UIImageView!
@@ -22,6 +22,7 @@ class RateNowPopUpViewcontrollerViewController: UIViewController{
     
     var productDetails: ProductDetails!
     var productRatedOnClick: Int!
+    var productRatingViewModel: ProductRatingViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +35,7 @@ class RateNowPopUpViewcontrollerViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         setupProductDetailsInView()
+        self.productRatingViewModel = ProductRatingViewModel()
     }
 
     private func setupUI(){
@@ -62,9 +64,6 @@ class RateNowPopUpViewcontrollerViewController: UIViewController{
         let dismissPopUpTap = UITapGestureRecognizer(target: self, action: #selector(dismissPopUp))
         self.view.addGestureRecognizer(dismissPopUpTap)
         
-        let hoverOnStars = UIHoverGestureRecognizer(target: self, action: #selector(changeStarImage))
-        self.starRating1.addGestureRecognizer(hoverOnStars)
-        
     }
     
     private func setupProductDetailsInView(){
@@ -75,6 +74,15 @@ class RateNowPopUpViewcontrollerViewController: UIViewController{
         if let productImageURLString = self.productDetails.productImages?[0].productImages{
             let url = URL(string: productImageURLString)
             self.productImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
+        }
+    }
+    
+    func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+            let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+            alert.addAction(alertAction)
+            self.present(alert, animated: appAnimation, completion: nil)
         }
     }
     
@@ -102,10 +110,18 @@ class RateNowPopUpViewcontrollerViewController: UIViewController{
             ratings = 5
         }
         changeImageOnButton(ratings: ratings - 1)
-        
-        debugPrint("Ratings: \(ratings)")
         self.productRatedOnClick = ratings
     }
+    
+    @IBAction func clickedRatingButton(_ sender: UIButton) {
+        if let productIdInt = self.productDetails.id{
+            let productId = "\(productIdInt)"
+            self.productRatingViewModel.setProductRating(productId: productId, rating: self.productRatedOnClick)
+            self.dismiss(animated: appAnimation, completion: nil)
+        }
+
+    }
+    
     
     private func changeImageOnButton(ratings: Int){
         let ratingButtonArray: [UIButton] = [starRating1, starRating2, starRating3, starRating4, starRating5]
