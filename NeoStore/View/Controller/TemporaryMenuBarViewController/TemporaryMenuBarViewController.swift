@@ -67,9 +67,9 @@ class TemporaryMenuBarViewController: UIViewController {
     }
     
     @IBAction func clickedMyCart(_ sender: UIButton) {
-        let myCartTableViewController = MyCartTableViewController(nibName: TotalViewControllers.MyCartTableViewController.rawValue, bundle: nil)
+        let myCartViewModel = MyCartViewModel()
+        let myCartTableViewController = MyCartTableViewController(viewModel: myCartViewModel)
         self.navigationController?.pushViewController(myCartTableViewController, animated: appAnimation)
-        
     }
     
 }
