@@ -88,6 +88,10 @@ class ProductListingViewController: UIViewController{
     private func getCurrentProductName(productCategoryId: Int) -> String{
         return productCategoryFromId(productCategoryId: productCategoryId)
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
 }
 

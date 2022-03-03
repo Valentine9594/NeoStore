@@ -66,4 +66,10 @@ class TemporaryMenuBarViewController: UIViewController {
         self.navigationController?.pushViewController(loginViewController, animated: appAnimation)
     }
     
+    @IBAction func clickedMyCart(_ sender: UIButton) {
+        let myCartTableViewController = MyCartTableViewController(nibName: TotalViewControllers.MyCartTableViewController.rawValue, bundle: nil)
+        self.navigationController?.pushViewController(myCartTableViewController, animated: appAnimation)
+        
+    }
+    
 }

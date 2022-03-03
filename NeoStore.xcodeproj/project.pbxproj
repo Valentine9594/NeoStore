@@ -20,6 +20,10 @@
 		9208634627CE0700007D2FED /* ProductRatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634527CE0700007D2FED /* ProductRatingViewModel.swift */; };
 		9208634827CF54BF007D2FED /* BuyNowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634727CF54BF007D2FED /* BuyNowViewModel.swift */; };
 		9208634A27CF579A007D2FED /* CartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634927CF579A007D2FED /* CartService.swift */; };
+		9208634E27D07AA2007D2FED /* MyCartTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208634C27D07AA2007D2FED /* MyCartTableViewController.swift */; };
+		9208634F27D07AA2007D2FED /* MyCartTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208634D27D07AA2007D2FED /* MyCartTableViewController.xib */; };
+		9208635327D09512007D2FED /* MyCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208635127D09512007D2FED /* MyCartTableViewCell.swift */; };
+		9208635427D09512007D2FED /* MyCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208635227D09512007D2FED /* MyCartTableViewCell.xib */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -98,6 +102,10 @@
 		9208634527CE0700007D2FED /* ProductRatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductRatingViewModel.swift; sourceTree = "<group>"; };
 		9208634727CF54BF007D2FED /* BuyNowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyNowViewModel.swift; sourceTree = "<group>"; };
 		9208634927CF579A007D2FED /* CartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartService.swift; sourceTree = "<group>"; };
+		9208634C27D07AA2007D2FED /* MyCartTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewController.swift; sourceTree = "<group>"; };
+		9208634D27D07AA2007D2FED /* MyCartTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewController.xib; sourceTree = "<group>"; };
+		9208635127D09512007D2FED /* MyCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewCell.swift; sourceTree = "<group>"; };
+		9208635227D09512007D2FED /* MyCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewCell.xib; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +223,25 @@
 			path = BuyNowPopUpViewController;
 			sourceTree = "<group>";
 		};
+		9208634B27D07A7B007D2FED /* MyCartTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9208635027D094ED007D2FED /* MyCartTableViewCell */,
+				9208634C27D07AA2007D2FED /* MyCartTableViewController.swift */,
+				9208634D27D07AA2007D2FED /* MyCartTableViewController.xib */,
+			);
+			path = MyCartTableViewController;
+			sourceTree = "<group>";
+		};
+		9208635027D094ED007D2FED /* MyCartTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9208635127D09512007D2FED /* MyCartTableViewCell.swift */,
+				9208635227D09512007D2FED /* MyCartTableViewCell.xib */,
+			);
+			path = MyCartTableViewCell;
+			sourceTree = "<group>";
+		};
 		92131AE727A817AF00E9A993 = {
 			isa = PBXGroup;
 			children = (
@@ -307,6 +334,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9208634B27D07A7B007D2FED /* MyCartTableViewController */,
 				9208632C27C653E7007D2FED /* ProductDetailedViewController */,
 				92DC14CC27BF9209004C531D /* ProductListingViewController */,
 				92DC14CB27BE81D4004C531D /* TemporaryMenuBarViewController */,
@@ -627,8 +655,10 @@
 				9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */,
 				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
 				92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */,
+				9208635427D09512007D2FED /* MyCartTableViewCell.xib in Resources */,
 				92DC14B627BA539C004C531D /* MyAccountViewController.xib in Resources */,
 				92DC14D527BF93D6004C531D /* ProductListingTableViewCell.xib in Resources */,
+				9208634F27D07AA2007D2FED /* MyCartTableViewController.xib in Resources */,
 				92DC149D27B53EDB004C531D /* SlideShowCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,9 +704,11 @@
 				92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */,
 				92DC14CF27BF923B004C531D /* ProductListingViewController.swift in Sources */,
 				92DC144427AAAB8C004C531D /* LoginScreenVC.swift in Sources */,
+				9208635327D09512007D2FED /* MyCartTableViewCell.swift in Sources */,
 				92DC147F27B39F66004C531D /* JSONParser.swift in Sources */,
 				92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */,
 				92DC148627B3D652004C531D /* UserDefaults.swift in Sources */,
+				9208634E27D07AA2007D2FED /* MyCartTableViewController.swift in Sources */,
 				92DC145A27ABF32E004C531D /* UserService.swift in Sources */,
 				92DC144D27AAB3FF004C531D /* UITextfields+Extension.swift in Sources */,
 				9208634827CF54BF007D2FED /* BuyNowViewModel.swift in Sources */,

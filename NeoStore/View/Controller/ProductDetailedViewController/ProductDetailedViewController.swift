@@ -217,6 +217,10 @@ class ProductDetailedViewController: UIViewController{
     @objc func popToPreviousViewController() -> Void{
         self.navigationController?.popViewController(animated: appAnimation)
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 }
 
 

@@ -45,6 +45,7 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(goToTemporaryMenuBar), name: .didClickMenuButton, object: nil)
         self.navigationController?.isNavigationBarHidden = true
         self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
+//        UserDefaults.standard.setIsLoggedIn(value: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -71,7 +72,7 @@ class HomeViewController: UIViewController {
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+        return .darkContent
     }
     
     @objc func goToTemporaryMenuBar(){
@@ -149,6 +150,10 @@ class HomeViewController: UIViewController {
         self.productsTypeCollectionView.delegate = self
         self.productsTypeCollectionView.isScrollEnabled = false
         self.productsTypeCollectionView.backgroundColor = UIColor.white
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 
 }

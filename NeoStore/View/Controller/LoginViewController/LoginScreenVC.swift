@@ -48,9 +48,6 @@ class LoginScreenVC: UIViewController {
         self.viewModel.loginStatus.bindAndFire { [weak self] result in
             switch result{
                 case .success:
-                    DispatchQueue.main.async {
-                        self?.dismissKeyboard()
-                    }
                     self?.setupSuccessfullLogIn()
                 case .failure:
                     let message = "Incorrect Email or Password!"

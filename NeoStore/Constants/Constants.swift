@@ -24,6 +24,7 @@ enum TotalViewControllers: String{
     case ResetPasswordViewController = "ResetPasswordViewController"
     case ProductListingViewController = "ProductListingViewController"
     case ProductDetailedViewController = "ProductDetailedViewController"
+    case MyCartTableViewController = "MyCartTableViewController"
     
 //    popup view controllers
     case rateNowPopUpViewcontroller = "RateNowPopUpViewcontroller"

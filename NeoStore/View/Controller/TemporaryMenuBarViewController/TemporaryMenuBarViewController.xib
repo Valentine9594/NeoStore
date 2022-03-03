@@ -82,10 +82,26 @@
                                         <action selector="clickedLogOutButton:" destination="-1" eventType="touchUpInside" id="uQy-aK-viY"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeM-8S-q3t">
+                                    <rect key="frame" x="33" y="377" width="348" height="61"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="61" id="BYl-TI-PdC"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
+                                    <state key="normal" title="My Cart">
+                                        <color key="titleColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="clickedMyCart:" destination="-1" eventType="touchUpInside" id="v4D-Q1-ws0"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="3U5-rb-R3t" firstAttribute="leading" secondItem="Lu4-vZ-OTu" secondAttribute="leading" constant="33" id="1yB-OA-QOp"/>
+                                <constraint firstAttribute="trailing" secondItem="FeM-8S-q3t" secondAttribute="trailing" constant="33" id="3zA-2W-FIK"/>
+                                <constraint firstItem="FeM-8S-q3t" firstAttribute="top" secondItem="3U5-rb-R3t" secondAttribute="bottom" constant="23" id="93S-Xn-iK8"/>
                                 <constraint firstItem="KBT-Bc-ALf" firstAttribute="top" secondItem="Lu4-vZ-OTu" secondAttribute="top" constant="53" id="Amk-qu-HBf"/>
                                 <constraint firstItem="cbt-fl-rMU" firstAttribute="leading" secondItem="Lu4-vZ-OTu" secondAttribute="leading" constant="33" id="CuK-ab-grN"/>
                                 <constraint firstItem="KBT-Bc-ALf" firstAttribute="centerX" secondItem="Lu4-vZ-OTu" secondAttribute="centerX" id="dUo-Rc-eYb"/>
@@ -93,6 +109,7 @@
                                 <constraint firstItem="tCH-iB-dzf" firstAttribute="top" secondItem="KBT-Bc-ALf" secondAttribute="bottom" constant="23" id="mAd-AD-f3r"/>
                                 <constraint firstItem="tCH-iB-dzf" firstAttribute="leading" secondItem="Lu4-vZ-OTu" secondAttribute="leading" constant="33" id="oGo-dl-I07"/>
                                 <constraint firstItem="cbt-fl-rMU" firstAttribute="top" secondItem="tCH-iB-dzf" secondAttribute="bottom" constant="23" id="opI-Ol-HI3"/>
+                                <constraint firstItem="FeM-8S-q3t" firstAttribute="leading" secondItem="Lu4-vZ-OTu" secondAttribute="leading" constant="33" id="pO2-1R-b5y"/>
                                 <constraint firstItem="3U5-rb-R3t" firstAttribute="top" secondItem="cbt-fl-rMU" secondAttribute="bottom" constant="23" id="poM-s6-Lym"/>
                                 <constraint firstAttribute="trailing" secondItem="tCH-iB-dzf" secondAttribute="trailing" constant="33" id="vfb-iq-tUT"/>
                                 <constraint firstAttribute="trailing" secondItem="3U5-rb-R3t" secondAttribute="trailing" constant="33" id="wp9-8f-7EG"/>
