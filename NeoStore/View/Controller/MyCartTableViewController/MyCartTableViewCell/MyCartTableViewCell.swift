@@ -13,10 +13,11 @@ class MyCartTableViewCell: UITableViewCell{
     @IBOutlet weak var orderName: UILabel!
     @IBOutlet weak var orderCategory: UILabel!
     @IBOutlet weak var orderCountIntoPrice: UILabel!
-    @IBOutlet weak var orderQuantityDropdown: UIStackView!
+    @IBOutlet weak var orderQuantityView: UIView!
     @IBOutlet weak var orderQuantityLabel: UILabel!
     var pickerView: UIPickerView!
     var productInCart: CartListProductData!
+    var productId: Int!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,10 +27,10 @@ class MyCartTableViewCell: UITableViewCell{
     }
     
     private func setupUI(){
-        self.orderQuantityDropdown.layer.cornerRadius = 7
+        self.orderQuantityView.layer.cornerRadius = 7
         
-        let quantityDropdownTap = UITapGestureRecognizer(target: self, action: #selector(clickedQuantityDropdown))
-        self.orderQuantityDropdown.addGestureRecognizer(quantityDropdownTap)
+        let dropdownPickerTap = UITapGestureRecognizer(target: self, action: #selector(clickedDropdownPickerView))
+        orderQuantityView.addGestureRecognizer(dropdownPickerTap)
     }
     
     func setupOrderCell(productFromCart: CartListProductData?){
@@ -47,23 +48,23 @@ class MyCartTableViewCell: UITableViewCell{
             self.orderCountIntoPrice.text = "Rs. \(productDetails.subTotal ?? 0)"
             self.orderQuantityLabel.text = "\(cartProduct.quantity ?? 1)"
         }
+        self.productId = productDetails.id
     }
     
     private func setupPickerView(){
         self.pickerView = UIPickerView()
-        
-        
     }
     
-    @objc func clickedQuantityDropdown(_ sender: UITapGestureRecognizer){
-        debugPrint("Clicked Quantity Dropdown!")
-        
+    @objc func clickedDropdownPickerView() {
+        debugPrint("Clicked Dropdown Button!")
+        let quantity = 2
+        let myCartViewModel = MyCartViewModel()
+        let myCartViewController = MyCartTableViewController(viewModel: myCartViewModel)
+        myCartViewController.clickedDropdownPickerButtonInCell(productId: productId, quantity: quantity)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
     
 }

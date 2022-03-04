@@ -42,7 +42,7 @@ class MyCartTableViewController: UITableViewController {
     
     private func setupObservers(){
         self.viewModel.myCartResult.bindAndFire { [weak self] response in
-            guard let `self` = self else{ return }
+            guard self != nil else{ return }
             switch response{
                 case .success:
                     debugPrint("Success")
@@ -100,8 +100,12 @@ class MyCartTableViewController: UITableViewController {
         self.navigationController?.popViewController(animated: appAnimation)
     }
     
+    public func clickedDropdownPickerButtonInCell(productId: Int, quantity: Int){
+        self.viewModel.editProductInCart(productId: productId, quantity: quantity)
+        self.tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
