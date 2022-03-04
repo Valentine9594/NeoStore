@@ -15,12 +15,14 @@ class MyCartTableViewCell: UITableViewCell {
     @IBOutlet weak var orderCountIntoPrice: UILabel!
     @IBOutlet weak var orderQuantityDropdown: UIStackView!
     @IBOutlet weak var orderQuantityLabel: UILabel!
+    var pickerView: UIPickerView!
     var productInCart: CartListProductData!
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupUI()
+        setupPickerView()
     }
     
     private func setupUI(){
@@ -45,6 +47,11 @@ class MyCartTableViewCell: UITableViewCell {
             self.orderCountIntoPrice.text = "Rs. \(productDetails.subTotal ?? 0)"
             self.orderQuantityLabel.text = "\(cartProduct.quantity ?? 1)"
         }
+    }
+    
+    private func setupPickerView(){
+        self.pickerView = UIPickerView()
+        
     }
     
     @objc func clickedQuantityDropdown(){

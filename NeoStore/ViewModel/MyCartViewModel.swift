@@ -19,6 +19,7 @@ protocol MyCartViewModelType {
     func fetchUserCart()
     func getNumberOfProductsInCart() -> Int
     func getProductInCartAtIndex(index: Int) -> CartListProductData?
+    func getTotalAmount() -> Int
 }
 
 
@@ -27,6 +28,7 @@ class MyCartViewModel: MyCartViewModelType{
     var myCartResult: ReactiveListener<MyCartResultType> = ReactiveListener(.none)
     var tableShouldReload: ReactiveListener<Bool> = ReactiveListener(false)
     var allProductsInCart = [CartListProductData]()
+    var totalCostOfCart: Int = 0
     
     func fetchUserCart() {
         CartService.fetchCart { [weak self] response in
@@ -36,6 +38,7 @@ class MyCartViewModel: MyCartViewModelType{
                     if data.status == 200{
                         guard let fullCart = data.data else{ return }
                         self?.allProductsInCart += fullCart
+                        self?.totalCostOfCart = data.total ?? 0
 //                        self?.myCartResult.value = .success
                         self?.tableShouldReload.value = true
                     }
@@ -53,6 +56,10 @@ class MyCartViewModel: MyCartViewModelType{
     
     func getProductInCartAtIndex(index: Int) -> CartListProductData? {
         return allProductsInCart[index]
+    }
+    
+    func getTotalAmount() -> Int {
+        return totalCostOfCart
     }
     
 }

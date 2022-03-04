@@ -8,7 +8,14 @@
 import UIKit
 
 class MyCartTableViewController: UITableViewController {
-    private let cellReuseIdentifier = "MyCartTableViewCell"
+    enum MyCartTableViewCells: String{
+        case cartCellReuseIdentifier = "MyCartTableViewCell"
+        case lastCellReuseIdentifier = "MyCartTableViewLastCell"
+        
+        var description: String{
+            rawValue
+        }
+    }
     var viewModel: MyCartViewModelType!
     
     override func viewDidLoad() {
@@ -59,15 +66,16 @@ class MyCartTableViewController: UITableViewController {
     }
     
     private func setupMyCartTableView(){
-        let myCartTableViewCellNib = UINib(nibName: cellReuseIdentifier, bundle: nil)
-        self.tableView.register(myCartTableViewCellNib, forCellReuseIdentifier: cellReuseIdentifier)
+        let myCartTableViewCellNib = UINib(nibName: MyCartTableViewCells.cartCellReuseIdentifier.description, bundle: nil)
+        self.tableView.register(myCartTableViewCellNib, forCellReuseIdentifier: MyCartTableViewCells.cartCellReuseIdentifier.description)
+        
+        let myCartTableViewLastCellNib = UINib(nibName: MyCartTableViewCells.lastCellReuseIdentifier.description, bundle: nil)
+        self.tableView.register(myCartTableViewLastCellNib, forCellReuseIdentifier: MyCartTableViewCells.lastCellReuseIdentifier.description)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        self.tableView.estimatedRowHeight = 100
-        self.tableView.rowHeight = UITableView.automaticDimension
-    }
+
+        }
 
     private func setupNavigationBar(){
 //        function to setup navigation bar
@@ -97,29 +105,53 @@ class MyCartTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.viewModel.getNumberOfProductsInCart()
+        return self.viewModel.getNumberOfProductsInCart() + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MyCartTableViewCell
-        let currentProductInCart = self.viewModel.getProductInCartAtIndex(index: indexPath.row)
-        cell.setupOrderCell(productFromCart: currentProductInCart)
-        return cell
+        if indexPath.row == self.viewModel.getNumberOfProductsInCart(){
+            let cell = tableView.dequeueReusableCell(withIdentifier: MyCartTableViewCells.lastCellReuseIdentifier.description, for: indexPath) as! MyCartTableViewLastCell
+            cell.addTotalCostOfCart(totalCartCost: self.viewModel.getTotalAmount())
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: MyCartTableViewCells.cartCellReuseIdentifier.description, for: indexPath) as! MyCartTableViewCell
+            let currentProductInCart = self.viewModel.getProductInCartAtIndex(index: indexPath.row)
+            cell.setupOrderCell(productFromCart: currentProductInCart)
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == self.viewModel.getNumberOfProductsInCart(){
+            return 66
+        }
+        else{
+            return 100
+        }
     }
 
 
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
+        if indexPath.row == self.viewModel.getNumberOfProductsInCart(){
+            return false
+        }
         return true
     }
     
-//    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 66)) as MyCa
-//
-//    }
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 66))
+        footerView.backgroundColor = .appRed
 
-    /*
+        return footerView
+    }
+
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 66
+    }
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -129,7 +161,6 @@ class MyCartTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
