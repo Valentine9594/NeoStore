@@ -21,7 +21,7 @@
                     <rect key="frame" x="13" y="33.5" width="388" height="53"/>
                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="53" id="rKD-Gv-JXJ"/>
+                        <constraint firstAttribute="height" constant="53" id="GqW-G7-bTp"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
                     <state key="normal" title="Order Now">
@@ -32,7 +32,6 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="3qu-SR-7If" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="F35-Pb-Jet"/>
                 <constraint firstItem="3qu-SR-7If" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="13" id="YrK-uh-aZX"/>

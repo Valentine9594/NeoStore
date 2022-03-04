@@ -20,11 +20,11 @@ protocol MyCartViewModelType {
     func getNumberOfProductsInCart() -> Int
     func getProductInCartAtIndex(index: Int) -> CartListProductData?
     func getTotalAmount() -> Int
+    func deleteProductInCartAtIndex(index: Int)
 }
 
 
 class MyCartViewModel: MyCartViewModelType{
-
     var myCartResult: ReactiveListener<MyCartResultType> = ReactiveListener(.none)
     var tableShouldReload: ReactiveListener<Bool> = ReactiveListener(false)
     var allProductsInCart = [CartListProductData]()
@@ -62,4 +62,7 @@ class MyCartViewModel: MyCartViewModelType{
         return totalCostOfCart
     }
     
+    func deleteProductInCartAtIndex(index: Int) {
+        self.allProductsInCart.remove(at: index)
+    }
 }
