@@ -50,8 +50,8 @@ enum APIServices{
     case getProductDetails(parameters: AnyDict)
     case setProductRatings(paramters: AnyDict)
     case addToCart(paramters: AnyDict)
-    case EditCart(paramters: AnyDict)
-    case DeleteCart(paramters: AnyDict)
+    case editCart(paramters: AnyDict)
+    case deleteCart(paramters: AnyDict)
     case getCartList
     case placeOrder(paramters: AnyDict)
     case getOrderList
@@ -75,8 +75,8 @@ extension APIServices{
             case .getProductDetails: servicePath = serviceDomain + "products/getDetail"
             case .setProductRatings: servicePath = serviceDomain + "products/setRating"
             case .addToCart: servicePath = serviceDomain + "addToCart"
-            case .EditCart: servicePath = serviceDomain + "editCart"
-            case .DeleteCart: servicePath = serviceDomain + "deleteCart"
+            case .editCart: servicePath = serviceDomain + "editCart"
+            case .deleteCart: servicePath = serviceDomain + "deleteCart"
             case .getCartList: servicePath = serviceDomain + "cart"
             case .placeOrder: servicePath = serviceDomain + "order"
             case .getOrderList: servicePath = serviceDomain + "orderList"
@@ -88,7 +88,7 @@ extension APIServices{
     
     var parameters: AnyDict?{
         switch self {
-            case .userRegister(let param), .userLogin(let param), .updateAccount(let param), .setProductRatings(let param), .placeOrder(let param), .forgotPassword(let param), .changePassword(let param), .addToCart(let param), .EditCart(let param), .DeleteCart(let param), .getProductList(let param), .getProductDetails(let param):
+            case .userRegister(let param), .userLogin(let param), .updateAccount(let param), .setProductRatings(let param), .placeOrder(let param), .forgotPassword(let param), .changePassword(let param), .addToCart(let param), .editCart(let param), .deleteCart(let param), .getProductList(let param), .getProductDetails(let param):
                 return param
             default:
                 return nil
@@ -100,7 +100,7 @@ extension APIServices{
         headerDict[contentKey] = contentValue
         
         switch self{
-            case .changePassword(_), .getUserDetails, .updateAccount(_), .addToCart(_), .getCartList:
+            case .changePassword(_), .getUserDetails, .updateAccount(_), .addToCart(_), .getCartList, .editCart(_), .deleteCart(_):
                 let currentAccessToken = getDataFromUserDefaults(key: .accessToken) ?? "NO TOKEN"
                 headerDict = [contentKey: contentValue, UserDefaultsKeys.accessToken.description: currentAccessToken]
             default:
@@ -111,7 +111,7 @@ extension APIServices{
     
     var method: String{
         switch self {
-            case .getUserDetails,.getProductList, .getProductDetails, .getOrderList, .getOrderDetail, .getCartList:
+            case .getUserDetails, .getProductList, .getProductDetails, .getOrderList, .getOrderDetail, .getCartList:
                 return "GET"
             default:
                 return "POST"

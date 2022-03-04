@@ -21,10 +21,12 @@ protocol MyCartViewModelType {
     func getProductInCartAtIndex(index: Int) -> CartListProductData?
     func getTotalAmount() -> Int
     func deleteProductInCartAtIndex(index: Int)
+    func deleteProductFromCart(productId: Int, index: Int)
 }
 
 
 class MyCartViewModel: MyCartViewModelType{
+    
     var myCartResult: ReactiveListener<MyCartResultType> = ReactiveListener(.none)
     var tableShouldReload: ReactiveListener<Bool> = ReactiveListener(false)
     var allProductsInCart = [CartListProductData]()
@@ -65,4 +67,30 @@ class MyCartViewModel: MyCartViewModelType{
     func deleteProductInCartAtIndex(index: Int) {
         self.allProductsInCart.remove(at: index)
     }
+    
+    func deleteProductFromCart(productId: Int, index: Int) {
+        self.deleteProductInCartAtIndex(index: index)
+        CartService.deleteFromCart(productId: productId) { [weak self] response in
+            switch response{
+                case .success(let data):
+                    debugPrint("Status: \(data.status ?? 0)")
+                    if data.status == 200{
+                        guard let success = data.data else{ return }
+                        if success{
+                        self?.myCartResult.value = .success
+//                        self?.tableShouldReload.value = true
+                        }
+                        else{
+                            self?.myCartResult.value = .failure
+                        }
+                    }
+                case .failure(let error):
+                    debugPrint(error.localizedDescription)
+                    self?.myCartResult.value = .failure
+//                    self?.tableShouldReload.value = false
+            }
+        }
+    }
+    
+    
 }
