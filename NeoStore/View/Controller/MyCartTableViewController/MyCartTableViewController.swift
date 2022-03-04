@@ -168,6 +168,15 @@ class MyCartTableViewController: UITableViewController {
         }    
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title: nil) {action, view, success in
+            success(true)
+        }
+        deleteAction.image = UIImage(named: AppIcons.deleteAction.description)
+        deleteAction.backgroundColor = .white
+        return UISwipeActionsConfiguration(actions: [deleteAction])
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

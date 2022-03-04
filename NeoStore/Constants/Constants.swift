@@ -50,6 +50,7 @@ enum AppIcons: String{
     case search = "search_icon"
     case starChecked = "star_check"
     case starUnchecked = "star_uncheck"
+    case deleteAction = "delete"
     
     var description: String{
         rawValue
