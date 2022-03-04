@@ -11,6 +11,7 @@ class MyCartTableViewController: UITableViewController {
     enum MyCartTableViewCells: String{
         case cartCellReuseIdentifier = "MyCartTableViewCell"
         case lastCellReuseIdentifier = "MyCartTableViewLastCell"
+        case myCartTableViewFooter = "MyCartTableViewFooter"
         
         var description: String{
             rawValue
@@ -71,6 +72,9 @@ class MyCartTableViewController: UITableViewController {
         
         let myCartTableViewLastCellNib = UINib(nibName: MyCartTableViewCells.lastCellReuseIdentifier.description, bundle: nil)
         self.tableView.register(myCartTableViewLastCellNib, forCellReuseIdentifier: MyCartTableViewCells.lastCellReuseIdentifier.description)
+        
+        let myCartTableViewFooter = UINib(nibName: MyCartTableViewCells.myCartTableViewFooter.description, bundle: nil)
+        self.tableView.register(myCartTableViewFooter, forHeaderFooterViewReuseIdentifier: MyCartTableViewCells.myCartTableViewFooter.description)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -142,14 +146,13 @@ class MyCartTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 66))
-        footerView.backgroundColor = .appRed
-
+        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyCartTableViewCells.myCartTableViewFooter.description) as! MyCartTableViewFooter
+        footerView.loadFooterView()
         return footerView
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 66
+        return 70
     }
     
     // Override to support editing the table view.

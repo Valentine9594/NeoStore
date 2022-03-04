@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class MyCartTableViewCell: UITableViewCell {
+class MyCartTableViewCell: UITableViewCell{
     @IBOutlet weak var orderImage: UIImageView!
     @IBOutlet weak var orderName: UILabel!
     @IBOutlet weak var orderCategory: UILabel!
@@ -52,10 +52,12 @@ class MyCartTableViewCell: UITableViewCell {
     private func setupPickerView(){
         self.pickerView = UIPickerView()
         
+        
     }
     
-    @objc func clickedQuantityDropdown(){
+    @objc func clickedQuantityDropdown(_ sender: UITapGestureRecognizer){
         debugPrint("Clicked Quantity Dropdown!")
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -65,3 +67,16 @@ class MyCartTableViewCell: UITableViewCell {
     }
     
 }
+
+//
+//extension MyCartTableViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return 8
+//    }
+//    
+//    
+//}

@@ -27,6 +27,8 @@
 		9208636027D0D5F5007D2FED /* MyCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */; };
 		9208636627D1E741007D2FED /* MyCartTableViewLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636427D1E741007D2FED /* MyCartTableViewLastCell.swift */; };
 		9208636727D1E741007D2FED /* MyCartTableViewLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636527D1E741007D2FED /* MyCartTableViewLastCell.xib */; };
+		9208636C27D1FDCD007D2FED /* MyCartTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */; };
+		9208636E27D1FDDD007D2FED /* MyCartTableViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -112,6 +114,8 @@
 		9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewModel.swift; sourceTree = "<group>"; };
 		9208636427D1E741007D2FED /* MyCartTableViewLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewLastCell.swift; sourceTree = "<group>"; };
 		9208636527D1E741007D2FED /* MyCartTableViewLastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewLastCell.xib; sourceTree = "<group>"; };
+		9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewFooter.swift; sourceTree = "<group>"; };
+		9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewFooter.xib; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		9208634B27D07A7B007D2FED /* MyCartTableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9208636A27D1FDA7007D2FED /* MyCartTableViewFooter */,
 				9208636127D1D024007D2FED /* MyCartTableViewLastCell */,
 				9208635027D094ED007D2FED /* MyCartTableViewCell */,
 				9208634C27D07AA2007D2FED /* MyCartTableViewController.swift */,
@@ -256,6 +261,15 @@
 				9208636527D1E741007D2FED /* MyCartTableViewLastCell.xib */,
 			);
 			path = MyCartTableViewLastCell;
+			sourceTree = "<group>";
+		};
+		9208636A27D1FDA7007D2FED /* MyCartTableViewFooter */ = {
+			isa = PBXGroup;
+			children = (
+				9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */,
+				9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */,
+			);
+			path = MyCartTableViewFooter;
 			sourceTree = "<group>";
 		};
 		92131AE727A817AF00E9A993 = {
@@ -667,6 +681,7 @@
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
 				92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
+				9208636E27D1FDDD007D2FED /* MyCartTableViewFooter.xib in Resources */,
 				92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */,
 				9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */,
 				9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */,
@@ -702,6 +717,7 @@
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
 				92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */,
+				9208636C27D1FDCD007D2FED /* MyCartTableViewFooter.swift in Sources */,
 				92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
 				9208633727C7AE26007D2FED /* ProductDetailViewModel.swift in Sources */,
