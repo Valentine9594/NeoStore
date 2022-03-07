@@ -48,14 +48,14 @@ enum APIServices{
     case getUserDetails
     case getProductList(parameters: AnyDict)
     case getProductDetails(parameters: AnyDict)
-    case setProductRatings(paramters: AnyDict)
-    case addToCart(paramters: AnyDict)
-    case editCart(paramters: AnyDict)
-    case deleteCart(paramters: AnyDict)
+    case setProductRatings(parameters: AnyDict)
+    case addToCart(parameters: AnyDict)
+    case editCart(parameters: AnyDict)
+    case deleteCart(parameters: AnyDict)
     case getCartList
-    case placeOrder(paramters: AnyDict)
+    case placeOrder(parameters: AnyDict)
     case getOrderList
-    case getOrderDetail
+    case getOrderDetail(parameters: AnyDict)
 }
 
 extension APIServices{
@@ -88,7 +88,7 @@ extension APIServices{
     
     var parameters: AnyDict?{
         switch self {
-            case .userRegister(let param), .userLogin(let param), .updateAccount(let param), .setProductRatings(let param), .placeOrder(let param), .forgotPassword(let param), .changePassword(let param), .addToCart(let param), .editCart(let param), .deleteCart(let param), .getProductList(let param), .getProductDetails(let param):
+            case .userRegister(let param), .userLogin(let param), .updateAccount(let param), .setProductRatings(let param), .placeOrder(let param), .forgotPassword(let param), .changePassword(let param), .addToCart(let param), .editCart(let param), .deleteCart(let param), .getProductList(let param), .getProductDetails(let param), .getOrderDetail(let param):
                 return param
             default:
                 return nil
@@ -100,7 +100,7 @@ extension APIServices{
         headerDict[contentKey] = contentValue
         
         switch self{
-            case .changePassword(_), .getUserDetails, .updateAccount(_), .addToCart(_), .getCartList, .editCart(_), .deleteCart(_), .getOrderList, .getOrderDetail:
+            case .changePassword(_), .getUserDetails, .updateAccount(_), .addToCart(_), .getCartList, .editCart(_), .deleteCart(_), .getOrderList, .getOrderDetail, .placeOrder(_):
                 let currentAccessToken = getDataFromUserDefaults(key: .accessToken) ?? "NO TOKEN"
                 headerDict = [contentKey: contentValue, UserDefaultsKeys.accessToken.description: currentAccessToken]
             default:

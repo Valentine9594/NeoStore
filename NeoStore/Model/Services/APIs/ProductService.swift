@@ -54,7 +54,7 @@ class ProductService{
     static func setProductRating(productId: String, rating: Int, completion: @escaping(APIResponse<jsonProductResponse<ProductRatingResponseData>>)->Void){
         
         let params = ["product_id": productId, "rating": rating] as AnyDict
-        APIManager.sharedInstance.performRequest(serviceType: .setProductRatings(paramters: params)) { (response) in
+        APIManager.sharedInstance.performRequest(serviceType: .setProductRatings(parameters: params)) { (response) in
 
             switch response{
                 case .success(let data):

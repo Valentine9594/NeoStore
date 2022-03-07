@@ -12,7 +12,7 @@ class CartService{
         
         let params = ["product_id": productId, "quantity": quantity]
         
-        APIManager.sharedInstance.performRequest(serviceType: .addToCart(paramters: params)) { (response) in
+        APIManager.sharedInstance.performRequest(serviceType: .addToCart(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
@@ -50,7 +50,7 @@ class CartService{
     static func deleteFromCart(productId: Int, completion: @escaping(APIResponse<CartData>)->Void){
         let params = ["product_id": productId]
         
-        APIManager.sharedInstance.performRequest(serviceType: .deleteCart(paramters: params)) { (response) in
+        APIManager.sharedInstance.performRequest(serviceType: .deleteCart(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
@@ -69,7 +69,7 @@ class CartService{
     static func editCart(productId: Int, quantity: Int, completion: @escaping(APIResponse<CartData>)->Void){
         let params = ["product_id": productId, "quantity": quantity]
         
-        APIManager.sharedInstance.performRequest(serviceType: .editCart(paramters: params)) { (response) in
+        APIManager.sharedInstance.performRequest(serviceType: .editCart(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{

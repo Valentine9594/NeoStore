@@ -38,6 +38,11 @@
 		9208638327D5EA3A007D2FED /* ProductModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208638227D5EA3A007D2FED /* ProductModels.swift */; };
 		9208638527D5EBB6007D2FED /* OrderModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208638427D5EBB6007D2FED /* OrderModels.swift */; };
 		9208638727D5F4EB007D2FED /* OrderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208638627D5F4EB007D2FED /* OrderService.swift */; };
+		9208638B27D627EC007D2FED /* OrderDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208638927D627EC007D2FED /* OrderDetailTableViewController.swift */; };
+		9208638C27D627EC007D2FED /* OrderDetailTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208638A27D627EC007D2FED /* OrderDetailTableViewController.xib */; };
+		9208639027D628C2007D2FED /* OrderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208638E27D628C2007D2FED /* OrderDetailTableViewCell.swift */; };
+		9208639127D628C2007D2FED /* OrderDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208638F27D628C2007D2FED /* OrderDetailTableViewCell.xib */; };
+		9208639327D63D53007D2FED /* MyOrderDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208639227D63D53007D2FED /* MyOrderDetailsViewModel.swift */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -134,6 +139,11 @@
 		9208638227D5EA3A007D2FED /* ProductModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModels.swift; sourceTree = "<group>"; };
 		9208638427D5EBB6007D2FED /* OrderModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderModels.swift; sourceTree = "<group>"; };
 		9208638627D5F4EB007D2FED /* OrderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderService.swift; sourceTree = "<group>"; };
+		9208638927D627EC007D2FED /* OrderDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewController.swift; sourceTree = "<group>"; };
+		9208638A27D627EC007D2FED /* OrderDetailTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailTableViewController.xib; sourceTree = "<group>"; };
+		9208638E27D628C2007D2FED /* OrderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewCell.swift; sourceTree = "<group>"; };
+		9208638F27D628C2007D2FED /* OrderDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailTableViewCell.xib; sourceTree = "<group>"; };
+		9208639227D63D53007D2FED /* MyOrderDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailsViewModel.swift; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -309,6 +319,25 @@
 			path = MyOrdersListTableViewCells;
 			sourceTree = "<group>";
 		};
+		9208638827D6259A007D2FED /* OrderDetailTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9208638D27D62872007D2FED /* OrderDetailTableViewCell */,
+				9208638927D627EC007D2FED /* OrderDetailTableViewController.swift */,
+				9208638A27D627EC007D2FED /* OrderDetailTableViewController.xib */,
+			);
+			path = OrderDetailTableViewController;
+			sourceTree = "<group>";
+		};
+		9208638D27D62872007D2FED /* OrderDetailTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				9208638E27D628C2007D2FED /* OrderDetailTableViewCell.swift */,
+				9208638F27D628C2007D2FED /* OrderDetailTableViewCell.xib */,
+			);
+			path = OrderDetailTableViewCell;
+			sourceTree = "<group>";
+		};
 		92131AE727A817AF00E9A993 = {
 			isa = PBXGroup;
 			children = (
@@ -364,6 +393,7 @@
 				9208634727CF54BF007D2FED /* BuyNowViewModel.swift */,
 				9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */,
 				9208637E27D5E79D007D2FED /* MyOrdersListViewModel.swift */,
+				9208639227D63D53007D2FED /* MyOrderDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -403,6 +433,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9208638827D6259A007D2FED /* OrderDetailTableViewController */,
 				9208637427D5D55B007D2FED /* MyOrdersListTableViewController */,
 				9208634B27D07A7B007D2FED /* MyCartTableViewController */,
 				9208632C27C653E7007D2FED /* ProductDetailedViewController */,
@@ -729,7 +760,9 @@
 				9208636E27D1FDDD007D2FED /* MyCartTableViewFooter.xib in Resources */,
 				92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */,
 				9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */,
+				9208638C27D627EC007D2FED /* OrderDetailTableViewController.xib in Resources */,
 				9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */,
+				9208639127D628C2007D2FED /* OrderDetailTableViewCell.xib in Resources */,
 				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
 				92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */,
 				9208635427D09512007D2FED /* MyCartTableViewCell.xib in Resources */,
@@ -758,6 +791,9 @@
 				92DC14BD27BB6690004C531D /* UIViews+Extension.swift in Sources */,
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
 				92DC148127B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift in Sources */,
+				9208639027D628C2007D2FED /* OrderDetailTableViewCell.swift in Sources */,
+				9208638B27D627EC007D2FED /* OrderDetailTableViewController.swift in Sources */,
+				9208639327D63D53007D2FED /* MyOrderDetailsViewModel.swift in Sources */,
 				9208633F27C915C1007D2FED /* RateNowPopUpViewcontroller.swift in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,

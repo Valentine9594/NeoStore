@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamMedium.ttf">
+            <string>iCielGotham-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OrderDetailCell" id="KGk-i7-Jjw" customClass="OrderDetailTableViewCell" customModule="NeoStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Order Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEs-nw-GVI">
+                        <rect key="frame" x="107" y="10" width="294" height="23"/>
+                        <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="23"/>
+                        <color key="textColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="(Unknown)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbK-7Y-Bkt">
+                        <rect key="frame" x="107" y="43" width="294" height="16.5"/>
+                        <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="15"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Rf4-oO-9gJ">
+                        <rect key="frame" x="13" y="10" width="81" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="81" id="2Mx-TQ-6Ia"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Tac-KG-vF2">
+                        <rect key="frame" x="107" y="69.5" width="288" height="20.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QTY: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2WH-iH-65i">
+                                <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
+                                <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="15"/>
+                                <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.8980392157" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6se-tM-6Fd">
+                                <rect key="frame" x="249.5" y="0.0" width="38.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="2WH-iH-65i" firstAttribute="centerY" secondItem="Tac-KG-vF2" secondAttribute="centerY" id="Bad-lM-vEz"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Rf4-oO-9gJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="3Fg-21-hvy"/>
+                    <constraint firstAttribute="trailing" secondItem="hEs-nw-GVI" secondAttribute="trailing" constant="13" id="Be1-aq-GgD"/>
+                    <constraint firstAttribute="trailing" secondItem="EbK-7Y-Bkt" secondAttribute="trailing" constant="13" id="FjM-0J-WF3"/>
+                    <constraint firstItem="EbK-7Y-Bkt" firstAttribute="top" secondItem="hEs-nw-GVI" secondAttribute="bottom" constant="10" id="ICY-m5-t69"/>
+                    <constraint firstItem="Rf4-oO-9gJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ORl-Kw-yM9"/>
+                    <constraint firstAttribute="trailing" secondItem="Tac-KG-vF2" secondAttribute="trailing" constant="19" id="Omh-q9-vfA"/>
+                    <constraint firstItem="Tac-KG-vF2" firstAttribute="top" secondItem="EbK-7Y-Bkt" secondAttribute="bottom" constant="10" id="PTl-P2-6lF"/>
+                    <constraint firstAttribute="bottom" secondItem="Rf4-oO-9gJ" secondAttribute="bottom" constant="10" id="VLq-C1-2n2"/>
+                    <constraint firstItem="hEs-nw-GVI" firstAttribute="leading" secondItem="Rf4-oO-9gJ" secondAttribute="trailing" constant="13" id="Xbl-ol-1fe"/>
+                    <constraint firstAttribute="bottom" secondItem="Tac-KG-vF2" secondAttribute="bottom" constant="10" id="f8Q-Nz-wyK"/>
+                    <constraint firstItem="hEs-nw-GVI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="fDM-fk-Yyu"/>
+                    <constraint firstItem="Tac-KG-vF2" firstAttribute="leading" secondItem="Rf4-oO-9gJ" secondAttribute="trailing" constant="13" id="wtX-21-7HW"/>
+                    <constraint firstItem="EbK-7Y-Bkt" firstAttribute="leading" secondItem="Rf4-oO-9gJ" secondAttribute="trailing" constant="13" id="zhn-Ih-mBp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="orderCategoryLabel" destination="EbK-7Y-Bkt" id="CTf-ne-fAo"/>
+                <outlet property="orderCostLabel" destination="6se-tM-6Fd" id="iY4-ED-OLu"/>
+                <outlet property="orderImageView" destination="Rf4-oO-9gJ" id="hdK-dc-5zw"/>
+                <outlet property="orderNameLabel" destination="hEs-nw-GVI" id="bIH-Vb-IKb"/>
+                <outlet property="orderQuantityLabel" destination="2WH-iH-65i" id="AVH-b9-lQh"/>
+            </connections>
+            <point key="canvasLocation" x="3" y="44"/>
+        </tableViewCell>
+    </objects>
+</document>

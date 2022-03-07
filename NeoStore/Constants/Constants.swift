@@ -26,6 +26,7 @@ enum TotalViewControllers: String{
     case ProductDetailedViewController = "ProductDetailedViewController"
     case MyCartTableViewController = "MyCartTableViewController"
     case MyOrdersListTableViewController = "MyOrdersListTableViewController"
+    case OrderDetailTableViewController = "OrderDetailTableViewController"
     
 //    popup view controllers
     case rateNowPopUpViewcontroller = "RateNowPopUpViewcontroller"
@@ -123,7 +124,7 @@ func jsonParser(jsonData: Data) -> APIResponse<Any>{
 func jsonProductDecoder<T: Decodable>(jsonData: Data) -> APIResponse<T>{
     do {
         let formatter = DateFormatter()
-        if T.self == OrderListResponse.self{
+        if T.self == OrderListResponse<OrderListData>.self || T.self == OrderListResponse<OrderDetail>.self{
             formatter.dateFormat = "dd-MM-yyyy"
         }
         else{

@@ -23,13 +23,12 @@ class ProductListingViewController: UIViewController{
         // Do any additional setup after loading the view.
         self.setupNavigationBar()
         self.setupProductListingTableView()
-        self.setupLoadTableViewData()
+        self.setupFetchingProductList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
         self.navigationController?.isNavigationBarHidden = false
-        self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: 1)
         self.setupLoadTableViewData()
     }
     
@@ -40,6 +39,10 @@ class ProductListingViewController: UIViewController{
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupFetchingProductList(){
+        self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: 1)
     }
     
     private func setupLoadTableViewData(){

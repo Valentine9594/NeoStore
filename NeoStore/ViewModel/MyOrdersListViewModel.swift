@@ -41,6 +41,4 @@ class MyOrdersListViewModel: MyOrdersListViewModelType {
     func getOrderInListAtIndex(index: Int) -> OrderListData? {
         return userOrderList[index]
     }
-    
-    
 }
