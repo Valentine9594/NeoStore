@@ -19,9 +19,12 @@ class MyOrdersListTableViewCell: UITableViewCell {
     
     func loadCell(orderData: OrderListData?){
         guard let orderData = orderData else{ return }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+        let createdDate = formatter.string(from: orderData.created!)
         DispatchQueue.main.async {
             self.orderIdLabel.text = "Order Id: \(orderData.id ?? 0)"
-            self.orderDateLabel.text = "Order Date: \(String(describing: orderData.created!))"
+            self.orderDateLabel.text = "Order Date: \(createdDate)"
             self.orderTotalCostLabel.text = "Rs. \(orderData.cost ?? 0)"
         }
     }

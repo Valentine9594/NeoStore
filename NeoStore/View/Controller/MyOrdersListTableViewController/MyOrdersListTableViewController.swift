@@ -19,7 +19,8 @@ class MyOrdersListTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
-        
+        setupOrderListsTableViewData()
+        setupObservers()
     }
     
     init(viewModel: MyOrdersListViewModelType){
@@ -29,6 +30,20 @@ class MyOrdersListTableViewController: UITableViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupOrderListsTableViewData(){
+        self.viewModel.fetchUserOrdersList()
+    }
+    
+    private func setupObservers(){
+        self.viewModel.tableShouldReload.bindAndFire { [weak self] tableShouldReload in
+            if tableShouldReload{
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
     }
     
     private func setupOrderListTableView(){
@@ -67,14 +82,13 @@ class MyOrdersListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return self.viewModel.getNumberOfOrdersInList()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: orderCellReuseIdentifier, for: indexPath) as! MyOrdersListTableViewCell
-        let orderListSample = OrderListData(id: 123, cost: 1234, created: Date())
+        let orderListSample = self.viewModel.getOrderInListAtIndex(index: indexPath.row)
         cell.loadCell(orderData: orderListSample)
-
         return cell
     }
 

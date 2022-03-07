@@ -100,7 +100,7 @@ extension APIServices{
         headerDict[contentKey] = contentValue
         
         switch self{
-            case .changePassword(_), .getUserDetails, .updateAccount(_), .addToCart(_), .getCartList, .editCart(_), .deleteCart(_):
+            case .changePassword(_), .getUserDetails, .updateAccount(_), .addToCart(_), .getCartList, .editCart(_), .deleteCart(_), .getOrderList, .getOrderDetail:
                 let currentAccessToken = getDataFromUserDefaults(key: .accessToken) ?? "NO TOKEN"
                 headerDict = [contentKey: contentValue, UserDefaultsKeys.accessToken.description: currentAccessToken]
             default:
