@@ -11,6 +11,7 @@ class TemporaryMenuBarViewController: UIViewController {
     @IBOutlet weak var myAccountButton: UIButton!
     @IBOutlet weak var productListingButton: UIButton!
     @IBOutlet weak var logOutButton: UIButton!
+    @IBOutlet weak var myOrdersButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,5 +72,12 @@ class TemporaryMenuBarViewController: UIViewController {
         let myCartTableViewController = MyCartTableViewController(viewModel: myCartViewModel)
         self.navigationController?.pushViewController(myCartTableViewController, animated: appAnimation)
     }
+    
+    @IBAction func clickedMyOrdersButton(_ sender: UIButton) {
+        let myOrdersViewModel = MyOrdersListViewModel()
+        let myOrdersTableViewController = MyOrdersListTableViewController(viewModel: myOrdersViewModel)
+        self.navigationController?.pushViewController(myOrdersTableViewController, animated: appAnimation)
+    }
+    
     
 }

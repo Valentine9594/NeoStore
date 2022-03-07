@@ -25,6 +25,7 @@ enum TotalViewControllers: String{
     case ProductListingViewController = "ProductListingViewController"
     case ProductDetailedViewController = "ProductDetailedViewController"
     case MyCartTableViewController = "MyCartTableViewController"
+    case MyOrdersListTableViewController = "MyOrdersListTableViewController"
     
 //    popup view controllers
     case rateNowPopUpViewcontroller = "RateNowPopUpViewcontroller"
@@ -32,6 +33,10 @@ enum TotalViewControllers: String{
     
 //    temporary viewcontrollers
     case TemporaryMenuBar = "TemporaryMenuBarViewController"
+    
+    var description: String{
+        rawValue
+    }
 }
 
 //all icons name from assets

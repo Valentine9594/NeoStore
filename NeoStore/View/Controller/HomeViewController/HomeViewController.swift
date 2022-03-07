@@ -36,6 +36,7 @@ class HomeViewController: UIViewController {
         self.setupProductTypesDisplay()
         self.setupPageControl()
         self.setupCustomNavigationBar()
+        debugPrint("Access Token: \(getDataFromUserDefaults(key: .accessToken) ?? "No Token")")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,7 +46,6 @@ class HomeViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(goToTemporaryMenuBar), name: .didClickMenuButton, object: nil)
         self.navigationController?.isNavigationBarHidden = true
         self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
-//        UserDefaults.standard.setIsLoggedIn(value: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

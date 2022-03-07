@@ -36,7 +36,6 @@ class MyCartViewModel: MyCartViewModelType{
         CartService.fetchCart { [weak self] response in
             switch response{
                 case .success(let data):
-                    debugPrint("Status: \(data.status ?? 0)")
                     if data.status == 200{
                         guard let fullCart = data.data else{ return }
                         self?.allProductsInCart += fullCart

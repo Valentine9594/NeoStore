@@ -57,7 +57,7 @@ class MyCartTableViewCell: UITableViewCell{
     
     @objc func clickedDropdownPickerView() {
         debugPrint("Clicked Dropdown Button!")
-        let quantity = 2
+        let quantity = 3
         let myCartViewModel = MyCartViewModel()
         let myCartViewController = MyCartTableViewController(viewModel: myCartViewModel)
         myCartViewController.clickedDropdownPickerButtonInCell(productId: productId, quantity: quantity)

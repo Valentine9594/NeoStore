@@ -19,6 +19,7 @@
             <connections>
                 <outlet property="logOutButton" destination="3U5-rb-R3t" id="wmG-WO-gW7"/>
                 <outlet property="myAccountButton" destination="tCH-iB-dzf" id="KVb-x6-V21"/>
+                <outlet property="myOrdersButton" destination="BgG-Cg-74M" id="cTj-fZ-OH6"/>
                 <outlet property="productListingButton" destination="cbt-fl-rMU" id="Zet-Sn-avf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -96,14 +97,31 @@
                                         <action selector="clickedMyCart:" destination="-1" eventType="touchUpInside" id="v4D-Q1-ws0"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BgG-Cg-74M">
+                                    <rect key="frame" x="33" y="461" width="348" height="61"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="61" id="DYm-sf-jm2"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
+                                    <state key="normal" title="My Orders">
+                                        <color key="titleColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="clickedMyOrdersButton:" destination="-1" eventType="touchUpInside" id="o1l-Qp-WY9"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="3U5-rb-R3t" firstAttribute="leading" secondItem="Lu4-vZ-OTu" secondAttribute="leading" constant="33" id="1yB-OA-QOp"/>
                                 <constraint firstAttribute="trailing" secondItem="FeM-8S-q3t" secondAttribute="trailing" constant="33" id="3zA-2W-FIK"/>
+                                <constraint firstItem="BgG-Cg-74M" firstAttribute="leading" secondItem="Lu4-vZ-OTu" secondAttribute="leading" constant="33" id="666-Er-UVK"/>
                                 <constraint firstItem="FeM-8S-q3t" firstAttribute="top" secondItem="3U5-rb-R3t" secondAttribute="bottom" constant="23" id="93S-Xn-iK8"/>
+                                <constraint firstItem="BgG-Cg-74M" firstAttribute="top" secondItem="FeM-8S-q3t" secondAttribute="bottom" constant="23" id="AQb-NB-dDU"/>
                                 <constraint firstItem="KBT-Bc-ALf" firstAttribute="top" secondItem="Lu4-vZ-OTu" secondAttribute="top" constant="53" id="Amk-qu-HBf"/>
                                 <constraint firstItem="cbt-fl-rMU" firstAttribute="leading" secondItem="Lu4-vZ-OTu" secondAttribute="leading" constant="33" id="CuK-ab-grN"/>
+                                <constraint firstAttribute="trailing" secondItem="BgG-Cg-74M" secondAttribute="trailing" constant="33" id="LAJ-1x-ox2"/>
                                 <constraint firstItem="KBT-Bc-ALf" firstAttribute="centerX" secondItem="Lu4-vZ-OTu" secondAttribute="centerX" id="dUo-Rc-eYb"/>
                                 <constraint firstAttribute="trailing" secondItem="cbt-fl-rMU" secondAttribute="trailing" constant="33" id="hjo-dd-Hsk"/>
                                 <constraint firstItem="tCH-iB-dzf" firstAttribute="top" secondItem="KBT-Bc-ALf" secondAttribute="bottom" constant="23" id="mAd-AD-f3r"/>
