@@ -134,11 +134,13 @@ class RateNowPopUpViewcontroller: UIViewController{
         else if sender == self.starRating5{
             ratings = 5
         }
+        
         changeImageOnButton(ratings: ratings - 1)
         self.productRatedOnClick = ratings
     }
     
     @IBAction func clickedRatingButton(_ sender: UIButton) {
+        guard self.productRatedOnClick != nil else{ return }
         guard let productId = self.productDetails.id else{ return }
         let productIdString = "\(productId)"
         self.viewModel.setProductRating(productId: productIdString, rating: self.productRatedOnClick)

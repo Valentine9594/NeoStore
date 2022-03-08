@@ -28,12 +28,21 @@ class OrderService{
     
     static func fetchOrderDetails(orderId: Int, completion: @escaping(APIResponse<OrderListResponse<OrderDetail>>)->Void){
         
-        let params = ["order_id": orderId]
+        let params = ["order_id": "\(orderId)"]
         APIManager.sharedInstance.performRequest(serviceType: .getOrderDetail(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
+//                        let jsonSeriData = jsonParser(jsonData: content)
+//                        switch jsonSeriData {
+//                            case .success(let value):
+//                                debugPrint("Value: \(value)")
+//                            default:
+//                                debugPrint("No Value")
+//                        }
+//                        print(String(data: content, encoding: .utf8) ?? "No Value")
                         let responseData: APIResponse<OrderListResponse<OrderDetail>> = jsonProductDecoder(jsonData: content)
+                        print(responseData)
                             completion(responseData)
                         }
                     else{

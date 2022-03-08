@@ -3,7 +3,6 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,16 +16,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TVD-6K-Jhs">
-                        <rect key="frame" x="16" y="16" width="356" height="483"/>
+                        <rect key="frame" x="0.0" y="0.0" width="388" height="515"/>
                     </imageView>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="TVD-6K-Jhs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="fkY-Sp-rgU"/>
-                <constraint firstAttribute="trailing" secondItem="TVD-6K-Jhs" secondAttribute="trailing" constant="16" id="ir0-AH-67p"/>
-                <constraint firstItem="TVD-6K-Jhs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="oD9-m4-CmX"/>
-                <constraint firstAttribute="bottom" secondItem="TVD-6K-Jhs" secondAttribute="bottom" constant="16" id="rCJ-wr-GOz"/>
+                <constraint firstItem="TVD-6K-Jhs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fkY-Sp-rgU"/>
+                <constraint firstAttribute="trailing" secondItem="TVD-6K-Jhs" secondAttribute="trailing" id="ir0-AH-67p"/>
+                <constraint firstItem="TVD-6K-Jhs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="oD9-m4-CmX"/>
+                <constraint firstAttribute="bottom" secondItem="TVD-6K-Jhs" secondAttribute="bottom" id="rCJ-wr-GOz"/>
             </constraints>
             <connections>
                 <outlet property="productTypeImageView" destination="TVD-6K-Jhs" id="4ng-IZ-WHh"/>

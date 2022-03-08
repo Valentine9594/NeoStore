@@ -14,7 +14,7 @@ class HomeProductsTypeDisplayCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        self.backgroundColor = UIColor.appRed
+//        self.backgroundColor = UIColor.appRed
     }
 
     override func prepareForReuse() {

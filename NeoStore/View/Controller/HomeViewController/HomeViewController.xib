@@ -22,7 +22,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-ft-9V3" userLabel="SlideShowCollectionView">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-ft-9V3" userLabel="SlideShowCollectionView">
                     <rect key="frame" x="0.0" y="103" width="414" height="230"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
@@ -37,12 +37,12 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBR-ZZ-NRz" userLabel="productsCollectionViewWrapperView">
-                    <rect key="frame" x="0.0" y="333" width="414" height="519"/>
+                    <rect key="frame" x="0.0" y="333" width="414" height="563"/>
                     <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7lk-rn-Pxd" userLabel="ProductsCollectionView">
-                            <rect key="frame" x="13" y="15" width="388" height="489"/>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7lk-rn-Pxd" userLabel="ProductsCollectionView">
+                            <rect key="frame" x="13" y="15" width="388" height="548"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="11" minimumInteritemSpacing="11" id="Idf-X9-gnL">
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Idf-X9-gnL">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -54,7 +54,7 @@
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="7lk-rn-Pxd" secondAttribute="trailing" constant="13" id="AGn-Wv-tKz"/>
                         <constraint firstItem="7lk-rn-Pxd" firstAttribute="top" secondItem="DBR-ZZ-NRz" secondAttribute="top" constant="15" id="IFc-Jm-efv"/>
-                        <constraint firstAttribute="bottom" secondItem="7lk-rn-Pxd" secondAttribute="bottom" constant="15" id="v0n-tW-Ez0"/>
+                        <constraint firstAttribute="bottom" secondItem="7lk-rn-Pxd" secondAttribute="bottom" id="v0n-tW-Ez0"/>
                         <constraint firstItem="7lk-rn-Pxd" firstAttribute="leading" secondItem="DBR-ZZ-NRz" secondAttribute="leading" constant="13" id="vvo-Cb-31a"/>
                     </constraints>
                 </view>
@@ -81,7 +81,7 @@
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7xu-x2-r6w"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="95Y-c9-Ikz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AxF-85-2Jc" secondAttribute="trailing" id="AqZ-2m-f7W"/>
-                <constraint firstAttribute="bottom" secondItem="DBR-ZZ-NRz" secondAttribute="bottom" constant="44" id="GxK-j6-7U8"/>
+                <constraint firstAttribute="bottom" secondItem="DBR-ZZ-NRz" secondAttribute="bottom" id="GxK-j6-7U8"/>
                 <constraint firstAttribute="trailing" secondItem="DBR-ZZ-NRz" secondAttribute="trailing" id="KZw-gV-Grn"/>
                 <constraint firstItem="DBR-ZZ-NRz" firstAttribute="top" secondItem="AxF-85-2Jc" secondAttribute="bottom" id="MAv-u2-Bwt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="zqG-cm-zcL" secondAttribute="trailing" id="Mdo-f6-vPb"/>

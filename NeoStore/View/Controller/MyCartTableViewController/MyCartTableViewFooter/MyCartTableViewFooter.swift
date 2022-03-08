@@ -7,10 +7,14 @@
 
 import UIKit
 
-class MyCartTableViewFooter: UITableViewHeaderFooterView {
+protocol ClickedTableviewCellButton {
+   func didTapOrderBtn()
+}
 
-    @IBOutlet weak var orderNowButton: UIButton!
+class MyCartTableViewFooter: UITableViewHeaderFooterView {
     
+    @IBOutlet weak var orderNowButton: UIButton!
+    var delegate: ClickedTableviewCellButton?
     override class func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -26,7 +30,7 @@ class MyCartTableViewFooter: UITableViewHeaderFooterView {
     }
     
     @IBAction func clickedOrderNowButton(_ sender: UIButton) {
-        debugPrint("Clicked Order Now Button!")
+        self.delegate?.didTapOrderBtn()
     }
     
 }

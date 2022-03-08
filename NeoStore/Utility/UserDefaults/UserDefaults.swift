@@ -32,6 +32,7 @@ enum UserDefaultsKeys: String, CaseIterable{
     case profilePicture = "profile_pic"
     case isProfileUpdated
     case isLoggedIn = "LogIn"
+    case address = "address"
     
     var description: String{
         rawValue
@@ -171,6 +172,10 @@ extension UserDefaults{
     
     func setIsLoggedIn(value: Bool){
         setValue(value, forKey: UserDefaultsKeys.isLoggedIn.description)
+    }
+    
+    func setAddress(value: String){
+        setValue(value, forKey: UserDefaultsKeys.address.description)
     }
     
 //    static func getDataFromUserDefaults<T>(key: UserDefaultsKeys) -> T?{

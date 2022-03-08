@@ -43,6 +43,9 @@
 		9208639027D628C2007D2FED /* OrderDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208638E27D628C2007D2FED /* OrderDetailTableViewCell.swift */; };
 		9208639127D628C2007D2FED /* OrderDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208638F27D628C2007D2FED /* OrderDetailTableViewCell.xib */; };
 		9208639327D63D53007D2FED /* MyOrderDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208639227D63D53007D2FED /* MyOrderDetailsViewModel.swift */; };
+		9208639727D72568007D2FED /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208639527D72568007D2FED /* AddAddressViewController.swift */; };
+		9208639827D72568007D2FED /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208639627D72568007D2FED /* AddAddressViewController.xib */; };
+		9208639A27D73DC3007D2FED /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208639927D73DC2007D2FED /* AddAddressViewModel.swift */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -144,6 +147,9 @@
 		9208638E27D628C2007D2FED /* OrderDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailTableViewCell.swift; sourceTree = "<group>"; };
 		9208638F27D628C2007D2FED /* OrderDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailTableViewCell.xib; sourceTree = "<group>"; };
 		9208639227D63D53007D2FED /* MyOrderDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrderDetailsViewModel.swift; sourceTree = "<group>"; };
+		9208639527D72568007D2FED /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
+		9208639627D72568007D2FED /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
+		9208639927D73DC2007D2FED /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -338,6 +344,15 @@
 			path = OrderDetailTableViewCell;
 			sourceTree = "<group>";
 		};
+		9208639427D72516007D2FED /* AddAddressViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9208639527D72568007D2FED /* AddAddressViewController.swift */,
+				9208639627D72568007D2FED /* AddAddressViewController.xib */,
+			);
+			path = AddAddressViewController;
+			sourceTree = "<group>";
+		};
 		92131AE727A817AF00E9A993 = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +409,7 @@
 				9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */,
 				9208637E27D5E79D007D2FED /* MyOrdersListViewModel.swift */,
 				9208639227D63D53007D2FED /* MyOrderDetailsViewModel.swift */,
+				9208639927D73DC2007D2FED /* AddAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -433,6 +449,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9208639427D72516007D2FED /* AddAddressViewController */,
 				9208638827D6259A007D2FED /* OrderDetailTableViewController */,
 				9208637427D5D55B007D2FED /* MyOrdersListTableViewController */,
 				9208634B27D07A7B007D2FED /* MyCartTableViewController */,
@@ -767,6 +784,7 @@
 				92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */,
 				9208635427D09512007D2FED /* MyCartTableViewCell.xib in Resources */,
 				92DC14B627BA539C004C531D /* MyAccountViewController.xib in Resources */,
+				9208639827D72568007D2FED /* AddAddressViewController.xib in Resources */,
 				92DC14D527BF93D6004C531D /* ProductListingTableViewCell.xib in Resources */,
 				9208636727D1E741007D2FED /* MyCartTableViewLastCell.xib in Resources */,
 				9208634F27D07AA2007D2FED /* MyCartTableViewController.xib in Resources */,
@@ -788,6 +806,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9208639A27D73DC3007D2FED /* AddAddressViewModel.swift in Sources */,
 				92DC14BD27BB6690004C531D /* UIViews+Extension.swift in Sources */,
 				92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */,
 				92DC148127B3ADE5004C531D /* KeyedDecodingContainer + Extension.swift in Sources */,
@@ -799,6 +818,7 @@
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
 				92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */,
 				9208636C27D1FDCD007D2FED /* MyCartTableViewFooter.swift in Sources */,
+				9208639727D72568007D2FED /* AddAddressViewController.swift in Sources */,
 				92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,
 				9208633727C7AE26007D2FED /* ProductDetailViewModel.swift in Sources */,

@@ -161,6 +161,7 @@ class HomeViewController: UIViewController {
 
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.slideShowCollectionView{
             return slideShowImageArray.count
@@ -195,14 +196,8 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
         }
         else{
-            let minimumSize = min(collectionView.frame.size.width, collectionView.frame.size.height)
-            let cellSize = (minimumSize - 12)/2
-            if minimumSize == collectionView.frame.size.height{
-                let toAdjustWidth = collectionView.frame.size.width - 2*cellSize
-                let constantToAddWidth = (toAdjustWidth - 12)/2
-                return CGSize(width: cellSize + constantToAddWidth, height: cellSize)
-            }
-            return CGSize(width: cellSize, height: cellSize)
+            let cellWidth = (collectionView.frame.size.width - 12)/2
+            return CGSize(width: cellWidth, height: cellWidth)
         }
     }
     

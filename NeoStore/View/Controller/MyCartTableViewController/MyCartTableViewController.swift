@@ -7,7 +7,12 @@
 
 import UIKit
 
-class MyCartTableViewController: UITableViewController {
+class MyCartTableViewController: UITableViewController, ClickedTableviewCellButton {
+    func didTapOrderBtn() {
+        let addressViewController = AddAddressViewController(nibName: TotalViewControllers.AddAddressViewController.description, bundle: nil)
+        self.navigationController?.pushViewController(addressViewController, animated: appAnimation)
+    }
+    
     enum MyCartTableViewCells: String{
         case cartCellReuseIdentifier = "MyCartTableViewCell"
         case lastCellReuseIdentifier = "MyCartTableViewLastCell"
@@ -23,11 +28,11 @@ class MyCartTableViewController: UITableViewController {
         super.viewDidLoad()
         setupMyCartTableView()
         setupNavigationBar()
+        setupMyCartTableViewData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
-        setupMyCartTableViewData()
         setupObservers()
     }
     
@@ -151,6 +156,7 @@ class MyCartTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyCartTableViewCells.myCartTableViewFooter.description) as! MyCartTableViewFooter
+        footerView.delegate = self
         footerView.loadFooterView()
         return footerView
     }

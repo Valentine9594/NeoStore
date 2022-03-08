@@ -55,13 +55,13 @@ extension OrderListData: Decodable{
 struct OrderDetail{
     let id: Int?
     let cost: Int?
-    let created: Date?
+    let address: String?
     let orderDetails: [OrderDetailsData]?
     
     enum codingKeys: String, CodingKey{
-        case id
+        case id = "id"
         case cost = "cost"
-        case created = "created"
+        case address = "address"
         case orderDetails = "order_details"
     }
 }
@@ -70,15 +70,15 @@ extension OrderDetail: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         id = try codingKeysValue.decode(Int.self, forKey: .id)
-        debugPrint("ID: \(id ?? 0)")
         cost =  try codingKeysValue.decode(Int.self, forKey: .cost)
-        created = try codingKeysValue.decode(Date.self, forKey: .created)
-        orderDetails = try codingKeysValue.decode([OrderDetailsData].self, forKey: .created)
+        address = try codingKeysValue.decode(String.self, forKey: .address)
+        orderDetails = try codingKeysValue.decode([OrderDetailsData].self, forKey: .orderDetails)
     }
 }
 
 struct OrderDetailsData{
     let id: Int?
+    let orderId: Int?
     let productId: Int?
     let quantity: Int?
     let total: Int?
@@ -88,6 +88,7 @@ struct OrderDetailsData{
     
     enum codingKeys: String, CodingKey{
         case id
+        case orderId = "order_id"
         case productId = "product_id"
         case quantity = "quantity"
         case total = "total"
@@ -101,6 +102,7 @@ extension OrderDetailsData: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         id = try codingKeysValue.decode(Int.self, forKey: .id)
+        orderId = try codingKeysValue.decode(Int.self, forKey: .orderId)
         productId = try codingKeysValue.decode(Int.self, forKey: .productId)
         quantity = try codingKeysValue.decode(Int.self, forKey: .quantity)
         total = try codingKeysValue.decode(Int.self, forKey: .total)
