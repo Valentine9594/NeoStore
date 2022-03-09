@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct OrderListResponse<T: Decodable>{
+struct OrderListResponse{
     let status: Int?
-    let data: [T]?
+    let data: [OrderListData]?
     let message: String?
     let userMessage: String?
     
@@ -25,7 +25,7 @@ extension OrderListResponse: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         status = try codingKeysValue.decode(Int.self, forKey: .status)
-        data = try codingKeysValue.decode([T].self, forKey: .data)
+        data = try codingKeysValue.decode([OrderListData].self, forKey: .data)
         message = try codingKeysValue.decode(String.self, forKey: .message)
         userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
     }
@@ -49,6 +49,24 @@ extension OrderListData: Decodable{
         id = try codingKeysValue.decode(Int.self, forKey: .id)
         cost =  try codingKeysValue.decode(Int.self, forKey: .cost)
         created = try codingKeysValue.decode(Date.self, forKey: .created)
+    }
+}
+
+struct OrderDetailResponse{
+    let status: Int?
+    let data: OrderDetail?
+    
+    enum codingKeys: String, CodingKey{
+        case status = "status"
+        case data = "data"
+    }
+}
+
+extension OrderDetailResponse: Decodable{
+    init(from decoder: Decoder) throws {
+        let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
+        status = try codingKeysValue.decode(Int.self, forKey: .status)
+        data = try codingKeysValue.decode(OrderDetail.self, forKey: .data)
     }
 }
 

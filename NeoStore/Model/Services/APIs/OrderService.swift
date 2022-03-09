@@ -8,12 +8,12 @@
 import Foundation
 
 class OrderService{
-    static func fetchOrderList(completion: @escaping(APIResponse<OrderListResponse<OrderListData>>)->Void){
+    static func fetchOrderList(completion: @escaping(APIResponse<OrderListResponse>)->Void){
         APIManager.sharedInstance.performRequest(serviceType: .getOrderList) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        let responseData: APIResponse<OrderListResponse<OrderListData>> = jsonProductDecoder(jsonData: content)
+                        let responseData: APIResponse<OrderListResponse> = jsonProductDecoder(jsonData: content)
                             completion(responseData)
                         }
                     else{
@@ -26,23 +26,14 @@ class OrderService{
         }
     }
     
-    static func fetchOrderDetails(orderId: Int, completion: @escaping(APIResponse<OrderListResponse<OrderDetail>>)->Void){
+    static func fetchOrderDetails(orderId: Int, completion: @escaping(APIResponse<OrderDetailResponse>)->Void){
         
         let params = ["order_id": "\(orderId)"]
         APIManager.sharedInstance.performRequest(serviceType: .getOrderDetail(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-//                        let jsonSeriData = jsonParser(jsonData: content)
-//                        switch jsonSeriData {
-//                            case .success(let value):
-//                                debugPrint("Value: \(value)")
-//                            default:
-//                                debugPrint("No Value")
-//                        }
-//                        print(String(data: content, encoding: .utf8) ?? "No Value")
-                        let responseData: APIResponse<OrderListResponse<OrderDetail>> = jsonProductDecoder(jsonData: content)
-                        print(responseData)
+                        let responseData: APIResponse<OrderDetailResponse> = jsonProductDecoder(jsonData: content)
                             completion(responseData)
                         }
                     else{

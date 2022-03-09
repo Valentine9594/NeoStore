@@ -125,7 +125,7 @@ func jsonParser(jsonData: Data) -> APIResponse<Any>{
 func jsonProductDecoder<T: Decodable>(jsonData: Data) -> APIResponse<T>{
     do {
         let formatter = DateFormatter()
-        if T.self == OrderListResponse<OrderListData>.self || T.self == OrderListResponse<OrderDetail>.self{
+        if T.self == OrderListResponse.self || T.self == OrderDetailResponse.self{
             formatter.dateFormat = "dd-MM-yyyy"
         }
         else{
