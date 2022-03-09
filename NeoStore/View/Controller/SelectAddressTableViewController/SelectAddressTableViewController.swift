@@ -8,7 +8,10 @@
 import UIKit
 
 class SelectAddressTableViewController: UITableViewController {
-    let cellReuseIdentifier = "SelectAddress"
+    enum SelectAddressTableViewCells: String{
+        case addressCellReuseIdentifier = "SelectAddress"
+        case footerCellReuseIdenitfier = "TableViewFooter"
+    }
     var viewModel: SelectAddressViewModelType!
         
     override func viewDidLoad() {
@@ -51,8 +54,10 @@ class SelectAddressTableViewController: UITableViewController {
         self.tableView.dataSource = self
         
         let selectAddressNib = UINib(nibName: "SelectAddressTableViewCell", bundle: nil)
-        self.tableView.register(selectAddressNib, forCellReuseIdentifier: cellReuseIdentifier)
+        self.tableView.register(selectAddressNib, forCellReuseIdentifier: SelectAddressTableViewCells.addressCellReuseIdentifier.rawValue)
         
+        let footerNib = UINib(nibName: "MyCartTableViewFooter", bundle: nil)
+        self.tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: SelectAddressTableViewCells.footerCellReuseIdenitfier.rawValue)
 //        self.tableView.estimatedRowHeight = 100
 //        self.tableView.rowHeight = UITableView.automaticDimension
     }
@@ -96,7 +101,7 @@ class SelectAddressTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! SelectAddressTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: SelectAddressTableViewCells.addressCellReuseIdentifier.rawValue, for: indexPath) as! SelectAddressTableViewCell
         let username = self.viewModel.fetchUsername()
         let address = self.viewModel.getAddressAtIndex(index: indexPath.row)
         cell.loadCell(userName: username, userAddress: address)
@@ -107,5 +112,14 @@ class SelectAddressTableViewController: UITableViewController {
         return 100
     }
 
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SelectAddressTableViewCells.footerCellReuseIdenitfier.rawValue) as! MyCartTableViewFooter
+        footerView.loadFooterView(title: "Place Order")
+        return footerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 80
+    }
     
 }

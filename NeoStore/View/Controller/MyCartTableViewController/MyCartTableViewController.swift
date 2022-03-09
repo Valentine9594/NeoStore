@@ -158,7 +158,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyCartTableViewCells.myCartTableViewFooter.description) as! MyCartTableViewFooter
         footerView.delegate = self
-        footerView.loadFooterView()
+        footerView.loadFooterView(title: "Order Now")
         return footerView
     }
 

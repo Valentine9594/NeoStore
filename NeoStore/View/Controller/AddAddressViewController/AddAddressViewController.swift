@@ -24,7 +24,7 @@ class AddAddressViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupUIandNotificationsAndGestures()
         setupNavigationBar()
-        debugPrint("Address: \(String(describing: fetchAddressFromUserDefaults()))")    }
+   }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)

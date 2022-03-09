@@ -19,9 +19,10 @@ class MyCartTableViewFooter: UITableViewHeaderFooterView {
         super.awakeFromNib()
     }
     
-    func loadFooterView(){
+    func loadFooterView(title: String){
         DispatchQueue.main.async {
             self.setupUI()
+            self.orderNowButton.setTitle(title, for: .normal)
         }
     }
     
