@@ -22,11 +22,13 @@ class MyOrderDetailsViewModel: MyOrderDetailsViewModelType{
     
     func fetchUserOrderDetails(orderId: Int){
         OrderService.fetchOrderDetails(orderId: orderId){ [weak self] response in
+            debugPrint("response : ",response)
             switch response{
                 case .success(let data):
                     if data.status == 200{
-//                        guard let fullOrderList = data.data else{ return }
-//                        self?.productOrderList += 
+                        guard let fullOrderList = data.data else{ return }
+                        debugPrint(fullOrderList)
+//                        self?.productOrderList = fullOrderList.
                         self?.tableShouldReload.value = true
                     }
                 case .failure(let error):

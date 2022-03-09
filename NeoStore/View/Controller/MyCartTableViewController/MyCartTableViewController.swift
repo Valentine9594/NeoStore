@@ -9,7 +9,8 @@ import UIKit
 
 class MyCartTableViewController: UITableViewController, ClickedTableviewCellButton {
     func didTapOrderBtn() {
-        let addressViewController = AddAddressViewController(nibName: TotalViewControllers.AddAddressViewController.description, bundle: nil)
+        let addressViewModel = AddressViewModel()
+        let addressViewController = AddAddressViewController(viewModel: addressViewModel)
         self.navigationController?.pushViewController(addressViewController, animated: appAnimation)
     }
     

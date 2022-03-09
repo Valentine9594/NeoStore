@@ -46,6 +46,7 @@
 		9208639727D72568007D2FED /* AddAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208639527D72568007D2FED /* AddAddressViewController.swift */; };
 		9208639827D72568007D2FED /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208639627D72568007D2FED /* AddAddressViewController.xib */; };
 		9208639A27D73DC3007D2FED /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208639927D73DC2007D2FED /* AddAddressViewModel.swift */; };
+		9208639C27D86A21007D2FED /* GothamBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9208639B27D86A21007D2FED /* GothamBook.otf */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -150,6 +151,7 @@
 		9208639527D72568007D2FED /* AddAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewController.swift; sourceTree = "<group>"; };
 		9208639627D72568007D2FED /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		9208639927D73DC2007D2FED /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
+		9208639B27D86A21007D2FED /* GothamBook.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.otf; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 		92DC144E27ABF24B004C531D /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9208639B27D86A21007D2FED /* GothamBook.otf */,
 				92DC145727ABF32E004C531D /* GothamMedium.ttf */,
 				92DC145527ABF32E004C531D /* GothamBold.otf */,
 			);
@@ -766,6 +769,7 @@
 				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
 				9208637C27D5D71A007D2FED /* MyOrdersListTableViewCell.xib in Resources */,
 				92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */,
+				9208639C27D86A21007D2FED /* GothamBook.otf in Resources */,
 				9208633C27C8C395007D2FED /* RateNowPopUpViewcontroller.xib in Resources */,
 				92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */,
 				92DC145827ABF32E004C531D /* GothamMedium.ttf in Resources */,

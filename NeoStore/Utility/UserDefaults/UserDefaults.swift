@@ -175,7 +175,11 @@ extension UserDefaults{
     }
     
     func setAddress(value: String){
-        setValue(value, forKey: UserDefaultsKeys.address.description)
+        var addressArray = fetchAddressFromUserDefaults()
+        addressArray.append(value)
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(addressArray, forKey: UserDefaultsKeys.address.description)
+//        setValue(value, forKey: UserDefaultsKeys.address.description)
     }
     
 //    static func getDataFromUserDefaults<T>(key: UserDefaultsKeys) -> T?{
@@ -244,12 +248,17 @@ func fetchAndSaveUserData(responseContent: AnyDict) throws{
 
 func getDataFromUserDefaults(key: UserDefaultsKeys) -> String?{
     let userDefaults = UserDefaults.standard
-    
     if let value = userDefaults.value(forKey: key.description){
         return String(describing: value)
     }
    
     return nil
+}
+
+func fetchAddressFromUserDefaults() -> [String]{
+    let userDefaults = UserDefaults.standard
+    let value = userDefaults.stringArray(forKey: UserDefaultsKeys.address.description) ?? [String]()
+    return value
 }
 
 //func fetchAllData(){
