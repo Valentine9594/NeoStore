@@ -26,8 +26,8 @@ class OrderDetailTableViewCell: UITableViewCell {
             if let urlString = orderDetailsData.productImage, let url = URL(string: urlString){
                 self.orderImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
             }
-            self.orderNameLabel.text = orderDetailsData.productName ?? "Unknown"
-            self.orderCategoryLabel.text = "(\(orderDetailsData.productCategoryName ?? "Unknown"))"
+            self.orderNameLabel.text = orderDetailsData.productName?.capitalized ?? "Unknown"
+            self.orderCategoryLabel.text = "(\(orderDetailsData.productCategoryName?.capitalized ?? "Unknown"))"
             self.orderQuantityLabel.text = "QTY: \(orderDetailsData.quantity ?? 1)"
             self.orderCostLabel.text = "Rs. \(orderDetailsData.total ?? 0)"
         }

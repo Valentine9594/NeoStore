@@ -40,8 +40,8 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="7h0-0K-l80">
-                        <rect key="frame" x="107" y="61" width="289" height="29"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="7h0-0K-l80">
+                        <rect key="frame" x="107" y="61" width="292" height="29"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clD-EX-i62">
                                 <rect key="frame" x="0.0" y="0.0" width="45" height="29"/>
@@ -71,7 +71,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uu-MX-rI1">
-                                <rect key="frame" x="247" y="0.0" width="42" height="29"/>
+                                <rect key="frame" x="145" y="0.0" width="147" height="29"/>
                                 <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -86,7 +86,7 @@
                     <constraint firstItem="WrH-Ec-BCo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="8qO-Qu-2ws"/>
                     <constraint firstItem="5w2-xS-Z7I" firstAttribute="leading" secondItem="WrH-Ec-BCo" secondAttribute="trailing" constant="13" id="9o3-9d-mO9"/>
                     <constraint firstItem="SgQ-Nd-Zj4" firstAttribute="leading" secondItem="WrH-Ec-BCo" secondAttribute="trailing" constant="13" id="Dtk-dU-abk"/>
-                    <constraint firstAttribute="trailing" secondItem="7h0-0K-l80" secondAttribute="trailing" constant="19" id="EtX-ti-ebS"/>
+                    <constraint firstAttribute="trailing" secondItem="7h0-0K-l80" secondAttribute="trailing" constant="16" id="EtX-ti-ebS"/>
                     <constraint firstAttribute="trailing" secondItem="SgQ-Nd-Zj4" secondAttribute="trailing" constant="13" id="Jpn-Ct-bj9"/>
                     <constraint firstAttribute="bottom" secondItem="WrH-Ec-BCo" secondAttribute="bottom" constant="10" id="KFV-pO-bmg"/>
                     <constraint firstItem="WrH-Ec-BCo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="QSy-Ro-YmV"/>

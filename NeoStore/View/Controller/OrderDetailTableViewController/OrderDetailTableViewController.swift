@@ -8,7 +8,14 @@
 import UIKit
 
 class OrderDetailTableViewController: UITableViewController {
-    let orderDetailCellReuseIdentifier = "OrderDetailCell"
+    enum OrderDetailTableViewCells: String{
+        case orderDetailCellReuseIdentifier = "OrderDetailCell"
+        case totalCostLastCell = "TotalCell"
+        
+        var description: String{
+            rawValue
+        }
+    }
     var viewModel: MyOrderDetailsViewModelType!
     var orderId: Int!
         
@@ -49,10 +56,16 @@ class OrderDetailTableViewController: UITableViewController {
     
     private func setupOrderDetailTableView(){
         let orderListViewCellNib = UINib(nibName: "OrderDetailTableViewCell", bundle: nil)
-        self.tableView.register(orderListViewCellNib, forCellReuseIdentifier: orderDetailCellReuseIdentifier)
+        self.tableView.register(orderListViewCellNib, forCellReuseIdentifier: OrderDetailTableViewCells.orderDetailCellReuseIdentifier.description)
+        
+        let totalCostCellNib = UINib(nibName: "TotalCostTableViewCell", bundle: nil)
+        self.tableView.register(totalCostCellNib, forCellReuseIdentifier: OrderDetailTableViewCells.totalCostLastCell.description)
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = 100
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
 
     private func setupNavigationBar(){
@@ -83,16 +96,28 @@ class OrderDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.viewModel.getNumberOfProductsInOrder()
+        return self.viewModel.getNumberOfProductsInOrder() + 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: orderDetailCellReuseIdentifier, for: indexPath) as! OrderDetailTableViewCell
-        let orderDetails = self.viewModel.getProductInOrderAtIndex(index: indexPath.row)
-        cell.loadCell(orderDetailsData: orderDetails)
-        return cell
+        if indexPath.row == self.viewModel.getNumberOfProductsInOrder(){
+            let cell = tableView.dequeueReusableCell(withIdentifier: OrderDetailTableViewCells.totalCostLastCell.description, for: indexPath) as! TotalCostTableViewCell
+            cell.addTotalCostOfCart(totalCartCost: self.viewModel.getTotalOrderCost())
+            return cell
+        }
+        else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: OrderDetailTableViewCells.orderDetailCellReuseIdentifier.description, for: indexPath) as! OrderDetailTableViewCell
+            let orderDetails = self.viewModel.getProductInOrderAtIndex(index: indexPath.row)
+            cell.loadCell(orderDetailsData: orderDetails)
+            return cell
+        }
     }
 
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == self.viewModel.getNumberOfProductsInOrder(){
+            return 66
+        }
+        return 100
+    }
     
 }

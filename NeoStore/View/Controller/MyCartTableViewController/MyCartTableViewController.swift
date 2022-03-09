@@ -16,7 +16,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     
     enum MyCartTableViewCells: String{
         case cartCellReuseIdentifier = "MyCartTableViewCell"
-        case lastCellReuseIdentifier = "MyCartTableViewLastCell"
+        case lastCellReuseIdentifier = "TotalCell"
         case myCartTableViewFooter = "MyCartTableViewFooter"
         
         var description: String{
@@ -76,7 +76,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
         let myCartTableViewCellNib = UINib(nibName: MyCartTableViewCells.cartCellReuseIdentifier.description, bundle: nil)
         self.tableView.register(myCartTableViewCellNib, forCellReuseIdentifier: MyCartTableViewCells.cartCellReuseIdentifier.description)
         
-        let myCartTableViewLastCellNib = UINib(nibName: MyCartTableViewCells.lastCellReuseIdentifier.description, bundle: nil)
+        let myCartTableViewLastCellNib = UINib(nibName: "TotalCostTableViewCell", bundle: nil)
         self.tableView.register(myCartTableViewLastCellNib, forCellReuseIdentifier: MyCartTableViewCells.lastCellReuseIdentifier.description)
         
         let myCartTableViewFooter = UINib(nibName: MyCartTableViewCells.myCartTableViewFooter.description, bundle: nil)
@@ -124,7 +124,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == self.viewModel.getNumberOfProductsInCart(){
-            let cell = tableView.dequeueReusableCell(withIdentifier: MyCartTableViewCells.lastCellReuseIdentifier.description, for: indexPath) as! MyCartTableViewLastCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: MyCartTableViewCells.lastCellReuseIdentifier.description, for: indexPath) as! TotalCostTableViewCell
             cell.addTotalCostOfCart(totalCartCost: self.viewModel.getTotalAmount())
             return cell
         }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyCartTableViewLastCell: UITableViewCell {
+class TotalCostTableViewCell: UITableViewCell {
     @IBOutlet weak var totalCostOfCartLabel: UILabel!
     
     override func awakeFromNib() {

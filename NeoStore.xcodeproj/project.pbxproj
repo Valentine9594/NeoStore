@@ -25,8 +25,8 @@
 		9208635327D09512007D2FED /* MyCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208635127D09512007D2FED /* MyCartTableViewCell.swift */; };
 		9208635427D09512007D2FED /* MyCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208635227D09512007D2FED /* MyCartTableViewCell.xib */; };
 		9208636027D0D5F5007D2FED /* MyCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */; };
-		9208636627D1E741007D2FED /* MyCartTableViewLastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636427D1E741007D2FED /* MyCartTableViewLastCell.swift */; };
-		9208636727D1E741007D2FED /* MyCartTableViewLastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636527D1E741007D2FED /* MyCartTableViewLastCell.xib */; };
+		9208636627D1E741007D2FED /* TotalCostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636427D1E741007D2FED /* TotalCostTableViewCell.swift */; };
+		9208636727D1E741007D2FED /* TotalCostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636527D1E741007D2FED /* TotalCostTableViewCell.xib */; };
 		9208636C27D1FDCD007D2FED /* MyCartTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */; };
 		9208636E27D1FDDD007D2FED /* MyCartTableViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */; };
 		9208637727D5D606007D2FED /* MyOrdersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208637527D5D606007D2FED /* MyOrdersListTableViewController.swift */; };
@@ -130,8 +130,8 @@
 		9208635127D09512007D2FED /* MyCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewCell.swift; sourceTree = "<group>"; };
 		9208635227D09512007D2FED /* MyCartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewCell.xib; sourceTree = "<group>"; };
 		9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewModel.swift; sourceTree = "<group>"; };
-		9208636427D1E741007D2FED /* MyCartTableViewLastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewLastCell.swift; sourceTree = "<group>"; };
-		9208636527D1E741007D2FED /* MyCartTableViewLastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewLastCell.xib; sourceTree = "<group>"; };
+		9208636427D1E741007D2FED /* TotalCostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCostTableViewCell.swift; sourceTree = "<group>"; };
+		9208636527D1E741007D2FED /* TotalCostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalCostTableViewCell.xib; sourceTree = "<group>"; };
 		9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewFooter.swift; sourceTree = "<group>"; };
 		9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewFooter.xib; sourceTree = "<group>"; };
 		9208637527D5D606007D2FED /* MyOrdersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersListTableViewController.swift; sourceTree = "<group>"; };
@@ -273,7 +273,6 @@
 			isa = PBXGroup;
 			children = (
 				9208636A27D1FDA7007D2FED /* MyCartTableViewFooter */,
-				9208636127D1D024007D2FED /* MyCartTableViewLastCell */,
 				9208635027D094ED007D2FED /* MyCartTableViewCell */,
 				9208634C27D07AA2007D2FED /* MyCartTableViewController.swift */,
 				9208634D27D07AA2007D2FED /* MyCartTableViewController.xib */,
@@ -290,13 +289,13 @@
 			path = MyCartTableViewCell;
 			sourceTree = "<group>";
 		};
-		9208636127D1D024007D2FED /* MyCartTableViewLastCell */ = {
+		9208636127D1D024007D2FED /* TotalCostTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				9208636427D1E741007D2FED /* MyCartTableViewLastCell.swift */,
-				9208636527D1E741007D2FED /* MyCartTableViewLastCell.xib */,
+				9208636427D1E741007D2FED /* TotalCostTableViewCell.swift */,
+				9208636527D1E741007D2FED /* TotalCostTableViewCell.xib */,
 			);
-			path = MyCartTableViewLastCell;
+			path = TotalCostTableViewCell;
 			sourceTree = "<group>";
 		};
 		9208636A27D1FDA7007D2FED /* MyCartTableViewFooter */ = {
@@ -353,6 +352,14 @@
 				9208639627D72568007D2FED /* AddAddressViewController.xib */,
 			);
 			path = AddAddressViewController;
+			sourceTree = "<group>";
+		};
+		9208639D27D89878007D2FED /* CommonTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				9208636127D1D024007D2FED /* TotalCostTableViewCell */,
+			);
+			path = CommonTableViewCells;
 			sourceTree = "<group>";
 		};
 		92131AE727A817AF00E9A993 = {
@@ -451,6 +458,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9208639D27D89878007D2FED /* CommonTableViewCells */,
 				9208639427D72516007D2FED /* AddAddressViewController */,
 				9208638827D6259A007D2FED /* OrderDetailTableViewController */,
 				9208637427D5D55B007D2FED /* MyOrdersListTableViewController */,
@@ -790,7 +798,7 @@
 				92DC14B627BA539C004C531D /* MyAccountViewController.xib in Resources */,
 				9208639827D72568007D2FED /* AddAddressViewController.xib in Resources */,
 				92DC14D527BF93D6004C531D /* ProductListingTableViewCell.xib in Resources */,
-				9208636727D1E741007D2FED /* MyCartTableViewLastCell.xib in Resources */,
+				9208636727D1E741007D2FED /* TotalCostTableViewCell.xib in Resources */,
 				9208634F27D07AA2007D2FED /* MyCartTableViewController.xib in Resources */,
 				92DC149D27B53EDB004C531D /* SlideShowCollectionViewCell.xib in Resources */,
 			);
@@ -869,7 +877,7 @@
 				92DC144127AA6C4E004C531D /* UserModels.swift in Sources */,
 				9208638327D5EA3A007D2FED /* ProductModels.swift in Sources */,
 				92DC14BA27BA7F3D004C531D /* ResetPasswordViewController.swift in Sources */,
-				9208636627D1E741007D2FED /* MyCartTableViewLastCell.swift in Sources */,
+				9208636627D1E741007D2FED /* TotalCostTableViewCell.swift in Sources */,
 				9208638527D5EBB6007D2FED /* OrderModels.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
