@@ -9,9 +9,9 @@ import UIKit
 
 class MyCartTableViewController: UITableViewController, ClickedTableviewCellButton {
     func didTapOrderBtn() {
-        let addressViewModel = AddressViewModel()
-        let addressViewController = AddAddressViewController(viewModel: addressViewModel)
-        self.navigationController?.pushViewController(addressViewController, animated: appAnimation)
+        let selectAddressViewModel = SelectAddressViewModel()
+        let selectAddressTableViewController = SelectAddressTableViewController(viewModel: selectAddressViewModel)
+        self.navigationController?.pushViewController(selectAddressTableViewController, animated: appAnimation)
     }
     
     enum MyCartTableViewCells: String{

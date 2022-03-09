@@ -28,6 +28,7 @@ enum TotalViewControllers: String{
     case MyOrdersListTableViewController = "MyOrdersListTableViewController"
     case OrderDetailTableViewController = "OrderDetailTableViewController"
     case AddAddressViewController = "AddAddressViewController"
+    case SelectAddressTableViewController = "SelectAddressTableViewController"
     
 //    popup view controllers
     case rateNowPopUpViewcontroller = "RateNowPopUpViewcontroller"

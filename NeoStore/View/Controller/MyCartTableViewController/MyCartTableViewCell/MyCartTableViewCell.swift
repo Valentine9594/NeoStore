@@ -52,6 +52,7 @@ class MyCartTableViewCell: UITableViewCell{
     }
     
     private func setupPickerView(){
+//        create uianimation, give iboutlet constraint and setHidden as false on selcting button
         self.pickerView = UIPickerView()
     }
     

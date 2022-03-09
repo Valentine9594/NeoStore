@@ -78,7 +78,7 @@ class AddAddressViewController: UIViewController {
         let country = countryTextfield.text
         if self.viewModel.validateAllData(address: address, city: city, state: state, zipcode: zipcode, country: country){
             self.viewModel.saveAddressInUserDefaults(address: address!)
-            debugPrint("Address: \(String(describing: fetchAddressFromUserDefaults()))")
+            popToPreviousViewController()
         }else{
             debugPrint("Not Saved")
         }

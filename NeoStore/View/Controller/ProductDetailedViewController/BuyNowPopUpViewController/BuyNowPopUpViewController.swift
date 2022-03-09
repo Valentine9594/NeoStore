@@ -16,10 +16,12 @@ class BuyNowPopUpViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     var viewModel: BuyNowViewModelType!
     var productDetails: ProductDetails!
-    
+    var isViewAlreadyShifted = false
+    @IBOutlet weak var containerViewTopConstraint: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        enterQuantityTextfield.delegate = self
         // Do any additional setup after loading the view.
         setupUI()
         setupGestures()
@@ -142,10 +144,26 @@ class BuyNowPopUpViewController: UIViewController {
 //        function to close keyboard if clicked anywhere
         self.view.endEditing(true)
         self.view.resignFirstResponder()
+        containerViewTopConstraint.constant += 70
+        isViewAlreadyShifted = false
     }
 
     @objc func dismissPopUp(){
         self.dismiss(animated: appAnimation, completion: nil)
+        containerViewTopConstraint.constant += 70
+        isViewAlreadyShifted = false
     }
 
+}
+
+extension BuyNowPopUpViewController: UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if !isViewAlreadyShifted {
+            containerViewTopConstraint.constant -= 70
+            UIView.animate(withDuration: 0.3) {
+            self.containerView.layoutIfNeeded()
+            self.isViewAlreadyShifted = true
+            }
+        }
+    }
 }

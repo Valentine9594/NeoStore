@@ -47,6 +47,11 @@
 		9208639827D72568007D2FED /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208639627D72568007D2FED /* AddAddressViewController.xib */; };
 		9208639A27D73DC3007D2FED /* AddAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208639927D73DC2007D2FED /* AddAddressViewModel.swift */; };
 		9208639C27D86A21007D2FED /* GothamBook.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9208639B27D86A21007D2FED /* GothamBook.otf */; };
+		920863A227D8A755007D2FED /* SelectAddressTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920863A027D8A755007D2FED /* SelectAddressTableViewController.swift */; };
+		920863A327D8A755007D2FED /* SelectAddressTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920863A127D8A755007D2FED /* SelectAddressTableViewController.xib */; };
+		920863A727D8A7BB007D2FED /* SelectAddressTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920863A527D8A7BB007D2FED /* SelectAddressTableViewCell.swift */; };
+		920863A827D8A7BB007D2FED /* SelectAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 920863A627D8A7BB007D2FED /* SelectAddressTableViewCell.xib */; };
+		920863AA27D8BA86007D2FED /* SelectAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 920863A927D8BA86007D2FED /* SelectAddressViewModel.swift */; };
 		92131AF427A817AF00E9A993 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF327A817AF00E9A993 /* AppDelegate.swift */; };
 		92131AF627A817AF00E9A993 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131AF527A817AF00E9A993 /* SceneDelegate.swift */; };
 		92131AFE27A817AF00E9A993 /* NeoStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92131AFC27A817AF00E9A993 /* NeoStore.xcdatamodeld */; };
@@ -152,6 +157,11 @@
 		9208639627D72568007D2FED /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		9208639927D73DC2007D2FED /* AddAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressViewModel.swift; sourceTree = "<group>"; };
 		9208639B27D86A21007D2FED /* GothamBook.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GothamBook.otf; sourceTree = "<group>"; };
+		920863A027D8A755007D2FED /* SelectAddressTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressTableViewController.swift; sourceTree = "<group>"; };
+		920863A127D8A755007D2FED /* SelectAddressTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectAddressTableViewController.xib; sourceTree = "<group>"; };
+		920863A527D8A7BB007D2FED /* SelectAddressTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressTableViewCell.swift; sourceTree = "<group>"; };
+		920863A627D8A7BB007D2FED /* SelectAddressTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectAddressTableViewCell.xib; sourceTree = "<group>"; };
+		920863A927D8BA86007D2FED /* SelectAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewModel.swift; sourceTree = "<group>"; };
 		92131AF027A817AF00E9A993 /* NeoStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeoStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92131AF327A817AF00E9A993 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92131AF527A817AF00E9A993 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -362,6 +372,25 @@
 			path = CommonTableViewCells;
 			sourceTree = "<group>";
 		};
+		9208639E27D8A70A007D2FED /* SelectAddressTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				920863A427D8A789007D2FED /* SelectAddressTableViewCells */,
+				920863A027D8A755007D2FED /* SelectAddressTableViewController.swift */,
+				920863A127D8A755007D2FED /* SelectAddressTableViewController.xib */,
+			);
+			path = SelectAddressTableViewController;
+			sourceTree = "<group>";
+		};
+		920863A427D8A789007D2FED /* SelectAddressTableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				920863A527D8A7BB007D2FED /* SelectAddressTableViewCell.swift */,
+				920863A627D8A7BB007D2FED /* SelectAddressTableViewCell.xib */,
+			);
+			path = SelectAddressTableViewCells;
+			sourceTree = "<group>";
+		};
 		92131AE727A817AF00E9A993 = {
 			isa = PBXGroup;
 			children = (
@@ -419,6 +448,7 @@
 				9208637E27D5E79D007D2FED /* MyOrdersListViewModel.swift */,
 				9208639227D63D53007D2FED /* MyOrderDetailsViewModel.swift */,
 				9208639927D73DC2007D2FED /* AddAddressViewModel.swift */,
+				920863A927D8BA86007D2FED /* SelectAddressViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -458,6 +488,7 @@
 		92131B1327A81D1900E9A993 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9208639E27D8A70A007D2FED /* SelectAddressTableViewController */,
 				9208639D27D89878007D2FED /* CommonTableViewCells */,
 				9208639427D72516007D2FED /* AddAddressViewController */,
 				9208638827D6259A007D2FED /* OrderDetailTableViewController */,
@@ -777,6 +808,7 @@
 				92DC145627ABF32E004C531D /* GothamBold.otf in Resources */,
 				9208637C27D5D71A007D2FED /* MyOrdersListTableViewCell.xib in Resources */,
 				92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */,
+				920863A327D8A755007D2FED /* SelectAddressTableViewController.xib in Resources */,
 				9208639C27D86A21007D2FED /* GothamBook.otf in Resources */,
 				9208633C27C8C395007D2FED /* RateNowPopUpViewcontroller.xib in Resources */,
 				92DC148A27B3EA68004C531D /* ForgotPasswordViewController.xib in Resources */,
@@ -794,6 +826,7 @@
 				9208639127D628C2007D2FED /* OrderDetailTableViewCell.xib in Resources */,
 				92DC149227B52F50004C531D /* HomeViewController.xib in Resources */,
 				92DC14BB27BA7F3D004C531D /* ResetPasswordViewController.xib in Resources */,
+				920863A827D8A7BB007D2FED /* SelectAddressTableViewCell.xib in Resources */,
 				9208635427D09512007D2FED /* MyCartTableViewCell.xib in Resources */,
 				92DC14B627BA539C004C531D /* MyAccountViewController.xib in Resources */,
 				9208639827D72568007D2FED /* AddAddressViewController.xib in Resources */,
@@ -859,6 +892,7 @@
 				92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */,
 				92DC148627B3D652004C531D /* UserDefaults.swift in Sources */,
 				9208634E27D07AA2007D2FED /* MyCartTableViewController.swift in Sources */,
+				920863AA27D8BA86007D2FED /* SelectAddressViewModel.swift in Sources */,
 				92DC145A27ABF32E004C531D /* UserService.swift in Sources */,
 				92DC144D27AAB3FF004C531D /* UITextfields+Extension.swift in Sources */,
 				9208634827CF54BF007D2FED /* BuyNowViewModel.swift in Sources */,
@@ -874,11 +908,13 @@
 				9208636027D0D5F5007D2FED /* MyCartViewModel.swift in Sources */,
 				92DC14D427BF93D6004C531D /* ProductListingTableViewCell.swift in Sources */,
 				9208638727D5F4EB007D2FED /* OrderService.swift in Sources */,
+				920863A727D8A7BB007D2FED /* SelectAddressTableViewCell.swift in Sources */,
 				92DC144127AA6C4E004C531D /* UserModels.swift in Sources */,
 				9208638327D5EA3A007D2FED /* ProductModels.swift in Sources */,
 				92DC14BA27BA7F3D004C531D /* ResetPasswordViewController.swift in Sources */,
 				9208636627D1E741007D2FED /* TotalCostTableViewCell.swift in Sources */,
 				9208638527D5EBB6007D2FED /* OrderModels.swift in Sources */,
+				920863A227D8A755007D2FED /* SelectAddressTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
