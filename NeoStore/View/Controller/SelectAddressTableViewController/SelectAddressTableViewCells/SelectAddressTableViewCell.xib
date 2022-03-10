@@ -24,30 +24,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veU-Gv-PH8">
-                        <rect key="frame" x="13" y="25" width="50" height="50"/>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veU-Gv-PH8">
+                        <rect key="frame" x="0.0" y="25" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="veU-Gv-PH8" secondAttribute="height" multiplier="1:1" id="O1d-oy-9Im"/>
                             <constraint firstAttribute="height" constant="50" id="q68-hv-2Yf"/>
                             <constraint firstAttribute="width" constant="50" id="wOY-Oq-vOu"/>
                         </constraints>
                         <color key="tintColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <state key="normal" image="uncheck_icon">
+                        <state key="normal" image="radio_buttin_unchecked">
                             <color key="titleColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
-                        <state key="selected" image="checked_icon"/>
+                        <state key="selected" image="radio_button_checked"/>
+                        <connections>
+                            <action selector="clickedSelectAddressButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LuC-AU-fsL"/>
+                        </connections>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qu-An-i0H">
-                        <rect key="frame" x="76" y="7.5" width="319" height="85"/>
+                        <rect key="frame" x="50" y="7.5" width="345" height="85"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEl-Ag-NNu">
-                                <rect key="frame" x="5" y="5" width="309" height="22"/>
+                                <rect key="frame" x="5" y="5" width="335" height="22"/>
                                 <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="22"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBj-nT-zRQ">
-                                <rect key="frame" x="5" y="27" width="309" height="53"/>
+                                <rect key="frame" x="5" y="27" width="335" height="53"/>
                                 <fontDescription key="fontDescription" name="HomepageBaukasten-Book" family="HomepageBaukasten" pointSize="15"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -67,9 +70,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="veU-Gv-PH8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="13" id="D80-aG-elw"/>
+                    <constraint firstItem="veU-Gv-PH8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="D80-aG-elw"/>
                     <constraint firstAttribute="trailing" secondItem="2Qu-An-i0H" secondAttribute="trailing" constant="19" id="EDZ-Mj-I5m"/>
-                    <constraint firstItem="2Qu-An-i0H" firstAttribute="leading" secondItem="veU-Gv-PH8" secondAttribute="trailing" constant="13" id="Oaj-Zp-9K3"/>
+                    <constraint firstItem="2Qu-An-i0H" firstAttribute="leading" secondItem="veU-Gv-PH8" secondAttribute="trailing" id="Oaj-Zp-9K3"/>
                     <constraint firstItem="veU-Gv-PH8" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ucw-W2-pZr"/>
                     <constraint firstItem="2Qu-An-i0H" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="kGi-HZ-hL2"/>
                 </constraints>
@@ -85,7 +88,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="checked_icon" width="25" height="25"/>
-        <image name="uncheck_icon" width="25" height="25"/>
+        <image name="radio_buttin_unchecked" width="24" height="24"/>
+        <image name="radio_button_checked" width="24" height="24"/>
     </resources>
 </document>

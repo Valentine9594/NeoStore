@@ -7,12 +7,25 @@
 
 import UIKit
 
-class SelectAddressTableViewController: UITableViewController {
+class SelectAddressTableViewController: UITableViewController, ClickedTableviewCellButton, clickedRadioButton{
+    func didTapRadioButton(indexPath: IndexPath) {
+        guard indexPath != selectedAddressIndex else { return }
+        (self.tableView.cellForRow(at: indexPath) as! SelectAddressTableViewCell).selectAddressButton.isSelected = true
+        (self.tableView.cellForRow(at: selectedAddressIndex) as! SelectAddressTableViewCell).selectAddressButton.isSelected = false
+        selectedAddressIndex = indexPath
+    }
+    
+    func didTapOrderBtn() {
+        let selectedAddress = self.viewModel.getAddressAtIndex(index: selectedAddressIndex.row)
+        debugPrint("Selected Address: \(selectedAddress)")
+    }
+    
     enum SelectAddressTableViewCells: String{
         case addressCellReuseIdentifier = "SelectAddress"
         case footerCellReuseIdenitfier = "TableViewFooter"
     }
     var viewModel: SelectAddressViewModelType!
+    var selectedAddressIndex: IndexPath = IndexPath(row: 0, section: 0)
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +117,11 @@ class SelectAddressTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: SelectAddressTableViewCells.addressCellReuseIdentifier.rawValue, for: indexPath) as! SelectAddressTableViewCell
         let username = self.viewModel.fetchUsername()
         let address = self.viewModel.getAddressAtIndex(index: indexPath.row)
+        cell.delegate = self
+        cell.indexPath = indexPath
+        if indexPath.row == 0{
+            cell.selectAddressButton.isSelected = true
+        }
         cell.loadCell(userName: username, userAddress: address)
         return cell
     }
@@ -115,11 +133,37 @@ class SelectAddressTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SelectAddressTableViewCells.footerCellReuseIdenitfier.rawValue) as! TableViewFooterWithButton
         footerView.loadFooterView(title: "Place Order")
+        footerView.delegate = self
         return footerView
     }
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 80
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 46))
+        let headerTitleLabel = UILabel()
+        let headerTitle = "Shipping Address"
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.appGreyFont, NSAttributedString.Key.font: UIFont(name: "HomepageBaukasten-Book", size: 22.0)!]
+        let attributedHeader = NSAttributedString(string: headerTitle, attributes: attributes)
+        headerTitleLabel.attributedText = attributedHeader
+        headerTitleLabel.textAlignment = .left
+        headerView.addSubview(headerTitleLabel)
+        headerTitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        headerTitleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 12).isActive = true
+        headerTitleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: 12).isActive = true
+        headerTitleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+        return headerView
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 46
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! SelectAddressTableViewCell
+        cell.selectAddressButton.isSelected = false
     }
     
 }
