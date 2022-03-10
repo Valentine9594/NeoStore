@@ -59,6 +59,7 @@
 		92131B0327A817B100E9A993 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92131B0127A817B100E9A993 /* LaunchScreen.storyboard */; };
 		92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1927A90E7800E9A993 /* APIManager.swift */; };
 		92131B1C27A912C600E9A993 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1B27A912C600E9A993 /* APIServices.swift */; };
+		923E34E027DA028B005FB945 /* UIViewcontroller+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34DF27DA028B005FB945 /* UIViewcontroller+Extensions.swift */; };
 		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
 		92DC143F27AA68B5004C531D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143E27AA68B5004C531D /* ProductService.swift */; };
 		92DC144127AA6C4E004C531D /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144027AA6C4E004C531D /* UserModels.swift */; };
@@ -171,6 +172,7 @@
 		92131B0427A817B100E9A993 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92131B1927A90E7800E9A993 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		92131B1B27A912C600E9A993 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
+		923E34DF27DA028B005FB945 /* UIViewcontroller+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extensions.swift"; sourceTree = "<group>"; };
 		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92DC143E27AA68B5004C531D /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		92DC144027AA6C4E004C531D /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				92DC144A27AAB3EC004C531D /* UIColor+Extension.swift */,
 				92DC144C27AAB3FF004C531D /* UITextfields+Extension.swift */,
 				92DC14BC27BB6690004C531D /* UIViews+Extension.swift */,
+				923E34DF27DA028B005FB945 /* UIViewcontroller+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -875,6 +878,7 @@
 				92DC149127B52F50004C531D /* HomeViewController.swift in Sources */,
 				92DC14B527BA539C004C531D /* MyAccountViewController.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,
+				923E34E027DA028B005FB945 /* UIViewcontroller+Extensions.swift in Sources */,
 				92DC14C627BD149E004C531D /* ImagePicker.swift in Sources */,
 				9208632F27C6544E007D2FED /* ProductDetailedViewController.swift in Sources */,
 				92DC14DE27C365C2004C531D /* ProductListingViewModel.swift in Sources */,

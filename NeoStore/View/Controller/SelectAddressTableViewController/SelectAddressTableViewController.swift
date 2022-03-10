@@ -68,9 +68,9 @@ class SelectAddressTableViewController: UITableViewController, ClickedTableviewC
         self.viewModel.placeOrderStatus.bindAndFire { result in
             switch result{
                 case .success(let message):
-                    debugPrint("Message: \(message)")
+                    self.callAlert(alertTitle: "Success", alertMessage: message)
                 case .failure(let message):
-                    debugPrint("Message: \(message)")
+                    self.callAlert(alertTitle: "Error!", alertMessage: message)
                 case .none:
                     break
             }
@@ -114,6 +114,10 @@ class SelectAddressTableViewController: UITableViewController, ClickedTableviewC
         let addressViewModel = AddressViewModel()
         let addressViewController = AddAddressViewController(viewModel: addressViewModel)
         self.navigationController?.pushViewController(addressViewController, animated: appAnimation)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
     
     // MARK: - Table view data source

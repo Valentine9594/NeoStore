@@ -103,5 +103,9 @@ class AddAddressViewController: UIViewController {
         self.view.endEditing(true)
         self.view.resignFirstResponder()
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
 }
