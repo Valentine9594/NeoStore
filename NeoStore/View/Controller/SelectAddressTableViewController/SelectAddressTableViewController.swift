@@ -10,14 +10,18 @@ import UIKit
 class SelectAddressTableViewController: UITableViewController, ClickedTableviewCellButton, clickedRadioButton{
     func didTapRadioButton(indexPath: IndexPath) {
         guard indexPath != selectedAddressIndex else { return }
-        (self.tableView.cellForRow(at: indexPath) as! SelectAddressTableViewCell).selectAddressButton.isSelected = true
-        (self.tableView.cellForRow(at: selectedAddressIndex) as! SelectAddressTableViewCell).selectAddressButton.isSelected = false
+        changeStateOfRadioButtonInCellAtIndexpath(indexPath: indexPath, selectState: true)
+        changeStateOfRadioButtonInCellAtIndexpath(indexPath: selectedAddressIndex, selectState: false)
         selectedAddressIndex = indexPath
+    }
+    
+    private func changeStateOfRadioButtonInCellAtIndexpath(indexPath: IndexPath, selectState: Bool){
+        (self.tableView.cellForRow(at: indexPath) as! SelectAddressTableViewCell).selectAddressButton.isSelected = selectState
     }
     
     func didTapOrderBtn() {
         let selectedAddress = self.viewModel.getAddressAtIndex(index: selectedAddressIndex.row)
-        debugPrint("Selected Address: \(selectedAddress)")
+        self.viewModel.placeOrderAtAddress(address: selectedAddress)
     }
     
     enum SelectAddressTableViewCells: String{
@@ -58,6 +62,17 @@ class SelectAddressTableViewController: UITableViewController, ClickedTableviewC
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
+            }
+        }
+        
+        self.viewModel.placeOrderStatus.bindAndFire { result in
+            switch result{
+                case .success(let message):
+                    debugPrint("Message: \(message)")
+                case .failure(let message):
+                    debugPrint("Message: \(message)")
+                case .none:
+                    break
             }
         }
     }
