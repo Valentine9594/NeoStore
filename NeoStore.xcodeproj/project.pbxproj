@@ -27,8 +27,8 @@
 		9208636027D0D5F5007D2FED /* MyCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */; };
 		9208636627D1E741007D2FED /* TotalCostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636427D1E741007D2FED /* TotalCostTableViewCell.swift */; };
 		9208636727D1E741007D2FED /* TotalCostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636527D1E741007D2FED /* TotalCostTableViewCell.xib */; };
-		9208636C27D1FDCD007D2FED /* MyCartTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */; };
-		9208636E27D1FDDD007D2FED /* MyCartTableViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */; };
+		9208636C27D1FDCD007D2FED /* TableViewFooterWithButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208636B27D1FDCD007D2FED /* TableViewFooterWithButton.swift */; };
+		9208636E27D1FDDD007D2FED /* TableViewFooterWithButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208636D27D1FDDD007D2FED /* TableViewFooterWithButton.xib */; };
 		9208637727D5D606007D2FED /* MyOrdersListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208637527D5D606007D2FED /* MyOrdersListTableViewController.swift */; };
 		9208637827D5D606007D2FED /* MyOrdersListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9208637627D5D606007D2FED /* MyOrdersListTableViewController.xib */; };
 		9208637B27D5D71A007D2FED /* MyOrdersListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9208637927D5D71A007D2FED /* MyOrdersListTableViewCell.swift */; };
@@ -137,8 +137,8 @@
 		9208635F27D0D5F5007D2FED /* MyCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartViewModel.swift; sourceTree = "<group>"; };
 		9208636427D1E741007D2FED /* TotalCostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCostTableViewCell.swift; sourceTree = "<group>"; };
 		9208636527D1E741007D2FED /* TotalCostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalCostTableViewCell.xib; sourceTree = "<group>"; };
-		9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCartTableViewFooter.swift; sourceTree = "<group>"; };
-		9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCartTableViewFooter.xib; sourceTree = "<group>"; };
+		9208636B27D1FDCD007D2FED /* TableViewFooterWithButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewFooterWithButton.swift; sourceTree = "<group>"; };
+		9208636D27D1FDDD007D2FED /* TableViewFooterWithButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewFooterWithButton.xib; sourceTree = "<group>"; };
 		9208637527D5D606007D2FED /* MyOrdersListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersListTableViewController.swift; sourceTree = "<group>"; };
 		9208637627D5D606007D2FED /* MyOrdersListTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyOrdersListTableViewController.xib; sourceTree = "<group>"; };
 		9208637927D5D71A007D2FED /* MyOrdersListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOrdersListTableViewCell.swift; sourceTree = "<group>"; };
@@ -282,7 +282,6 @@
 		9208634B27D07A7B007D2FED /* MyCartTableViewController */ = {
 			isa = PBXGroup;
 			children = (
-				9208636A27D1FDA7007D2FED /* MyCartTableViewFooter */,
 				9208635027D094ED007D2FED /* MyCartTableViewCell */,
 				9208634C27D07AA2007D2FED /* MyCartTableViewController.swift */,
 				9208634D27D07AA2007D2FED /* MyCartTableViewController.xib */,
@@ -308,13 +307,13 @@
 			path = TotalCostTableViewCell;
 			sourceTree = "<group>";
 		};
-		9208636A27D1FDA7007D2FED /* MyCartTableViewFooter */ = {
+		9208636A27D1FDA7007D2FED /* TableVieqFooterWithButton */ = {
 			isa = PBXGroup;
 			children = (
-				9208636B27D1FDCD007D2FED /* MyCartTableViewFooter.swift */,
-				9208636D27D1FDDD007D2FED /* MyCartTableViewFooter.xib */,
+				9208636B27D1FDCD007D2FED /* TableViewFooterWithButton.swift */,
+				9208636D27D1FDDD007D2FED /* TableViewFooterWithButton.xib */,
 			);
-			path = MyCartTableViewFooter;
+			path = TableVieqFooterWithButton;
 			sourceTree = "<group>";
 		};
 		9208637427D5D55B007D2FED /* MyOrdersListTableViewController */ = {
@@ -367,6 +366,7 @@
 		9208639D27D89878007D2FED /* CommonTableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				9208636A27D1FDA7007D2FED /* TableVieqFooterWithButton */,
 				9208636127D1D024007D2FED /* TotalCostTableViewCell */,
 			);
 			path = CommonTableViewCells;
@@ -818,7 +818,7 @@
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
 				92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
-				9208636E27D1FDDD007D2FED /* MyCartTableViewFooter.xib in Resources */,
+				9208636E27D1FDDD007D2FED /* TableViewFooterWithButton.xib in Resources */,
 				92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */,
 				9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */,
 				9208638C27D627EC007D2FED /* OrderDetailTableViewController.xib in Resources */,
@@ -862,7 +862,7 @@
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
 				92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */,
-				9208636C27D1FDCD007D2FED /* MyCartTableViewFooter.swift in Sources */,
+				9208636C27D1FDCD007D2FED /* TableViewFooterWithButton.swift in Sources */,
 				9208639727D72568007D2FED /* AddAddressViewController.swift in Sources */,
 				92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */,
 				92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */,

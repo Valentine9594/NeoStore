@@ -17,7 +17,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     enum MyCartTableViewCells: String{
         case cartCellReuseIdentifier = "MyCartTableViewCell"
         case lastCellReuseIdentifier = "TotalCell"
-        case myCartTableViewFooter = "MyCartTableViewFooter"
+        case myCartTableViewFooter = "TableViewFooter"
         
         var description: String{
             rawValue
@@ -79,7 +79,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
         let myCartTableViewLastCellNib = UINib(nibName: "TotalCostTableViewCell", bundle: nil)
         self.tableView.register(myCartTableViewLastCellNib, forCellReuseIdentifier: MyCartTableViewCells.lastCellReuseIdentifier.description)
         
-        let myCartTableViewFooter = UINib(nibName: MyCartTableViewCells.myCartTableViewFooter.description, bundle: nil)
+        let myCartTableViewFooter = UINib(nibName: "TableViewFooterWithButton", bundle: nil)
         self.tableView.register(myCartTableViewFooter, forHeaderFooterViewReuseIdentifier: MyCartTableViewCells.myCartTableViewFooter.description)
         
         self.tableView.delegate = self
@@ -156,7 +156,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyCartTableViewCells.myCartTableViewFooter.description) as! MyCartTableViewFooter
+        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyCartTableViewCells.myCartTableViewFooter.description) as! TableViewFooterWithButton
         footerView.delegate = self
         footerView.loadFooterView(title: "Order Now")
         return footerView

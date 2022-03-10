@@ -56,7 +56,7 @@ class SelectAddressTableViewController: UITableViewController {
         let selectAddressNib = UINib(nibName: "SelectAddressTableViewCell", bundle: nil)
         self.tableView.register(selectAddressNib, forCellReuseIdentifier: SelectAddressTableViewCells.addressCellReuseIdentifier.rawValue)
         
-        let footerNib = UINib(nibName: "MyCartTableViewFooter", bundle: nil)
+        let footerNib = UINib(nibName: "TableViewFooterWithButton", bundle: nil)
         self.tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: SelectAddressTableViewCells.footerCellReuseIdenitfier.rawValue)
 //        self.tableView.estimatedRowHeight = 100
 //        self.tableView.rowHeight = UITableView.automaticDimension
@@ -113,7 +113,7 @@ class SelectAddressTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SelectAddressTableViewCells.footerCellReuseIdenitfier.rawValue) as! MyCartTableViewFooter
+        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: SelectAddressTableViewCells.footerCellReuseIdenitfier.rawValue) as! TableViewFooterWithButton
         footerView.loadFooterView(title: "Place Order")
         return footerView
     }

@@ -11,7 +11,7 @@ protocol ClickedTableviewCellButton {
    func didTapOrderBtn()
 }
 
-class MyCartTableViewFooter: UITableViewHeaderFooterView {
+class TableViewFooterWithButton: UITableViewHeaderFooterView {
     
     @IBOutlet weak var orderNowButton: UIButton!
     var delegate: ClickedTableviewCellButton?
