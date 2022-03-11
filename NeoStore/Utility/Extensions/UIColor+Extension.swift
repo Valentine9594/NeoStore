@@ -20,4 +20,8 @@ extension UIColor{
     @nonobjc class var appGreyFont: UIColor{
         return UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
     }
+    
+    @nonobjc class var appBlackForMenuBar: UIColor{
+        return UIColor(red: 44/255, green: 43/255, blue: 43/255, alpha: 1.0)
+    }
 }

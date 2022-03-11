@@ -60,6 +60,8 @@
 		92131B1A27A90E7800E9A993 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1927A90E7800E9A993 /* APIManager.swift */; };
 		92131B1C27A912C600E9A993 /* APIServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92131B1B27A912C600E9A993 /* APIServices.swift */; };
 		923E34E027DA028B005FB945 /* UIViewcontroller+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34DF27DA028B005FB945 /* UIViewcontroller+Extensions.swift */; };
+		923E34E327DA329F005FB945 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = 923E34E227DA329F005FB945 /* SideMenu */; };
+		923E34E527DB1AB9005FB945 /* SideMenuPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34E427DB1AB9005FB945 /* SideMenuPanel.swift */; };
 		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
 		92DC143F27AA68B5004C531D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143E27AA68B5004C531D /* ProductService.swift */; };
 		92DC144127AA6C4E004C531D /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144027AA6C4E004C531D /* UserModels.swift */; };
@@ -173,6 +175,7 @@
 		92131B1927A90E7800E9A993 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		92131B1B27A912C600E9A993 /* APIServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServices.swift; sourceTree = "<group>"; };
 		923E34DF27DA028B005FB945 /* UIViewcontroller+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extensions.swift"; sourceTree = "<group>"; };
+		923E34E427DB1AB9005FB945 /* SideMenuPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuPanel.swift; sourceTree = "<group>"; };
 		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92DC143E27AA68B5004C531D /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		92DC144027AA6C4E004C531D /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
@@ -228,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923E34E327DA329F005FB945 /* SideMenu in Frameworks */,
 				9208632927C52D35007D2FED /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -640,6 +644,7 @@
 				92DC149927B53E93004C531D /* HomeCollectionViewCells */,
 				92DC148F27B52F50004C531D /* HomeViewController.swift */,
 				92DC149027B52F50004C531D /* HomeViewController.xib */,
+				923E34E427DB1AB9005FB945 /* SideMenuPanel.swift */,
 			);
 			path = HomeViewController;
 			sourceTree = "<group>";
@@ -737,6 +742,7 @@
 			name = NeoStore;
 			packageProductDependencies = (
 				9208632827C52D35007D2FED /* SDWebImage */,
+				923E34E227DA329F005FB945 /* SideMenu */,
 			);
 			productName = NeoStore;
 			productReference = 92131AF027A817AF00E9A993 /* NeoStore.app */;
@@ -789,6 +795,7 @@
 			mainGroup = 92131AE727A817AF00E9A993;
 			packageReferences = (
 				9208632727C52D35007D2FED /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				923E34E127DA329F005FB945 /* XCRemoteSwiftPackageReference "SideMenu" */,
 			);
 			productRefGroup = 92131AF127A817AF00E9A993 /* Products */;
 			projectDirPath = "";
@@ -878,6 +885,7 @@
 				92DC149127B52F50004C531D /* HomeViewController.swift in Sources */,
 				92DC14B527BA539C004C531D /* MyAccountViewController.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,
+				923E34E527DB1AB9005FB945 /* SideMenuPanel.swift in Sources */,
 				923E34E027DA028B005FB945 /* UIViewcontroller+Extensions.swift in Sources */,
 				92DC14C627BD149E004C531D /* ImagePicker.swift in Sources */,
 				9208632F27C6544E007D2FED /* ProductDetailedViewController.swift in Sources */,
@@ -1187,6 +1195,14 @@
 				minimumVersion = 5.12.3;
 			};
 		};
+		923E34E127DA329F005FB945 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1199,6 +1215,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9208632727C52D35007D2FED /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		923E34E227DA329F005FB945 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 923E34E127DA329F005FB945 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -56,8 +56,6 @@ class TemporaryMenuBarViewController: UIViewController {
         let productListingViewController = ProductListingViewController(viewModel: produtListingViewModel)
         productListingViewController.productCategory = .tables
         self.navigationController?.pushViewController(productListingViewController, animated: appAnimation)
-        
-
     }
     
     @IBAction func clickedLogOutButton(_ sender: UIButton) {
