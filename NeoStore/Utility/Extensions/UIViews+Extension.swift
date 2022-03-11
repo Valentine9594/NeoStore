@@ -13,6 +13,48 @@ extension UINavigationController{
     }
 }
 
+func currentMenuItemsViewController(menuItem: MenuItems) -> UIViewController{
+    switch menuItem {
+        case .myCart:
+            let myCartViewModel = MyCartViewModel()
+            let viewController = MyCartTableViewController(viewModel: myCartViewModel)
+            return viewController
+        case .tables:
+            let produtListingViewModel = ProductListingViewModel()
+            let viewController = ProductListingViewController(viewModel: produtListingViewModel)
+            viewController.productCategory = .tables
+            return viewController
+        case .sofas:
+            let produtListingViewModel = ProductListingViewModel()
+            let viewController = ProductListingViewController(viewModel: produtListingViewModel)
+            viewController.productCategory = .sofas
+            return viewController
+        case .chairs:
+            let produtListingViewModel = ProductListingViewModel()
+            let viewController = ProductListingViewController(viewModel: produtListingViewModel)
+            viewController.productCategory = .chairs
+            return viewController
+        case .cupboards:
+            let produtListingViewModel = ProductListingViewModel()
+            let viewController = ProductListingViewController(viewModel: produtListingViewModel)
+            viewController.productCategory = .cupboards
+            return viewController
+        case .myAccount:
+            let myAccountViewModel = MyAccountUpdateViewModel()
+            let viewController = MyAccountViewController(viewModel: myAccountViewModel)
+            return viewController
+        case .myOrders:
+            let myOrdersViewModel = MyOrdersListViewModel()
+            let viewController = MyOrdersListTableViewController(viewModel: myOrdersViewModel)
+            return viewController
+        case .logout:
+            let loginViewModel = LoginViewModel()
+            let viewController = LoginScreenVC(viewModel: loginViewModel)
+            UserDefaults.standard.setIsLoggedIn(value: false)
+            return viewController
+    }
+}
+
 //extension UIView{
 //
 //    @nonobjc func dismissKeyboard(){

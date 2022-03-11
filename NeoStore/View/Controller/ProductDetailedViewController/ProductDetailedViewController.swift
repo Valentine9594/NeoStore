@@ -236,7 +236,8 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
             cell.productImageSeries.sd_setImage(with: imageURL, completed: nil)
         }
         if indexPath.row == 0{
-            cell.containerView.backgroundColor = .lightGray
+            cell.productImageSeries.layer.borderWidth = 2
+            cell.productImageSeries.layer.borderColor = UIColor.appGrey.cgColor
         }
         
         return cell
@@ -253,7 +254,8 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ProductImagesCollectionViewCell
-        cell.containerView.backgroundColor = .lightGray
+        cell.productImageSeries.layer.borderWidth = 2
+        cell.productImageSeries.layer.borderColor = UIColor.appGrey.cgColor
         if let imageURL = self.viewModel.getProductImageURLAtIndex(index: indexPath.row){
             self.productImage.sd_setImage(with: imageURL, completed: nil)
         }
@@ -261,7 +263,7 @@ extension ProductDetailedViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! ProductImagesCollectionViewCell
-        cell.containerView.backgroundColor = .white
+        cell.productImageSeries.layer.borderWidth = 0
     }
     
 }

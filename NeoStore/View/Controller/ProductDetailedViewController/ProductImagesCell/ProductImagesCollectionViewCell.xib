@@ -19,16 +19,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EpY-J3-j73">
                         <rect key="frame" x="0.0" y="0.0" width="335" height="146"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-wS-JG0">
-                                <rect key="frame" x="4" y="4" width="327" height="138"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="M8a-wS-JG0">
+                                <rect key="frame" x="0.0" y="0.0" width="335" height="146"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="M8a-wS-JG0" secondAttribute="trailing" constant="4" id="8TU-tD-ksg"/>
-                            <constraint firstItem="M8a-wS-JG0" firstAttribute="leading" secondItem="EpY-J3-j73" secondAttribute="leading" constant="4" id="CNP-6I-IaH"/>
-                            <constraint firstAttribute="bottom" secondItem="M8a-wS-JG0" secondAttribute="bottom" constant="4" id="FEG-Oy-sow"/>
-                            <constraint firstItem="M8a-wS-JG0" firstAttribute="top" secondItem="EpY-J3-j73" secondAttribute="top" constant="4" id="V6d-yj-0cm"/>
+                            <constraint firstAttribute="trailing" secondItem="M8a-wS-JG0" secondAttribute="trailing" id="8TU-tD-ksg"/>
+                            <constraint firstItem="M8a-wS-JG0" firstAttribute="leading" secondItem="EpY-J3-j73" secondAttribute="leading" id="CNP-6I-IaH"/>
+                            <constraint firstAttribute="bottom" secondItem="M8a-wS-JG0" secondAttribute="bottom" id="FEG-Oy-sow"/>
+                            <constraint firstItem="M8a-wS-JG0" firstAttribute="top" secondItem="EpY-J3-j73" secondAttribute="top" id="V6d-yj-0cm"/>
                         </constraints>
                     </view>
                 </subviews>

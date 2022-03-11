@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import SideMenu
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, SideMenuControllerDelegate {
+    func didSelectMenuItem(menuItem: MenuItems) {
+        dismiss(animated: appAnimation, completion: nil)
+        let currentMenuItemViewController = currentMenuItemsViewController(menuItem: menuItem)
+        self.navigationController?.pushViewController(currentMenuItemViewController, animated: appAnimation)
+    }
     
     @IBOutlet weak var slideShowCollectionView: UICollectionView!
     @IBOutlet weak var productsTypeCollectionView: UICollectionView!
     @IBOutlet weak var slideShowPageControl: UIPageControl!
     @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     var viewModel: HomeViewModelType!
+    private var sideMenu: SideMenuNavigationController?
     private var timer: Timer!
     private var currentCellIndex = 0
     
@@ -35,17 +42,17 @@ class HomeViewController: UIViewController {
         self.setupSlideShow()
         self.setupProductTypesDisplay()
         self.setupPageControl()
-        self.setupCustomNavigationBar()
-        debugPrint("Access Token: \(getDataFromUserDefaults(key: .accessToken) ?? "No Token")")
+//        self.setupCustomNavigationBar()
+        self.setupSideMenu()
+        self.setupNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(appAnimation)
 //            let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //            appdelegate.switchRootViewcontrollerToHome()
-        NotificationCenter.default.addObserver(self, selector: #selector(goToTemporaryMenuBar), name: .didClickMenuButton, object: nil)
-        self.navigationController?.isNavigationBarHidden = true
-        self.timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(slideToMenuBar), name: .didClickMenuButton, object: nil)
+        self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,48 +60,60 @@ class HomeViewController: UIViewController {
         self.timer.invalidate()
     }
     
-//    private func setupNavigationBar(){
-////        function to setup navigation bar
-//        let navigationBar = self.navigationController?.navigationBar
-//        navigationBar?.barTintColor = self.view.backgroundColor
-//        navigationBar?.tintColor = UIColor.white
-//        navigationBar?.isTranslucent = appAnimation
-//        navigationBar?.barStyle = .black
-//        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-//
-//        navigationItem.title = "Register"
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-//
-//    }
+    private func setupNavigationBar(){
+//        function to setup navigation bar
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.barTintColor = .appRed
+        navigationBar?.tintColor = UIColor.white
+        navigationBar?.isTranslucent = appAnimation
+        navigationBar?.barStyle = .black
+        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
+
+        navigationItem.title = "Home"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.menu.description), style: .plain, target: self, action: #selector(slideToMenuBar))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.search.description), style: .plain, target: self, action: nil)
+
+    }
+    
+    private func setupSideMenu(){
+        let menu = SideMenuController(with: MenuItems.allCases)
+        menu.delegate = self
+        self.sideMenu = SideMenuNavigationController(rootViewController: menu)
+        sideMenu?.leftSide = true
+        SideMenuManager.default.leftMenuNavigationController = sideMenu
+        SideMenuManager.default.addPanGestureToPresent(toView: view)
+    }
     
     @objc func popToPreviousViewController(){
         self.navigationController?.popViewController(animated: appAnimation)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .darkContent
+    @objc func slideToMenuBar(){
+        present(sideMenu!, animated: appAnimation)
     }
     
-    @objc func goToTemporaryMenuBar(){
-        let temporaryMenuBar = TemporaryMenuBarViewController()
-        navigationController?.pushViewController(temporaryMenuBar, animated: appAnimation)
-    }
+//    @objc func goToTemporaryMenuBar(){
+////        let temporaryMenuBar = TemporaryMenuBarViewController()
+////        navigationController?.pushViewController(temporaryMenuBar, animated: appAnimation)
+//
+//        present(sideMenu!, animated: appAnimation)
+//    }
     
-    private func setupCustomNavigationBar(){
-        DispatchQueue.main.async {
-//        setting status bar color
-//        self.view.backgroundColor = UIColor.appRed
-            
-        let navigationBarView = UINib(nibName: "CustomNavigationBar", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
-        navigationBarView.translatesAutoresizingMaskIntoConstraints = false
-        self.customNavigationBar.addSubview(navigationBarView)
-        
-        navigationBarView.topAnchor.constraint(equalTo: self.customNavigationBar.topAnchor).isActive = true
-        navigationBarView.leadingAnchor.constraint(equalTo: self.customNavigationBar.leadingAnchor).isActive = true
-        navigationBarView.trailingAnchor.constraint(equalTo: self.customNavigationBar.trailingAnchor).isActive = true
-        navigationBarView.bottomAnchor.constraint(equalTo: self.customNavigationBar.bottomAnchor).isActive = true
-        }
-    }
+//    private func setupCustomNavigationBar(){
+//        DispatchQueue.main.async {
+////        setting status bar color
+////        self.view.backgroundColor = UIColor.appRed
+//
+//        let navigationBarView = UINib(nibName: "CustomNavigationBar", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
+//        navigationBarView.translatesAutoresizingMaskIntoConstraints = false
+//        self.customNavigationBar.addSubview(navigationBarView)
+//
+//        navigationBarView.topAnchor.constraint(equalTo: self.customNavigationBar.topAnchor).isActive = true
+//        navigationBarView.leadingAnchor.constraint(equalTo: self.customNavigationBar.leadingAnchor).isActive = true
+//        navigationBarView.trailingAnchor.constraint(equalTo: self.customNavigationBar.trailingAnchor).isActive = true
+//        navigationBarView.bottomAnchor.constraint(equalTo: self.customNavigationBar.bottomAnchor).isActive = true
+//        }
+//    }
     
     @objc func slideToNext(){
 //        function to manage slideshow
