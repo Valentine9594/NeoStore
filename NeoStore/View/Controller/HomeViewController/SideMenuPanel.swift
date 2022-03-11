@@ -54,7 +54,10 @@ class SideMenuController: UITableViewController{
         let menuItem = menuItems[indexPath.row]
         let imageString = menuItemIconForItem(menuItem: menuItem)
         let menuName = menuItem.description
-        let badgeNumber = 0
+        var badgeNumber = 0
+        if menuItem == .myCart{
+            badgeNumber = 2
+        }
         cell.loadCell(menuImageString: imageString, menuName: menuName, menuBadgeNumber: badgeNumber)
         return cell
     }

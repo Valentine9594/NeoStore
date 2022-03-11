@@ -26,7 +26,7 @@ class OrderDetailTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+        super.viewWillAppear(animated)
         setupOrderDetailTableViewData()
         setupObservers()
     }

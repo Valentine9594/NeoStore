@@ -34,7 +34,7 @@ class MyAccountViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+        super.viewWillAppear(animated)
         self.resetViewController()
         self.fetchUserDetails()
         self.setupObservers()

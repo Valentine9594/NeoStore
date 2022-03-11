@@ -33,7 +33,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+        super.viewWillAppear(animated)
         setupObservers()
     }
     

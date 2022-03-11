@@ -27,7 +27,7 @@ class AddAddressViewController: UIViewController {
    }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+        super.viewWillAppear(animated)
     }
 
     init(viewModel: AddressViewModelType){

@@ -28,7 +28,7 @@ class BuyNowPopUpViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+        super.viewWillAppear(animated)
         setupProductDetailsInView()
         debugPrint("Access Token: \(String(describing: getDataFromUserDefaults(key: .accessToken)))")
     }

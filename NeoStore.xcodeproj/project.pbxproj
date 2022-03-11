@@ -104,8 +104,6 @@
 		92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14BE27BBC91C004C531D /* ResetPasswordViewModel.swift */; };
 		92DC14C127BBC93B004C531D /* MyAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */; };
 		92DC14C627BD149E004C531D /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14C527BD149E004C531D /* ImagePicker.swift */; };
-		92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14C727BE81CA004C531D /* TemporaryMenuBarViewController.swift */; };
-		92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14C827BE81CA004C531D /* TemporaryMenuBarViewController.xib */; };
 		92DC14CF27BF923B004C531D /* ProductListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14CD27BF923B004C531D /* ProductListingViewController.swift */; };
 		92DC14D027BF923B004C531D /* ProductListingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DC14CE27BF923B004C531D /* ProductListingViewController.xib */; };
 		92DC14D427BF93D6004C531D /* ProductListingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */; };
@@ -223,8 +221,6 @@
 		92DC14BE27BBC91C004C531D /* ResetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewModel.swift; sourceTree = "<group>"; };
 		92DC14C027BBC93B004C531D /* MyAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountViewModel.swift; sourceTree = "<group>"; };
 		92DC14C527BD149E004C531D /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		92DC14C727BE81CA004C531D /* TemporaryMenuBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryMenuBarViewController.swift; sourceTree = "<group>"; };
-		92DC14C827BE81CA004C531D /* TemporaryMenuBarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TemporaryMenuBarViewController.xib; sourceTree = "<group>"; };
 		92DC14CD27BF923B004C531D /* ProductListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingViewController.swift; sourceTree = "<group>"; };
 		92DC14CE27BF923B004C531D /* ProductListingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductListingViewController.xib; sourceTree = "<group>"; };
 		92DC14D227BF93D6004C531D /* ProductListingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListingTableViewCell.swift; sourceTree = "<group>"; };
@@ -508,7 +504,6 @@
 				9208634B27D07A7B007D2FED /* MyCartTableViewController */,
 				9208632C27C653E7007D2FED /* ProductDetailedViewController */,
 				92DC14CC27BF9209004C531D /* ProductListingViewController */,
-				92DC14CB27BE81D4004C531D /* TemporaryMenuBarViewController */,
 				92DC14B727BA7EDB004C531D /* ResetPasswordViewController */,
 				92DC14B227BA5348004C531D /* MyAccountViewController */,
 				92DC148E27B52EBB004C531D /* HomeViewController */,
@@ -712,15 +707,6 @@
 			path = ResetPasswordViewController;
 			sourceTree = "<group>";
 		};
-		92DC14CB27BE81D4004C531D /* TemporaryMenuBarViewController */ = {
-			isa = PBXGroup;
-			children = (
-				92DC14C727BE81CA004C531D /* TemporaryMenuBarViewController.swift */,
-				92DC14C827BE81CA004C531D /* TemporaryMenuBarViewController.xib */,
-			);
-			path = TemporaryMenuBarViewController;
-			sourceTree = "<group>";
-		};
 		92DC14CC27BF9209004C531D /* ProductListingViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -847,7 +833,6 @@
 				92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
 				9208636E27D1FDDD007D2FED /* TableViewFooterWithButton.xib in Resources */,
-				92DC14CA27BE81CA004C531D /* TemporaryMenuBarViewController.xib in Resources */,
 				9208634427CCB79C007D2FED /* BuyNowPopUpViewController.xib in Resources */,
 				9208638C27D627EC007D2FED /* OrderDetailTableViewController.xib in Resources */,
 				9208633027C6544E007D2FED /* ProductDetailedViewController.xib in Resources */,
@@ -890,7 +875,6 @@
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
 				923E34EC27DBA624005FB945 /* SideMenuUtility.swift in Sources */,
-				92DC14C927BE81CA004C531D /* TemporaryMenuBarViewController.swift in Sources */,
 				9208636C27D1FDCD007D2FED /* TableViewFooterWithButton.swift in Sources */,
 				9208639727D72568007D2FED /* AddAddressViewController.swift in Sources */,
 				92DC14BF27BBC91C004C531D /* ResetPasswordViewModel.swift in Sources */,

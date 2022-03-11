@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+        super.viewWillAppear(animated)
 //            let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //            appdelegate.switchRootViewcontrollerToHome()
         NotificationCenter.default.addObserver(self, selector: #selector(slideToMenuBar), name: .didClickMenuButton, object: nil)
@@ -56,6 +56,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .didClickMenuButton, object: nil)
         self.timer.invalidate()
     }
@@ -91,13 +92,6 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     @objc func slideToMenuBar(){
         present(sideMenu!, animated: appAnimation)
     }
-    
-//    @objc func goToTemporaryMenuBar(){
-////        let temporaryMenuBar = TemporaryMenuBarViewController()
-////        navigationController?.pushViewController(temporaryMenuBar, animated: appAnimation)
-//
-//        present(sideMenu!, animated: appAnimation)
-//    }
     
 //    private func setupCustomNavigationBar(){
 //        DispatchQueue.main.async {

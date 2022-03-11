@@ -23,7 +23,7 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(appAnimation)
+        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
 //            self.setupNavigationBar()
         self.setupObserver()
