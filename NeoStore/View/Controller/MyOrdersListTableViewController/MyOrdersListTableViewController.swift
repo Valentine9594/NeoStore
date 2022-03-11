@@ -52,6 +52,7 @@ class MyOrdersListTableViewController: UITableViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView(frame: .zero)
     }
     
     private func setupNavigationBar(){

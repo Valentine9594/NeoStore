@@ -192,4 +192,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
         super.didReceiveMemoryWarning()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: appAnimation)
+    }
 }

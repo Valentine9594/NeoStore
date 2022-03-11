@@ -62,6 +62,7 @@ class ProductListingViewController: UIViewController{
         
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
+        productListingTableview.tableFooterView = UIView(frame: .zero)
         
         DispatchQueue.main.async {
             self.productListingTableview.estimatedRowHeight = 110

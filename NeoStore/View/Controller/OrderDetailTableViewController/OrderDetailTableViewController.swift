@@ -63,6 +63,7 @@ class OrderDetailTableViewController: UITableViewController {
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.tableFooterView = UIView(frame: .zero)
         
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -118,6 +119,10 @@ class OrderDetailTableViewController: UITableViewController {
             return 66
         }
         return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: appAnimation)
     }
     
 }
