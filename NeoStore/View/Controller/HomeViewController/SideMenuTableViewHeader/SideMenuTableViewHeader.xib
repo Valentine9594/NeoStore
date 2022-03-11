@@ -15,13 +15,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SideMenuTableViewHeader" customModule="NeoStore" customModuleProvider="target">
-            <connections>
-                <outlet property="menuEmailLabel" destination="KI2-Ek-Jyp" id="HfE-5k-6WN"/>
-                <outlet property="menuProfileImageView" destination="hCf-zc-qf3" id="X1J-IE-R8h"/>
-                <outlet property="menuUsernameLabel" destination="4T3-vY-qdf" id="37z-pm-PzD"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SideMenuTableViewHeader" customModule="NeoStore" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="198"/>
@@ -48,6 +42,7 @@
                 </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" red="0.17254901960784313" green="0.16862745098039217" blue="0.16862745098039217" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KI2-Ek-Jyp" secondAttribute="bottom" constant="13" id="1xJ-zN-G70"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4T3-vY-qdf" secondAttribute="trailing" constant="18" id="4MS-wB-hva"/>
@@ -61,9 +56,11 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="menuEmailLabel" destination="KI2-Ek-Jyp" id="K6Y-0Z-rzl"/>
+                <outlet property="menuEmailLabel" destination="KI2-Ek-Jyp" id="7Zy-Ma-rJy"/>
+                <outlet property="menuProfileImageView" destination="hCf-zc-qf3" id="nmc-5k-sHU"/>
+                <outlet property="menuUsernameLabel" destination="4T3-vY-qdf" id="kVw-1f-5xX"/>
             </connections>
-            <point key="canvasLocation" x="3" y="43"/>
+            <point key="canvasLocation" x="2.8985507246376816" y="42.857142857142854"/>
         </view>
     </objects>
     <resources>

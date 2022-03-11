@@ -18,21 +18,23 @@ class SideMenuTableViewHeader: UITableViewHeaderFooterView {
     }
 
     func loadHeader(){
-        let userName = getDataFromUserDefaults(key: .username) ?? ""
-        let userEmail = getDataFromUserDefaults(key: .email) ?? ""
-        let userProfileImageString = getDataFromUserDefaults(key: .profilePicture)
-        
-        menuUsernameLabel.textAlignment = .center
-        menuEmailLabel.textAlignment = .center
-        menuUsernameLabel.text = userName
-        menuEmailLabel.text = userEmail
-        
-        let radius = menuProfileImageView.frame.size.width/2
-        menuProfileImageView.layer.cornerRadius = radius
-        menuProfileImageView.clipsToBounds = true
-        
-        if let userProfileImageStringNotNil = userProfileImageString, let imageURL = URL(string: userProfileImageStringNotNil){
-            menuProfileImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: MenuItemIcons.myAccount.description))
+        DispatchQueue.main.async {
+            let userName = getDataFromUserDefaults(key: .username) ?? ""
+            let userEmail = getDataFromUserDefaults(key: .email) ?? ""
+            let userProfileImageString = getDataFromUserDefaults(key: .profilePicture)
+            
+            self.menuUsernameLabel.textAlignment = .center
+            self.menuEmailLabel.textAlignment = .center
+            self.menuUsernameLabel.text = userName
+            self.menuEmailLabel.text = userEmail
+            
+            let radius = self.menuProfileImageView.frame.size.width/2
+            self.menuProfileImageView.layer.cornerRadius = radius
+            self.menuProfileImageView.clipsToBounds = true
+            
+            if let userProfileImageStringNotNil = userProfileImageString, let imageURL = URL(string: userProfileImageStringNotNil){
+                self.menuProfileImageView.sd_setImage(with: imageURL, placeholderImage: UIImage(named: MenuItemIcons.myAccount.description))
+            }
         }
 
     }

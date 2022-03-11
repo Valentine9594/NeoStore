@@ -40,6 +40,10 @@ class SideMenuController: UITableViewController{
         self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
         let menuCellNib = UINib(nibName: "SideMenuTableViewCell", bundle: nil)
         tableView.register(menuCellNib, forCellReuseIdentifier: "MenuCell")
+        
+        let menuHeaderNib = UINib(nibName: "SideMenuTableViewHeader", bundle: nil)
+        tableView.register(menuHeaderNib, forHeaderFooterViewReuseIdentifier: "MenuHeader")
+        
         tableView.alwaysBounceVertical = false
         tableView.backgroundColor = menuPanelColor
         view.backgroundColor = menuPanelColor
@@ -71,5 +75,14 @@ class SideMenuController: UITableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
     }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MenuHeader") as! SideMenuTableViewHeader
+        headerView.loadHeader()
+        return headerView
+    }
     
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 198
+    }
 }

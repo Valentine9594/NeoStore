@@ -65,6 +65,8 @@
 		923E34E927DBA0EA005FB945 /* SideMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34E727DBA0EA005FB945 /* SideMenuTableViewCell.swift */; };
 		923E34EA27DBA0EA005FB945 /* SideMenuTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923E34E827DBA0EA005FB945 /* SideMenuTableViewCell.xib */; };
 		923E34EC27DBA624005FB945 /* SideMenuUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34EB27DBA624005FB945 /* SideMenuUtility.swift */; };
+		923E34EF27DBB443005FB945 /* SideMenuTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34EE27DBB443005FB945 /* SideMenuTableViewHeader.swift */; };
+		923E34F127DBB458005FB945 /* SideMenuTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */; };
 		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
 		92DC143F27AA68B5004C531D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143E27AA68B5004C531D /* ProductService.swift */; };
 		92DC144127AA6C4E004C531D /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144027AA6C4E004C531D /* UserModels.swift */; };
@@ -180,6 +182,8 @@
 		923E34E727DBA0EA005FB945 /* SideMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewCell.swift; sourceTree = "<group>"; };
 		923E34E827DBA0EA005FB945 /* SideMenuTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewCell.xib; sourceTree = "<group>"; };
 		923E34EB27DBA624005FB945 /* SideMenuUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUtility.swift; sourceTree = "<group>"; };
+		923E34EE27DBB443005FB945 /* SideMenuTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewHeader.swift; sourceTree = "<group>"; };
+		923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewHeader.xib; sourceTree = "<group>"; };
 		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92DC143E27AA68B5004C531D /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		92DC144027AA6C4E004C531D /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
@@ -552,6 +556,15 @@
 			path = SideMenuTableViewCell;
 			sourceTree = "<group>";
 		};
+		923E34ED27DBB1DE005FB945 /* SideMenuTableViewHeader */ = {
+			isa = PBXGroup;
+			children = (
+				923E34EE27DBB443005FB945 /* SideMenuTableViewHeader.swift */,
+				923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */,
+			);
+			path = SideMenuTableViewHeader;
+			sourceTree = "<group>";
+		};
 		92DC143A27AA6664004C531D /* APIs */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,6 +662,7 @@
 		92DC148E27B52EBB004C531D /* HomeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				923E34ED27DBB1DE005FB945 /* SideMenuTableViewHeader */,
 				923E34E627DBA0D1005FB945 /* SideMenuTableViewCell */,
 				92DC14A527BA25DF004C531D /* HomeViewControllerNavigationBar */,
 				92DC14A027B67CCD004C531D /* HomeProductsTypeDisplayCollectionViewCells */,
@@ -830,6 +844,7 @@
 				923E34EA27DBA0EA005FB945 /* SideMenuTableViewCell.xib in Resources */,
 				9208637827D5D606007D2FED /* MyOrdersListTableViewController.xib in Resources */,
 				92131B0027A817B100E9A993 /* Assets.xcassets in Resources */,
+				923E34F127DBB458005FB945 /* SideMenuTableViewHeader.xib in Resources */,
 				92DC14B127BA2CCA004C531D /* CustomNavigationBar.xib in Resources */,
 				92DC146827AD028C004C531D /* RegisterViewController.xib in Resources */,
 				9208636E27D1FDDD007D2FED /* TableViewFooterWithButton.xib in Resources */,
@@ -874,6 +889,7 @@
 				9208633F27C915C1007D2FED /* RateNowPopUpViewcontroller.swift in Sources */,
 				92131B1C27A912C600E9A993 /* APIServices.swift in Sources */,
 				92DC148D27B3F15C004C531D /* ForgotPasswordViewModel.swift in Sources */,
+				923E34EF27DBB443005FB945 /* SideMenuTableViewHeader.swift in Sources */,
 				923E34EC27DBA624005FB945 /* SideMenuUtility.swift in Sources */,
 				9208636C27D1FDCD007D2FED /* TableViewFooterWithButton.swift in Sources */,
 				9208639727D72568007D2FED /* AddAddressViewController.swift in Sources */,
