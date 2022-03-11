@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GothamBook.otf">
+            <string>HomepageBaukasten-Book</string>
+        </array>
+        <array key="GothamMedium.ttf">
+            <string>iCielGotham-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" id="KGk-i7-Jjw" customClass="SideMenuTableViewCell" customModule="NeoStore" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W7X-Jm-3dd">
+                        <rect key="frame" x="18" y="14" width="28" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="28" id="9CZ-V9-2qa"/>
+                            <constraint firstAttribute="height" constant="28" id="njS-wx-FtY"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Menu Item" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kdU-7q-DZW">
+                        <rect key="frame" x="64" y="20" width="286" height="16"/>
+                        <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gMv-gY-YQf">
+                        <rect key="frame" x="368" y="14" width="28" height="28"/>
+                        <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="gMv-gY-YQf" secondAttribute="height" multiplier="1:1" id="AEk-xx-EmL"/>
+                            <constraint firstAttribute="width" constant="28" id="AXy-uj-O2B"/>
+                            <constraint firstAttribute="height" constant="28" id="g1Z-GL-0SM"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HomepageBaukasten-Book" family="HomepageBaukasten" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.17254901960784313" green="0.16862745098039217" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <constraints>
+                    <constraint firstItem="kdU-7q-DZW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="72f-bz-21H"/>
+                    <constraint firstItem="W7X-Jm-3dd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="90l-Sh-QUK"/>
+                    <constraint firstItem="kdU-7q-DZW" firstAttribute="leading" secondItem="W7X-Jm-3dd" secondAttribute="trailing" constant="18" id="Ch0-Ro-6kR"/>
+                    <constraint firstItem="gMv-gY-YQf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Dwh-g7-nYN"/>
+                    <constraint firstItem="gMv-gY-YQf" firstAttribute="leading" secondItem="kdU-7q-DZW" secondAttribute="trailing" constant="18" id="qJy-2u-kLt"/>
+                    <constraint firstAttribute="trailing" secondItem="gMv-gY-YQf" secondAttribute="trailing" constant="18" id="vws-kE-q7p"/>
+                    <constraint firstItem="W7X-Jm-3dd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xKU-zp-Sla"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="menuBadge" destination="gMv-gY-YQf" id="XIO-FN-6g7"/>
+                <outlet property="menuImageView" destination="W7X-Jm-3dd" id="wDs-gQ-dbA"/>
+                <outlet property="menuLabel" destination="kdU-7q-DZW" id="PXA-3L-BzS"/>
+            </connections>
+            <point key="canvasLocation" x="3" y="43"/>
+        </tableViewCell>
+    </objects>
+</document>

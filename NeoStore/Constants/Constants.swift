@@ -42,22 +42,6 @@ enum TotalViewControllers: String{
     }
 }
 
-enum MenuItems: String, CaseIterable{
-    case myCart = "My Cart"
-    case tables = "Tables"
-    case sofas = "Sofas"
-    case chairs = "Chairs"
-    case cupboards = "Cupboards"
-    case myAccount = "My Account"
-//    case storeLocator = "Store Locator"
-    case myOrders = "My Orders"
-    case logout = "Logout"
-    
-    var description: String{
-        rawValue
-    }
-}
-
 //all icons name from assets
 enum textFieldIcons: String{
     case usernameIcon = "username_icon"

@@ -38,7 +38,8 @@ class SideMenuController: UITableViewController{
 
     private func setupMenuTableviewController(){
         self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
+        let menuCellNib = UINib(nibName: "SideMenuTableViewCell", bundle: nil)
+        tableView.register(menuCellNib, forCellReuseIdentifier: "MenuCell")
         tableView.alwaysBounceVertical = false
         tableView.backgroundColor = menuPanelColor
         view.backgroundColor = menuPanelColor
@@ -49,11 +50,12 @@ class SideMenuController: UITableViewController{
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath)
-        cell.textLabel?.text = menuItems[indexPath.row].description
-        cell.textLabel?.textColor = .white
-        cell.backgroundColor = menuPanelColor
-        cell.contentView.backgroundColor = menuPanelColor
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! SideMenuTableViewCell
+        let menuItem = menuItems[indexPath.row]
+        let imageString = menuItemIconForItem(menuItem: menuItem)
+        let menuName = menuItem.description
+        let badgeNumber = 0
+        cell.loadCell(menuImageString: imageString, menuName: menuName, menuBadgeNumber: badgeNumber)
         return cell
     }
     
@@ -61,6 +63,10 @@ class SideMenuController: UITableViewController{
         tableView.deselectRow(at: indexPath, animated: appAnimation)
         let menuItem = menuItems[indexPath.row]
         self.delegate?.didSelectMenuItem(menuItem: menuItem)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 56
     }
     
 }
