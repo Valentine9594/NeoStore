@@ -21,14 +21,13 @@ class ProductListingViewController: UIViewController{
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setupNavigationBar()
+        self.setupNavigationBarWithTitle()
         self.setupProductListingTableView()
         self.setupFetchingProductList()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
         self.setupLoadTableViewData()
     }
     
@@ -70,23 +69,10 @@ class ProductListingViewController: UIViewController{
         }
 
     }
-
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = UIColor.appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        let title = getCurrentProductName(productCategoryId: self.productCategory.id)
-        navigationItem.title = title
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-    }
     
-    @objc func popToPreviousViewController() -> Void{
-        self.navigationController?.popViewController(animated: appAnimation)
+    private func setupNavigationBarWithTitle(){
+        let title = getCurrentProductName(productCategoryId: self.productCategory.id)
+        self.setupNavigationBar(title: title, currentViewController: .ProductListingViewController, operation: nil)
     }
     
     private func getCurrentProductName(productCategoryId: Int) -> String{

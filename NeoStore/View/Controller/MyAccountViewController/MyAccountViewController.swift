@@ -30,7 +30,7 @@ class MyAccountViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.setupNotificationsAndGestures()
         self.setupUI()
-        self.setupNavigationBar()
+        self.setupNavigationBar(title: "My Account", currentViewController: .MyAccountViewController, operation: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,7 +160,7 @@ class MyAccountViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         //        gesture to close keyboard on cliking anywhere
-        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
         
         let profileImageTap = UITapGestureRecognizer(target: self, action: #selector(clickedProfileImageView))
@@ -170,12 +170,6 @@ class MyAccountViewController: UIViewController {
     
     @objc func clickedProfileImageView(){
         self.imagePicker.present(from: self.scrollView)
-    }
-    
-    @objc func dismissKeyboard(){
-//        function to close keyboard if clicked anywhere
-        self.view.endEditing(true)
-        self.view.resignFirstResponder()
     }
 
     @objc func keyboardShow(notification: Notification){
@@ -292,25 +286,6 @@ class MyAccountViewController: UIViewController {
         let resetPasswordViewModel = ResetPasswordViewModel()
         let resetPasswordViewController = ResetPasswordViewController(viewModel: resetPasswordViewModel)
         navigationController?.pushViewController(resetPasswordViewController, animated: appAnimation)
-    }
-    
-    
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        self.navigationController?.isNavigationBarHidden = false
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = UIColor.appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "My Account"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-    }
-    
-    @objc func popToPreviousViewController() -> Void{
-        self.navigationController?.popViewController(animated: appAnimation)
     }
     
     func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){

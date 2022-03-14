@@ -13,7 +13,7 @@ class MyOrdersListTableViewController: UITableViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupNavigationBar()
+        self.setupNavigationBar(title: "My Orders", currentViewController: .MyOrdersListTableViewController, operation: nil)
         self.setupOrderListTableView()
         self.setupOrderListsTableViewData()
     }
@@ -53,25 +53,6 @@ class MyOrdersListTableViewController: UITableViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.tableFooterView = UIView(frame: .zero)
-    }
-    
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        self.navigationController?.isNavigationBarHidden = false
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = .appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "My Orders"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-        
-    }
-    
-    @objc func popToPreviousViewController(){
-        self.navigationController?.popViewController(animated: appAnimation)
     }
 
     // MARK: - Table view data source

@@ -22,7 +22,7 @@ class OrderDetailTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupOrderDetailTableView()
-        setupNavigationBar()
+        setupNavigationBar(title: "Order ID: \(orderId ?? 0)", currentViewController: .OrderDetailTableViewController, operation: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,25 +67,6 @@ class OrderDetailTableViewController: UITableViewController {
         
         self.tableView.estimatedRowHeight = 100
         self.tableView.rowHeight = UITableView.automaticDimension
-    }
-
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        self.navigationController?.isNavigationBarHidden = false
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = .appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "Order ID: \(orderId ?? 0)"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-        
-    }
-    
-    @objc func popToPreviousViewController(){
-        self.navigationController?.popViewController(animated: appAnimation)
     }
     
     // MARK: - Table view data source

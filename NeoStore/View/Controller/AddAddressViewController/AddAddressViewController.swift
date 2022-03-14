@@ -23,7 +23,7 @@ class AddAddressViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupUIandNotificationsAndGestures()
-        setupNavigationBar()
+        setupNavigationBar(title: "Add Address", currentViewController: .AddAddressViewController, operation: nil)
    }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,26 +48,8 @@ class AddAddressViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
     //        gesture to close keyboard on cliking anywhere
-        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
-    }
-    
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        self.navigationController?.isNavigationBarHidden = false
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = .appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "My Orders"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-    }
-    
-    @objc func popToPreviousViewController(){
-        self.navigationController?.popViewController(animated: appAnimation)
     }
     
     @IBAction func clickedSaveAddress(_ sender: UIButton) {
@@ -96,12 +78,6 @@ class AddAddressViewController: UIViewController {
     @objc func keyboardHide(){
         self.scrollView.contentInset.bottom = .zero
         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
-    }
-    
-    @objc func dismissKeyboard(){
-//        function to close keyboard if clicked anywhere
-        self.view.endEditing(true)
-        self.view.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {

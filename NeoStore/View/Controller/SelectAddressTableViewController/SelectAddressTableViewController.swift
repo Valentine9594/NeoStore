@@ -34,7 +34,7 @@ class SelectAddressTableViewController: UITableViewController, ClickedTableviewC
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        setupNavigationBar()
+        setupNavigationBar(title: "Address List", currentViewController: .SelectAddressTableViewController, operation: #selector(clickedAddAddress))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -88,26 +88,6 @@ class SelectAddressTableViewController: UITableViewController, ClickedTableviewC
         self.tableView.register(footerNib, forHeaderFooterViewReuseIdentifier: SelectAddressTableViewCells.footerCellReuseIdenitfier.rawValue)
 //        self.tableView.estimatedRowHeight = 100
 //        self.tableView.rowHeight = UITableView.automaticDimension
-    }
-
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        self.navigationController?.isNavigationBarHidden = false
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = .appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "Address List"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(clickedAddAddress))
-    }
-    
-    @objc func popToPreviousViewController(){
-        self.navigationController?.popViewController(animated: appAnimation)
     }
     
     @objc func clickedAddAddress(){

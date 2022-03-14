@@ -26,7 +26,7 @@ class LoginScreenVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: appAnimation)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.setupObserver()
     }
     
@@ -91,10 +91,8 @@ class LoginScreenVC: UIViewController {
 
     }
     
-    @objc func dismissKeyboard(){
-//        function to close keyboard if clicked anywhere
-        self.view.endEditing(true)
-        self.view.resignFirstResponder()
+    override func dismissKeyboard(){
+        super.dismissKeyboard()
         self.scrollView.isScrollEnabled = false
     }
     
@@ -134,7 +132,7 @@ class LoginScreenVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         //        gesture to close keyboard on cliking anywhere
-        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
         
 //        gesture on clicking plus icon for registering

@@ -18,7 +18,6 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     @IBOutlet weak var slideShowCollectionView: UICollectionView!
     @IBOutlet weak var productsTypeCollectionView: UICollectionView!
     @IBOutlet weak var slideShowPageControl: UIPageControl!
-    @IBOutlet weak var customNavigationBar: CustomNavigationBar!
     var viewModel: HomeViewModelType!
     private var sideMenu: SideMenuNavigationController?
     private var timer: Timer!
@@ -44,11 +43,12 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
         self.setupPageControl()
 //        self.setupCustomNavigationBar()
         self.setupSideMenu()
-        self.setupNavigationBar()
+        self.setupNavigationBar(title: "NeoSTORE", currentViewController: .HomeViewController, operation: #selector(slideToMenuBar))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        appAnimation = animated
 //            let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //            appdelegate.switchRootViewcontrollerToHome()
         NotificationCenter.default.addObserver(self, selector: #selector(slideToMenuBar), name: .didClickMenuButton, object: nil)
@@ -61,21 +61,6 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
         self.timer.invalidate()
     }
     
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = .appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-
-        navigationItem.title = "NeoSTORE"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.menu.description), style: .plain, target: self, action: #selector(slideToMenuBar))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.search.description), style: .plain, target: self, action: nil)
-
-    }
-    
     private func setupSideMenu(){
         let menu = SideMenuController(with: MenuItems.allCases)
         menu.delegate = self
@@ -85,29 +70,9 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
         SideMenuManager.default.addPanGestureToPresent(toView: view)
     }
     
-    @objc func popToPreviousViewController(){
-        self.navigationController?.popViewController(animated: appAnimation)
-    }
-    
     @objc func slideToMenuBar(){
         present(sideMenu!, animated: appAnimation)
     }
-    
-//    private func setupCustomNavigationBar(){
-//        DispatchQueue.main.async {
-////        setting status bar color
-////        self.view.backgroundColor = UIColor.appRed
-//
-//        let navigationBarView = UINib(nibName: "CustomNavigationBar", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! UIView
-//        navigationBarView.translatesAutoresizingMaskIntoConstraints = false
-//        self.customNavigationBar.addSubview(navigationBarView)
-//
-//        navigationBarView.topAnchor.constraint(equalTo: self.customNavigationBar.topAnchor).isActive = true
-//        navigationBarView.leadingAnchor.constraint(equalTo: self.customNavigationBar.leadingAnchor).isActive = true
-//        navigationBarView.trailingAnchor.constraint(equalTo: self.customNavigationBar.trailingAnchor).isActive = true
-//        navigationBarView.bottomAnchor.constraint(equalTo: self.customNavigationBar.bottomAnchor).isActive = true
-//        }
-//    }
     
     @objc func slideToNext(){
 //        function to manage slideshow

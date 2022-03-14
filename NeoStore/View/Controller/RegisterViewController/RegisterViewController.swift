@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.setupUI()
         self.setupNotificationsAndGestures()
-        self.setupNavigationBar()
+        self.setupNavigationBar(title: "Register", currentViewController: .RegisterViewController, operation: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,7 +95,7 @@ class RegisterViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         //        gesture to close keyboard on cliking anywhere
-        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
     }
     
@@ -169,12 +169,6 @@ class RegisterViewController: UIViewController {
         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
     }
     
-    @objc func dismissKeyboard(){
-//        function to close keyboard if clicked anywhere
-        self.view.endEditing(true)
-        self.view.resignFirstResponder()
-    }
-    
     private func setupUI(){
         self.view.backgroundColor  = UIColor.appRed
         
@@ -198,23 +192,4 @@ class RegisterViewController: UIViewController {
 //        registerButton.isEnabled = false
         
     }
-    
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = self.view.backgroundColor
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "Register"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-        
-    }
-    
-    @objc func popToPreviousViewController(){
-        self.navigationController?.popViewController(animated: appAnimation)
-    }
-
 }

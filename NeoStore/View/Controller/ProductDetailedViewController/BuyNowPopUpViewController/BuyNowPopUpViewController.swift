@@ -81,7 +81,7 @@ class BuyNowPopUpViewController: UIViewController {
         //        setting up notification for keyboard hiding
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        let dismissKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let dismissKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.containerView.addGestureRecognizer(dismissKeyboardTap)
         
         //        gesture to close keyboard on cliking anywhere
@@ -131,10 +131,8 @@ class BuyNowPopUpViewController: UIViewController {
         self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset
     }
     
-    @objc func dismissKeyboard(){
-//        function to close keyboard if clicked anywhere
-        self.view.endEditing(true)
-        self.view.resignFirstResponder()
+    override func dismissKeyboard(){
+        super.dismissKeyboard()
         containerViewTopConstraint.constant += 70
         isViewAlreadyShifted = false
     }

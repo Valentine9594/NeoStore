@@ -16,7 +16,7 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         DispatchQueue.main.async {
-            self.setupNavigationBar()
+            self.setupNavigationBar(title: "Forgot Password", currentViewController: .ForgotPasswordViewController, operation: nil)
             self.setupUI()
             self.setupNotificationsAndGestures()
         }
@@ -78,15 +78,8 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     private func setupNotificationsAndGestures(){
-        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        let dismissInputTap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(dismissInputTap)
-        
-    }
-    
-    @objc func dismissKeyboard(){
-//        function to close keyboard if clicked anywhere
-        self.view.endEditing(true)
-        self.view.resignFirstResponder()
     }
 
     @IBAction func sendButtonAction(_ sender: UIButton) {
@@ -100,23 +93,5 @@ class ForgotPasswordViewController: UIViewController {
         }
 
     }
-    
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = UIColor.appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "Forgot Password"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-    }
-    
-    @objc func popToPreviousViewController() -> Void{
-        self.navigationController?.popViewController(animated: appAnimation)
-    }
-
     
 }

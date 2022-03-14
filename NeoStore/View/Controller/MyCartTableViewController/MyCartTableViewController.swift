@@ -24,7 +24,7 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMyCartTableView()
-        setupNavigationBar()
+        setupNavigationBar(title: "My Cart", currentViewController: .MyCartTableViewController, operation: nil)
         setupMyCartTableViewData()
     }
     
@@ -85,25 +85,6 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
         self.tableView.delegate = self
         self.tableView.dataSource = self
         }
-
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        self.navigationController?.isNavigationBarHidden = false
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = .appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.title = "My Cart"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-        
-    }
-    
-    @objc func popToPreviousViewController(){
-        self.navigationController?.popViewController(animated: appAnimation)
-    }
     
     func didTapDropdown(productId: Int, indexPath: IndexPath){
         let alert = UIAlertController(title: "Quantity", message: "\n\n\n\n\n\n\n", preferredStyle: .alert)

@@ -8,7 +8,6 @@
 import UIKit
 
 extension UIViewController{
-    
     @nonobjc func callAlert(alertTitle: String, alertMessage: String?){
         DispatchQueue.main.async {
             let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
@@ -33,4 +32,43 @@ extension UIViewController{
         messageLabel.centerYAnchor.constraint(equalTo: sampleView.centerYAnchor).isActive = true
         return sampleView
     }
+    
+    @nonobjc func setupNavigationBar(title: String, currentViewController: TotalViewControllers, operation:Selector?){
+//        function to setup navigation bar
+        let navigationBar = self.navigationController?.navigationBar
+        navigationBar?.barTintColor = .appRed
+        navigationBar?.tintColor = UIColor.white
+        navigationBar?.isTranslucent = appAnimation
+        navigationBar?.barStyle = .black
+        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
+        
+        navigationItem.title = title
+        
+        switch currentViewController {
+            case .HomeViewController:
+                navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.menu.description), style: .plain, target: self, action: operation)
+            default:
+                navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
+        }
+
+        switch currentViewController {
+            case .HomeViewController, .MyAccountViewController, .ProductListingViewController, .ProductDetailedViewController, .MyCartTableViewController, .AddAddressViewController, .MyOrdersListTableViewController, .OrderDetailTableViewController:
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.search.description), style: .plain, target: self, action: nil)
+            case .SelectAddressTableViewController:
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: operation)
+            default:
+                break
+        }
+    }
+    
+    @objc func popToPreviousViewController(){
+        self.navigationController?.popViewController(animated: appAnimation)
+    }
+    
+    @objc func dismissKeyboard(){
+//        function to close keyboard if clicked anywhere
+        self.view.endEditing(true)
+        self.view.resignFirstResponder()
+    }
+    
 }

@@ -45,7 +45,7 @@ class ProductDetailedViewController: UIViewController{
 
         // Do any additional setup after loading the view.
         setupUI()
-        setupNavigationBar()
+        setupNavigationBar(title: "", currentViewController: .ProductDetailedViewController, operation: nil)
         setupProductImagesCollection()
 //        self.productRatingViewModel = ProductRatingViewModel()
     }
@@ -129,18 +129,6 @@ class ProductDetailedViewController: UIViewController{
         self.productImagesCollectionView.dataSource = self
         self.productImagesCollectionView.isMultipleTouchEnabled = false
     }
-
-    private func setupNavigationBar(){
-//        function to setup navigation bar
-        let navigationBar = self.navigationController?.navigationBar
-        navigationBar?.barTintColor = UIColor.appRed
-        navigationBar?.tintColor = UIColor.white
-        navigationBar?.isTranslucent = appAnimation
-        navigationBar?.barStyle = .black
-        navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
-    }
     
     private func setupProductRating(productRatings: Int){
         guard let starChecked = UIImage(named: AppIcons.starChecked.description) else{ return }
@@ -197,10 +185,6 @@ class ProductDetailedViewController: UIViewController{
             rateNowPopUp.productDetails = self.productDetails
             self.present(rateNowPopUp, animated: appAnimation, completion: nil)
         }
-    }
-    
-    @objc func popToPreviousViewController() -> Void{
-        self.navigationController?.popViewController(animated: appAnimation)
     }
     
     override func didReceiveMemoryWarning() {
