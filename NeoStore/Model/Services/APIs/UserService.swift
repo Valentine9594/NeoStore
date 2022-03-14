@@ -9,7 +9,7 @@ import Foundation
 
 class UserService{
     
-    static func userLogIn(username: String, password: String, completion: @escaping(APIResponse<Any>)->Void){
+    static func userLogIn(username: String, password: String, completion: @escaping(APIResponse<jsonDataResponse<userResponse>>)->Void){
         
         let params = ["email": username, "password": password]
         
@@ -18,10 +18,8 @@ class UserService{
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        let responseData = jsonParser(jsonData: content)
-//                        guard let jsonData = JsonParser.processResponse(result: content, type: jsonDataResponse.self) else{ return }
-//                        debugPrint(jsonData)
-//                        let responseData: APIResponse<Any> = .success(value: jsonData)
+//                        let responseData = jsonParser(jsonData: content)
+                        let responseData: APIResponse<jsonDataResponse<userResponse>> = jsonProductDecoder(jsonData: content)
                         completion(responseData)
                     }
                     else{
@@ -35,7 +33,7 @@ class UserService{
         }
     }
     
-    static func userRegistration(userDetails: userDetails, completion: @escaping(APIResponse<Any>)->Void){
+    static func userRegistration(userDetails: userDetails, completion: @escaping(APIResponse<jsonDataResponse<userResponse>>)->Void){
         
         let params = ["first_name": userDetails.firstname, "last_name": userDetails.lastname, "email": userDetails.email, "password": userDetails.password, "confirm_password": userDetails.confirmPassword, "gender": userDetails.gender, "phone_no": userDetails.phoneNumber] as AnyDict
         
@@ -44,8 +42,9 @@ class UserService{
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        let responseData = jsonParser(jsonData: content)
-                        completion(responseData)
+//                        let responseData = jsonParser(jsonData: content)
+                        let responseDecoded: APIResponse<jsonDataResponse<userResponse>> = jsonProductDecoder(jsonData: content)
+                        completion(responseDecoded)
                     }
                     else{
                         print(CustomErrors.ResponseDataNil.localizedDescription)

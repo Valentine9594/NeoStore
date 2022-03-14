@@ -26,10 +26,10 @@ struct userAccountDetails{
     let phoneNo: String
 }
 
-struct jsonDataResponse{
+struct jsonDataResponse<T: Decodable>{
 //    JSON data response format
     let status: Int?
-    let data: userResponse?
+    let data: T?
     let message: String?
     let userMessage: String?
     
@@ -50,7 +50,7 @@ struct userResponse{
 //    var username: String{ return self.firstname + " " + self.lastname }
     let username: String?
     let gender: String?
-    let phoneNo: Int?
+    let phoneNo: String?
     let isActive: Bool?
     let created: Date?
     let modified: Date?
@@ -76,27 +76,9 @@ extension jsonDataResponse: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         status = try codingKeysValue.decode(Int.self, forKey: .status)
-        data = try codingKeysValue.decode(userResponse.self, forKey: .data)
+        data = try codingKeysValue.decode(T.self, forKey: .data)
         message = try codingKeysValue.decode(String.self, forKey: .message)
         userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
-    }
-}
-
-extension userResponse: Encodable{
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: codingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(roleId, forKey: .roleId)
-        try container.encode(firstname, forKey: .firstname)
-        try container.encode(lastname, forKey: .lastname)
-        try container.encode(email, forKey: .email)
-        try container.encode(username, forKey: .username)
-        try container.encode(gender, forKey: .gender)
-        try container.encode(phoneNo, forKey: .phoneNo)
-        try container.encode(isActive, forKey: .isActive)
-        try container.encode(created, forKey: .created)
-        try container.encode(modified, forKey: .modified)
-        try container.encode(accessToken, forKey: .accessToken)
     }
 }
 
@@ -110,7 +92,7 @@ extension userResponse: Decodable{
         email = try codingKeysValue.decode(String.self, forKey: .email)
         username = try codingKeysValue.decode(String.self, forKey: .username)
         gender = try codingKeysValue.decode(String.self, forKey: .gender)
-        phoneNo = try codingKeysValue.decode(Int.self, forKey: .phoneNo)
+        phoneNo = try codingKeysValue.decode(String.self, forKey: .phoneNo)
         isActive = try codingKeysValue.decode(Bool.self, forKey: .isActive)
         created = try codingKeysValue.decode(Date.self, forKey: .created)
         modified = try codingKeysValue.decode(Date.self, forKey: .modified)
