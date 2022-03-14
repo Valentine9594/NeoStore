@@ -25,9 +25,9 @@ extension OrderListResponse: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         status = try codingKeysValue.decode(Int.self, forKey: .status)
-        data = try codingKeysValue.decode([OrderListData].self, forKey: .data)
-        message = try codingKeysValue.decode(String.self, forKey: .message)
-        userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
+        data = try codingKeysValue.decode([OrderListData]?.self, forKey: .data)
+        message = try codingKeysValue.decodeIfPresent(String.self, forKey: .message)
+        userMessage = try codingKeysValue.decodeIfPresent(String.self, forKey: .userMessage)
     }
 }
 

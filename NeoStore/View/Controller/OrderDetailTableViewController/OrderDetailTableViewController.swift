@@ -97,7 +97,10 @@ class OrderDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.viewModel.getNumberOfProductsInOrder() + 1
+        if self.viewModel.getNumberOfProductsInOrder() > 0{
+            return self.viewModel.getNumberOfProductsInOrder() + 1
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -124,5 +127,4 @@ class OrderDetailTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: appAnimation)
     }
-    
 }

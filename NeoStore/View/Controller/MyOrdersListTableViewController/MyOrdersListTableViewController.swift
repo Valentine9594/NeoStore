@@ -104,6 +104,18 @@ class MyOrdersListTableViewController: UITableViewController {
         orderDetailsTableViewController.orderId = orderId
         self.navigationController?.pushViewController(orderDetailsTableViewController, animated: appAnimation)
     }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if self.viewModel.getNumberOfOrdersInList() == 0{
+            let footerView = self.messageLabelInViewWithText(text: "You have not placed any order yet!")
+            return footerView
+        }
+        return UIView(frame: .zero)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 80
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
