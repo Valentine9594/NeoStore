@@ -40,12 +40,16 @@ struct CartListResponse{
     let data: [CartListProductData]?
     let count: Int?
     let total: Int?
+    let message: String?
+    let userMessage: String?
     
     enum codingKeys: String, CodingKey{
         case status = "status"
         case data = "data"
         case count = "count"
         case total = "total"
+        case message = "message"
+        case userMessage = "user_msg"
     }
 }
 
@@ -53,9 +57,35 @@ extension CartListResponse: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         status = try codingKeysValue.decode(Int.self, forKey: .status)
-        data = try codingKeysValue.decode([CartListProductData].self, forKey: .data)
-        count = try codingKeysValue.decode(Int.self, forKey: .count)
-        total = try codingKeysValue.decode(Int.self, forKey: .total)
+        if let data = try codingKeysValue.decode([CartListProductData]?.self, forKey: .data){
+            self.data = data
+        }
+        else{
+            self.data = nil
+        }
+        if let count = try codingKeysValue.decodeIfPresent(Int?.self, forKey: .count){
+            self.count = count
+        }
+        else{
+            self.count = 0
+        }
+        if let total = try codingKeysValue.decodeIfPresent(Int?.self, forKey: .total){
+            self.total = total
+        }
+        else{
+            self.total = 0
+        }
+        if let message = try codingKeysValue.decodeIfPresent(String?.self, forKey: .message){
+            self.message = message
+        }else{
+            self.message = "N/A"
+        }
+        if let userMessage = try codingKeysValue.decodeIfPresent(String?.self, forKey: .userMessage){
+            self.userMessage = userMessage
+        }
+        else{
+            self.userMessage = "N/A"
+        }
     }
 }
 

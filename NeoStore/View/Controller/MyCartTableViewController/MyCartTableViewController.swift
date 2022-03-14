@@ -84,7 +84,6 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-
         }
 
     private func setupNavigationBar(){
@@ -140,7 +139,10 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.viewModel.getNumberOfProductsInCart() + 1
+        if self.viewModel.getNumberOfProductsInCart() > 0{
+            return self.viewModel.getNumberOfProductsInCart() + 1
+        }
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -179,10 +181,16 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     }
     
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyCartTableViewCells.myCartTableViewFooter.description) as! TableViewFooterWithButton
-        footerView.delegate = self
-        footerView.loadFooterView(title: "Order Now")
-        return footerView
+        if self.viewModel.getNumberOfProductsInCart() > 0{
+            let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: MyCartTableViewCells.myCartTableViewFooter.description) as! TableViewFooterWithButton
+            footerView.delegate = self
+            footerView.loadFooterView(title: "Order Now")
+            return footerView
+        }
+        else{
+            let footerView = self.messageLabelInViewWithText(text: "Your cart is empty!")
+            return footerView
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {

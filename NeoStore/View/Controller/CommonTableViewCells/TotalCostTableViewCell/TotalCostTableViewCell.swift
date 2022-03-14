@@ -9,6 +9,7 @@ import UIKit
 
 class TotalCostTableViewCell: UITableViewCell {
     @IBOutlet weak var totalCostOfCartLabel: UILabel!
+    @IBOutlet weak var totalLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +26,10 @@ class TotalCostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
     
 }

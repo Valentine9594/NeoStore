@@ -8,7 +8,7 @@
 import Foundation
 
 enum MyCartResultType{
-    case success
+    case success(message: String?)
     case failure
     case none
 }
@@ -37,9 +37,11 @@ class MyCartViewModel: MyCartViewModelType{
             switch response{
                 case .success(let data):
                     if data.status == 200{
-                        guard let fullCart = data.data else{ return }
-                        self?.allProductsInCart += fullCart
-                        self?.totalCostOfCart = data.total ?? 0
+//                        guard let fullCart = data.data else{ return }
+                        if let fullCart = data.data{
+                            self?.allProductsInCart += fullCart
+                            self?.totalCostOfCart = data.total ?? 0
+                        }
 //                        self?.myCartResult.value = .success
                         self?.tableShouldReload.value = true
                     }
@@ -75,7 +77,7 @@ class MyCartViewModel: MyCartViewModelType{
                     if data.status == 200{
                         guard let success = data.data else{ return }
                         if success{
-                        self?.myCartResult.value = .success
+                            self?.myCartResult.value = .success(message: nil)
 //                        self?.tableShouldReload.value = true
                         }
                         else{

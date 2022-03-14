@@ -45,6 +45,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="totalCostOfCartLabel" destination="oVN-B1-vrr" id="pyk-Z2-EuJ"/>
+                <outlet property="totalLabel" destination="EC6-Ck-J4l" id="1rD-Ji-kDJ"/>
             </connections>
             <point key="canvasLocation" x="3" y="41"/>
         </tableViewCell>
