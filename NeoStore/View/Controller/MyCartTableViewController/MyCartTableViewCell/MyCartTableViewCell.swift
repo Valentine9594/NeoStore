@@ -8,16 +8,21 @@
 import UIKit
 import SDWebImage
 
+protocol ClickedDropDownButton {
+    func didTapDropdown(productId: Int, indexPath: IndexPath)
+}
+
 class MyCartTableViewCell: UITableViewCell{
     @IBOutlet weak var orderImage: UIImageView!
     @IBOutlet weak var orderName: UILabel!
     @IBOutlet weak var orderCategory: UILabel!
     @IBOutlet weak var orderCountIntoPrice: UILabel!
-    @IBOutlet weak var orderQuantityView: UIView!
-    @IBOutlet weak var orderQuantityLabel: UILabel!
+    @IBOutlet weak var orderQuantityButton: UIButton!
+    var indexPath: IndexPath!
     var pickerView: UIPickerView!
     var productInCart: CartListProductData!
     var productId: Int!
+    var delegate: ClickedDropDownButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,11 +32,8 @@ class MyCartTableViewCell: UITableViewCell{
     }
     
     private func setupUI(){
-        self.orderQuantityView.layer.cornerRadius = 7
-        
-        let dropdownPickerTap = UITapGestureRecognizer(target: self, action: #selector(clickedDropdownPickerView))
-        orderQuantityView.addGestureRecognizer(dropdownPickerTap)
-    }
+        self.orderQuantityButton.layer.cornerRadius = 7
+        }
     
     func setupOrderCell(productFromCart: CartListProductData?){
         guard let cartProduct = productFromCart else{ return }
@@ -46,7 +48,7 @@ class MyCartTableViewCell: UITableViewCell{
             let productCategory = (productDetails.productCategory ?? "uknown").capitalized
             self.orderCategory.text = "(\(productCategory))"
             self.orderCountIntoPrice.text = "Rs. \(productDetails.subTotal ?? 0)"
-            self.orderQuantityLabel.text = "\(cartProduct.quantity ?? 1)"
+            self.orderQuantityButton.setTitle("  \(cartProduct.quantity ?? 1)", for: .normal)
         }
         self.productId = productDetails.id
     }
@@ -56,12 +58,8 @@ class MyCartTableViewCell: UITableViewCell{
         self.pickerView = UIPickerView()
     }
     
-    @objc func clickedDropdownPickerView() {
-        debugPrint("Clicked Dropdown Button!")
-        let quantity = 3
-        let myCartViewModel = MyCartViewModel()
-        let myCartViewController = MyCartTableViewController(viewModel: myCartViewModel)
-        myCartViewController.clickedDropdownPickerButtonInCell(productId: productId, quantity: quantity)
+    @IBAction func clickedDropdownPickerView(_ sender: UIButton) {
+        self.delegate.didTapDropdown(productId: self.productId, indexPath: self.indexPath)
     }
     
     override func prepareForReuse() {
@@ -69,16 +67,3 @@ class MyCartTableViewCell: UITableViewCell{
     }
     
 }
-
-//
-//extension MyCartTableViewController: UIPickerViewDelegate, UIPickerViewDataSource{
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return 8
-//    }
-//    
-//    
-//}

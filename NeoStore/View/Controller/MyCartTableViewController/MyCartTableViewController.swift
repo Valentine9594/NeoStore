@@ -7,13 +7,9 @@
 
 import UIKit
 
-class MyCartTableViewController: UITableViewController, ClickedTableviewCellButton {
-    func didTapOrderBtn() {
-        let selectAddressViewModel = SelectAddressViewModel()
-        let selectAddressTableViewController = SelectAddressTableViewController(viewModel: selectAddressViewModel)
-        self.navigationController?.pushViewController(selectAddressTableViewController, animated: appAnimation)
-    }
-    
+class MyCartTableViewController: UITableViewController, ClickedTableviewCellButton, ClickedDropDownButton {
+    var quantity: Int = 1
+    var recentTableCellChanged: IndexPath = IndexPath(row: 0, section: 0)
     enum MyCartTableViewCells: String{
         case cartCellReuseIdentifier = "MyCartTableViewCell"
         case lastCellReuseIdentifier = "TotalCell"
@@ -51,9 +47,9 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
             guard self != nil else{ return }
             switch response{
                 case .success:
-                    debugPrint("Success")
+                    self?.callAlert(alertTitle: "Success", alertMessage: "Order Placed.")
                 case .failure:
-                    debugPrint("Failure")
+                    self?.callAlert(alertTitle: "Failure1", alertMessage: "There was an error placing order, Please try again later.")
                 case .none:
                     break
             }
@@ -70,6 +66,10 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     
     private func setupMyCartTableViewData(){
         self.viewModel.fetchUserCart()
+    }
+    
+    private func setupQuantityOfProduct(productId: Int, quantity: Int){
+        self.viewModel.editProductInCart(productId: productId, quantity: quantity)
     }
     
     private func setupMyCartTableView(){
@@ -106,9 +106,30 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
         self.navigationController?.popViewController(animated: appAnimation)
     }
     
-    public func clickedDropdownPickerButtonInCell(productId: Int, quantity: Int){
-        self.viewModel.editProductInCart(productId: productId, quantity: quantity)
-        self.tableView.reloadData()
+    func didTapDropdown(productId: Int, indexPath: IndexPath){
+        let alert = UIAlertController(title: "Quantity", message: "\n\n\n\n\n\n\n", preferredStyle: .alert)
+//        alert.isModalInPresentation = true
+        alert.isModalInPresentation = true
+        let pickerFrame = UIPickerView(frame: CGRect(x: 5, y: 20, width: 250, height: 140))
+        alert.view.addSubview(pickerFrame)
+        pickerFrame.delegate = self
+        pickerFrame.dataSource = self
+        
+        let doneAction = UIAlertAction(title: "Done", style: .default) { action in
+            self.setupQuantityOfProduct(productId: productId, quantity: self.quantity)
+            self.recentTableCellChanged = indexPath
+        }
+        alert.addAction(doneAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: appAnimation, completion: nil)
+    }
+    
+    func didTapOrderBtn() {
+        let selectAddressViewModel = SelectAddressViewModel()
+        let selectAddressTableViewController = SelectAddressTableViewController(viewModel: selectAddressViewModel)
+        self.navigationController?.pushViewController(selectAddressTableViewController, animated: appAnimation)
     }
     
     // MARK: - Table view data source
@@ -132,6 +153,8 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
             let cell = tableView.dequeueReusableCell(withIdentifier: MyCartTableViewCells.cartCellReuseIdentifier.description, for: indexPath) as! MyCartTableViewCell
             let currentProductInCart = self.viewModel.getProductInCartAtIndex(index: indexPath.row)
             cell.setupOrderCell(productFromCart: currentProductInCart)
+            cell.indexPath = indexPath
+            cell.delegate = self
             return cell
         }
     }
@@ -194,5 +217,23 @@ class MyCartTableViewController: UITableViewController, ClickedTableviewCellButt
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: appAnimation)
+    }
+}
+
+extension MyCartTableViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 7
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(row + 1)"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.quantity = row + 1
     }
 }

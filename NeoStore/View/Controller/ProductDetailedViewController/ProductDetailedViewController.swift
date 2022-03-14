@@ -81,21 +81,6 @@ class ProductDetailedViewController: UIViewController{
                 }
             }
         }
-        
-//        self.productRatingViewModel.productRatingResult.bindAndFire { [weak self] result in
-//            guard let `self` = self else{return}
-//            switch result{
-//                case .success:
-//                    debugPrint("Success")
-//                    break
-//                case .failure:
-//                    debugPrint("Failure")
-//                    break
-//                case .none:
-//                    break
-//            }
-//        }
-        
     }
     
     private func reloadViewController(productDetails: ProductDetails){

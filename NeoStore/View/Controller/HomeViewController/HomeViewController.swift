@@ -70,7 +70,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
         navigationBar?.barStyle = .black
         navigationBar?.titleTextAttributes = [.foregroundColor: UIColor.white, .font: UIFont(name: "iCiel Gotham Medium", size: 23.0)!]
 
-        navigationItem.title = "Home"
+        navigationItem.title = "NeoSTORE"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.menu.description), style: .plain, target: self, action: #selector(slideToMenuBar))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.search.description), style: .plain, target: self, action: nil)
 

@@ -30,6 +30,8 @@ class SideMenuTableViewHeader: UITableViewHeaderFooterView {
             
             let radius = self.menuProfileImageView.frame.size.width/2
             self.menuProfileImageView.layer.cornerRadius = radius
+            self.menuProfileImageView.layer.borderWidth = 2
+            self.menuProfileImageView.layer.borderColor = UIColor.white.cgColor
             self.menuProfileImageView.clipsToBounds = true
             
             if let userProfileImageStringNotNil = userProfileImageString, let imageURL = URL(string: userProfileImageStringNotNil){

@@ -56,7 +56,7 @@ class RateNowPopUpViewcontroller: UIViewController{
                     }
                 case .failure:
                     let message = "There was an error rating the product. Please try again later..."
-                    self?.callAlert(alertTitle: "Error!", alertMessage: message, actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Error!", alertMessage: message)
                 case .none:
                     break
             }
@@ -102,15 +102,6 @@ class RateNowPopUpViewcontroller: UIViewController{
         }
     }
     
-    func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
-            alert.addAction(alertAction)
-            self.present(alert, animated: appAnimation, completion: nil)
-        }
-    }
-    
     @objc func dismissPopUp(){
         self.dismiss(animated: appAnimation, completion: nil)
     }
@@ -140,7 +131,9 @@ class RateNowPopUpViewcontroller: UIViewController{
     }
     
     @IBAction func clickedRatingButton(_ sender: UIButton) {
-        guard self.productRatedOnClick != nil else{ return }
+        guard self.productRatedOnClick != nil else{
+            self.callAlert(alertTitle: "Error!", alertMessage: "Rate product at least with 1 star.")
+            return }
         guard let productId = self.productDetails.id else{ return }
         let productIdString = "\(productId)"
         self.viewModel.setProductRating(productId: productIdString, rating: self.productRatedOnClick)

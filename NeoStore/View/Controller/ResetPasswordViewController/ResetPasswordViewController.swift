@@ -70,7 +70,7 @@ class ResetPasswordViewController: UIViewController {
                 case .success:
                     self?.callAlert(alertTitle: "Reset Password Successful", alertMessage: "Password has been reset successfully.", actionTitle: "OK")
                 case .failure:
-                    self?.callAlert(alertTitle: "Reset Password Failed!", alertMessage: "Could not reset password please try again later.", actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Reset Password Failed!", alertMessage: "Could not reset password please try again later.")
                 case .none:
                     break
             }
@@ -123,11 +123,11 @@ class ResetPasswordViewController: UIViewController {
             if validationResult{                self.viewModel.getResetPasswordDetails(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword)
             }
             else{
-                callAlert(alertTitle: "Alert!", alertMessage: "Textfields Incorrect or cannot set old password again.", actionTitle: "OK")
+                callAlert(alertTitle: "Alert!", alertMessage: "Textfields Incorrect or cannot set old password again.")
             }
         }
         else{
-            callAlert(alertTitle: "Alert!", alertMessage: "Some textfields are empty.", actionTitle: "OK")
+            self.callAlert(alertTitle: "Alert!", alertMessage: "Some textfields are empty.")
         }
     }
     

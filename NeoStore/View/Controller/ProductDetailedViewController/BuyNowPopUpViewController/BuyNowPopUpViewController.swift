@@ -46,10 +46,10 @@ class BuyNowPopUpViewController: UIViewController {
         self.viewModel.buyNowRatingResult.bindAndFire { [weak self] result in
             switch result{
                 case .success:
-                    debugPrint("Success!")
+                    self?.callAlert(alertTitle: "Success", alertMessage: "Added Product to cart.")
                 case .failure(_):
                     let message = "There was an error in adding product to Cart."
-                    self?.callAlert(alertTitle: "Alert!", alertMessage: message, actionTitle: "OK")
+                    self?.callAlert(alertTitle: "Alert!", alertMessage: message)
                 case .none:
                     debugPrint("None!")
             }
@@ -101,7 +101,7 @@ class BuyNowPopUpViewController: UIViewController {
         else{
             enterQuantityTextfield.textColor = .appRed
             let message = "Enter quantity between 1 and 8"
-            self.callAlert(alertTitle: "Alert!", alertMessage: message, actionTitle: "OK")
+            self.callAlert(alertTitle: "Alert!", alertMessage: message)
         }
         
     }
@@ -114,15 +114,6 @@ class BuyNowPopUpViewController: UIViewController {
         if let productImageURLString = self.productDetails.productImages?[0].productImages{
             let url = URL(string: productImageURLString)
             self.productImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
-        }
-    }
-    
-    func callAlert(alertTitle: String, alertMessage: String?, actionTitle: String){
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
-            alert.addAction(alertAction)
-            self.present(alert, animated: appAnimation, completion: nil)
         }
     }
     

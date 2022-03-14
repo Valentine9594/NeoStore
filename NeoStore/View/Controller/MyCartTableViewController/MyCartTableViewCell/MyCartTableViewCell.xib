@@ -4,10 +4,12 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="GothamBook.otf">
+            <string>HomepageBaukasten-Book</string>
+        </array>
         <array key="GothamMedium.ttf">
             <string>iCielGotham-Medium</string>
         </array>
@@ -43,33 +45,19 @@
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="7h0-0K-l80">
                         <rect key="frame" x="107" y="61" width="292" height="29"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="clD-EX-i62">
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9i-D4-Daz">
                                 <rect key="frame" x="0.0" y="0.0" width="45" height="29"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="select_button" translatesAutoresizingMaskIntoConstraints="NO" id="HLh-9M-nFO">
-                                        <rect key="frame" x="0.0" y="0.0" width="45" height="29"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIu-kf-iMd">
-                                        <rect key="frame" x="0.0" y="0.0" width="21" height="29"/>
-                                        <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="15"/>
-                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="FIu-kf-iMd" firstAttribute="leading" secondItem="clD-EX-i62" secondAttribute="leading" id="4o4-yQ-2Mp"/>
-                                    <constraint firstAttribute="bottom" secondItem="HLh-9M-nFO" secondAttribute="bottom" id="5tb-Nt-FfV"/>
-                                    <constraint firstItem="HLh-9M-nFO" firstAttribute="leading" secondItem="clD-EX-i62" secondAttribute="leading" id="8ZB-yz-k8P"/>
-                                    <constraint firstAttribute="height" constant="29" id="KUC-DC-2eu"/>
-                                    <constraint firstItem="HLh-9M-nFO" firstAttribute="top" secondItem="clD-EX-i62" secondAttribute="top" id="WvH-TR-5Kv"/>
-                                    <constraint firstItem="FIu-kf-iMd" firstAttribute="top" secondItem="clD-EX-i62" secondAttribute="top" id="Xbf-BL-Gcu"/>
-                                    <constraint firstAttribute="trailing" secondItem="HLh-9M-nFO" secondAttribute="trailing" id="hLw-FE-NmA"/>
-                                    <constraint firstAttribute="width" constant="45" id="tc2-aV-4Ig"/>
-                                    <constraint firstAttribute="bottom" secondItem="FIu-kf-iMd" secondAttribute="bottom" id="w2P-MK-3wh"/>
-                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="FIu-kf-iMd" secondAttribute="trailing" constant="24" id="xcC-I6-O9i"/>
+                                    <constraint firstAttribute="width" constant="45" id="CoK-aO-Qz0"/>
                                 </constraints>
-                            </view>
+                                <fontDescription key="fontDescription" name="HomepageBaukasten-Book" family="HomepageBaukasten" pointSize="15"/>
+                                <state key="normal" title="  1" backgroundImage="select_button">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.89803921568627454" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedDropdownPickerView:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hab-34-8Ix"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3uu-MX-rI1">
                                 <rect key="frame" x="145" y="0.0" width="147" height="29"/>
                                 <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="15"/>
@@ -104,16 +92,12 @@
                 <outlet property="orderCountIntoPrice" destination="3uu-MX-rI1" id="ywS-Sa-SFm"/>
                 <outlet property="orderImage" destination="WrH-Ec-BCo" id="uKW-hx-WQr"/>
                 <outlet property="orderName" destination="5w2-xS-Z7I" id="iFE-nt-C9v"/>
-                <outlet property="orderQuantityLabel" destination="FIu-kf-iMd" id="n6Z-sX-eTm"/>
-                <outlet property="orderQuantityView" destination="clD-EX-i62" id="YM7-eZ-H8x"/>
+                <outlet property="orderQuantityButton" destination="h9i-D4-Daz" id="4wi-hg-9UN"/>
             </connections>
             <point key="canvasLocation" x="3.6231884057971016" y="48.214285714285715"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="select_button" width="70" height="47"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

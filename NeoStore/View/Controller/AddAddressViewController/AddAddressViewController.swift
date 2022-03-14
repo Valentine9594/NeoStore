@@ -80,7 +80,7 @@ class AddAddressViewController: UIViewController {
             self.viewModel.saveAddressInUserDefaults(address: address!)
             popToPreviousViewController()
         }else{
-            debugPrint("Not Saved")
+            self.callAlert(alertTitle: "Alert!", alertMessage: "Some Textfields are empty.")
         }
     }
     
