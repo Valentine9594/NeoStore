@@ -55,6 +55,8 @@ struct userResponse{
     let created: Date?
     let modified: Date?
     let accessToken: String?
+    let dob: String?
+    let profilePicture: String?
     
     enum codingKeys: String, CodingKey{
         case id = "id"
@@ -69,6 +71,8 @@ struct userResponse{
         case created = "created"
         case modified = "modified"
         case accessToken = "access_token"
+        case dob = "dob"
+        case profilePicture = "profile_pic"
     }
 }
 
@@ -97,5 +101,17 @@ extension userResponse: Decodable{
         created = try codingKeysValue.decode(Date.self, forKey: .created)
         modified = try codingKeysValue.decode(Date.self, forKey: .modified)
         accessToken = try codingKeysValue.decode(String.self, forKey: .accessToken)
+        if let dob = try codingKeysValue.decodeIfPresent(String.self, forKey: .dob){
+            self.dob = dob
+        }
+        else{
+            self.dob = nil
+        }
+        if let profilePicture = try codingKeysValue.decodeIfPresent(String.self, forKey: .profilePicture){
+            self.profilePicture = profilePicture
+        }
+        else{
+            self.profilePicture = nil
+        }
     }
 }

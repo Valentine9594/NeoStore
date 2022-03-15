@@ -31,27 +31,21 @@ class LoginViewModel: LoginViewModelType{
         UserService.userLogIn(username: userName, password: userPassword) { [weak self] response in
             switch response{
                 case .success(let data):
-                    
-                    guard let content = data as? AnyDict else{
-                        self?.loginStatus.value = .none
-                        return}
-                    
-                    if let statusCode = content["status"], statusCode as! Int == 200{
+                    if data.status == 200{
+                        debugPrint("Logged In")
                         
-//                        save data in userdefaults
-                        guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
+                    //                        save data in userdefaults
+                        guard let contentData = data.data else{ return }
                         do {
                             try saveLoginAndRegisterDataToUserDefaults(responseContent: contentData)
+                            self?.loginStatus.value = .success
                         }
                         catch (let error){
                             debugPrint(error.localizedDescription)
                         }
-                        self?.loginStatus.value = .success
-
                     }
                     else{
                         self?.loginStatus.value = .failure
-                        debugPrint("Status: \(String(describing: content["status"]!))")
                     }
                     
                 case .failure(let error):

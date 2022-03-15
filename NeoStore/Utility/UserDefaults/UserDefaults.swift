@@ -194,9 +194,12 @@ extension UserDefaults{
 }
 
 
-func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
+func saveLoginAndRegisterDataToUserDefaults(responseContent: userResponse) throws{
 
-    guard let id = responseContent[UserDefaultsKeys.id.description], let roleId = responseContent[UserDefaultsKeys.roleId.description], let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description], let email = responseContent[UserDefaultsKeys.email.description], let username = responseContent[UserDefaultsKeys.username.description], let gender = responseContent[UserDefaultsKeys.gender.description], let phoneNo = responseContent[UserDefaultsKeys.phoneNo.description], let isActive = responseContent[UserDefaultsKeys.isActive.description], let created = responseContent[UserDefaultsKeys.created.description], let modified = responseContent[UserDefaultsKeys.modified.description], let accessToken = responseContent[UserDefaultsKeys.accessToken.description] else{
+//    guard let id = responseContent[UserDefaultsKeys.id.description], let roleId = responseContent[UserDefaultsKeys.roleId.description], let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description], let email = responseContent[UserDefaultsKeys.email.description], let username = responseContent[UserDefaultsKeys.username.description], let gender = responseContent[UserDefaultsKeys.gender.description], let phoneNo = responseContent[UserDefaultsKeys.phoneNo.description], let isActive = responseContent[UserDefaultsKeys.isActive.description], let created = responseContent[UserDefaultsKeys.created.description], let modified = responseContent[UserDefaultsKeys.modified.description], let accessToken = responseContent[UserDefaultsKeys.accessToken.description] else{
+//        throw CustomErrors.CouldNotSaveInUserDefaults }
+    
+    guard let id = responseContent.id, let roleId = responseContent.roleId, let firstname = responseContent.firstname, let lastname = responseContent.lastname, let email = responseContent.email, let username = responseContent.username, let gender = responseContent.gender, let phoneNo = responseContent.phoneNo, let isActive = responseContent.isActive, let created = responseContent.created, let modified = responseContent.modified, let accessToken = responseContent.accessToken else{
         throw CustomErrors.CouldNotSaveInUserDefaults }
     
     let userDefaults = UserDefaults.standard
@@ -206,11 +209,11 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 //    userDefaults.setCreated(value: createdDate)
 //    userDefaults.setModified(value: modifiedDate)
     
-    if let profileImageString = responseContent[UserDefaultsKeys.profilePicture.description] as? String{
+    if let profileImageString = responseContent.profilePicture{
         userDefaults.setProfilePicture(value: profileImageString)
     }
     
-    if let dobString = responseContent[UserDefaultsKeys.dob.description] as? String{
+    if let dobString = responseContent.dob{
         userDefaults.setDateOfBirth(value: dobString)
     }
     
@@ -236,7 +239,7 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: AnyDict) throws{
 
 }
 
-func fetchAndSaveUserData(responseContent: AnyDict) throws{
+func fetchAndSaveUserData(responseContent: userResponse) throws{
     
     do {
         try saveLoginAndRegisterDataToUserDefaults(responseContent: responseContent)
