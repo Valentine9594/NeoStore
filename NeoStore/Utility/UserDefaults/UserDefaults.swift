@@ -199,7 +199,7 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: userResponse) throw
 //    guard let id = responseContent[UserDefaultsKeys.id.description], let roleId = responseContent[UserDefaultsKeys.roleId.description], let firstname = responseContent[UserDefaultsKeys.firstname.description], let lastname = responseContent[UserDefaultsKeys.lastname.description], let email = responseContent[UserDefaultsKeys.email.description], let username = responseContent[UserDefaultsKeys.username.description], let gender = responseContent[UserDefaultsKeys.gender.description], let phoneNo = responseContent[UserDefaultsKeys.phoneNo.description], let isActive = responseContent[UserDefaultsKeys.isActive.description], let created = responseContent[UserDefaultsKeys.created.description], let modified = responseContent[UserDefaultsKeys.modified.description], let accessToken = responseContent[UserDefaultsKeys.accessToken.description] else{
 //        throw CustomErrors.CouldNotSaveInUserDefaults }
     
-    guard let id = responseContent.id, let roleId = responseContent.roleId, let firstname = responseContent.firstname, let lastname = responseContent.lastname, let email = responseContent.email, let username = responseContent.username, let gender = responseContent.gender, let phoneNo = responseContent.phoneNo, let isActive = responseContent.isActive, let created = responseContent.created, let modified = responseContent.modified, let accessToken = responseContent.accessToken else{
+    guard let id = responseContent.id, let roleId = responseContent.roleId, let firstname = responseContent.firstname, let lastname = responseContent.lastname, let email = responseContent.email, let username = responseContent.username, let gender = responseContent.gender, let phoneNo = responseContent.phoneNo, let isActive = responseContent.isActive, let accessToken = responseContent.accessToken else{
         throw CustomErrors.CouldNotSaveInUserDefaults }
     
     let userDefaults = UserDefaults.standard
@@ -216,9 +216,6 @@ func saveLoginAndRegisterDataToUserDefaults(responseContent: userResponse) throw
     if let dobString = responseContent.dob{
         userDefaults.setDateOfBirth(value: dobString)
     }
-    
-    userDefaults.setCreated(value: created)
-    userDefaults.setModified(value: modified)
     
     
     do {

@@ -38,6 +38,7 @@ extension ForgotPasswordResponse: Decodable{
     }
 }
 
+
 struct userAccountDetails{
     let firstname: String
     let lastname: String
@@ -73,8 +74,8 @@ struct userResponse{
     let gender: String?
     let phoneNo: String?
     let isActive: Bool?
-    let created: Date?
-    let modified: Date?
+//    let created: Date?
+//    let modified: Date?
     let accessToken: String?
     let dob: String?
     let profilePicture: String?
@@ -102,8 +103,8 @@ extension jsonDataResponse: Decodable{
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         status = try codingKeysValue.decode(Int.self, forKey: .status)
         data = try codingKeysValue.decodeIfPresent(T.self, forKey: .data)
-        message = try codingKeysValue.decode(String.self, forKey: .message)
-        userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
+        message = try codingKeysValue.decodeIfPresent(String.self, forKey: .message)
+        userMessage = try codingKeysValue.decodeIfPresent(String.self, forKey: .userMessage)
     }
 }
 
@@ -119,20 +120,56 @@ extension userResponse: Decodable{
         gender = try codingKeysValue.decode(String.self, forKey: .gender)
         phoneNo = try codingKeysValue.decode(String.self, forKey: .phoneNo)
         isActive = try codingKeysValue.decode(Bool.self, forKey: .isActive)
-        created = try codingKeysValue.decode(Date.self, forKey: .created)
-        modified = try codingKeysValue.decode(Date.self, forKey: .modified)
+//        created = try codingKeysValue.decode(Date.self, forKey: .created)
+//        modified = try codingKeysValue.decode(Date.self, forKey: .modified)
         accessToken = try codingKeysValue.decode(String.self, forKey: .accessToken)
-        if let dob = try codingKeysValue.decodeIfPresent(String.self, forKey: .dob){
-            self.dob = dob
-        }
-        else{
-            self.dob = nil
-        }
-        if let profilePicture = try codingKeysValue.decodeIfPresent(String.self, forKey: .profilePicture){
-            self.profilePicture = profilePicture
-        }
-        else{
-            self.profilePicture = nil
-        }
+        dob = try codingKeysValue.decodeIfPresent(String.self, forKey: .dob)
+        profilePicture = try codingKeysValue.decodeIfPresent(String.self, forKey: .profilePicture)
+    }
+}
+
+struct AccountDetails{
+    let userData: userResponse?
+    let productCategories: [UserProductCategory]?
+    let totalCarts: Int?
+    let totalOrders: Int?
+    
+    enum codingKeys: String, CodingKey{
+        case userData = "user_data"
+        case productCategories = "product_categories"
+        case totalCarts = "total_carts"
+        case totalOrders = "total_orders"
+    }
+}
+
+extension AccountDetails: Decodable{
+    init(from decoder: Decoder) throws {
+        let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
+        userData = try codingKeysValue.decode(userResponse.self, forKey: .userData)
+        productCategories = try codingKeysValue.decode([UserProductCategory].self, forKey: .productCategories)
+        totalCarts = try codingKeysValue.decode(Int.self, forKey: .totalCarts)
+        totalOrders = try codingKeysValue.decode(Int.self, forKey: .totalOrders)
+    }
+}
+
+struct UserProductCategory{
+    let id: Int?
+    let name: String?
+    let iconImage: String?
+
+    
+    enum codingKeys: String, CodingKey{
+        case id
+        case name = "name"
+        case iconImage = "icon_image"
+    }
+}
+
+extension UserProductCategory: Decodable{
+    init(from decoder: Decoder) throws {
+        let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
+        id = try codingKeysValue.decode(Int.self, forKey: .id)
+        name = try codingKeysValue.decode(String.self, forKey: .name)
+        iconImage = try codingKeysValue.decode(String.self, forKey: .iconImage)
     }
 }

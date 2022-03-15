@@ -32,16 +32,11 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
         UserService.userUpdateAccountDetails(userAccountDetails: userEditAccountDetails) { [weak self] (response) in
             switch response{
                 case .success(let data):
-                    guard let content = data as? AnyDict else{
-                        self?.myAccountUpdateStatus.value = .none
-                        return}
-                    
-                    if let statusCode = content["status"], statusCode as! Int == 200{
+                    if data.status == 200{
                         self?.myAccountUpdateStatus.value = .success
                     }
                     else{
                         self?.myAccountUpdateStatus.value = .failure
-                        debugPrint(content["status"] ?? "NO Code")
                     }
                     
                 case .failure(let error):
@@ -53,21 +48,18 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
     
     func fetchUserAccountDetails() {
         UserService.fetchUserAccountDetails { (response) in
+            print(response)
             switch response{
                 case .success(let data):
-                    guard let content = data as? AnyDict else{return}
-                    
-                    if let statusCode = content["status"], statusCode as! Int == 200{
-                        guard let response = content["data"] as? AnyDict else{return}
-                        guard let userContent = response[UserDefaultsKeys.userData.description] as? AnyDict else{return}
+                    if data.status == 200{
+                        debugPrint("\(String(describing: data.data))")
+                        guard let response = data.data else{return}
+                        guard let userContent = response.userData else{return}
                         do {
                             try fetchAndSaveUserData(responseContent: userContent)
                         } catch let error {
                             debugPrint(error.localizedDescription)
                         }
-                    }
-                    else{
-                        debugPrint(content["status"] ?? "NO Code")
                     }
                     
                 case .failure(let error):

@@ -97,7 +97,7 @@ class UserService{
         }
     }
     
-    static func userUpdateAccountDetails(userAccountDetails: userAccountDetails, completion: @escaping(APIResponse<Any>)->Void){
+    static func userUpdateAccountDetails(userAccountDetails: userAccountDetails, completion: @escaping(APIResponse<jsonDataResponse<userResponse>>)->Void){
         
         var dobString: String = ""
         if let string = userAccountDetails.dob{
@@ -115,7 +115,8 @@ class UserService{
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        let responseData = jsonParser(jsonData: content)
+                        let responseData: APIResponse<jsonDataResponse<userResponse>> = jsonProductDecoder(jsonData: content)
+                        debugPrint(responseData)
                         completion(responseData)
                     }
                     else{
@@ -128,12 +129,14 @@ class UserService{
         }
     }
     
-    static func fetchUserAccountDetails(completion: @escaping(APIResponse<Any>)->Void){
+    static func fetchUserAccountDetails(completion: @escaping(APIResponse<jsonDataResponse<AccountDetails>>)->Void){
         
-        APIManager.sharedInstance.performRequest(serviceType: .getUserDetails) { (response) in            switch response{
+        APIManager.sharedInstance.performRequest(serviceType: .getUserDetails) { (response) in
+            
+            switch response{
             case .success(let data):
                 if let content = data as? Data{
-                    let responseData = jsonParser(jsonData: content)
+                    let responseData: APIResponse<jsonDataResponse<AccountDetails>> = jsonProductDecoder(jsonData: content)
                     completion(responseData)
                 }
                 else{

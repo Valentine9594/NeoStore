@@ -62,6 +62,7 @@ class MyAccountViewController: UIViewController {
             switch MyAccountUpdateResult{
                 case .success:
                     self?.resetViewController()
+                    //self?.fetchUserDetails()
                     self?.callAlert(alertTitle: "Success!", alertMessage: "Your account details have been updated.", actionTitle: "OK")
                 case .failure:
                     self?.callAlert(alertTitle: "Error", alertMessage: "There was an error updating your account please try again later.", actionTitle: "OK")
