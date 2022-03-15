@@ -17,6 +17,27 @@ struct userDetails{
     let phoneNumber: Int
 }
 
+struct ForgotPasswordResponse{
+    let status: Int?
+    let message: String?
+    let userMessage: String?
+    
+    enum codingKeys: String, CodingKey{
+        case status = "status"
+        case message = "message"
+        case userMessage = "user_msg"
+    }
+}
+
+extension ForgotPasswordResponse: Decodable{
+    init(from decoder: Decoder) throws {
+        let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
+        status = try codingKeysValue.decode(Int.self, forKey: .status)
+        message = try codingKeysValue.decode(String.self, forKey: .message)
+        userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
+    }
+}
+
 struct userAccountDetails{
     let firstname: String
     let lastname: String
@@ -80,7 +101,7 @@ extension jsonDataResponse: Decodable{
     init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         status = try codingKeysValue.decode(Int.self, forKey: .status)
-        data = try codingKeysValue.decode(T.self, forKey: .data)
+        data = try codingKeysValue.decodeIfPresent(T.self, forKey: .data)
         message = try codingKeysValue.decode(String.self, forKey: .message)
         userMessage = try codingKeysValue.decode(String.self, forKey: .userMessage)
     }

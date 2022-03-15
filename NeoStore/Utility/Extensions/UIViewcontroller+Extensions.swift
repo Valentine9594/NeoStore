@@ -35,6 +35,7 @@ extension UIViewController{
     
     @nonobjc func setupNavigationBar(title: String, currentViewController: TotalViewControllers, operation:Selector?){
 //        function to setup navigation bar
+        navigationController?.isNavigationBarHidden = false
         let navigationBar = self.navigationController?.navigationBar
         navigationBar?.barTintColor = .appRed
         navigationBar?.tintColor = UIColor.white
@@ -71,4 +72,44 @@ extension UIViewController{
         self.view.resignFirstResponder()
     }
     
+////    var vSpinner: UIView?
+//
+//    func showSpinner(onView : UIView) {
+//        let spinnerView = UIView.init(frame: onView.bounds)
+//        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+//        let ai = UIActivityIndicatorView.init(style: .large)
+//        ai.startAnimating()
+//        ai.center = spinnerView.center
+//
+//        DispatchQueue.main.async {
+//            spinnerView.addSubview(ai)
+//            onView.addSubview(spinnerView)
+//        }
+//
+//        vSpinner = spinnerView
+//    }
+//    
+//    func removeSpinner() {
+//        DispatchQueue.main.async {
+//            vSpinner?.removeFromSuperview()
+//            vSpinner = nil
+//        }
+//    }
+    
+//    @objc func keyboardShow(scrollView: UIScrollView, notification: Notification){
+////        code to attach keyboard size when keyboard pops up in scrollview
+//        guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else{return}
+//        let keyboardRectangle = keyboardFrame.cgRectValue
+//        let keyboardHeight = keyboardRectangle.height
+//        scrollView.contentInset.bottom = keyboardHeight
+//        scrollView.scrollIndicatorInsets = scrollView.contentInset
+//        scrollView.isScrollEnabled = true
+//    }
+//    
+//    @objc func keyboardHide(scrollView: UIScrollView){
+////        code to adjust scrollview to zero after keyboard closing
+//        scrollView.contentInset.bottom = .zero
+//        scrollView.scrollIndicatorInsets = scrollView.contentInset
+//        scrollView.isScrollEnabled = false
+//    }
 }

@@ -28,27 +28,19 @@ class RegisterViewModel: RegisterViewModelType{
         UserService.userRegistration(userDetails: userRegisterDetails){ [weak self] response in
             switch response{
                 case .success(let data):
-                    guard let content = data as? AnyDict else{
-                        self?.registerStatus.value = .none
-                        return}
-                    
-                    
-                    if let statusCode = content["status"], statusCode as! Int == 200{
-//                        save data in userdefaults
-                        print(content["data"] ?? "No Printing")
-                        guard let contentData = content["data"] as? AnyDict else{ debugPrint("NO CONTENT DATA"); return }
+                    if data.status == 200{
+                        debugPrint("Register")
+        //                        save data in userdefaults
+                        guard let contentData = data.data else{ return }
                         do {
                             try saveLoginAndRegisterDataToUserDefaults(responseContent: contentData)
                         }
                         catch (let error){
                             debugPrint(error.localizedDescription)
                         }
-                        
-                        self?.registerStatus.value = .success
                     }
                     else{
                         self?.registerStatus.value = .failure
-                        debugPrint("cannot convert data!!")
                     }
 
                 case .failure(let error):

@@ -25,17 +25,11 @@ class ForgotPasswordViewModel: ForgotPasswordViewModelType{
         UserService.userForgotPassword(userName: userName) { [weak self] response in
             switch response{
                 case .success(let data):
-                    
-                    guard let content = data as? AnyDict else{
-                        self?.forgotPasswordStatus.value = .none
-                        return}
-                    
-                    if let statusCode = content["status"], statusCode as! Int == 200{
+                    if data.status == 200{
                         self?.forgotPasswordStatus.value = .success
                     }
                     else{
                         self?.forgotPasswordStatus.value = .failure
-                        debugPrint("cannot convert data!!")
                     }
                     
                     break

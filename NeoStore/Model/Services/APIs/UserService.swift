@@ -56,14 +56,14 @@ class UserService{
         }
     }
     
-    static func userForgotPassword(userName: String, completion: @escaping(APIResponse<Any>)->Void){
+    static func userForgotPassword(userName: String, completion: @escaping(APIResponse<ForgotPasswordResponse>)->Void){
         let params = ["email": userName]
         
         APIManager.sharedInstance.performRequest(serviceType: .forgotPassword(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        let responseData = jsonParser(jsonData: content)
+                        let responseData: APIResponse<ForgotPasswordResponse> = jsonProductDecoder(jsonData: content)
                         completion(responseData)
                     }
                     else{
@@ -76,14 +76,15 @@ class UserService{
         }
     }
     
-    static func userResetPassword(currentPassword: String, newPassword: String, confirmPassword: String, completion: @escaping(APIResponse<Any>)->Void){
+    static func userResetPassword(currentPassword: String, newPassword: String, confirmPassword: String, completion: @escaping(APIResponse<ForgotPasswordResponse>)->Void){
         let params = ["old_password": currentPassword, "password": newPassword, "confirm_password": confirmPassword]
         
         APIManager.sharedInstance.performRequest(serviceType: .changePassword(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
-                        let responseData = jsonParser(jsonData: content)
+//                        let responseData = jsonParser(jsonData: content)
+                        let responseData: APIResponse<ForgotPasswordResponse> = jsonProductDecoder(jsonData: content)
                         completion(responseData)
                     }
                     else{
