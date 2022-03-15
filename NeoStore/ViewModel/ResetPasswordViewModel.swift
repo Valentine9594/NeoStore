@@ -31,16 +31,11 @@ class ResetPasswordViewModel: ResetPasswordViewModelType{
         UserService.userResetPassword(currentPassword: currentPassword, newPassword: newPassword, confirmPassword: confirmPassword) { [weak self] (response) in
             switch response{
                 case .success(let data):
-                    guard let content = data as? AnyDict else{
-                        self?.resetPasswordStatus.value = .none
-                        return}
-                    
-                    if let statusCode = content["status"], statusCode as! Int == 200{
+                    if data.status == 200{
                         self?.resetPasswordStatus.value = .success
                     }
                     else{
                         self?.resetPasswordStatus.value = .failure
-                        debugPrint("cannot convert data: \(String(describing: content["status"]))")
                     }
                 case .failure(let error):
                     debugPrint(error.localizedDescription)
