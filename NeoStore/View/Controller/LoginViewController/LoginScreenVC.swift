@@ -120,6 +120,9 @@ class LoginScreenVC: UIViewController {
 //        keeping password field as secure text entry
         passwordTF.isSecureTextEntry = true
         
+        usernameTF.text = "luke@gmail.com"
+        passwordTF.text = "luke@1234"
+        
 //        login button radius
         loginBtn.layer.cornerRadius = 7
         
