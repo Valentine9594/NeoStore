@@ -21,7 +21,7 @@
                 <outlet property="lastnameTextfield" destination="Kvk-y4-6gD" id="7b9-rb-iD8"/>
                 <outlet property="phoneNumberTextfield" destination="m3P-1X-NYv" id="fEb-ya-ydn"/>
                 <outlet property="profilImageView" destination="RYU-Pc-Dbj" id="VqW-wz-592"/>
-                <outlet property="resetPasswordTextfield" destination="a7v-4g-ugw" id="ezA-av-efP"/>
+                <outlet property="resetPasswordButton" destination="a7v-4g-ugw" id="WUy-MT-A45"/>
                 <outlet property="scrollView" destination="aAg-nB-HDJ" id="Ket-Px-RGM"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

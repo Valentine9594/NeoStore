@@ -110,13 +110,12 @@ class UserService{
         }
         
         let params = ["first_name": userAccountDetails.firstname, "last_name": userAccountDetails.lastname, "email": userAccountDetails.email, "dob": dobString, "phone_no": userAccountDetails.phoneNo, "profile_pic": profilePicture] as AnyDict
-        
-        APIManager.sharedInstance.performRequest(serviceType: .updateAccount(parameters: params)) { (response) in
+            APIManager.sharedInstance.performRequest(serviceType: .updateAccount(parameters: params)) { (response) in
             switch response{
                 case .success(let data):
                     if let content = data as? Data{
                         let responseData: APIResponse<jsonDataResponse<userResponse>> = jsonProductDecoder(jsonData: content)
-                        debugPrint(responseData)
+                        debugPrint("Response Here: \(responseData)")
                         completion(responseData)
                     }
                     else{

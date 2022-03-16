@@ -15,7 +15,7 @@ class MyAccountViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextfield: UITextField!
     @IBOutlet weak var dateOfBirthTextField: UITextField!
     @IBOutlet weak var editProfileButton: UIButton!
-    @IBOutlet weak var resetPasswordTextfield: UIButton!
+    @IBOutlet weak var resetPasswordButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     var datePicker: UIDatePicker!
     var imagePicker: ImagePicker!
@@ -135,6 +135,7 @@ class MyAccountViewController: UIViewController {
             self.phoneNumberTextfield.isEnabled = shouldBeEnabled
             self.dateOfBirthTextField.isEnabled = shouldBeEnabled
             self.profilImageView.gestureRecognizers?.first?.isEnabled = shouldBeEnabled
+            self.resetPasswordButton.isHidden = shouldBeEnabled
         }
     }
     

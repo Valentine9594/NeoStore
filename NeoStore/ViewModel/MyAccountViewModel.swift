@@ -34,6 +34,14 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
                 case .success(let data):
                     if data.status == 200{
                         self?.myAccountUpdateStatus.value = .success
+                        if let content = data.data{
+                            do {
+                                try saveLoginAndRegisterDataToUserDefaults(responseContent: content)
+                            } catch let error {
+                                debugPrint(error.localizedDescription)
+                            }
+
+                        }
                     }
                     else{
                         self?.myAccountUpdateStatus.value = .failure
@@ -48,11 +56,9 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
     
     func fetchUserAccountDetails() {
         UserService.fetchUserAccountDetails { (response) in
-            print(response)
             switch response{
                 case .success(let data):
                     if data.status == 200{
-                        debugPrint("\(String(describing: data.data))")
                         guard let response = data.data else{return}
                         guard let userContent = response.userData else{return}
                         do {
@@ -60,6 +66,10 @@ class MyAccountUpdateViewModel: MyAccountUpdateViewModelType{
                         } catch let error {
                             debugPrint(error.localizedDescription)
                         }
+                    }
+                    else{
+                        debugPrint("Status: \(data.status ?? 0)")
+                        debugPrint("")
                     }
                     
                 case .failure(let error):
