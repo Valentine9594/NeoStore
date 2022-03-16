@@ -9,7 +9,9 @@ import UIKit
 import SDWebImage
 
 class ProductListingViewController: UIViewController{
+    
     @IBOutlet weak var productListingTableview: UITableView!
+    
     private var viewModel: ProductListingViewModelType!
     private let productListingCell = "ProductListingCell"
     var productCategory: ProductCategory!
@@ -29,6 +31,7 @@ class ProductListingViewController: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.setupLoadTableViewData()
+        self.showSpinner(onView: self.view)
     }
     
     init(viewModel: ProductListingViewModelType){
@@ -50,6 +53,7 @@ class ProductListingViewController: UIViewController{
                 self?.bottomCells = (self?.pageNumber ?? 1) * (self?.productsLimit ?? 1)
                 DispatchQueue.main.async {
                     self?.productListingTableview.reloadData()
+                    self?.removeSpinner(spinnerView: (self?.view)!)
                 }
             }
         }

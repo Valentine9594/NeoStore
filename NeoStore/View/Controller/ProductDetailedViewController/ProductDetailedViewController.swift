@@ -54,6 +54,7 @@ class ProductDetailedViewController: UIViewController{
         super.viewWillAppear(animated)
         setupObservers()
         fetchProductDetails()
+        self.showSpinner(onView: self.view)
     }
     
     init(viewModel: ProductDetailViewModelType){
@@ -78,6 +79,7 @@ class ProductDetailedViewController: UIViewController{
                 DispatchQueue.main.async {
                     self.productDetails = productDetailsViewModel
                     self.reloadViewController(productDetails: self.productDetails)
+                    self.removeSpinner(spinnerView: self.view)
                 }
             }
         }

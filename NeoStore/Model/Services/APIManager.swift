@@ -52,6 +52,8 @@ class APIManager{
                 return
             }
             
+            
+            
             guard let someData = data else{
                 completionHandler(.failure(error: error!))
                 return
