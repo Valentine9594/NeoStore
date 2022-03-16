@@ -99,7 +99,7 @@
                                             </constraints>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="tel"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Date of Birth" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="RGp-Uh-vMg">
                                             <rect key="frame" x="0.0" y="244" width="348" height="53"/>

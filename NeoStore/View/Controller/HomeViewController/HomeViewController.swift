@@ -51,6 +51,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
         appAnimation = animated
 //            let appdelegate = UIApplication.shared.delegate as! AppDelegate
 //            appdelegate.switchRootViewcontrollerToHome()
+//        self.showSpinner(onView: self.view)
         NotificationCenter.default.addObserver(self, selector: #selector(slideToMenuBar), name: .didClickMenuButton, object: nil)
         self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
     }
@@ -72,6 +73,20 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     
     @objc func slideToMenuBar(){
         present(sideMenu!, animated: appAnimation)
+    }
+    
+    private func setupObservers(){
+        self.viewModel.homeStatus.bindAndFire { [weak self] result in
+            switch result{
+                case .success:
+//                    self?.removeSpinner(spinnerView: (self?.view)!)
+                    break
+                case .failure:
+                    break
+                case .none:
+                    break
+            }
+        }
     }
     
     @objc func slideToNext(){

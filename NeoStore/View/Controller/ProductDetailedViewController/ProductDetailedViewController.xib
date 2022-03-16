@@ -134,7 +134,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="trc-X3-KaS" userLabel="contentView">
                     <rect key="frame" x="13" y="162" width="388" height="529"/>
                     <subviews>
-                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klX-Pf-vw0">
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="klX-Pf-vw0">
                             <rect key="frame" x="0.0" y="0.0" width="388" height="529"/>
                             <subviews>
                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Ltd-ib-dVj" userLabel="scrollContentView">
