@@ -15,7 +15,7 @@ enum MyCartResultType{
 
 protocol MyCartViewModelType {
     var myCartResult: ReactiveListener<MyCartResultType>{get set}
-    var tableShouldReload: ReactiveListener<Bool>{get}
+    var tableShouldReload: ReactiveListener<Bool>{get set}
     func fetchUserCart()
     func getNumberOfProductsInCart() -> Int
     func getProductInCartAtIndex(index: Int) -> CartListProductData?
@@ -39,7 +39,7 @@ class MyCartViewModel: MyCartViewModelType{
                     if data.status == 200{
 //                        guard let fullCart = data.data else{ return }
                         if let fullCart = data.data{
-                            self?.allProductsInCart += fullCart
+                            self?.allProductsInCart = fullCart
                             self?.totalCostOfCart = data.total ?? 0
                         }
 //                        self?.myCartResult.value = .success
@@ -100,7 +100,7 @@ class MyCartViewModel: MyCartViewModelType{
                     if data.status == 200{
                         guard let success = data.data else{ return }
                         if success{
-                        self?.tableShouldReload.value = true
+                            self?.fetchUserCart()
                         }
                     }
                 case .failure(let error):

@@ -77,6 +77,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     
     private func setupObservers(){
         self.viewModel.homeStatus.bindAndFire { [weak self] result in
+            guard `self` == self else{ return }
             switch result{
                 case .success:
 //                    self?.removeSpinner(spinnerView: (self?.view)!)
@@ -114,6 +115,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
 
     private func setupSlideShow(){
 //        setting the collectionview which performs slideshow
+        
         let slideShowCell = UINib(nibName: "SlideShowCollectionViewCell", bundle: nil)
         self.slideShowCollectionView.register(slideShowCell, forCellWithReuseIdentifier: TotalCollectionViewsCell.slideShow.rawValue)
         self.slideShowCollectionView.dataSource = self

@@ -22,11 +22,8 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" bouncesZoom="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Qmq-ft-9V3" userLabel="SlideShowCollectionView">
-                    <rect key="frame" x="0.0" y="44" width="414" height="230"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="313.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="230" id="3LZ-Qo-HsH"/>
-                    </constraints>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="NYU-jY-PIT">
                         <size key="itemSize" width="128" height="230"/>
                         <size key="estimatedItemSize" width="128" height="230"/>
@@ -36,10 +33,10 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBR-ZZ-NRz" userLabel="productsCollectionViewWrapperView">
-                    <rect key="frame" x="0.0" y="273" width="414" height="623"/>
+                    <rect key="frame" x="0.0" y="357.5" width="414" height="538.5"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7lk-rn-Pxd" userLabel="ProductsCollectionView">
-                            <rect key="frame" x="13" y="15" width="388" height="593"/>
+                            <rect key="frame" x="13" y="15" width="388" height="508.5"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Idf-X9-gnL">
                                 <size key="itemSize" width="128" height="128"/>
@@ -58,7 +55,7 @@
                     </constraints>
                 </view>
                 <pageControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="AxF-85-2Jc">
-                    <rect key="frame" x="0.0" y="228" width="414" height="45"/>
+                    <rect key="frame" x="0.0" y="312.5" width="414" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="6Fd-2d-NTQ"/>
                     </constraints>
@@ -70,19 +67,19 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="AxF-85-2Jc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2GR-9n-j9s"/>
+                <constraint firstItem="Qmq-ft-9V3" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.35" id="2eS-gL-Ftm"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7xu-x2-r6w"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="95Y-c9-Ikz"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="AxF-85-2Jc" secondAttribute="trailing" id="AqZ-2m-f7W"/>
                 <constraint firstAttribute="bottom" secondItem="DBR-ZZ-NRz" secondAttribute="bottom" id="GxK-j6-7U8"/>
                 <constraint firstAttribute="trailing" secondItem="DBR-ZZ-NRz" secondAttribute="trailing" id="KZw-gV-Grn"/>
-                <constraint firstItem="DBR-ZZ-NRz" firstAttribute="top" secondItem="AxF-85-2Jc" secondAttribute="bottom" id="MAv-u2-Bwt"/>
+                <constraint firstItem="DBR-ZZ-NRz" firstAttribute="top" secondItem="Qmq-ft-9V3" secondAttribute="bottom" id="PPT-9v-pRi"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="bSF-J4-dCE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Qmq-ft-9V3" secondAttribute="trailing" id="dRB-qD-P8X"/>
                 <constraint firstItem="Qmq-ft-9V3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="diy-tF-NKY"/>
-                <constraint firstItem="DBR-ZZ-NRz" firstAttribute="top" secondItem="AxF-85-2Jc" secondAttribute="bottom" id="kyt-6l-k4c"/>
-                <constraint firstItem="AxF-85-2Jc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="184" id="sgX-CE-k3v"/>
                 <constraint firstItem="DBR-ZZ-NRz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="x3t-oz-aUv"/>
                 <constraint firstItem="AxF-85-2Jc" firstAttribute="centerX" secondItem="Qmq-ft-9V3" secondAttribute="centerX" id="xLb-fa-lXc"/>
+                <constraint firstItem="AxF-85-2Jc" firstAttribute="bottom" secondItem="Qmq-ft-9V3" secondAttribute="bottom" id="yhI-bW-5nB"/>
             </constraints>
             <point key="canvasLocation" x="18.840579710144929" y="59.598214285714285"/>
         </view>
