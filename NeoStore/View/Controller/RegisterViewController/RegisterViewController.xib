@@ -44,7 +44,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="822"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NeoSTORE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dmK-Yn-tNL">
-                                    <rect key="frame" x="82" y="80" width="250" height="45"/>
+                                    <rect key="frame" x="82" y="38" width="250" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="O7f-YV-AeS"/>
                                     </constraints>
@@ -53,67 +53,67 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="iuG-ez-Os4">
-                                    <rect key="frame" x="33" y="171" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="106" width="348" height="40"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="53" id="zDj-af-Qji"/>
+                                        <constraint firstAttribute="height" constant="40" id="zDj-af-Qji"/>
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="iYJ-Cr-SKm">
-                                    <rect key="frame" x="33" y="237" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="159" width="348" height="40"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="53" id="b82-Cg-bKu"/>
+                                        <constraint firstAttribute="height" constant="40" id="b82-Cg-bKu"/>
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="name"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="jfM-e4-kfo">
-                                    <rect key="frame" x="33" y="303" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="212" width="348" height="40"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="53" id="Dbg-Za-hnb"/>
+                                        <constraint firstAttribute="height" constant="40" id="Dbg-Za-hnb"/>
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" textContentType="email"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="M23-AO-f1J">
-                                    <rect key="frame" x="33" y="369" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="265" width="348" height="40"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="53" id="iUL-Da-CpT"/>
+                                        <constraint firstAttribute="height" constant="40" id="iUL-Da-CpT"/>
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="password"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Phone Number" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="dJL-4G-LRC">
-                                    <rect key="frame" x="33" y="563" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="433" width="348" height="40"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="53" id="b7c-29-IKZ"/>
+                                        <constraint firstAttribute="height" constant="40" id="b7c-29-IKZ"/>
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad" textContentType="tel"/>
                                 </textField>
                                 <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Confirm Password" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="AbB-Of-2XJ">
-                                    <rect key="frame" x="33" y="435" width="348" height="53"/>
+                                    <rect key="frame" x="33" y="318" width="348" height="40"/>
                                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="53" id="dbD-CU-lgm"/>
+                                        <constraint firstAttribute="height" constant="40" id="dbD-CU-lgm"/>
                                     </constraints>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="password"/>
                                 </textField>
                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="13" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uW-U1-zYh">
-                                    <rect key="frame" x="33" y="511" width="348" height="29"/>
+                                    <rect key="frame" x="33" y="381" width="348" height="29"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lmt-cD-1Wb">
                                             <rect key="frame" x="0.0" y="0.0" width="98" height="29"/>
@@ -121,7 +121,7 @@
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="NCa-vw-a0i">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="NCa-vw-a0i">
                                             <rect key="frame" x="111" y="0.0" width="102.5" height="29"/>
                                             <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="23"/>
                                             <state key="normal" title="Male" image="chkn">
@@ -132,7 +132,7 @@
                                                 <action selector="maleRadioButtonSelected:" destination="-1" eventType="touchUpInside" id="BkK-Ns-u1c"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-zI-iIP">
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-zI-iIP">
                                             <rect key="frame" x="226.5" y="0.0" width="121.5" height="29"/>
                                             <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="23"/>
                                             <state key="normal" title="Female" image="chkn">
@@ -154,7 +154,7 @@
                                     </constraints>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3o0-In-dSt">
-                                    <rect key="frame" x="54.5" y="639" width="305" height="25"/>
+                                    <rect key="frame" x="29" y="496" width="356" height="25"/>
                                     <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="25" id="dFv-Wb-OyO"/>
@@ -162,13 +162,13 @@
                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <state key="normal" image="uncheck_icon">
                                         <attributedString key="attributedTitle">
-                                            <fragment content=" I agree the ">
+                                            <fragment content=" I AGREE THE ">
                                                 <attributes>
                                                     <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
                                                 </attributes>
                                             </fragment>
-                                            <fragment content="Terms &amp; Conditions">
+                                            <fragment content="TERMS &amp; CONDITIONS">
                                                 <attributes>
                                                     <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
@@ -179,14 +179,14 @@
                                     </state>
                                     <state key="selected" image="checked_icon">
                                         <attributedString key="attributedTitle">
-                                            <fragment content=" I agree the ">
+                                            <fragment content=" I AGREE THE ">
                                                 <attributes>
                                                     <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                                 </attributes>
                                             </fragment>
-                                            <fragment content="Terms &amp; Conditions">
+                                            <fragment content="TERMS &amp; CONDITIONS">
                                                 <attributes>
                                                     <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <font key="NSFont" size="18" name="iCielGotham-Medium"/>
@@ -201,13 +201,13 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCC-4O-4Xq">
-                                    <rect key="frame" x="33" y="677" width="348" height="61"/>
+                                    <rect key="frame" x="33" y="534" width="348" height="45"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="61" id="mLM-t5-XnS"/>
+                                        <constraint firstAttribute="height" constant="45" id="mLM-t5-XnS"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
-                                    <state key="normal" title="Register">
+                                    <state key="normal" title="REGISTER">
                                         <color key="titleColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
@@ -234,11 +234,11 @@
                                 <constraint firstItem="5uW-U1-zYh" firstAttribute="leading" secondItem="WZ2-um-F0y" secondAttribute="leading" constant="33" id="QFg-KH-ad2"/>
                                 <constraint firstAttribute="trailing" secondItem="AbB-Of-2XJ" secondAttribute="trailing" constant="33" id="VJg-Wx-vr9"/>
                                 <constraint firstAttribute="trailing" secondItem="iuG-ez-Os4" secondAttribute="trailing" constant="33" id="Y76-Dh-wIh"/>
-                                <constraint firstItem="iuG-ez-Os4" firstAttribute="top" secondItem="dmK-Yn-tNL" secondAttribute="bottom" constant="46" id="dtP-2F-RoN"/>
+                                <constraint firstItem="iuG-ez-Os4" firstAttribute="top" secondItem="dmK-Yn-tNL" secondAttribute="bottom" constant="23" id="dtP-2F-RoN"/>
                                 <constraint firstItem="iYJ-Cr-SKm" firstAttribute="top" secondItem="iuG-ez-Os4" secondAttribute="bottom" constant="13" id="g0z-E0-osc"/>
                                 <constraint firstItem="dmK-Yn-tNL" firstAttribute="centerX" secondItem="WZ2-um-F0y" secondAttribute="centerX" id="ioL-0D-kOb"/>
                                 <constraint firstItem="5uW-U1-zYh" firstAttribute="top" secondItem="AbB-Of-2XJ" secondAttribute="bottom" constant="23" id="kcd-ca-tfw"/>
-                                <constraint firstItem="dmK-Yn-tNL" firstAttribute="top" secondItem="WZ2-um-F0y" secondAttribute="top" constant="80" id="lcz-wP-cXC"/>
+                                <constraint firstItem="dmK-Yn-tNL" firstAttribute="top" secondItem="WZ2-um-F0y" secondAttribute="top" constant="38" id="lcz-wP-cXC"/>
                                 <constraint firstItem="iCC-4O-4Xq" firstAttribute="leading" secondItem="WZ2-um-F0y" secondAttribute="leading" constant="33" id="noY-Sg-dsb"/>
                                 <constraint firstItem="dJL-4G-LRC" firstAttribute="leading" secondItem="WZ2-um-F0y" secondAttribute="leading" constant="33" id="o3a-qd-xon"/>
                                 <constraint firstAttribute="trailing" secondItem="dJL-4G-LRC" secondAttribute="trailing" constant="33" id="pQa-LS-c0i"/>
