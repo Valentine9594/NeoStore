@@ -129,8 +129,8 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="53" id="vRb-gt-YTI"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
-                                    <state key="normal" title="Rate Now">
+                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="25"/>
+                                    <state key="normal" title="RATE NOW">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                     <connections>

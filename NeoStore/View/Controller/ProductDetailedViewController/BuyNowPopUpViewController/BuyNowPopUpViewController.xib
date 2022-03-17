@@ -33,10 +33,10 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
                         <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAv-DJ-MYn" userLabel="containerView">
-                            <rect key="frame" x="22" y="22" width="370" height="497"/>
+                            <rect key="frame" x="22" y="22" width="370" height="489"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="gSY-Pd-4g9">
-                                    <rect key="frame" x="33" y="33" width="304" height="431"/>
+                                    <rect key="frame" x="33" y="33" width="304" height="423"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Name" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.60000002384185791" translatesAutoresizingMaskIntoConstraints="NO" id="eUm-kp-kCY">
                                             <rect key="frame" x="0.0" y="0.0" width="304" height="27"/>
@@ -57,7 +57,7 @@
                                             </constraints>
                                         </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="WuG-ue-ELT">
-                                            <rect key="frame" x="53" y="271" width="198" height="160"/>
+                                            <rect key="frame" x="53" y="271" width="198" height="152"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Qty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bob-G4-9D0">
                                                     <rect key="frame" x="0.0" y="0.0" width="198" height="20"/>
@@ -79,14 +79,14 @@
                                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                 </textField>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vrp-iU-VCh">
-                                                    <rect key="frame" x="0.0" y="107" width="198" height="53"/>
+                                                    <rect key="frame" x="0.0" y="107" width="198" height="45"/>
                                                     <color key="backgroundColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="53" id="cN6-rW-EiC"/>
+                                                        <constraint firstAttribute="height" constant="45" id="cN6-rW-EiC"/>
                                                         <constraint firstAttribute="width" constant="198" id="pUC-ak-84C"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
-                                                    <state key="normal" title="Submit">
+                                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="25"/>
+                                                    <state key="normal" title="SUBMIT">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
                                                     <connections>

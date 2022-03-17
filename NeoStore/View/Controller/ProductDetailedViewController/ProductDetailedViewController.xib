@@ -282,9 +282,9 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="61" id="nOi-s1-dz2"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
-                            <state key="normal" title="Rate">
-                                <color key="titleColor" red="0.15686274509803921" green="0.15294117647058825" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="25"/>
+                            <state key="normal" title="RATE">
+                                <color key="titleColor" red="0.49803921568627452" green="0.49803921568627452" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
                                 <action selector="clickedRateNowButton:" destination="-1" eventType="touchUpInside" id="LJY-qf-RoN"/>
@@ -293,8 +293,8 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t8A-lq-ypf">
                             <rect key="frame" x="13" y="8" width="190" height="61"/>
                             <color key="backgroundColor" red="0.9137254901960784" green="0.10980392156862745" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
-                            <state key="normal" title="Buy Now">
+                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="25"/>
+                            <state key="normal" title="BUY NOW">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <connections>

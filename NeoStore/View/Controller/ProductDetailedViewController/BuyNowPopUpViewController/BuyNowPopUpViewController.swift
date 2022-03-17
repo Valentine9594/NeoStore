@@ -57,7 +57,7 @@ class BuyNowPopUpViewController: UIViewController {
     }
 
     private func setupUI(){
-        self.view.backgroundColor = .appGreyFont.withAlphaComponent(0.25)
+        self.view.backgroundColor = .appGreyFont.withAlphaComponent(0.20)
         let commonCornerRadius: CGFloat = 7
         
         containerView.layer.cornerRadius = commonCornerRadius
