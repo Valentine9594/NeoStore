@@ -191,5 +191,7 @@ class RegisterViewController: UIViewController {
         registerButton.layer.cornerRadius = 7
 //        registerButton.isEnabled = false
         
+        maleRadioButton.setInsets(imageTitlePadding: 5)
+        femaleRadioButton.setInsets(imageTitlePadding: 5)
     }
 }

@@ -112,18 +112,18 @@
                                     <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="password"/>
                                 </textField>
-                                <stackView opaque="NO" contentMode="scaleToFill" spacing="13" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uW-U1-zYh">
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5uW-U1-zYh">
                                     <rect key="frame" x="33" y="381" width="348" height="29"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lmt-cD-1Wb">
-                                            <rect key="frame" x="0.0" y="0.0" width="98" height="29"/>
-                                            <fontDescription key="fontDescription" name="HomepageBaukasten-Bold" family="HomepageBaukasten" pointSize="23"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GENDER:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="Lmt-cD-1Wb">
+                                            <rect key="frame" x="0.0" y="0.0" width="85" height="29"/>
+                                            <fontDescription key="fontDescription" name="HomepageBaukasten-Bold" family="HomepageBaukasten" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="NCa-vw-a0i">
-                                            <rect key="frame" x="111" y="0.0" width="102.5" height="29"/>
-                                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="23"/>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="249" selected="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="NCa-vw-a0i">
+                                            <rect key="frame" x="119.5" y="0.0" width="88.5" height="29"/>
+                                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                             <state key="normal" title="Male" image="chkn">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="medium" weight="medium"/>
                                             </state>
@@ -132,9 +132,9 @@
                                                 <action selector="maleRadioButtonSelected:" destination="-1" eventType="touchUpInside" id="BkK-Ns-u1c"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-zI-iIP">
-                                            <rect key="frame" x="226.5" y="0.0" width="121.5" height="29"/>
-                                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="23"/>
+                                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="H4j-zI-iIP">
+                                            <rect key="frame" x="243" y="0.0" width="105" height="29"/>
+                                            <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="18"/>
                                             <state key="normal" title="Female" image="chkn">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="16" scale="medium" weight="medium"/>
                                             </state>
@@ -206,7 +206,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="mLM-t5-XnS"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="26"/>
+                                    <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="25"/>
                                     <state key="normal" title="REGISTER">
                                         <color key="titleColor" red="0.91372549020000005" green="0.10980392160000001" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>

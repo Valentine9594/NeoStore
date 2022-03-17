@@ -18,10 +18,10 @@ func setTextField(textfield: UITextField ,image: UIImage?){
 extension UITextField{
 //    function to set image to the left of textfields
     @nonobjc func setLeftView(image: UIImage){
-        let imageView = UIImageView(frame: CGRect(x: 10, y: 5, width: 20, height: 20))
+        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        let imageView = UIImageView(frame: CGRect(x: 10, y: 10, width: 20, height: 20))
         imageView.image = image
-        
-        let containerView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 30))
+        imageView.contentMode = .scaleAspectFit
         containerView.addSubview(imageView)
         imageView.center = containerView.center
         

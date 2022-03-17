@@ -13,6 +13,12 @@ extension UINavigationController{
     }
 }
 
+extension UIButton{
+    @nonobjc func setInsets(imageTitlePadding: CGFloat){
+        self.titleEdgeInsets = UIEdgeInsets(top: 0, left: imageTitlePadding, bottom: 0, right: -imageTitlePadding)
+    }
+}
+
 //extension UIView{
 //
 //    @nonobjc func dismissKeyboard(){
