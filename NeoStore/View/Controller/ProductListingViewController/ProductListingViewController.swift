@@ -65,6 +65,7 @@ class ProductListingViewController: UIViewController{
         
         productListingTableview.delegate = self
         productListingTableview.dataSource = self
+        productListingTableview.separatorStyle = .none
         productListingTableview.tableFooterView = UIView(frame: .zero)
         
         DispatchQueue.main.async {
@@ -98,19 +99,8 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         let cell: ProductListingTableViewCell = tableView.dequeueReusableCell(withIdentifier: productListingCell, for: indexPath) as! ProductListingTableViewCell
         
         let productData = self.viewModel.getItemAtIndex(index: indexPath.row)
-        
-        if let rating: Int = productData.rating, let name = productData.name, let productDesc = productData.description, let price = productData.cost{
-
-            DispatchQueue.global(qos: .userInteractive).async {
-                cell.load(productName: name, productDescription: productDesc, productPrice: price, productRating: rating)
-            }
-            if let imageUrl = productData.productImages?.description{
-                let url = URL(string: imageUrl)
-                cell.productImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
-            }
+        cell.load(productData: productData)
 //                cell.productImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        }
-        
         return cell
     }
     

@@ -19,27 +19,22 @@ class ProductListingTableViewCell: UITableViewCell {
     @IBOutlet weak var productRatingStar3: UIImageView!
     @IBOutlet weak var productRatingStar4: UIImageView!
     @IBOutlet weak var productRatingStar5: UIImageView!
-    
-    var productName: String!
-    var productDescription: String!
-    var productPrice: Int!
     var productRatings: Int!
     
-    func load(productName: String, productDescription: String, productPrice: Int, productRating: Int){
-        self.productName = productName
-        self.productDescription = productDescription
-        self.productPrice = productPrice
-        self.productRatings = productRating
-        
-        self.setupProductData()
-        self.setupProductRating()
-    }
-    
-    private func setupProductData(){
-        DispatchQueue.main.async {
-            self.productNameLabel.text = self.productName.capitalized
-            self.productDescriptionLabel.text = self.productDescription
-            self.productPriceLabel.text = "Rs. \(self.productPrice ?? 0)"
+    func load(productData: ProductData){
+        if let rating: Int = productData.rating, let name = productData.name, let productDesc = productData.producer, let price = productData.cost{
+            var url: URL? = URL(string: "")
+            if let imageUrl = productData.productImages?.description{
+                url = URL(string: imageUrl)
+            }
+            DispatchQueue.main.async {
+                self.productImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"))
+                self.productNameLabel.text = name.capitalized
+                self.productDescriptionLabel.text = productDesc
+                self.productPriceLabel.text = "Rs. \(price)"
+                self.productRatings = rating
+                self.setupProductRating()
+            }
         }
     }
     
