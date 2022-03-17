@@ -79,6 +79,7 @@ class MyOrdersListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: appAnimation)
         let orderDetailsViewModel = MyOrderDetailsViewModel()
         let orderDetailsTableViewController = OrderDetailTableViewController(viewModel: orderDetailsViewModel)
         let orderId = self.viewModel.getOrderInListAtIndex(index: indexPath.row)?.id

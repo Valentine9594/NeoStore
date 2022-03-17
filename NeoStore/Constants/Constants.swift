@@ -100,8 +100,8 @@ enum ProductCategory: Int{
 }
 
 enum ButtonTitles: String{
-    case canEdit = "Edit Profile"
-    case saveChanges = "Save"
+    case canEdit = "EDIT PROFILE"
+    case saveChanges = "SUBMIT"
     case done = "Done"
     case cancel = "Cancel"
     
