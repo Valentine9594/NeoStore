@@ -10,7 +10,7 @@ import SideMenu
 
 class HomeViewController: UIViewController, SideMenuControllerDelegate {
     func didSelectMenuItem(menuItem: MenuItems) {
-        dismiss(animated: appAnimation, completion: nil)
+        dismiss(animated: false, completion: nil)
         let currentMenuItemViewController = currentMenuItemsViewController(menuItem: menuItem)
         self.navigationController?.pushViewController(currentMenuItemViewController, animated: appAnimation)
     }
@@ -72,7 +72,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     }
     
     @objc func slideToMenuBar(){
-        present(sideMenu!, animated: appAnimation)
+        present(sideMenu!, animated: true)
     }
     
     private func setupObservers(){
