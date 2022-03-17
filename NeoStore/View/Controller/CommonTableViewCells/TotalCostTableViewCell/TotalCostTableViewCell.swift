@@ -18,7 +18,7 @@ class TotalCostTableViewCell: UITableViewCell {
     
     func addTotalCostOfCart(totalCartCost: Int?){
         DispatchQueue.main.async {
-            self.totalCostOfCartLabel.text = "Rs. \(totalCartCost ?? 0)"
+            self.totalCostOfCartLabel.text = "₹ \(totalCartCost ?? 0)"
         }
     }
 

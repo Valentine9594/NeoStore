@@ -33,22 +33,22 @@
                         <color key="textColor" red="0.30980392156862746" green="0.30980392156862746" blue="0.30980392156862746" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCt-NA-zIk">
-                        <rect key="frame" x="339.5" y="34.5" width="41.5" height="23"/>
-                        <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="23"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rs. " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCt-NA-zIk">
+                        <rect key="frame" x="270" y="36.5" width="34.5" height="19"/>
+                        <fontDescription key="fontDescription" name="iCielGotham-Medium" family="iCiel Gotham" pointSize="19"/>
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="joG-36-8F6" secondAttribute="bottom" constant="20" id="57o-TJ-zq5"/>
-                    <constraint firstItem="joG-36-8F6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="33" id="6kP-IZ-bCe"/>
+                    <constraint firstItem="joG-36-8F6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" multiplier="0.08" constant="33" id="6kP-IZ-bCe"/>
                     <constraint firstItem="rxQ-vO-kkf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="948-5A-fwg"/>
-                    <constraint firstItem="rxQ-vO-kkf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="33" id="FMA-jy-zvL"/>
-                    <constraint firstAttribute="trailing" secondItem="uCt-NA-zIk" secondAttribute="trailing" constant="33" id="HBY-su-897"/>
+                    <constraint firstItem="uCt-NA-zIk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" multiplier="0.75" constant="270" id="9Tw-gb-7LO"/>
+                    <constraint firstItem="rxQ-vO-kkf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" multiplier="0.08" constant="33" id="FMA-jy-zvL"/>
                     <constraint firstItem="uCt-NA-zIk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="I1r-Fv-sKg"/>
-                    <constraint firstItem="uCt-NA-zIk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rxQ-vO-kkf" secondAttribute="trailing" constant="33" id="MOR-13-NSx"/>
                     <constraint firstItem="joG-36-8F6" firstAttribute="top" relation="lessThanOrEqual" secondItem="rxQ-vO-kkf" secondAttribute="bottom" constant="22" id="O2f-ab-fAo"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uCt-NA-zIk" secondAttribute="trailing" multiplier="0.08" constant="33" id="kWD-L0-nkR"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="0wO-pV-fQa"/>

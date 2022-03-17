@@ -29,7 +29,7 @@ class OrderDetailTableViewCell: UITableViewCell {
             self.orderNameLabel.text = orderDetailsData.productName?.capitalized ?? "Unknown"
             self.orderCategoryLabel.text = "(\(orderDetailsData.productCategoryName?.capitalized ?? "Unknown"))"
             self.orderQuantityLabel.text = "QTY: \(orderDetailsData.quantity ?? 1)"
-            self.orderCostLabel.text = "Rs. \(orderDetailsData.total ?? 0)"
+            self.orderCostLabel.text = "₹ \(orderDetailsData.total ?? 0)"
         }
     }
 

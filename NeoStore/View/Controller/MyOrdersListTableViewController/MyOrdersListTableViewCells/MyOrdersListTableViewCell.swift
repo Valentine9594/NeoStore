@@ -25,7 +25,7 @@ class MyOrdersListTableViewCell: UITableViewCell {
         DispatchQueue.main.async {
             self.orderIdLabel.text = "Order Id: \(orderData.id ?? 0)"
             self.orderDateLabel.text = "Order Date: \(createdDate)"
-            self.orderTotalCostLabel.text = "Rs. \(orderData.cost ?? 0)"
+            self.orderTotalCostLabel.text = "₹ \(orderData.cost ?? 0)"
         }
     }
 

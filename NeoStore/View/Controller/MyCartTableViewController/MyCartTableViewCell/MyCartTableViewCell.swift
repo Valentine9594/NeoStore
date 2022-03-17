@@ -47,7 +47,7 @@ class MyCartTableViewCell: UITableViewCell{
             }
             let productCategory = (productDetails.productCategory ?? "uknown").capitalized
             self.orderCategory.text = "(\(productCategory))"
-            self.orderCountIntoPrice.text = "Rs. \(productDetails.subTotal ?? 0)"
+            self.orderCountIntoPrice.text = "₹ \(productDetails.subTotal ?? 0)"
             self.orderQuantityButton.setTitle("  \(cartProduct.quantity ?? 1)", for: .normal)
         }
         self.productId = productDetails.id
