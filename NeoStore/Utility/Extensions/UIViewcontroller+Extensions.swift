@@ -48,6 +48,8 @@ extension UIViewController{
         switch currentViewController {
             case .HomeViewController:
                 navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: AppIcons.menu.description), style: .plain, target: self, action: operation)
+            case .MyAccountViewController:
+                navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(checkBeforePopToPreviousViewController))
             default:
                 navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popToPreviousViewController))
         }
@@ -64,6 +66,23 @@ extension UIViewController{
     
     @objc func popToPreviousViewController(){
         self.navigationController?.popViewController(animated: appAnimation)
+    }
+    
+    @objc func checkBeforePopToPreviousViewController(){
+        let selfViewController = self as! MyAccountViewController
+        if selfViewController.canEditTextfields{
+            let alert = UIAlertController(title: "Alert!", message: "Do you want to discard current changes and continue further?", preferredStyle: .alert)
+            let okAlertAction = UIAlertAction(title: "Yes", style: .default) { action in
+                self.popToPreviousViewController()
+            }
+            alert.addAction(okAlertAction)
+            let cancelAlertAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancelAlertAction)
+            self.present(alert, animated: appAnimation, completion: nil)
+        }
+        else{
+            self.popToPreviousViewController()
+        }
     }
     
     @objc func dismissKeyboard(){
