@@ -139,8 +139,6 @@ class BuyNowPopUpViewController: UIViewController {
 
     @objc func dismissPopUp(){
         self.dismiss(animated: appAnimation, completion: nil)
-        containerViewTopConstraint.constant += 70
-        isViewAlreadyShifted = false
     }
 
 }
@@ -153,6 +151,13 @@ extension BuyNowPopUpViewController: UITextFieldDelegate{
             self.containerView.layoutIfNeeded()
             self.isViewAlreadyShifted = true
             }
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if isViewAlreadyShifted{
+//            containerViewTopConstraint.constant += 70
+            isViewAlreadyShifted = false
         }
     }
 }
