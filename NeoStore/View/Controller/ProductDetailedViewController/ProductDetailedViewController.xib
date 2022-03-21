@@ -42,11 +42,11 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="784"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwF-q8-NIX">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MwF-q8-NIX">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="707"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zta-dv-Ygu">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="692"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="622"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ucc-AO-6kx" userLabel="headerView">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="102"/>
@@ -138,10 +138,10 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-j3-6w9" userLabel="contentView">
-                                    <rect key="frame" x="13" y="115" width="388" height="577"/>
+                                    <rect key="frame" x="13" y="115" width="388" height="507"/>
                                     <subviews>
-                                        <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLS-0n-CtO" userLabel="descriptionView">
-                                            <rect key="frame" x="0.0" y="347" width="388" height="217"/>
+                                        <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="GLS-0n-CtO" userLabel="descriptionView">
+                                            <rect key="frame" x="0.0" y="347" width="388" height="147"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mv9-5O-fIs">
                                                     <rect key="frame" x="8" y="8" width="372" height="19"/>
@@ -245,7 +245,6 @@
                                         <constraint firstAttribute="trailing" secondItem="GLS-0n-CtO" secondAttribute="trailing" id="Dyr-Fj-jUl"/>
                                         <constraint firstItem="tUC-bp-IaQ" firstAttribute="top" secondItem="gbE-j3-6w9" secondAttribute="top" id="Hho-zp-ycT"/>
                                         <constraint firstItem="tUC-bp-IaQ" firstAttribute="leading" secondItem="gbE-j3-6w9" secondAttribute="leading" id="bEm-1u-Ib0"/>
-                                        <constraint firstItem="GLS-0n-CtO" firstAttribute="top" secondItem="gbE-j3-6w9" secondAttribute="top" constant="347" id="cEp-YD-RGb"/>
                                         <constraint firstItem="GLS-0n-CtO" firstAttribute="top" secondItem="tUC-bp-IaQ" secondAttribute="bottom" constant="5" id="gZK-9J-jo5"/>
                                         <constraint firstAttribute="trailing" secondItem="tUC-bp-IaQ" secondAttribute="trailing" id="hVv-sf-HfV"/>
                                         <constraint firstAttribute="bottom" secondItem="GLS-0n-CtO" secondAttribute="bottom" constant="13" id="mKj-dt-4nI"/>
@@ -266,7 +265,7 @@
                         </view>
                     </subviews>
                     <constraints>
-                        <constraint firstItem="zta-dv-Ygu" firstAttribute="height" secondItem="MwF-q8-NIX" secondAttribute="height" multiplier="0.978632" priority="250" id="0cA-5z-7eh"/>
+                        <constraint firstItem="zta-dv-Ygu" firstAttribute="height" secondItem="MwF-q8-NIX" secondAttribute="height" multiplier="0.88" priority="250" id="0cA-5z-7eh"/>
                         <constraint firstItem="zta-dv-Ygu" firstAttribute="leading" secondItem="MwF-q8-NIX" secondAttribute="leading" id="5Z7-E0-UpJ"/>
                         <constraint firstAttribute="trailing" secondItem="zta-dv-Ygu" secondAttribute="trailing" id="DB7-xT-zJi"/>
                         <constraint firstAttribute="bottom" secondItem="zta-dv-Ygu" secondAttribute="bottom" id="HKI-m4-bKs"/>
@@ -327,19 +326,13 @@
                 <constraint firstItem="TzW-Y3-Hvt" firstAttribute="top" secondItem="MwF-q8-NIX" secondAttribute="bottom" id="Yl3-yk-jtX"/>
                 <constraint firstItem="MwF-q8-NIX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="bde-TF-b4N"/>
                 <constraint firstItem="TzW-Y3-Hvt" firstAttribute="trailing" secondItem="MwF-q8-NIX" secondAttribute="trailing" id="qF6-ym-pbR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MwF-q8-NIX" secondAttribute="bottom" constant="77" id="roO-xj-j1s"/>
+                <constraint firstItem="TzW-Y3-Hvt" firstAttribute="top" secondItem="MwF-q8-NIX" secondAttribute="bottom" id="s6Q-fJ-N6D"/>
                 <constraint firstItem="TzW-Y3-Hvt" firstAttribute="leading" secondItem="MwF-q8-NIX" secondAttribute="leading" id="zKt-JR-aVU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="2.8985507246376816" y="40.848214285714285"/>
         </view>
-        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h0N-BR-8BY">
-            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-            <nil key="textColor"/>
-            <nil key="highlightedColor"/>
-            <point key="canvasLocation" x="585" y="-37"/>
-        </label>
     </objects>
     <resources>
         <image name="share" width="30" height="30"/>
