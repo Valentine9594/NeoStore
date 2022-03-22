@@ -73,6 +73,7 @@ class BuyNowPopUpViewController: UIViewController {
         enterQuantityTextfield.layer.cornerRadius = commonCornerRadius
         
         submitButton.layer.cornerRadius = commonCornerRadius
+        self.scrollView.isScrollEnabled = false
     }
     
     private func setupGestures(){
@@ -150,6 +151,7 @@ extension BuyNowPopUpViewController: UITextFieldDelegate{
             UIView.animate(withDuration: 0.3) {
             self.containerView.layoutIfNeeded()
             self.isViewAlreadyShifted = true
+                self.scrollView.isScrollEnabled = true
             }
         }
     }
@@ -158,6 +160,7 @@ extension BuyNowPopUpViewController: UITextFieldDelegate{
         if isViewAlreadyShifted{
 //            containerViewTopConstraint.constant += 70
             isViewAlreadyShifted = false
+            self.scrollView.isScrollEnabled = false
         }
     }
 }
