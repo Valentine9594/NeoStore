@@ -39,16 +39,23 @@
                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.89803921568627454" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uyt-lu-i1Q" userLabel="strokeView">
+                        <rect key="frame" x="23" y="47" width="92.5" height="3"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="joG-36-8F6" secondAttribute="bottom" constant="20" id="57o-TJ-zq5"/>
-                    <constraint firstItem="joG-36-8F6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" multiplier="0.08" constant="23" id="6kP-IZ-bCe"/>
                     <constraint firstItem="rxQ-vO-kkf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="948-5A-fwg"/>
                     <constraint firstItem="uCt-NA-zIk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" multiplier="0.75" constant="270" id="9Tw-gb-7LO"/>
                     <constraint firstItem="rxQ-vO-kkf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" multiplier="0.08" constant="23" id="FMA-jy-zvL"/>
                     <constraint firstItem="uCt-NA-zIk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="I1r-Fv-sKg"/>
-                    <constraint firstItem="joG-36-8F6" firstAttribute="top" relation="lessThanOrEqual" secondItem="rxQ-vO-kkf" secondAttribute="bottom" constant="22" id="O2f-ab-fAo"/>
+                    <constraint firstItem="Uyt-lu-i1Q" firstAttribute="top" secondItem="rxQ-vO-kkf" secondAttribute="bottom" constant="7" id="UKN-qp-8oB"/>
+                    <constraint firstItem="joG-36-8F6" firstAttribute="top" secondItem="Uyt-lu-i1Q" secondAttribute="bottom" constant="7" id="Zpn-qK-UeG"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="uCt-NA-zIk" secondAttribute="trailing" multiplier="0.08" constant="23" id="kWD-L0-nkR"/>
+                    <constraint firstItem="Uyt-lu-i1Q" firstAttribute="trailing" secondItem="joG-36-8F6" secondAttribute="trailing" id="n7l-Dp-pom"/>
+                    <constraint firstItem="joG-36-8F6" firstAttribute="leading" secondItem="rxQ-vO-kkf" secondAttribute="leading" id="rEW-Do-7Tb"/>
+                    <constraint firstItem="Uyt-lu-i1Q" firstAttribute="leading" secondItem="rxQ-vO-kkf" secondAttribute="leading" id="uqA-El-l4W"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="0wO-pV-fQa"/>
@@ -57,7 +64,7 @@
                 <outlet property="orderIdLabel" destination="rxQ-vO-kkf" id="Xwd-J2-DBy"/>
                 <outlet property="orderTotalCostLabel" destination="uCt-NA-zIk" id="At5-Be-cEW"/>
             </connections>
-            <point key="canvasLocation" x="3" y="44"/>
+            <point key="canvasLocation" x="2.8985507246376816" y="43.526785714285715"/>
         </tableViewCell>
     </objects>
 </document>
