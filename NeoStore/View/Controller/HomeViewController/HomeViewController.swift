@@ -42,8 +42,8 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
         self.setupProductTypesDisplay()
         self.setupPageControl()
 //        self.setupCustomNavigationBar()
-        self.setupSideMenu()
         self.setupNavigationBar(title: "NeoSTORE", currentViewController: .HomeViewController, operation: #selector(slideToMenuBar))
+        self.setupSideMenu()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +54,8 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
 //        self.showSpinner(onView: self.view)
         NotificationCenter.default.addObserver(self, selector: #selector(slideToMenuBar), name: .didClickMenuButton, object: nil)
         self.timer = Timer.scheduledTimer(timeInterval: 2.5, target: self, selector: #selector(self.slideToNext), userInfo: nil, repeats: true)
+        self.setupCartBadge()
+        self.setupObservers()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,6 +66,7 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
     
     private func setupSideMenu(){
         let menu = SideMenuController(with: MenuItems.allCases)
+        menu.myCartBadgeNumber = self.viewModel.getNumberOfTotalCarts()
         menu.delegate = self
         self.sideMenu = SideMenuNavigationController(rootViewController: menu)
         sideMenu?.leftSide = true
@@ -80,14 +83,19 @@ class HomeViewController: UIViewController, SideMenuControllerDelegate {
             guard `self` == self else{ return }
             switch result{
                 case .success:
-//                    self?.removeSpinner(spinnerView: (self?.view)!)
-                    break
+                    DispatchQueue.main.async {
+                        self?.setupSideMenu()
+                    }
                 case .failure:
                     break
                 case .none:
                     break
             }
         }
+    }
+    
+    private func setupCartBadge(){
+        self.viewModel.getHomeDetail()
     }
     
     @objc func slideToNext(){

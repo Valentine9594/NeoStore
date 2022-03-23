@@ -16,6 +16,7 @@ class SideMenuController: UITableViewController{
     
     var delegate: SideMenuControllerDelegate?
     var menuItems = [MenuItems]()
+    var myCartBadgeNumber: Int = 0
     let menuPanelColor: UIColor = .appBlackForMenuBar
     
     init(with menuItems:[MenuItems]) {
@@ -59,10 +60,7 @@ class SideMenuController: UITableViewController{
         let menuItem = menuItems[indexPath.row]
         let imageString = menuItemIconForItem(menuItem: menuItem)
         let menuName = menuItem.description
-        var badgeNumber = 0
-        if menuItem == .myCart{
-            badgeNumber = 2
-        }
+        let badgeNumber = (menuItem == .myCart) ? myCartBadgeNumber : 0
         cell.loadCell(menuImageString: imageString, menuName: menuName, menuBadgeNumber: badgeNumber)
         return cell
     }

@@ -70,17 +70,32 @@ extension Notification.Name{
 }
 
 //custom errors in app
-enum CustomErrors: String, LocalizedError{
-    case EmptyString = "Empty String Found."
-    case NoTextFieldValue = "Textfield Value cannot be found."
-    case CannotConvertPhoneNumberFromStringToNumber = "Cannot convert String into Number."
-    case CannotConvertJSONObject = "Cannot convert JSON Data."
-    case ResponseDataNil = "Response data returned as Nil."
-    case PasswordsDoNotMatch = "Password does not match Confirm password."
-    case CouldNotSaveInUserDefaults = "Could not save data in userdefaults."
+enum CustomErrors: LocalizedError{
+    case EmptyString
+    case NoTextFieldValue
+    case CannotConvertPhoneNumberFromStringToNumber
+    case CannotConvertJSONObject
+    case ResponseDataNil
+    case PasswordsDoNotMatch
+    case CouldNotSaveInUserDefaults
     
     var errorDescription: String?{
-        return rawValue
+        switch self {
+            case .EmptyString:
+                return "Empty String Found."
+            case .NoTextFieldValue:
+                return "Textfield Value cannot be found."
+            case .CannotConvertPhoneNumberFromStringToNumber:
+                return "Cannot convert String into Number."
+            case .CannotConvertJSONObject:
+                return "Cannot convert JSON Data."
+            case .ResponseDataNil:
+                return "Response data returned as Nil."
+            case .PasswordsDoNotMatch:
+                return "Password does not match Confirm password."
+            case .CouldNotSaveInUserDefaults:
+                return "Could not save data in userdefaults." 
+        }
     }
     
 }

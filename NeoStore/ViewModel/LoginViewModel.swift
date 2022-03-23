@@ -7,14 +7,10 @@
 
 import Foundation
 
-enum LoginResult: String{
+enum LoginResult{
     case success
-    case failure
+    case failure(error: Error)
     case none
-    
-    var description: String{
-        rawValue
-    }
 }
 
 protocol LoginViewModelType {
@@ -45,12 +41,10 @@ class LoginViewModel: LoginViewModelType{
                         }
                     }
                     else{
-                        self?.loginStatus.value = .failure
+                        self?.loginStatus.value = .failure(error: CustomErrors.ResponseDataNil)
                     }
-                    
                 case .failure(let error):
-                    debugPrint(error.localizedDescription)
-                    self?.loginStatus.value = .failure
+                    self?.loginStatus.value = .failure(error: error)
             }
             
         }

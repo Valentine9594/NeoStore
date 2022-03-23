@@ -9,7 +9,7 @@ import Foundation
 
 enum HomeResult{
     case success
-    case failure
+    case failure(error: Error)
     case none
 }
 
@@ -31,9 +31,10 @@ class HomeViewModel: HomeViewModelType{
                         guard let response = data.data else{return}
                         guard let userCarts = response.totalCarts else{return}
                         self.numberOfCarts = userCarts
+                        self.homeStatus.value = .success
                     }
                 case .failure(let error):
-                    debugPrint(error.localizedDescription)
+                    self.homeStatus.value = .failure(error: error)
             }
         }
     }
