@@ -52,7 +52,11 @@ class APIManager{
                 return
             }
             
-            
+            guard let httpResponse = response as? HTTPURLResponse else{ return }
+            guard [200, 400, 401, 404, 500].contains(httpResponse.statusCode) else{
+                completionHandler(.failure(error: CustomErrors.SometingWentWrong))
+                return
+            }
             
             guard let someData = data else{
                 completionHandler(.failure(error: error!))

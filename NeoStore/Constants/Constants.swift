@@ -78,6 +78,7 @@ enum CustomErrors: LocalizedError{
     case ResponseDataNil
     case PasswordsDoNotMatch
     case CouldNotSaveInUserDefaults
+    case SometingWentWrong
     
     var errorDescription: String?{
         switch self {
@@ -94,7 +95,9 @@ enum CustomErrors: LocalizedError{
             case .PasswordsDoNotMatch:
                 return "Password does not match Confirm password."
             case .CouldNotSaveInUserDefaults:
-                return "Could not save data in userdefaults." 
+                return "Could not save data in userdefaults."
+            case .SometingWentWrong:
+                return "Something went wrong :("
         }
     }
     
