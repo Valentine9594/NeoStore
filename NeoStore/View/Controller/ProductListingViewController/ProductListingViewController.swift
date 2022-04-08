@@ -50,7 +50,8 @@ class ProductListingViewController: UIViewController{
     }
     
     private func setupFetchingProductList(){
-        self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: 1)
+//        self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: 1)
+        self.viewModel.checkBeforeFetch(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: 1)
     }
     
     private func setupLoadTableViewData(){

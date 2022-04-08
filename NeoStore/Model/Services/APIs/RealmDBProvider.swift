@@ -26,11 +26,11 @@ final class RealmDBProvider {
     
     func save<T: Object>(_ objects: [T]) {
         debugPrint("Before Saving Realm")
-        realmQueue.async {
+//        realmQueue.async {
             try! self.realm.write {
                 self.realm.add(objects, update: .all)
             }
-        }
+//        }
         debugPrint("After Saving Realm")
     }
     

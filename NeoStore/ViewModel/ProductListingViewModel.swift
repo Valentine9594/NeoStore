@@ -7,14 +7,14 @@
 
 import Foundation
 import RealmSwift
+import Network
 
 protocol ProductListingViewModelType {
     var tableShouldReload: ReactiveListener<Bool>{get set}
+    func checkBeforeFetch(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int)
     func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int)
     func totalNumberOfRows() -> Int
     func getItemAtIndex(index: Int) -> ProductData
-//    fetching form realm database
-    func fetchFromRealmDatabase()
 }
 
 class ProductListingViewModel: ProductListingViewModelType{
@@ -22,10 +22,14 @@ class ProductListingViewModel: ProductListingViewModelType{
     var currentPage = 0
     var productList = [ProductData]()
     private var realmDatabase: RealmDBProvider?
+    var monitor: NWPathMonitor!
     
     init() {
+        monitor = NWPathMonitor()
         self.realmDatabase = RealmDBProvider()
-        self.realmDatabase?.deleteAll()
+//        self.realmDatabase?.deleteAll()
+        let queue = DispatchQueue(label: "NetworkStatusQueue")
+        monitor.start(queue: queue)
     }
     
     func totalNumberOfRows() -> Int {
@@ -34,6 +38,33 @@ class ProductListingViewModel: ProductListingViewModelType{
     
     func getItemAtIndex(index: Int) -> ProductData {
         return productList[index]
+    }
+    
+    func checkBeforeFetch(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int){
+        DispatchQueue.main.async {
+            if self.checkNetworkStatus(){
+                debugPrint("Fetching from API!")
+                self.fetchProductData(productCategoryId: productCategoryId, productsLimit: productsLimit, productsPageNumber: productsPageNumber)
+            }
+            else{
+                
+                let savedFromRealmDatabase = self.realmDatabase?.realm.objects(ProductData.self)
+                if let totalSaved = savedFromRealmDatabase, totalSaved.count > 0{
+                    let ofCurrentProductCategoryId = Array(totalSaved)
+                    self.productList = ofCurrentProductCategoryId.compactMap{
+                        data in
+                        if data.productCategoryId == productCategoryId{
+                            return data
+                        }
+                        return nil
+                    }
+                }
+                debugPrint("Fetching from Realm Database!")
+                self.tableShouldReload.value = true
+                }
+                
+            }
+
     }
     
     func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int) {
@@ -48,7 +79,13 @@ class ProductListingViewModel: ProductListingViewModelType{
 //                            self?.realmQueue.async{
 //                            let threadReference = ThreadSafeReference(to: data.data)
 //                            guard let resolveIssue = realmDatabase?.realm.resolve(threadReference) else{ return }
-                                self?.realmDatabase?.save(data.data)
+//                                self?.realmDatabase?.save(data.data)
+                            DispatchQueue.main.async {
+                                try! self?.realmDatabase?.realm.write{
+                                    self?.realmDatabase?.realm.add(data.data, update: .all)
+                                }
+                            }
+
 //                            }
                             self?.currentPage += 1
                             self?.tableShouldReload.value = true
@@ -62,13 +99,18 @@ class ProductListingViewModel: ProductListingViewModelType{
         }
     }
     
-    func fetchFromRealmDatabase(){
-        var totalCount: Int = 0
-//        realmQueue.async {
-            let realmDatabaseData = self.realmDatabase?.fetch()
-            totalCount = realmDatabaseData?.count ?? 0
-//        }
-        debugPrint("Total Count in Realm Database: \(totalCount)")
+    func checkNetworkStatus() -> Bool{
+        var isNetwork = false
+        monitor.pathUpdateHandler = { pathUpdateHandler in
+            if pathUpdateHandler.status == .satisfied{
+                isNetwork = true
+            }
+            else{
+                isNetwork = false
+            }
+            debugPrint("Network Status: \(pathUpdateHandler.status)")
+        }
+        return isNetwork
     }
     
 }
