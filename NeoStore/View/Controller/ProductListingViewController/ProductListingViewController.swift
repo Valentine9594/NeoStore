@@ -7,6 +7,7 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 class ProductListingViewController: UIViewController{
     
@@ -32,6 +33,11 @@ class ProductListingViewController: UIViewController{
         super.viewWillAppear(animated)
         self.setupLoadTableViewData()
         self.showSpinner(onView: self.view)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        self.viewModel.fetchFromRealmDatabase()
     }
     
     init(viewModel: ProductListingViewModelType){
@@ -99,6 +105,7 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
         let cell: ProductListingTableViewCell = tableView.dequeueReusableCell(withIdentifier: productListingCell, for: indexPath) as! ProductListingTableViewCell
         
         let productData = self.viewModel.getItemAtIndex(index: indexPath.row)
+        
         cell.load(productData: productData)
 //                cell.productImageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         return cell

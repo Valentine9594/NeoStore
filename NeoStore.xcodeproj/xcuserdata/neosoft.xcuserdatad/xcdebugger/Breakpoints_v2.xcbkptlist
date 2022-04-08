@@ -87,81 +87,161 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "14898BA6-6561-49D2-9FC4-9DBF3A3A618E"
+            uuid = "61CFC193-43A3-4132-B6C5-25DCC2BE8F86"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeoStore/Model/Entities/UserModels.swift"
+            filePath = "NeoStore/ViewModel/ProductListingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "init(from:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "61CFC193-43A3-4132-B6C5-25DCC2BE8F86 - cd96b0637ab36340"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NeoStore.ProductListingViewModel.__allocating_init() -&gt; NeoStore.ProductListingViewModel"
+                  moduleName = "NeoStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/neosoft/Desktop/NeoStore/NeoStore/ViewModel/ProductListingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "17">
+               </Location>
+               <Location
+                  uuid = "61CFC193-43A3-4132-B6C5-25DCC2BE8F86 - c6f2f70f29ad4bc5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NeoStore.ProductListingViewModel.init() -&gt; NeoStore.ProductListingViewModel"
+                  moduleName = "NeoStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/neosoft/Desktop/NeoStore/NeoStore/ViewModel/ProductListingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6E568D0B-A2E3-4A57-BA63-E6B23574736F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NeoStore/ViewModel/ProductListingViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "fetchProductData(productCategoryId:productsLimit:productsPageNumber:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D84FFBBF-1AC0-4382-9D29-26DF3CD2D23D"
+            uuid = "2035DF65-5D6C-4AA7-B170-E5AACFDEA1EE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeoStore/Model/Entities/UserModels.swift"
+            filePath = "NeoStore/Model/Services/APIs/RealmDBProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "init(from:)"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "save(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2035DF65-5D6C-4AA7-B170-E5AACFDEA1EE - 9b650095defdf7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in NeoStore.RealmDBProvider.save&lt;&#x3c4;_0_0 where &#x3c4;_0_0: __C.RealmSwiftObject&gt;(Swift.Array&lt;&#x3c4;_0_0&gt;) -&gt; ()"
+                  moduleName = "NeoStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/neosoft/Desktop/NeoStore/NeoStore/Model/Services/APIs/RealmDBProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "2035DF65-5D6C-4AA7-B170-E5AACFDEA1EE - 8d9a0b6f6a7eac0d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in NeoStore.RealmDBProvider.save&lt;&#x3c4;_0_0 where &#x3c4;_0_0: __C.RealmSwiftObject&gt;(Swift.Array&lt;&#x3c4;_0_0&gt;) -&gt; ()"
+                  moduleName = "NeoStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/neosoft/Desktop/NeoStore/NeoStore/Model/Services/APIs/RealmDBProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "88222BF5-8DF0-44B5-9B8F-0D984E92F636"
+            uuid = "6F29EFFB-2000-4B72-9F27-A44AC2A09B22"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NeoStore/Model/Entities/UserModels.swift"
+            filePath = "NeoStore/Model/Services/APIs/RealmDBProvider.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "init(from:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "save(_:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "69618608-4101-4BE9-9045-FDB2C6DBE876"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeoStore/Model/Entities/UserModels.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "init(from:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F411EF8C-0567-4318-86F7-DF55E410A547"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "NeoStore/Model/Entities/UserModels.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
-            landmarkName = "init(from:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6F29EFFB-2000-4B72-9F27-A44AC2A09B22 - e474166976fc98c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "NeoStore.RealmDBProvider.save&lt;&#x3c4;_0_0 where &#x3c4;_0_0: __C.RealmSwiftObject&gt;(Swift.Array&lt;&#x3c4;_0_0&gt;) -&gt; ()"
+                  moduleName = "NeoStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/neosoft/Desktop/NeoStore/NeoStore/Model/Services/APIs/RealmDBProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "456">
+               </Location>
+               <Location
+                  uuid = "6F29EFFB-2000-4B72-9F27-A44AC2A09B22 - 9b650095defdf7a3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in NeoStore.RealmDBProvider.save&lt;&#x3c4;_0_0 where &#x3c4;_0_0: __C.RealmSwiftObject&gt;(Swift.Array&lt;&#x3c4;_0_0&gt;) -&gt; ()"
+                  moduleName = "NeoStore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/neosoft/Desktop/NeoStore/NeoStore/Model/Services/APIs/RealmDBProvider.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

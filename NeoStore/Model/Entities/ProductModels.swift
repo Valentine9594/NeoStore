@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RealmSwift
 
 enum ProductListingParameter: String{
     case productCategoryId = "product_category_id"
@@ -37,25 +38,25 @@ extension jsonProductResponse: Decodable{
     }
 }
 
-struct ProductData{
-    let id: Int?
-    let productCategoryId: Int?
-    let name: String?
-    let producer: String?
-    let description: String?
-    let cost: Int?
-    let rating: Int?
-    let viewCount: Int?
-    let productImages: String?
-    let created: Date?
-    let modified: Date?
+class ProductData: Object, Decodable{
+    @objc dynamic var id = Int()
+    @objc dynamic var productCategoryId = Int()
+    @objc dynamic var name: String?
+    @objc dynamic var producer: String?
+    @objc dynamic var productDescription: String?
+    @objc dynamic var cost = Int()
+    @objc dynamic var rating = Int()
+    @objc dynamic var viewCount = Int()
+    @objc dynamic var productImages: String?
+    @objc dynamic var created: Date?
+    @objc dynamic var modified: Date?
     
     enum codingKeys: String, CodingKey{
         case id
         case productCategoryId = "product_category_id"
         case name = "name"
         case producer = "producer"
-        case description = "description"
+        case productDescription = "description"
         case cost = "cost"
         case rating = "rating"
         case viewCount = "view_count"
@@ -63,16 +64,18 @@ struct ProductData{
         case created = "created"
         case modified = "modified"
     }
-}
 
-extension ProductData: Decodable{
-    init(from decoder: Decoder) throws {
+    override required init(){
+        super.init()
+    }
+    
+    required init(from decoder: Decoder) throws {
         let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
         id = try codingKeysValue.decode(Int.self, forKey: .id)
         productCategoryId = try codingKeysValue.decode(Int.self, forKey: .productCategoryId)
         name = try codingKeysValue.decode(String.self, forKey: .name)
         producer = try codingKeysValue.decode(String.self, forKey: .producer)
-        description = try codingKeysValue.decode(String.self, forKey: .description)
+        productDescription = try codingKeysValue.decode(String.self, forKey: .productDescription)
         cost = try codingKeysValue.decode(Int.self, forKey: .cost)
         rating = try codingKeysValue.decode(Int.self, forKey: .rating)
         viewCount = try codingKeysValue.decode(Int.self, forKey: .viewCount)
@@ -80,7 +83,57 @@ extension ProductData: Decodable{
         created = try codingKeysValue.decode(Date.self, forKey: .created)
         modified = try codingKeysValue.decode(Date.self, forKey: .modified)
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
 }
+
+//struct ProductData{
+//    let id: Int?
+//    let productCategoryId: Int?
+//    let name: String?
+//    let producer: String?
+//    let description: String?
+//    let cost: Int?
+//    let rating: Int?
+//    let viewCount: Int?
+//    let productImages: String?
+//    let created: Date?
+//    let modified: Date?
+//
+//    enum codingKeys: String, CodingKey{
+//        case id
+//        case productCategoryId = "product_category_id"
+//        case name = "name"
+//        case producer = "producer"
+//        case description = "description"
+//        case cost = "cost"
+//        case rating = "rating"
+//        case viewCount = "view_count"
+//        case productImages = "product_images"
+//        case created = "created"
+//        case modified = "modified"
+//    }
+//}
+
+//extension ProductData: Decodable{
+//    init(from decoder: Decoder) throws {
+//        let codingKeysValue = try decoder.container(keyedBy: codingKeys.self)
+//        id = try codingKeysValue.decode(Int.self, forKey: .id)
+//        productCategoryId = try codingKeysValue.decode(Int.self, forKey: .productCategoryId)
+//        name = try codingKeysValue.decode(String.self, forKey: .name)
+//        producer = try codingKeysValue.decode(String.self, forKey: .producer)
+//        description = try codingKeysValue.decode(String.self, forKey: .description)
+//        cost = try codingKeysValue.decode(Int.self, forKey: .cost)
+//        rating = try codingKeysValue.decode(Int.self, forKey: .rating)
+//        viewCount = try codingKeysValue.decode(Int.self, forKey: .viewCount)
+//        productImages = try codingKeysValue.decode(String.self, forKey: .productImages)
+//        created = try codingKeysValue.decode(Date.self, forKey: .created)
+//        modified = try codingKeysValue.decode(Date.self, forKey: .modified)
+//    }
+//}
 
 struct ProductDetails{
     let id: Int?

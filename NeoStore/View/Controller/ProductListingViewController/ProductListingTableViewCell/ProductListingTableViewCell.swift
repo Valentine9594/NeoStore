@@ -22,7 +22,9 @@ class ProductListingTableViewCell: UITableViewCell {
     var productRatings: Int!
     
     func load(productData: ProductData){
-        if let rating: Int = productData.rating, let name = productData.name, let productDesc = productData.producer, let price = productData.cost{
+        let rating = productData.rating
+        let price = productData.cost
+        if let name = productData.name, let productDesc = productData.producer{
             var url: URL? = URL(string: "")
             if let imageUrl = productData.productImages?.description{
                 url = URL(string: imageUrl)

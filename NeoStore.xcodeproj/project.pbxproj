@@ -67,6 +67,8 @@
 		923E34EC27DBA624005FB945 /* SideMenuUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34EB27DBA624005FB945 /* SideMenuUtility.swift */; };
 		923E34EF27DBB443005FB945 /* SideMenuTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923E34EE27DBB443005FB945 /* SideMenuTableViewHeader.swift */; };
 		923E34F127DBB458005FB945 /* SideMenuTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */; };
+		92D4FE4027FF1750003679AB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 92D4FE3F27FF1750003679AB /* RealmSwift */; };
+		92D4FE42280009E9003679AB /* RealmDBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4FE41280009E9003679AB /* RealmDBProvider.swift */; };
 		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
 		92DC143F27AA68B5004C531D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143E27AA68B5004C531D /* ProductService.swift */; };
 		92DC144127AA6C4E004C531D /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144027AA6C4E004C531D /* UserModels.swift */; };
@@ -181,6 +183,7 @@
 		923E34EB27DBA624005FB945 /* SideMenuUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuUtility.swift; sourceTree = "<group>"; };
 		923E34EE27DBB443005FB945 /* SideMenuTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewHeader.swift; sourceTree = "<group>"; };
 		923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewHeader.xib; sourceTree = "<group>"; };
+		92D4FE41280009E9003679AB /* RealmDBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBProvider.swift; sourceTree = "<group>"; };
 		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92DC143E27AA68B5004C531D /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		92DC144027AA6C4E004C531D /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D4FE4027FF1750003679AB /* RealmSwift in Frameworks */,
 				923E34E327DA329F005FB945 /* SideMenu in Frameworks */,
 				9208632927C52D35007D2FED /* SDWebImage in Frameworks */,
 			);
@@ -564,6 +568,7 @@
 				92DC145927ABF32E004C531D /* UserService.swift */,
 				9208634927CF579A007D2FED /* CartService.swift */,
 				9208638627D5F4EB007D2FED /* OrderService.swift */,
+				92D4FE41280009E9003679AB /* RealmDBProvider.swift */,
 			);
 			path = APIs;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 			packageProductDependencies = (
 				9208632827C52D35007D2FED /* SDWebImage */,
 				923E34E227DA329F005FB945 /* SideMenu */,
+				92D4FE3F27FF1750003679AB /* RealmSwift */,
 			);
 			productName = NeoStore;
 			productReference = 92131AF027A817AF00E9A993 /* NeoStore.app */;
@@ -786,6 +792,7 @@
 			packageReferences = (
 				9208632727C52D35007D2FED /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				923E34E127DA329F005FB945 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				92D4FE3E27FF1750003679AB /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 92131AF127A817AF00E9A993 /* Products */;
 			projectDirPath = "";
@@ -893,6 +900,7 @@
 				9208637727D5D606007D2FED /* MyOrdersListTableViewController.swift in Sources */,
 				9208635327D09512007D2FED /* MyCartTableViewCell.swift in Sources */,
 				92DC147F27B39F66004C531D /* JSONParser.swift in Sources */,
+				92D4FE42280009E9003679AB /* RealmDBProvider.swift in Sources */,
 				92DC145C27AC159A004C531D /* LoginViewModel.swift in Sources */,
 				92DC148627B3D652004C531D /* UserDefaults.swift in Sources */,
 				9208634E27D07AA2007D2FED /* MyCartTableViewController.swift in Sources */,
@@ -1193,6 +1201,14 @@
 				minimumVersion = 6.5.0;
 			};
 		};
+		92D4FE3E27FF1750003679AB /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.25.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1210,6 +1226,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 923E34E127DA329F005FB945 /* XCRemoteSwiftPackageReference "SideMenu" */;
 			productName = SideMenu;
+		};
+		92D4FE3F27FF1750003679AB /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 92D4FE3E27FF1750003679AB /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -160,6 +160,7 @@ func jsonProductDecoder<T: Decodable>(jsonData: Data) -> APIResponse<T>{
     }
 }
 
+//enum also
 func productCategoryFromId(productCategoryId: Int) -> String{
     switch productCategoryId {
         case 1:
