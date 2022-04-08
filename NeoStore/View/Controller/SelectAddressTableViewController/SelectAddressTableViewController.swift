@@ -20,6 +20,9 @@ class SelectAddressTableViewController: UITableViewController, ClickedTableviewC
     }
     
     func didTapOrderBtn() {
+        guard self.viewModel.getNumberOfAddresses() != 0 else{
+            self.callAlert(alertTitle: "Alert!", alertMessage: "Please add an address to place order.")
+            return }
         let selectedAddress = self.viewModel.getAddressAtIndex(index: selectedAddressIndex.row)
         self.viewModel.placeOrderAtAddress(address: selectedAddress)
     }
