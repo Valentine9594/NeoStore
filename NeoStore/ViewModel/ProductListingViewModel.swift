@@ -42,8 +42,8 @@ class ProductListingViewModel: ProductListingViewModelType{
     func checkBeforeFetch(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int){
         DispatchQueue.main.async {
             let isNetworkConnected = self.monitor?.isReachable ?? false
-            debugPrint(isNetworkConnected)
             if isNetworkConnected{
+                self.monitor?.stopMonitoring()
                 debugPrint("Fetching from API!")
                 self.fetchProductData(productCategoryId: productCategoryId, productsLimit: productsLimit, productsPageNumber: productsPageNumber)
             }

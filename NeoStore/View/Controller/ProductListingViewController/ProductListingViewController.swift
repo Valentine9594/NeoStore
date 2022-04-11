@@ -113,7 +113,7 @@ extension ProductListingViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row >= bottomCells - 4, indexPath.row <= bottomCells{
+        if indexPath.row >= bottomCells - 2, indexPath.row <= bottomCells{
             self.pageNumber += 1
             self.viewModel.fetchProductData(productCategoryId: productCategory.id, productsLimit: productsLimit, productsPageNumber: pageNumber)
         }

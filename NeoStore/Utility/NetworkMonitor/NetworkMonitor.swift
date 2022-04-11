@@ -26,7 +26,6 @@ class NetworkMonitor {
             } else {
                 print("No Connection!!!")
             }
-            print(path.isExpensive)
         }
 
         let queue = DispatchQueue(label: "NetworkMonitor")
