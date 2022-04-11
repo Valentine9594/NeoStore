@@ -69,6 +69,7 @@
 		923E34F127DBB458005FB945 /* SideMenuTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */; };
 		92D4FE4027FF1750003679AB /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 92D4FE3F27FF1750003679AB /* RealmSwift */; };
 		92D4FE42280009E9003679AB /* RealmDBProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4FE41280009E9003679AB /* RealmDBProvider.swift */; };
+		92D4FE45280431A1003679AB /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D4FE44280431A1003679AB /* NetworkMonitor.swift */; };
 		92DC143927A9714C004C531D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143827A9714C004C531D /* Constants.swift */; };
 		92DC143F27AA68B5004C531D /* ProductService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC143E27AA68B5004C531D /* ProductService.swift */; };
 		92DC144127AA6C4E004C531D /* UserModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DC144027AA6C4E004C531D /* UserModels.swift */; };
@@ -184,6 +185,7 @@
 		923E34EE27DBB443005FB945 /* SideMenuTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewHeader.swift; sourceTree = "<group>"; };
 		923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SideMenuTableViewHeader.xib; sourceTree = "<group>"; };
 		92D4FE41280009E9003679AB /* RealmDBProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDBProvider.swift; sourceTree = "<group>"; };
+		92D4FE44280431A1003679AB /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		92DC143827A9714C004C531D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		92DC143E27AA68B5004C531D /* ProductService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductService.swift; sourceTree = "<group>"; };
 		92DC144027AA6C4E004C531D /* UserModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModels.swift; sourceTree = "<group>"; };
@@ -480,6 +482,7 @@
 		92131B1127A81C9800E9A993 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				92D4FE4328043183003679AB /* NetworkMonitor */,
 				92DC148427B3D63C004C531D /* UserDefaults */,
 				92DC147D27B39F4F004C531D /* JSONParser */,
 				92DC147C27B39F39004C531D /* ReactiveListener */,
@@ -559,6 +562,14 @@
 				923E34F027DBB458005FB945 /* SideMenuTableViewHeader.xib */,
 			);
 			path = SideMenuTableViewHeader;
+			sourceTree = "<group>";
+		};
+		92D4FE4328043183003679AB /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				92D4FE44280431A1003679AB /* NetworkMonitor.swift */,
+			);
+			path = NetworkMonitor;
 			sourceTree = "<group>";
 		};
 		92DC143A27AA6664004C531D /* APIs */ = {
@@ -880,6 +891,7 @@
 				92DC146A27B138BA004C531D /* RegisterViewModel.swift in Sources */,
 				92DC144B27AAB3EC004C531D /* UIColor+Extension.swift in Sources */,
 				9208637B27D5D71A007D2FED /* MyOrdersListTableViewCell.swift in Sources */,
+				92D4FE45280431A1003679AB /* NetworkMonitor.swift in Sources */,
 				92DC149127B52F50004C531D /* HomeViewController.swift in Sources */,
 				92DC14B527BA539C004C531D /* MyAccountViewController.swift in Sources */,
 				92DC143F27AA68B5004C531D /* ProductService.swift in Sources */,

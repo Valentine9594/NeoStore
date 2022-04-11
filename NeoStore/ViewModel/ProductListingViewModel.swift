@@ -22,14 +22,13 @@ class ProductListingViewModel: ProductListingViewModelType{
     var currentPage = 0
     var productList = [ProductData]()
     private var realmDatabase: RealmDBProvider?
-    var monitor: NWPathMonitor!
+    var monitor: NetworkMonitor?
     
     init() {
-        monitor = NWPathMonitor()
+        monitor = NetworkMonitor()
         self.realmDatabase = RealmDBProvider()
 //        self.realmDatabase?.deleteAll()
-        let queue = DispatchQueue(label: "NetworkStatusQueue")
-        monitor.start(queue: queue)
+        monitor?.startMonitoring()
     }
     
     func totalNumberOfRows() -> Int {
@@ -42,7 +41,9 @@ class ProductListingViewModel: ProductListingViewModelType{
     
     func checkBeforeFetch(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int){
         DispatchQueue.main.async {
-            if self.checkNetworkStatus(){
+            let isNetworkConnected = self.monitor?.isReachable ?? false
+            debugPrint(isNetworkConnected)
+            if isNetworkConnected{
                 debugPrint("Fetching from API!")
                 self.fetchProductData(productCategoryId: productCategoryId, productsLimit: productsLimit, productsPageNumber: productsPageNumber)
             }
@@ -64,8 +65,8 @@ class ProductListingViewModel: ProductListingViewModelType{
                 }
                 
             }
-
-    }
+        
+        }
     
     func fetchProductData(productCategoryId: Int, productsLimit: Int, productsPageNumber: Int) {
         guard currentPage + 1 == productsPageNumber else{ return }
@@ -97,20 +98,10 @@ class ProductListingViewModel: ProductListingViewModelType{
                 }
             }
         }
+
+    }
+            
     }
     
-    func checkNetworkStatus() -> Bool{
-        var isNetwork = false
-        monitor.pathUpdateHandler = { pathUpdateHandler in
-            if pathUpdateHandler.status == .satisfied{
-                isNetwork = true
-            }
-            else{
-                isNetwork = false
-            }
-            debugPrint("Network Status: \(pathUpdateHandler.status)")
-        }
-        return isNetwork
-    }
+
     
-}
